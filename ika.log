@@ -1,0 +1,13 @@
+ika 0.55 startup
+Built on Dec 20 2003
+--------------------------
+Initializing SDL
+Initializing Video
+Starting OpenGL video driver
+Initializing Input
+Initializing sound
+Initing Python
+'import site' failed; use -v for traceback
+Executing system.py
+---- shutdown ----
+
