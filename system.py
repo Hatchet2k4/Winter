@@ -15,7 +15,13 @@ try:
 except IOError:
     c = controls.defaultControls
     controls.writeConfig('controls.cfg', c)
-controls.setConfig(c)
+
+try: 
+    controls.setConfig(c)
+except: 
+    c = controls.defaultControls
+    controls.writeConfig('controls_bak.cfg', c)
+    controls.setConfig(c) #any fails, default to original controls
 
 
 introMusic = ika.Sound('music/Existing.s3m')
