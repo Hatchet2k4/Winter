@@ -24,6 +24,12 @@ def to3():
 def to5():
     system.engine.mapSwitch('map05.ika-map', (10 * 16, 19 * 16))
 
+def breakIce():
+    for x in range(13, 18):
+        for y in range(34,37):
+            ika.Map.SetTile(x, y, 2, 0)
+    ika.Map.entities['icechunks1'].layer = 2
+
 class DeathListener(Thing):
     'Waits until the yeti is dead, then drops the fire rune.'
     def __init__(self, yeti=None):
