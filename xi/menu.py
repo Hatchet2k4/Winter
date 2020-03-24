@@ -28,8 +28,9 @@ class Menu(gui.Widget):
         self.cursor = kwargs.get('cursor') or gui.default_cursor
         self.cursorY = 0
         self.cursorPos = 0
-        self.cursorSpeed = 2 # speed at which the cursor moves (in pixels per update)
+        self.cursorSpeed = 0.25 # speed at which the cursor moves (in pixels per update)
         self.addChild(self.textCtrl)
+        self.unpress = False
 
     def setCursorPos(self, value):
         value = max(0, value)
@@ -73,7 +74,7 @@ class Menu(gui.Widget):
         '''
         ika.Input.Update()
         cy = self.cursorY
-        unpress = False # lame unpress faking
+        #unpress = False # lame unpress faking
         # TODO: handle it the manly way, by making the cursor repeat after a moment
 
         # update the cursor
@@ -97,21 +98,21 @@ class Menu(gui.Widget):
             # that way movement doesn't get bogged
             # down by a cursor that moves too slowly
             if controls.up() and self.cursorPos > 0:
-                if not unpress:
+                if not self.unpress:
                     self.cursorPos -= 1
                     sound.cursormove.Play()
-                    unpress = True
+                    self.unpress = True
             elif controls.down() and self.cursorPos < len(self.Text) - 1:
-                if not unpress:
+                if not self.unpress:
                     self.cursorPos += 1
                     sound.cursormove.Play()
-                    unpress = True
+                    self.unpress = True
             elif controls.enter():
                 return self.cursorPos
             elif controls.cancel():
                 return Cancel
             else:
-                unpress = False
+                self.unpress = False
                 return None
 
     def draw(self, xoffset = 0, yoffset = 0):

@@ -9,7 +9,9 @@ class StatSet(object):
         # spells go here because its as good a place as any.
         # horrible hack, yes.  But whatever.
         'rend', 'heal', 'gale', 'shiver',
-        'smoke', 'vivify', 'ternion')
+        'smoke', 'vivify', 'ternion',
+        'damageind' #toggle for damage numbers. Hack!
+        )
 
     def __init__(self, **kw):
         for name in self.STAT_NAMES:

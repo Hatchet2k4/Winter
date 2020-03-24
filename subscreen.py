@@ -112,6 +112,7 @@ class MenuWindow(Menu):
             'Resume',
             #'Controls',
             #'Load Game',
+            'Options',
             'Exit')
         self.autoSize()
         self.Border = self.textCtrl.wnd.iLeft.width
@@ -202,10 +203,16 @@ class PauseScreen(object):
                     'dummy', # should never happen
                     #lambda: None, # Control setup
                     #lambda: None, # Load game
+                    self.toggleDamage, # Options Menu
                     self.exitGame, # Exit game
                 ][result]()
 
         self.hide()
+
+    def toggleDamage(self):
+        pass
+        
+    
 
     def exitGame(self):
         # TODO: shiny fade out

@@ -677,10 +677,10 @@ class Player(Entity):
             yield None
 
         amount = self.stats.mag * 2 + 25
-        amount += int(amount * ika.Random(-10, 10) * 0.01)
+        amount += int(amount * ika.Random(-2, 2))
         
         
-        self.stats.hp += min(20, amount)
+        self.stats.hp +=  amount  # min(20, amount) #not sure why min was used here originally? setting to actual amount calculated
         
         x=self.ent.x # + self.ent.hotwidth/2
         y=self.ent.y #+ self.ent.hotheight/2
