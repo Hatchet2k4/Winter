@@ -28,7 +28,7 @@ class Menu(gui.Widget):
         self.cursor = kwargs.get('cursor') or gui.default_cursor
         self.cursorY = 0
         self.cursorPos = 0
-        self.cursorSpeed = 0.25 # speed at which the cursor moves (in pixels per update)
+        self.cursorSpeed = 0.125 # speed at which the cursor moves (in pixels per update)
         self.addChild(self.textCtrl)
         self.unpress = False
 
