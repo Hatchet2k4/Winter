@@ -6,6 +6,7 @@ import Brain
 import sound
 from entity import Entity
 from statset import StatSet
+import caption
 
 class GenWrapper(object):
     def __init__(self, gen, *args, **kw):
@@ -127,3 +128,6 @@ class Enemy(Entity):
     def hurt(self, *args, **kwargs):
         sound.monsterHit.Play()
         super(Enemy,self).hurt(*args, **kwargs)
+        
+        
+        

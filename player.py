@@ -9,7 +9,7 @@ import savedata
 
 from gameover import GameOverException
 from statset import StatSet
-from caption import Caption
+from caption import Caption, DamageCaption
 
 from entity import Entity
 from enemy import Enemy
@@ -678,8 +678,13 @@ class Player(Entity):
 
         amount = self.stats.mag * 2 + 25
         amount += int(amount * ika.Random(-10, 10) * 0.01)
+        
+        
         self.stats.hp += min(20, amount)
-
+        
+        x=self.ent.x # + self.ent.hotwidth/2
+        y=self.ent.y #+ self.ent.hotheight/2
+        system.engine.addThing(DamageCaption(str(amount), x, y, 40, 0, 240, 60))
         ents = self.detectCollision((-16, -16, 32, 32, self.layer))
 
         for e in ents:

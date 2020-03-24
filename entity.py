@@ -4,6 +4,7 @@ from animator import Animator
 import dir
 import system
 from statset import StatSet
+from caption import DamageCaption, Caption
 
 def _temp():
     yield None
@@ -63,7 +64,15 @@ class Entity(object):
         else:
             self.stats.hp -= amount
             self.state = self.hurtState(recoilSpeed, recoilDir)
-
+            
+        #if damage option on
+        x=self.ent.x # + self.ent.hotwidth/2
+        y=self.ent.y #+ self.ent.hotheight/2
+        system.engine.addThing(DamageCaption(str(amount), x, y, 40, 250, 0, 0))
+        #system.engine.addThing(Caption('~1test'))
+        
+        
+        
     def _setState(self, newState):
         '''Tries to be psychic.  Generators are recognized, other crap is assumed
         to be a function that returns a generator.'''
