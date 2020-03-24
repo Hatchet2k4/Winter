@@ -16,10 +16,10 @@ class SoulReaver(Yeti):
     def __init__(self, *args):
         super(SoulReaver, self).__init__(*args)
         self.speed = 120
-        self.stats.maxhp = 1500
-        self.stats.hp = 1500
-        self.stats.att = 60
-        self.stats.exp = 750
+        self.stats.maxhp = 600
+        self.stats.hp = 600
+        self.stats.att = 40
+        self.stats.exp = 500
         self.stats.ind = 1
         
     def attackState(self, direc):

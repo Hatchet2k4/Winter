@@ -208,39 +208,41 @@ initialStats = StatSet(
     hp=120,
     maxmp=80,
     mp=80,
-    att=10,
-    mag=1,
+    att=5,
+    mag=5,
     pres=1,
     mres=1,
     level=1,
     exp=0,
-    next=10)
+    next=10,
+    damageind=1)
 
 class Player(Entity):
     def __init__(self, x=0, y=0, layer=0):
         Entity.__init__(self, ika.Entity(x, y, layer, PLAYER_SPRITE), _playerAnim)
         self.state = self.standState()
         self.stats = initialStats.clone()
+        self.mptimer = 0
 
     def giveXP(self, amount):
-        self.stats.exp += amount * 4
+        self.stats.exp += amount * 3 #hack to give more exp because I'm lazy and hate grinding
         if self.stats.exp >= self.stats.next:
-            self.levelUp()
+            self.levelUp()    
 
     def levelUp(self):
 
         sound.achievement.Play()
 
         while self.stats.exp >= self.stats.next:
-            self.stats.maxhp += ika.Random(2, 7)
-            self.stats.maxmp += ika.Random(2, 6)
+            self.stats.maxhp += ika.Random(2, 7) + self.stats.level / 5
+            self.stats.maxmp += ika.Random(2, 6) + self.stats.level / 5
 
             statlist = []
             for n in range(3):
                 if not statlist:
                     statlist = ['att', 'mag', 'pres', 'mres']
                 s = statlist[ika.Random(0,len(statlist))]
-                self.stats[s]+= 1
+                self.stats[s]+= ika.Random(1, 3) 
                 statlist.remove(s)
 
             self.stats.level += 1
@@ -266,13 +268,25 @@ class Player(Entity):
         self.stats.vivify = self.stats.rend and self.stats.heal and (bind > 0)
         self.stats.ternion = self.stats.heal and self.stats.gale and self.stats.rend and (bind == 2)
 
+    def regenMP(self):
+        if self.stats.mp < self.stats.maxmp:
+            self.mptimer+=1
+            if self.mptimer >= 200:
+                self.mptimer = 0
+                self.stats.mp+=1
+                
+
     def defaultState(self):
         return self.standState()
 
     def standState(self):
         self.stop()
         self.anim = 'stand'
+        
+        
         while True:
+            self.regenMP()
+        
             if controls.attack():
                 self.state = self.slashState()
             elif controls.rend():
@@ -297,7 +311,7 @@ class Player(Entity):
         self.anim = 'walk'
 
         while True:
-
+            self.regenMP()
             if controls.attack():
                 self.state = self.slashState()
                 yield None
@@ -366,7 +380,7 @@ class Player(Entity):
                 x = system.engine.entFromEnt[e]
                 if isinstance(x, Enemy) and not x.invincible and x not in hitList:
                     hitList.append(x)
-                    x.hurt(self.stats.att, 120, self.direction)
+                    x.hurt(self.stats.att + ika.Random(0, 3), 120, self.direction)
                     self.giveMPforHit()
 
             if controls.up() and self.direction == dir.DOWN:  backthrust = True
@@ -463,7 +477,7 @@ class Player(Entity):
                 for e in ents:
                     x = system.engine.entFromEnt[e]
                     if isinstance(x, Enemy) and not x.invincible:
-                        x.hurt(int(self.stats.att * 1.5), 300, self.direction)
+                        x.hurt(int(self.stats.att * 1.5) + + ika.Random(0, 4), 300, self.direction)
                         self.giveMPforHit()
                         self.stop()
                         return
@@ -564,7 +578,7 @@ class Player(Entity):
             for e in ents:
                 if isinstance(e, Enemy) and not e.invincible and e not in hitList:
                     hitList.append(e)
-                    e.hurt(int(self.stats.att + self.stats.mag) * 2, 300, self.direction)
+                    e.hurt(int(self.stats.att + self.stats.mag) * 2 + ika.Random(-3, 3), 300, self.direction)
                 elif isinstance(e, IceWall):
                     # TODO: some sort of nice animation.
                     setattr(savedata, e.flagName, 'Broken')
@@ -635,7 +649,7 @@ class Player(Entity):
             ents = self.detectCollision(r)
             for e in ents:
                 if isinstance(e, Enemy) and not e.invincible:
-                    e.hurt(self.stats.att + self.stats.mag * 2, 300, (self.direction + 2) & 3)
+                    e.hurt(self.stats.att + self.stats.mag * 2 + ika.Random(-4, 4), 300, (self.direction + 2) & 3)
 
             yield None
             self.speed = max(saver.speed, self.speed - 20)
@@ -676,15 +690,14 @@ class Player(Entity):
         for i in range(20):
             yield None
 
-        amount = self.stats.mag * 2 + 25
-        amount += int(amount * ika.Random(-2, 2))
-        
-        
+        amount = self.stats.mag * 2 + 20
+        amount += int(amount/10.0 * ika.Random(-2, 4))               
         self.stats.hp +=  amount  # min(20, amount) #not sure why min was used here originally? setting to actual amount calculated
         
-        x=self.ent.x # + self.ent.hotwidth/2
-        y=self.ent.y #+ self.ent.hotheight/2
-        system.engine.addThing(DamageCaption(str(amount), x, y, 40, 0, 240, 60))
+        if self.stats.damageind:
+            x=self.ent.x 
+            y=self.ent.y 
+            system.engine.addThing(DamageCaption(str(amount), x, y, 40, 0, 240, 60))
         ents = self.detectCollision((-16, -16, 32, 32, self.layer))
 
         for e in ents:
@@ -751,4 +764,4 @@ class Player(Entity):
             yield None
 
     def giveMPforHit(self):
-        self.stats.mp += ika.Random(0,2 + self.stats.level/10)
+        self.stats.mp += ika.Random(0,2 + self.stats.level/5)

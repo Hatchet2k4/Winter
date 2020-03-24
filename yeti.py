@@ -90,7 +90,7 @@ _attackRange = (
 class Yeti(Enemy):
     def __init__(self, ent):
         Enemy.__init__(self, ent, _anim, Brain.Brain())
-        self.speed = 80
+        self.speed = 75
 
         self.addMoods(
             (Brain.Attack(1), self.attackMood),
@@ -99,7 +99,7 @@ class Yeti(Enemy):
 
         self.stats.maxhp = 100
         self.stats.hp = self.stats.maxhp
-        self.stats.att = 20
+        self.stats.att = 12
         self.stats.exp = 100
         self.stats.ind = 0
 

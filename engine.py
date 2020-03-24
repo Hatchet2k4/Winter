@@ -94,7 +94,6 @@ class Engine(object):
         self.mapName = ''
 
     def init(self, saveData = None):
-        'barf'
 
         # clean everything
         self.killList = self.entities[:]

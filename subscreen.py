@@ -112,7 +112,7 @@ class MenuWindow(Menu):
             'Resume',
             #'Controls',
             #'Load Game',
-            'Options',
+            'Display Damage: ' + ('OFF', 'ON ')[system.engine.player.stats.damageind],
             'Exit')
         self.autoSize()
         self.Border = self.textCtrl.wnd.iLeft.width
@@ -203,17 +203,16 @@ class PauseScreen(object):
                     'dummy', # should never happen
                     #lambda: None, # Control setup
                     #lambda: None, # Load game
-                    self.toggleDamage, # Options Menu
+                    self.toggleDamage, # Damange indicator Menu
                     self.exitGame, # Exit game
                 ][result]()
 
         self.hide()
 
     def toggleDamage(self):
-        pass
-        
-    
-
+        system.engine.player.stats.damageind = (1, 0)[system.engine.player.stats.damageind]
+        self.menu.textCtrl.text.setText(['Resume','Display Damage: ' + ('OFF', 'ON ')[system.engine.player.stats.damageind],'Exit'])
+           
     def exitGame(self):
         # TODO: shiny fade out
         raise EndGameException

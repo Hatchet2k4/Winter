@@ -49,7 +49,7 @@ class Serpent(Enemy):
 
         self.stats.maxhp = 300
         self.stats.hp = self.stats.maxhp
-        self.stats.att = 35
+        self.stats.att = 30
         self.invincible = True
 
         ent.mapobs = ent.entobs = False

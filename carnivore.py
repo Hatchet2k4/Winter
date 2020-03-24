@@ -6,8 +6,8 @@ class Carnivore(AnkleBiter):
     def __init__(self, *args):
         super(Carnivore, self).__init__(*args)
         self.speed = 100
-        self.stats.maxhp = 50
-        self.stats.hp = 50
+        self.stats.maxhp = 40
+        self.stats.hp = 40
         self.stats.att = 16
         self.stats.exp = 10
 

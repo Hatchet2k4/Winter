@@ -99,8 +99,8 @@ class AnkleBiter(Enemy):
         )
 
         self.mood = self.passiveMood
-        self.stats.maxhp = self.stats.hp = 20
-        self.stats.att = 7
+        self.stats.maxhp = self.stats.hp = 12
+        self.stats.att = 6
         self.stats.exp = 1
 
     def hurtState(self, recoilSpeed, recoilDir):

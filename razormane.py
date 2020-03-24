@@ -99,7 +99,7 @@ class RazorMane(Enemy):
         self.mood = self.passiveMood
         self.speed = 150
         self.stats.maxhp = self.stats.hp = 60
-        self.stats.att = 20
+        self.stats.att = 15
         self.stats.exp = 13
 
     def hurtState(self, recoilSpeed, recoilDir):
