@@ -12,16 +12,16 @@ subscreen.init()
 
 try:
     c = controls.readConfig('controls.cfg')
-except IOError:
+except IOError: #file not found, write defaults to a config file and reload it
     c = controls.defaultControls
     controls.writeConfig('controls.cfg', c)
 
 try: 
     controls.setConfig(c)
 except: 
-    c = controls.defaultControls
-    controls.writeConfig('controls_bak.cfg', c)
-    controls.setConfig(c) #any fails, default to original controls
+    #c = controls.defaultControls
+    #controls.writeConfig('controls_bak.cfg', c)
+    controls.setConfig(controls.defaultControls) #any fails (missing gamepad usually), default to original controls
 
 
 introMusic = ika.Sound('music/Existing.s3m')

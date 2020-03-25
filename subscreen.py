@@ -11,6 +11,7 @@ import effects
 
 import system
 import savedata
+from controls import displayControls
 
 from gameover import EndGameException
 
@@ -94,14 +95,14 @@ class MagicWindow(SubScreenWindow):
     def createContents(self):
         txt = ['Magic:']
         p = system.engine.player.stats
-        if p.rend:
-            txt.append('Z...Hearth Rend')
-        if p.gale:
-            txt.append('X...Crushing Gale')
         if p.heal:
-            txt.append('C...Healing Rain')
+            txt.append(displayControls['heal']+'C...Healing Rain')
+        if p.rend:
+            txt.append(displayControls['rend']+'...Hearth Rend')
+        if p.gale:
+            txt.append(displayControls['gale']+'X...Crushing Gale')        
         if p.shiver:
-            txt.append('B...Shiver')
+            txt.append(displayControls['shiver']+'B...Shiver')
 
         return (gui.StaticText(text=txt),)
 

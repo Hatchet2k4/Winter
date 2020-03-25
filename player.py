@@ -571,7 +571,8 @@ class Player(Entity):
         hitList = []
 
         sound.hearthRend.Play()
-
+        
+        self.invincible = True #invincible while swinging, why not!
         while not self._animator.kill:
             ents = self.detectCollision(r[self._animator.index] + (self.layer,))
             fire.specframe = f + self._animator.index
@@ -588,6 +589,7 @@ class Player(Entity):
                     system.engine.things.append(Caption('~1The ice melted!'))
 
             yield None
+        self.invincible = False #no longer invincible during stall period
 
         del fire
 
@@ -693,7 +695,8 @@ class Player(Entity):
         system.engine.addThing(Nova(x, y, 1.0, duration, speed=0.5, color = ika.RGB(0, 120, 240, 255), filled=True ))
         system.engine.addThing(Nova(x, y, 2.0, duration, speed=0.4, color = ika.RGB(100, 200, 255, 255), filled=False ))
         system.engine.addThing(Nova(x, y, 2.0, duration, speed=0.25, color = ika.RGB(200, 200, 255, 255), filled=True ))
-        #system.engine.addThing(DamageCaption(str(ika.Random(1, 10)), x, y, 40, 0, 240, 60))
+        system.engine.addThing(Nova(x, y, 4.0, duration-5, speed=0.6, color = ika.RGB(0, 0, 200, 255), filled=False ))
+
         self.invincible = True
 
         #for i in range(20):

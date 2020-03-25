@@ -10,6 +10,7 @@ import xi.controls
 
 # Name : Control pairs
 _allControls = dict()
+_friendlyNames = dict()
 
 defaultControls = {
     'up': 'UP',
@@ -26,6 +27,25 @@ defaultControls = {
     'vivify': 'N',
     'ternion': 'M'
 }
+displayControls = {}
+"""
+displayControls = {
+    'up': 'UP',
+    'down': 'DOWN',
+    'left': 'LEFT',
+    'right': 'RIGHT',
+    'attack': 'SPACE',
+    'cancel': 'ESCAPE',
+    'rend': 'Z',
+    'gale': 'X',
+    'heal': 'C',
+    'smoke': 'V',
+    'shiver': 'B',
+    'vivify': 'N',
+    'ternion': 'M'
+}
+"""
+#joystick friendly names
 
 
 def init():
@@ -38,18 +58,22 @@ def init():
     for k in keyNames:
         _allControls[k] = ika.Input.keyboard[k]
 
+    _friendlyNames = _allControls.copy() #for keyboard, the friendly names are already what we need!
+
     # joystick:
     for joyIndex, joy in enumerate(ika.Input.joysticks):
         # axes:
         for axisIndex, axis in enumerate(joy.axes):
             _allControls['joy%iaxis%i+' % (joyIndex, axisIndex)] = axis
-
+            _friendlyNames['joy%ibutton%i' % (joyIndex, buttonIndex)] = str('JoyAxis:'+axisIndex)
         for axisIndex, axis in enumerate(joy.reverseAxes):
             _allControls['joy%iaxis%i-' % (joyIndex, axisIndex)] = axis
+            _friendlyNames['joy%ibutton%i' % (joyIndex, buttonIndex)] = str('JoyAxis:'+axisIndex)
 
         # buttons:
         for buttonIndex, button in enumerate(joy.buttons):
             _allControls['joy%ibutton%i' % (joyIndex, buttonIndex)] = button
+            _friendlyNames['joy%ibutton%i' % (joyIndex, buttonIndex)] = str('Joy:'+buttonIndex)
 
 
     setConfig(defaultControls)
@@ -77,6 +101,7 @@ def setConfig(config=None):
         def __init__(self, name):
             self.name = name
             self.c = _allControls[config[name]]
+            #self.displayControls[name]
         def __call__(self):   return self.c.Position() > 0
         def __repr__(self):   return '<Winter control %s>' % self.name
 
@@ -84,8 +109,8 @@ def setConfig(config=None):
         def __call__(self):
             return self.c.Pressed()
 
-    if config is None:
-        config = defaultConfig
+    #if config is None:
+    #    config = defaultControls
     # Directional controls:
     for name in ('up', 'down', 'left', 'right'):
         globals()[name] = PosControl(name)
@@ -95,7 +120,7 @@ def setConfig(config=None):
                  'gale', 'heal', 'smoke',
                  'shiver', 'vivify', 'ternion'):
         globals()[name] = PressControl(name)
-
+        displayControls[name] = globals()[name].name
 
     # Copy controls over to xi.
     for c in ('up', 'down', 'left', 'right'):

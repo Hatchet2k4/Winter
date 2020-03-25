@@ -35,7 +35,7 @@ class Nova(Thing):
 
     def draw(self):           
         color = ika.RGB(self.r, self.g, self.b, self.opacity)
-        ika.Video.DrawEllipse(self.x  - ika.Map.xwin, self.y - ika.Map.ywin, int(self.rad+a), int(self.rad+a), color, self.filled)
+        ika.Video.DrawEllipse(self.x  - ika.Map.xwin, self.y - ika.Map.ywin, int(self.rad), int(self.rad), color, self.filled)
 
 
 def blurScreen(factor):
