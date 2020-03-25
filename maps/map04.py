@@ -14,6 +14,11 @@ def AutoExec():
         system.engine.things.append(RuneListener())
     if 'nearend' in savedata.__dict__:
         system.engine.things.append(RuneListener())
+    if 'icechunks1' in savedata.__dict__:
+        breakIceRun()
+    sound.playMusic("music/wind.ogg")
+        
+        
 
 def to3():
     offset_from = 11 * 16  # first horizontal pos possible
@@ -25,19 +30,44 @@ def to5():
     system.engine.mapSwitch('map05.ika-map', (10 * 16, 19 * 16))
 
 def breakIce():
+    if not 'brokeice' in savedata.__dict__:        
+        breakIceRun()
+        sound.healingRain.Play()
+        setattr(savedata, 'brokeice', 'True')
+        
+
+def breakIceRun():
     for x in range(13, 18):
-        for y in range(34,37):
+        for y in range(33,37):
             ika.Map.SetTile(x, y, 2, 0)
+            if x in (13, 17) and y > 33: ika.Map.SetObs(x, y, 2, 1)
+                
     ika.Map.entities['icechunks1'].layer = 2
 
+
+
+
 class DeathListener(Thing):
-    'Waits until the yeti is dead, then drops the fire rune.'
+
     def __init__(self, yeti=None):
         self.yeti = yeti
 
     def update(self):
         if self.yeti.stats.hp == 0:
-            sound.playMusic("music/winter.ogg")
+            sound.playMusic("music/wind.ogg")
+            return True
+
+    def draw(self):
+        pass
+        
+class DeathListener2(Thing):
+
+    def __init__(self, yeti=None):
+        self.yeti = yeti
+
+    def update(self):
+        if self.yeti.stats.hp == 0:
+            sound.playMusic("music/wind.ogg")
             savedata.waterguard = 'True'
             return True
 
@@ -50,12 +80,13 @@ class RuneListener(object):
             sound.playMusic("music/resurrection.it")
             y = SoulReaver(ika.Entity(15* 16, 17 * 16, system.engine.player.layer, 'soulreaver.ika-sprite'))
             system.engine.addEntity(y)
-            system.engine.mapThings.append(DeathListener(y))
+            system.engine.mapThings.append(DeathListener2(y))
             return True
         elif 'waterrune' in savedata.__dict__ and 'nearend' not in savedata.__dict__:
-            system.engine.addEntity(
-                Yeti(ika.Entity(15* 16, 32 * 16, system.engine.player.layer, 'yeti.ika-sprite'))
-                )
+            y=Yeti(ika.Entity(15* 16, 30 * 16, system.engine.player.layer, 'yeti.ika-sprite'))
+            system.engine.addEntity(y)                
+            system.engine.mapThings.append(DeathListener(y))
+            sound.playMusic("music/competative.xm")    
             return True
 
     def draw(self):
