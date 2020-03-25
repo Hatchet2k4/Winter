@@ -41,7 +41,7 @@ class Caption(Thing):
 
     def draw(self):
         o = min(255, self.opacity)
-        ika.Video.TintBlit(self.img, self.x, self.y, ika.RGB(255, 255, 255, o))
+        ika.Video.TintBlit(self.img, self.x-ika.Map.xwin, self.y-ika.Map.ywin, ika.RGB(255, 255, 255, o))
 
 class DamageCaption(Caption):
     def __init__(self, text, x = None, y = None, duration=200, r=255,g=255,b=255):

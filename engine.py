@@ -7,6 +7,7 @@ import effects
 import dir
 
 from player import Player
+
 from anklebiter import AnkleBiter
 from carnivore import Carnivore
 from devourer import Devourer
@@ -16,6 +17,7 @@ from hellhound import HellHound
 from yeti import Yeti
 from gorilla import Gorilla
 from soulreaver import SoulReaver
+
 from dynamite import Dynamite
 from savepoint import SavePoint
 from obstacle import IceWall, Gap, IceChunks, Boulder

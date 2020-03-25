@@ -1,6 +1,42 @@
 import ika
-
+from thing import Thing
+import system
 # Some neat-O special effects
+
+
+class Nova(Thing):
+    def __init__(self, x, y, radius=1.0, duration=200, speed=2, color=ika.RGB(128,128,128), filled=False):
+        self.x=x
+        self.y=y
+        self.rad=radius
+        self.duration=0
+        self.maxduration=duration
+        self.opacity=255
+        self.speed=speed
+        self.filled=filled
+        
+        self.r, self.g, self.b, self.a = ika.GetRGB(color)
+        self.font = system.engine.font                
+        self.update = self._update().next 
+        
+    def _update(self): 
+        while self.duration <= self.maxduration:
+            self.duration += 1
+            percent = (self.duration * 255 / self.maxduration) #proportion of how much the nova has passed. 
+            self.opacity = int(255 - percent) #TODO: a delay before starting to fade perhaps
+            
+            if self.opacity <= 0: yield True
+
+            self.rad+=self.speed
+
+            yield None
+
+        yield True # seppuku
+
+    def draw(self):           
+        color = ika.RGB(self.r, self.g, self.b, self.opacity)
+        ika.Video.DrawEllipse(self.x  - ika.Map.xwin, self.y - ika.Map.ywin, int(self.rad+a), int(self.rad+a), color, self.filled)
+
 
 def blurScreen(factor):
     '''Grabs the screen, blurs it up a bit, then returns the image.

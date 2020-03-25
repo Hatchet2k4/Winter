@@ -14,6 +14,7 @@ from caption import Caption, DamageCaption
 from entity import Entity
 from enemy import Enemy
 from obstacle import IceWall, IceChunks, Gap
+from effects import Nova
 
 
 PLAYER_SPRITE = 'protagonist.ika-sprite'
@@ -685,19 +686,29 @@ class Player(Entity):
 
         sound.healingRain.Play()
 
+        duration=45
+
+        x = self.ent.x + (self.ent.hotwidth / 2)
+        y = self.ent.y
+        system.engine.addThing(Nova(x, y, 1.0, duration, speed=0.5, color = ika.RGB(0, 120, 240, 255), filled=True ))
+        system.engine.addThing(Nova(x, y, 2.0, duration, speed=0.4, color = ika.RGB(100, 200, 255, 255), filled=False ))
+        system.engine.addThing(Nova(x, y, 2.0, duration, speed=0.25, color = ika.RGB(200, 200, 255, 255), filled=True ))
+        #system.engine.addThing(DamageCaption(str(ika.Random(1, 10)), x, y, 40, 0, 240, 60))
         self.invincible = True
 
-        for i in range(20):
-            yield None
+        #for i in range(20):
+        #    yield None
 
         amount = self.stats.mag * 2 + 20
         amount += int(amount/10.0 * ika.Random(-2, 4))               
         self.stats.hp +=  amount  # min(20, amount) #not sure why min was used here originally? setting to actual amount calculated
-        
+               
         if self.stats.damageind:
             x=self.ent.x 
             y=self.ent.y 
             system.engine.addThing(DamageCaption(str(amount), x, y, 40, 0, 240, 60))
+            
+            
         ents = self.detectCollision((-16, -16, 32, 32, self.layer))
 
         for e in ents:
@@ -707,7 +718,7 @@ class Player(Entity):
                 system.engine.destroyEntity(e)
                 break
 
-        for i in range(45):
+        for i in range(duration):
             yield None
 
         self.invincible = False
