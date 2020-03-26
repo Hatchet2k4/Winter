@@ -10,7 +10,7 @@ import xi.controls
 
 # Name : Control pairs
 _allControls = dict()
-_friendlyNames = dict()
+
 
 defaultControls = {
     'up': 'UP',
@@ -28,25 +28,9 @@ defaultControls = {
     'ternion': 'M'
 }
 displayControls = {}
-"""
-displayControls = {
-    'up': 'UP',
-    'down': 'DOWN',
-    'left': 'LEFT',
-    'right': 'RIGHT',
-    'attack': 'SPACE',
-    'cancel': 'ESCAPE',
-    'rend': 'Z',
-    'gale': 'X',
-    'heal': 'C',
-    'smoke': 'V',
-    'shiver': 'B',
-    'vivify': 'N',
-    'ternion': 'M'
-}
-"""
-#joystick friendly names
 
+#joystick friendly names
+_friendlyNames = dict()
 
 def init():
     # fill up _allControls
@@ -58,22 +42,22 @@ def init():
     for k in keyNames:
         _allControls[k] = ika.Input.keyboard[k]
 
-    _friendlyNames = _allControls.copy() #for keyboard, the friendly names are already what we need!
+    
 
     # joystick:
     for joyIndex, joy in enumerate(ika.Input.joysticks):
         # axes:
         for axisIndex, axis in enumerate(joy.axes):
             _allControls['joy%iaxis%i+' % (joyIndex, axisIndex)] = axis
-            _friendlyNames['joy%ibutton%i' % (joyIndex, buttonIndex)] = str('JoyAxis:'+axisIndex)
+            _friendlyNames['joy%ibutton%i' % (joyIndex, axisIndex)] = 'JoyAxis:'+str(axisIndex)
         for axisIndex, axis in enumerate(joy.reverseAxes):
             _allControls['joy%iaxis%i-' % (joyIndex, axisIndex)] = axis
-            _friendlyNames['joy%ibutton%i' % (joyIndex, buttonIndex)] = str('JoyAxis:'+axisIndex)
+            _friendlyNames['joy%ibutton%i' % (joyIndex, axisIndex)] = 'JoyAxis:'+str(axisIndex)
 
         # buttons:
         for buttonIndex, button in enumerate(joy.buttons):
             _allControls['joy%ibutton%i' % (joyIndex, buttonIndex)] = button
-            _friendlyNames['joy%ibutton%i' % (joyIndex, buttonIndex)] = str('Joy:'+buttonIndex)
+            _friendlyNames['joy%ibutton%i' % (joyIndex, buttonIndex)] = 'Joy:'+str(buttonIndex)
 
 
     setConfig(defaultControls)
@@ -101,7 +85,14 @@ def setConfig(config=None):
         def __init__(self, name):
             self.name = name
             self.c = _allControls[config[name]]
-            #self.displayControls[name]
+            
+            if config[name][0:3] == 'joy': #dealing with a gamepad
+       
+                 
+                displayControls[name] =  config[name][-1] #hack, just grab last character
+                
+            else:
+                displayControls[name] = config[name]
         def __call__(self):   return self.c.Position() > 0
         def __repr__(self):   return '<Winter control %s>' % self.name
 
@@ -120,13 +111,17 @@ def setConfig(config=None):
                  'gale', 'heal', 'smoke',
                  'shiver', 'vivify', 'ternion'):
         globals()[name] = PressControl(name)
-        displayControls[name] = globals()[name].name
+    
 
     # Copy controls over to xi.
     for c in ('up', 'down', 'left', 'right'):
         setattr(xi.controls, c, getattr(controls, c))
     xi.controls.enter = controls.attack
     xi.controls.cancel = controls.cancel
+    
+    #displayControls=config
+    #ika.Log(str(config))
+    
 
 # global control objects.  These are all set by setConfig
 up = down = left = right = None

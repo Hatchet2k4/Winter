@@ -96,13 +96,13 @@ class MagicWindow(SubScreenWindow):
         txt = ['Magic:']
         p = system.engine.player.stats
         if p.heal:
-            txt.append(displayControls['heal']+'C...Healing Rain')
+            txt.append(displayControls['heal']+'...Healing Rain')
         if p.rend:
             txt.append(displayControls['rend']+'...Hearth Rend')
         if p.gale:
-            txt.append(displayControls['gale']+'X...Crushing Gale')        
+            txt.append(displayControls['gale']+'...Crushing Gale')        
         if p.shiver:
-            txt.append(displayControls['shiver']+'B...Shiver')
+            txt.append(displayControls['shiver']+'...Shiver')
 
         return (gui.StaticText(text=txt),)
 
