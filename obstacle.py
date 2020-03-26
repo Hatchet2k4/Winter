@@ -56,7 +56,7 @@ class IceChunks(_Obstacle):
         (145, 149, 144),
         (142, 113, 143),
         (139, 148, 138)
-    )
+    ) #tiles to fill in the map to make the ice platform
 
     def __init__(self, ent):
         _Obstacle.__init__(self, ent, self._anim)

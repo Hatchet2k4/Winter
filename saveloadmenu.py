@@ -7,9 +7,11 @@ from xi.menu import Menu, Cancel
 from xi.cursor import ImageCursor
 import xi.effects
 
+
 from xi import gui, layout
 
 import controls
+from snow import Snow
 
 class SaveGameFrame(gui.Frame):
     def __init__(self, *args, **kw):
@@ -69,12 +71,13 @@ class SaveLoadMenu(object):
         else:
             self.wndHeight = 0 # What should we do here?
 
-        self.layout.X = 16 # doesn't change
+        self.layout.X = 100 # doesn't change
 
     def draw(self):
         self.layout.Y = (ika.Video.yres - self.wndHeight) / 2 - self.oldY + 16
         self.layout.draw()
-        self.cursor.draw(16, ika.Video.yres / 2) # cursor doesn't move, everything else does
+        self.cursor.draw(100, ika.Video.yres / 2) # cursor doesn't move, everything else does
+        #self.cursor.draw(100, 3) # cursor doesn't move, everything else does
 
     def update(self):
         assert len(self.layout.children), 'There should be at least one frame in here. (either indicating no saves, or to create a new save.'
@@ -111,22 +114,28 @@ def readSaves():
 
 def loadMenu(fadeOut=True):
     title = gui.TextFrame(text='Load Game')
-    title.Position = (16, 16)
+    title.Position = (12, 12)
     saves = readSaves()
     m = SaveLoadMenu(saves, saving=False)
-
+    
+    bg = ika.Image('gfx/mountains.png')
+    
     def draw():
-        ika.Video.ClearScreen() # fix this
-        m.draw()
+        #ika.Video.ClearScreen() # fix this
+        ika.Video.TintBlit(bg, 0,0, ika.RGB(128, 128, 128, 255)) #fixed it!
+        m.draw()        
         title.draw()
 
     xi.effects.fadeIn(50, draw=draw)
 
     i = None
     while i is None:
-        i = m.update()
+        i = m.update()        
         draw()
         ika.Video.ShowPage()
+        
+        
+
 
     if fadeOut:
         xi.effects.fadeOut(50, draw=draw)
@@ -142,10 +151,12 @@ def saveMenu():
     title = gui.TextFrame(text='Save Game')
     title.Position = (16, 16)
     saves = readSaves()
-    m = SaveLoadMenu(saves, saving=True)
-
+    m = SaveLoadMenu(saves, saving=True)    
+    bg = ika.Image('gfx/mountains.png')
+    
     def draw():
-        ika.Video.ClearScreen() # fix this
+        #ika.Video.ClearScreen() # fix this
+        ika.Video.TintBlit(bg, 0,0, ika.RGB(128, 128, 128, 255)) #fixed it!
         m.draw()
         title.draw()
 

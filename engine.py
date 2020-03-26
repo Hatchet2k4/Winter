@@ -94,6 +94,7 @@ class Engine(object):
 
         self.font = ika.Font('system.fnt')
         self.mapName = ''
+        self.friendlyMapName=''
 
     def init(self, saveData = None):
 
@@ -123,6 +124,10 @@ class Engine(object):
         else:
             self.player.x, self.player.y = START_POS
             lay = ika.Map.GetMetaData()['entityLayer']
+            try:
+                friendlyMapName=ika.Map.GetMetaData()['mapname']
+            except: 
+                pass
             self.player.layer = ika.Map.FindLayerByName(lay)
 
         self.things.append(HPBar())

@@ -56,8 +56,8 @@ class StatWindow(SubScreenWindow):
         stats = system.engine.player.stats
         return (
             gui.StaticText(text='Level %02i' % stats.level),
-            gui.StaticText(text='Exp'), gui.StaticText(text=' %06i/' % stats.exp),
-            gui.StaticText(text='  %06i' % stats.next),
+            gui.StaticText(text='Exp'), gui.StaticText(text=' %05i/' % stats.exp),
+            gui.StaticText(text=' %05i' % stats.next),
             # expbar thingie goes here
             gui.StaticText(text='HP'), gui.StaticText(text=' %03i/%03i' % (stats.hp, stats.maxhp)),
             # hp bar
@@ -65,25 +65,7 @@ class StatWindow(SubScreenWindow):
             # mp bar
             )
 
-class AttribWindow(SubScreenWindow):
-    def __init__(self):
-        SubScreenWindow.__init__(self)
-        self.icons = dict(
-            [(s, gui.Picture(img='gfx/ui/icon_%s.png' % s))
-                for s in ('att', 'mag', 'pres', 'mres')]
-        )
 
-    def createLayout(self):
-        return layout.FlexGridLayout(cols=2, pad=0)
-
-    def createContents(self):
-        stats = system.engine.player.stats
-        return (
-            self.icons['att'], gui.StaticText(text='...%03i' % stats.att),
-            self.icons['mag'], gui.StaticText(text='...%03i' % stats.mag),
-            self.icons['pres'], gui.StaticText(text='...%03i' % stats.pres),
-            self.icons['mres'], gui.StaticText(text='...%03i' % stats.mres)
-            )
 
 class MagicWindow(SubScreenWindow):
     def __init__(self):
@@ -106,6 +88,50 @@ class MagicWindow(SubScreenWindow):
 
         return (gui.StaticText(text=txt),)
 
+class AttribWindow(SubScreenWindow):
+    def __init__(self):
+        SubScreenWindow.__init__(self)
+        self.icons = dict(
+            [(s, gui.Picture(img='gfx/ui/icon_%s.png' % s))
+                for s in ('att', 'mag', 'pres', 'mres')]
+        )
+
+    def createLayout(self):
+        return layout.FlexGridLayout(cols=2, pad=0)
+
+    def createContents(self):
+        stats = system.engine.player.stats
+        return (
+            #gui.StaticText(text='Stats:'),gui.StaticText(text=''),
+            self.icons['att'], gui.StaticText(text=' %03i' % stats.att),
+            self.icons['mag'], gui.StaticText(text=' %03i' % stats.mag),
+            self.icons['pres'], gui.StaticText(text=' %03i' % stats.pres),
+            self.icons['mres'], gui.StaticText(text=' %03i' % stats.mres)
+            )
+
+class InvWindow(SubScreenWindow):
+    def __init__(self):
+        SubScreenWindow.__init__(self)
+        self.icons = {'tnt': gui.Picture(img='gfx/ui/item_dynamite.png') } 
+        
+        
+    def createLayout(self):
+        return layout.GridLayout(cols=2, pad=0)
+
+    def createContents(self):
+        #txt = ['Inventory:']
+        
+        #tnt = [k for k in savedata.__dict__.keys()
+        #       if k.startswith('dynamite')
+        #        and savedata.__dict__[k] == 'True']
+        #if tnt:
+        #    txt.append('TNT')        
+
+
+        return (gui.StaticText(text='Inventory:'), gui.StaticText(text='   '), 
+                self.icons['tnt'], gui.StaticText(text='TNT')
+                )
+
 class MenuWindow(Menu):
     def __init__(self):
         Menu.__init__(self, textctrl=ScrollableTextFrame())
@@ -125,15 +151,23 @@ class PauseScreen(object):
         self.attribWnd = AttribWindow()
         self.magWnd = MagicWindow()
         self.menu = MenuWindow()
+        self.inv = InvWindow()
 
     def update(self):
         self.statWnd.update()
         self.attribWnd.update()
         self.magWnd.update()
+        self.inv.update()
+        
         self.statWnd.dockTop().dockLeft()
         self.attribWnd.Position = (self.statWnd.Left, self.statWnd.Bottom + self.statWnd.Border * 2) # eek
         self.magWnd.Position = (self.statWnd.Left, self.attribWnd.Bottom + self.attribWnd.Border * 2)
+        
+        
+        
         self.menu.dockRight().dockTop()
+        self.inv.dockRight()
+        self.inv.Position = (self.inv.Left, self.menu.Bottom + self.menu.Border * 2 )
 
     def show(self):
         # assume the backbuffer is already filled
@@ -186,6 +220,7 @@ class PauseScreen(object):
         self.attribWnd.draw()
         self.magWnd.draw()
         self.menu.draw()
+        self.inv.draw()
 
     def run(self):
         self.show()

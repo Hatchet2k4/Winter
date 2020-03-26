@@ -30,7 +30,7 @@ defaultControls = {
 displayControls = {}
 
 #joystick friendly names
-_friendlyNames = dict()
+#_friendlyNames = dict()
 
 def init():
     # fill up _allControls
@@ -49,15 +49,15 @@ def init():
         # axes:
         for axisIndex, axis in enumerate(joy.axes):
             _allControls['joy%iaxis%i+' % (joyIndex, axisIndex)] = axis
-            _friendlyNames['joy%ibutton%i' % (joyIndex, axisIndex)] = 'JoyAxis:'+str(axisIndex)
+            #_friendlyNames['joy%ibutton%i' % (joyIndex, axisIndex)] = 'JoyAxis:'+str(axisIndex)
         for axisIndex, axis in enumerate(joy.reverseAxes):
             _allControls['joy%iaxis%i-' % (joyIndex, axisIndex)] = axis
-            _friendlyNames['joy%ibutton%i' % (joyIndex, axisIndex)] = 'JoyAxis:'+str(axisIndex)
+            #_friendlyNames['joy%ibutton%i' % (joyIndex, axisIndex)] = 'JoyAxis:'+str(axisIndex)
 
         # buttons:
         for buttonIndex, button in enumerate(joy.buttons):
             _allControls['joy%ibutton%i' % (joyIndex, buttonIndex)] = button
-            _friendlyNames['joy%ibutton%i' % (joyIndex, buttonIndex)] = 'Joy:'+str(buttonIndex)
+            #_friendlyNames['joy%ibutton%i' % (joyIndex, buttonIndex)] = 'Joy:'+str(buttonIndex)
 
 
     setConfig(defaultControls)
@@ -86,11 +86,8 @@ def setConfig(config=None):
             self.name = name
             self.c = _allControls[config[name]]
             
-            if config[name][0:3] == 'joy': #dealing with a gamepad
-       
-                 
-                displayControls[name] =  config[name][-1] #hack, just grab last character
-                
+            if config[name][0:3] == 'joy': #dealing with a gamepad                        
+                displayControls[name] = config[name][-1] #haaack, just grab last character. will break if more than 10 buttons..                
             else:
                 displayControls[name] = config[name]
         def __call__(self):   return self.c.Position() > 0
@@ -100,8 +97,8 @@ def setConfig(config=None):
         def __call__(self):
             return self.c.Pressed()
 
-    #if config is None:
-    #    config = defaultControls
+    if config is None:
+        config = defaultControls
     # Directional controls:
     for name in ('up', 'down', 'left', 'right'):
         globals()[name] = PosControl(name)

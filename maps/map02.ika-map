@@ -4,7 +4,8 @@
 		(title )
 		(meta
 			(entityLayer B1)
-                        (music winter.ogg)
+            (music winter.ogg)
+            (mapname Base of mount Durinar)
 		)
 	)
 	(header
