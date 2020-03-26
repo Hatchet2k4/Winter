@@ -12,7 +12,7 @@ class SaveGame(object):
         self.stats = StatSet()
         self.flags = {}
         self.mapName = ''
-        self.friendlyMapName =''
+
         self.pos = (0, 0, 0)
         if fileName:
             self.load(fileName)
@@ -49,7 +49,6 @@ class SaveGame(object):
         s.getStats()
         s.getFlags()
         s.mapName = system.engine.mapName
-        s.friendlyMapName = system.engine.friendlyMapName
         p = system.engine.player
         s.pos = (p.x, p.y, p.layer)
         return s
@@ -73,7 +72,6 @@ class SaveGame(object):
 
         s += 'FLAGS\n'
         s += 'MAPNAME=\'%s\'\n' % self.mapName
-        s += 'FMAPNAME=\'%s\'\n' % self.friendlyMapName
         s += 'POS=\'%s\'\n' % ','.join([str(x) for x in self.pos])
         for var, val in savedata.__dict__.iteritems():
             if not var.startswith('_'):

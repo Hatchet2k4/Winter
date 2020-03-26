@@ -59,6 +59,7 @@ def init():
             _allControls['joy%ibutton%i' % (joyIndex, buttonIndex)] = button
             #_friendlyNames['joy%ibutton%i' % (joyIndex, buttonIndex)] = 'Joy:'+str(buttonIndex)
 
+    #ika.Log(str(_allControls))
 
     setConfig(defaultControls)
 
@@ -123,4 +124,4 @@ def setConfig(config=None):
 # global control objects.  These are all set by setConfig
 up = down = left = right = None
 attack = cancel = rend = None
-gale = heal = smoke = None
+gale = heal = smoke = shiver = None

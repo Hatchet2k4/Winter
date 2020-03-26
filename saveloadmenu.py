@@ -13,6 +13,9 @@ from xi import gui, layout
 import controls
 from snow import Snow
 
+mapnames = { 'map02.ika-map' : 'Valley Crossroads' } 
+
+
 class SaveGameFrame(gui.Frame):
     def __init__(self, *args, **kw):
         gui.Frame.__init__(self, *args, **kw)
@@ -24,12 +27,21 @@ class SaveGameFrame(gui.Frame):
     def update(self, icons):
         if self.save:
             stats = self.save.stats
+            m=''
+            if self.save.mapName in mapnames:
+                m=mapnames[self.save.mapName]
+                
             self.layout.setChildren([
+                        
+                layout.HorizontalBoxLayout(
+                    gui.StaticText(text=m),
+                ),
+            
                 layout.HorizontalBoxLayout(
                     gui.StaticText(text='HP%03i/%03i' % (stats.hp, stats.maxhp)),
                     layout.Spacer(width=16),
                     gui.StaticText(text='Lv. %02i' % stats.level)
-                ),
+                ),                                
                 layout.FlexGridLayout(4,
                     icons['att'], gui.StaticText(text='%02i  ' % stats.att),
                     icons['mag'], gui.StaticText(text='%02i  ' % stats.mag),

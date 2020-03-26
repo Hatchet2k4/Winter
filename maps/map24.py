@@ -7,6 +7,7 @@ from thing import Thing
 from rune import CowardRune
 
 def AutoExec():
+    #nearend quest completed!
     if 'waterguard' in savedata.__dict__ and 'windguard' in savedata.__dict__ and 'fireguard' in savedata.__dict__:
         system.engine.mapThings.append(AddRune())
         
