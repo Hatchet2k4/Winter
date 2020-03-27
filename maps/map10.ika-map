@@ -162,20 +162,7 @@ bjqpa4Gm52aBOM8cEmirZxpWSSM4Wr6GkUYw0f0A+H4V
 UvvhBkV756r4MoAGZhre30Pq+2Md/gAAAP//
 			)
 			(entities 
-				(entity 
-					(label demiyeti)
-					(x 158)
-					(y 311)
-					(sprite yeti.ika-sprite)
-					(speed 100)
-					(direction up)
-					(move_script )
-					(obstructs_entities true)
-					(obstructed_by_entities true)
-					(obstructed_by_map true)
-					(adj_activate_script )
-					(activate_script )
-				)
+
 			)
 			(zones 
 				(zone 

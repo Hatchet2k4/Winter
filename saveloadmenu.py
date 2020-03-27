@@ -13,7 +13,7 @@ from xi import gui, layout
 import controls
 from snow import Snow
 
-mapnames = { 
+mapnames = { #all the maps that have save points
 'map02.ika-map' : 'Mount Durinar Base',
 'map12.ika-map' : 'Misty Cave', #need to change which map this one's in
 'map14.ika-map' : 'Lookout Point',
