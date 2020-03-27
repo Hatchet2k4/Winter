@@ -46,21 +46,23 @@ class SaveGameFrame(gui.Frame):
                 ),
             
                 layout.HorizontalBoxLayout(
-                    gui.StaticText(text='HP%03i/%03i' % (stats.hp, stats.maxhp)),
+                    gui.StaticText(text='HP. %03i/%03i' % (stats.hp, stats.maxhp)),
                     layout.Spacer(width=16),
                     gui.StaticText(text='Lv. %02i' % stats.level)
                 ),                                
-                layout.FlexGridLayout(4,
+                layout.FlexGridLayout(5,
                     icons['att'], gui.StaticText(text='%02i  ' % stats.att),
                     icons['mag'], gui.StaticText(text='%02i  ' % stats.mag),
+                    gui.StaticText(text='  Time'),                    
                     icons['pres'], gui.StaticText(text='%02i  ' % stats.pres),
-                    icons['mres'], gui.StaticText(text='%02i  ' % stats.mres)
+                    icons['mres'], gui.StaticText(text='%02i  ' % stats.mres),
+                    gui.StaticText(text='  '+self.save.time)
                 )
             ])
 
             self.layout.layout()
             self.autoSize()
-            self.width = 128 #hack! Don't want windows autosized..
+            self.width = 140 #hack! Don't want windows autosized..
         else:
             assert False
 

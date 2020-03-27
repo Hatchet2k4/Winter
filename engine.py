@@ -95,6 +95,16 @@ class Engine(object):
         self.font = ika.Font('system.fnt')
         self.mapName = ''
         self.friendlyMapName=''
+        
+        #for game clock
+        self.resetTime()
+    
+    def resetTime(self, s=0,m=0,h=0):
+        self.seconds = s
+        self.minutes = m
+        self.hours = h
+        self.ticks = 0
+        self.time = ''
 
     def init(self, saveData = None):
 
@@ -110,8 +120,10 @@ class Engine(object):
 
         if saveData:
             # evil
+            self.resetTime(saveData.seconds,saveData.minutes,saveData.hours)
             self.mapSwitch(saveData.mapName, None, fade=False)
         else:
+            self.resetTime()
             self.mapSwitch(START_MAP, None, fade=False)
 
         if not self.player:
@@ -293,6 +305,8 @@ class Engine(object):
             if f.test(self.player):
                 f.fire()
                 break
+        
+        self.updateTime()
 
         # update Things.
         # for each thing in each thing list, we update.
@@ -408,3 +422,18 @@ class Engine(object):
         s.run()
 
         self.synchTime()
+        
+    def updateTime(self):
+        self.ticks+=1
+        while self.ticks >= 100:
+            self.ticks -= 100
+            self.seconds += 1
+        while self.seconds >= 60:
+            self.seconds -= 60
+            self.minutes += 1
+        while self.minutes >= 60:
+            self.minutes -= 60
+            self.hours += 1
+        #self.time = '%01d:%02d:%02d' % (self.hours, self.minutes, self.seconds)
+        self.time = '%01d:%02d' % (self.hours, self.minutes)
+        

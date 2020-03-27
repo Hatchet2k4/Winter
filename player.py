@@ -652,7 +652,7 @@ class Player(Entity):
             ents = self.detectCollision(r)
             for e in ents:
                 if isinstance(e, Enemy) and not e.invincible:
-                    e.hurt(self.stats.att + self.stats.mag * 2 + ika.Random(-4, 4), 300, (self.direction + 2) & 3)
+                    e.hurt(int(self.stats.att + self.stats.mag * 1.5) + ika.Random(-4, 8), 300, (self.direction + 2) & 3)
 
             yield None
             self.speed = max(saver.speed, self.speed - 20)
@@ -778,4 +778,4 @@ class Player(Entity):
             yield None
 
     def giveMPforHit(self):
-        self.stats.mp += ika.Random(0,2 + self.stats.level/5)
+        self.stats.mp += ika.Random(0,2 + (self.stats.level/5) ) 

@@ -12,6 +12,11 @@ class SaveGame(object):
         self.stats = StatSet()
         self.flags = {}
         self.mapName = ''
+        self.time = ''
+        self.seconds=0
+        self.minutes=0
+        self.hours=0
+        
 
         self.pos = (0, 0, 0)
         if fileName:
@@ -49,6 +54,7 @@ class SaveGame(object):
         s.getStats()
         s.getFlags()
         s.mapName = system.engine.mapName
+        s.time = system.engine.time
         p = system.engine.player
         s.pos = (p.x, p.y, p.layer)
         return s
@@ -71,8 +77,13 @@ class SaveGame(object):
             s += '%s=%i\n' % (k, self.stats[k])
 
         s += 'FLAGS\n'
-        s += 'MAPNAME=\'%s\'\n' % self.mapName
+        s += 'MAPNAME=\'%s\'\n' % self.mapName        
         s += 'POS=\'%s\'\n' % ','.join([str(x) for x in self.pos])
+        s += 'TIME=\'%s\'\n' % self.time
+        s += 'SECONDS=\'%s\'\n' % str(self.seconds)
+        s += 'MINUTES=\'%s\'\n' % str(self.minutes)
+        s += 'HOURS=\'%s\'\n' % str(self.hours)
+        
         for var, val in savedata.__dict__.iteritems():
             if not var.startswith('_'):
                 if isinstance(val, (int, str)):
@@ -119,6 +130,10 @@ class SaveGame(object):
             p = s.find('=')
             k, v = s[:p], parse(s[p + 1:])
             if k == 'MAPNAME':  self.mapName = v
+            elif k == 'TIME': self.time=v
+            elif k == 'SECONDS': self.seconds=int(v)
+            elif k == 'MINUTES': self.minutes=int(v)
+            elif k == 'HOURS': self.hours=int(v)
             elif k == 'POS':
                 self.pos = tuple([int(x) for x in v.split(',')])
             else:               self.flags[k] = v

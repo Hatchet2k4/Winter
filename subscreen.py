@@ -144,6 +144,18 @@ class MenuWindow(Menu):
         self.autoSize()
         self.Border = self.textCtrl.wnd.iLeft.width
 
+class TimerWindow(SubScreenWindow):
+    def __init__(self):
+        SubScreenWindow.__init__(self)
+
+    def createLayout(self):
+        return layout.VerticalBoxLayout()
+
+    def createContents(self):
+        txt = ['Time: '+system.engine.time]
+
+        return (gui.StaticText(text=txt),)
+
 class PauseScreen(object):
     def __init__(self):
         assert _initted
@@ -152,12 +164,15 @@ class PauseScreen(object):
         self.magWnd = MagicWindow()
         self.menu = MenuWindow()
         self.inv = InvWindow()
+        self.timer = TimerWindow()
+
 
     def update(self):
         self.statWnd.update()
         self.attribWnd.update()
         self.magWnd.update()
         self.inv.update()
+        self.timer.update()
         
         self.statWnd.dockTop().dockLeft()
         self.attribWnd.Position = (self.statWnd.Left, self.statWnd.Bottom + self.statWnd.Border * 2) # eek
@@ -168,6 +183,8 @@ class PauseScreen(object):
         self.menu.dockRight().dockTop()
         self.inv.dockRight()
         self.inv.Position = (self.inv.Left, self.menu.Bottom + self.menu.Border * 2 )
+        
+        self.timer.Position = (320-100, 240-60)
 
     def show(self):
         # assume the backbuffer is already filled
@@ -221,6 +238,8 @@ class PauseScreen(object):
         self.magWnd.draw()
         self.menu.draw()
         self.inv.draw()
+        self.timer.draw()
+        
 
     def run(self):
         self.show()
