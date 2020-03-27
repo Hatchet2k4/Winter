@@ -586,7 +586,7 @@ class Player(Entity):
                     setattr(savedata, e.flagName, 'Broken')
 
                     system.engine.destroyEntity(e)
-                    system.engine.things.append(Caption('~1The ice melted!'))
+                    system.engine.things.append(Caption('The ice melted!'))
 
             yield None
         self.invincible = False #no longer invincible during stall period
@@ -717,7 +717,7 @@ class Player(Entity):
         for e in ents:
             if isinstance(e, IceChunks):
                 e.freeze()
-                system.engine.things.append(Caption('~1The ice froze over!'))
+                system.engine.things.append(Caption('The water froze over!'))
                 system.engine.destroyEntity(e)
                 break
 

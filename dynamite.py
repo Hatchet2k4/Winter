@@ -19,4 +19,4 @@ class Dynamite(Entity):
         if self.touches(system.engine.player):
             setattr(savedata, self.flagName, 'True')
             system.engine.destroyEntity(self)
-            system.engine.things.append(Caption('~1Got a stick of dynamite!'))
+            system.engine.things.append(Caption('Got a stick of dynamite!'))

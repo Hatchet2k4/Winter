@@ -20,7 +20,7 @@ class _Rune(Entity):
     def update(self):
         if self.touches(system.engine.player):
             system.engine.destroyEntity(self)
-            system.engine.addThing(Caption('~1You got the %s Rune!' % self.element))
+            system.engine.addThing(Caption('You got the %s Rune!' % self.element))
             #system.engine.addThing(Caption('~1You got the %s Rune!' % self.element))
             setattr(savedata, self.name, 'True')
             self.apply()
