@@ -13,9 +13,13 @@ from xi import gui, layout
 import controls
 from snow import Snow
 
-mapnames = { 'map02.ika-map' : 'Valley Crossroads',
-
-
+mapnames = { 
+'map02.ika-map' : 'Mount Durinar Base',
+'map12.ika-map' : 'Misty Cave', #need to change which map this one's in
+'map14.ika-map' : 'Lookout Point',
+'map30.ika-map' : 'Serpent Valley',
+'map38.ika-map' : 'Northwest Summit',
+'map50.ika-map' : 'Northeast Cave'
 } 
 
 
@@ -26,11 +30,12 @@ class SaveGameFrame(gui.Frame):
         self.layout = layout.VerticalBoxLayout()
         self.addChild(self.layout)
         self.update(kw['icons'])
+        
 
     def update(self, icons):
         if self.save:
             stats = self.save.stats
-            m=''
+            m=''              
             if self.save.mapName in mapnames:
                 m=mapnames[self.save.mapName]
                 
@@ -55,6 +60,7 @@ class SaveGameFrame(gui.Frame):
 
             self.layout.layout()
             self.autoSize()
+            self.width = 128 #hack! Don't want windows autosized..
         else:
             assert False
 
@@ -188,3 +194,4 @@ def saveMenu():
         s.save('save%i' % i)
 
     xi.effects.fadeOut(50, draw=draw)
+
