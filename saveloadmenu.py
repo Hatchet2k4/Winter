@@ -13,7 +13,10 @@ from xi import gui, layout
 import controls
 from snow import Snow
 
-mapnames = { 'map02.ika-map' : 'Valley Crossroads' } 
+mapnames = { 'map02.ika-map' : 'Valley Crossroads',
+
+
+} 
 
 
 class SaveGameFrame(gui.Frame):
