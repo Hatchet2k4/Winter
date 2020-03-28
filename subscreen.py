@@ -184,7 +184,11 @@ class PauseScreen(object):
         self.inv.dockRight()
         self.inv.Position = (self.inv.Left, self.menu.Bottom + self.menu.Border * 2 )
         
-        self.timer.Position = (320-100, 240-60)
+        self.timer.Position = (320-self.timer.width - 8, 240-self.timer.height - 8)
+
+        self.statWnd.width = 64 #hack! Don't want windows autosized..
+        self.attribWnd.width = 64 #hack! Don't want windows autosized..
+
 
     def show(self):
         # assume the backbuffer is already filled

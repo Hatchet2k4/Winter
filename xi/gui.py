@@ -221,10 +221,10 @@ class StaticText(Widget):
             self.Size = 1, 1
 
     def draw(self, xoffset = 0, yoffset = 0):
-        y = self.y + yoffset
+        y = self.y + yoffset + 2 #haaack
         x = self.x + xoffset
         for t in self.text:
-            self.font.Print(x, y, t)
+            self.font.Print(x, y , t)
             y += self.font.height
 
         Widget.draw(self, xoffset, yoffset)

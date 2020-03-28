@@ -55,6 +55,10 @@ class SaveGame(object):
         s.getFlags()
         s.mapName = system.engine.mapName
         s.time = system.engine.time
+        s.seconds = system.engine.seconds
+        s.minutes = system.engine.minutes
+        s.hours = system.engine.hours
+        
         p = system.engine.player
         s.pos = (p.x, p.y, p.layer)
         return s
