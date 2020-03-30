@@ -13,9 +13,10 @@ from xi import gui, layout
 import controls
 from snow import Snow
 
-mapnames = { #all the maps that have save points
+mapnames = { #all the maps that have save points. Could have used metadata, but this was more convenient.
 'map02.ika-map' : 'Mount Durinar Base',
-'map12.ika-map' : 'Misty Cave', #need to change which map this one's in
+'map11.ika-map' : 'Misty Cliffs', #no longer valid but leaving it in anyways :D
+'map12.ika-map' : 'Misty Cave', #no longer valid but leaving it in anyways :D
 'map14.ika-map' : 'Lookout Point',
 'map30.ika-map' : 'Serpent Valley',
 'map38.ika-map' : 'Northwest Summit',
@@ -127,13 +128,15 @@ class SaveLoadMenu(object):
 def readSaves():
     saves = []
 
-    try:
-        i = 0
-        while True:
-            saves.append(SaveGame('save%i' % i))
-            i += 1
-    except IOError:
-        return saves
+    
+    
+    for i in range(100): #support 100 saves?! :o
+        try:
+            saves.append(SaveGame('save%i' % i))            
+        except IOError: 
+            pass #no file here, skip to the next one
+            
+    return saves
 
 def loadMenu(fadeOut=True):
     title = gui.TextFrame(text='Load Game')
@@ -156,10 +159,7 @@ def loadMenu(fadeOut=True):
         i = m.update()        
         draw()
         ika.Video.ShowPage()
-        
-        
-
-
+                
     if fadeOut:
         xi.effects.fadeOut(50, draw=draw)
 

@@ -5,11 +5,12 @@ import sound
 from thing import Thing
 from yeti import Yeti
 from soulreaver import SoulReaver
+from razormane import RazorMane
 
 from snow import Snow
 
 def AutoExec():
-    system.engine.mapThings.append(Snow(8000, velocity=(-.2, 3)))
+    system.engine.mapThings.append(Snow(6000, velocity=(-.2, 3)))
     if 'waterrune' not in savedata.__dict__:
         system.engine.things.append(RuneListener())
     if 'nearend' in savedata.__dict__:
@@ -47,20 +48,24 @@ def breakIceRun():
 
 
 
-class DeathListener(Thing):
+class DeathListener(Thing): #for initial wolves battle
 
-    def __init__(self, yeti=None):
-        self.yeti = yeti
+    def __init__(self, e=None):
+        self.enemies = e
 
     def update(self):
-        if self.yeti.stats.hp == 0:
+        done = True
+        for e in self.enemies:
+            if e.stats.hp > 0:
+                done = False
+        if done: #all are dead
             sound.playMusic("music/wind.ogg")
             return True
 
     def draw(self):
         pass
         
-class DeathListener2(Thing):
+class DeathListener2(Thing): #for SoulReaver quest
 
     def __init__(self, yeti=None):
         self.yeti = yeti
@@ -83,9 +88,15 @@ class RuneListener(object):
             system.engine.mapThings.append(DeathListener2(y))
             return True
         elif 'waterrune' in savedata.__dict__ and 'nearend' not in savedata.__dict__:
-            y=Yeti(ika.Entity(15* 16, 30 * 16, system.engine.player.layer, 'yeti.ika-sprite'))
-            system.engine.addEntity(y)                
-            system.engine.mapThings.append(DeathListener(y))
+            #y=Yeti(ika.Entity(15* 16, 30 * 16, system.engine.player.layer, 'yeti.ika-sprite'))
+            e = [
+            RazorMane(ika.Entity(15* 16, 29 * 16, system.engine.player.layer, 'razormane.ika-sprite')),
+            RazorMane(ika.Entity(11* 16, 31 * 16, system.engine.player.layer, 'razormane.ika-sprite')),
+            RazorMane(ika.Entity(19* 16, 29 * 16, system.engine.player.layer, 'razormane.ika-sprite'))
+            ]
+            for en in e:
+                system.engine.addEntity(en)                
+            system.engine.mapThings.append(DeathListener(e))
             sound.playMusic("music/competative.xm")    
             return True
 

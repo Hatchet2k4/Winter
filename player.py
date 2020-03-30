@@ -235,16 +235,25 @@ class Player(Entity):
         sound.achievement.Play()
 
         while self.stats.exp >= self.stats.next:
-            self.stats.maxhp += ika.Random(2, 7) + self.stats.level / 5
-            self.stats.maxmp += ika.Random(2, 6) + self.stats.level / 5
+            
+            hpup = ika.Random(2, 8) + ((self.stats.level / 5) * 2)
+            mpup = ika.Random(2, 6) + ((self.stats.level / 5) * 2)
+            
+            self.stats.maxhp += hpup
+            self.stats.maxmp += mpup
 
-            statlist = []
-            for n in range(3):
-                if not statlist:
-                    statlist = ['att', 'mag', 'pres', 'mres']
-                s = statlist[ika.Random(0,len(statlist))]
-                self.stats[s]+= ika.Random(1, 3) 
-                statlist.remove(s)
+            statlist = ['att', 'mag', 'pres']
+            
+            statsup = {'att':0, 'mag':0, 'pres':0}
+            statnames = {'att':'Attack', 'mag':'Magic', 'pres':'Defense'}
+            
+            statpoints = 2 + int(self.stats.level / 5) #every 5 levels, gain another stat point           
+            
+            for n in range(statpoints):
+                #random chance of any stat increase. mres not included because it's useless :P
+                s = statlist[ika.Random(0,len(statlist))] 
+                self.stats[s]+= 1
+                statsup[s]+=1
 
             self.stats.level += 1
 
@@ -253,7 +262,17 @@ class Player(Entity):
             self.stats.exp -= self.stats.next
             self.stats.next = self.stats.level * (self.stats.level + 1) * 5
 
-        system.engine.things.append(Caption('Level %i!' % self.stats.level))
+        system.engine.things.append(Caption('Level %i!' % self.stats.level, y=140))
+        system.engine.things.append(Caption('HP +%i' % hpup, y=150))
+        system.engine.things.append(Caption('MP +%i' % hpup, y=160))
+        i=0
+        for s in statlist:
+            if statsup[s]:
+                system.engine.things.append(Caption(statnames[s] +' +%i' % statsup[s], y=170 + 10*i))
+                i+=1
+                
+            
+        
 
     def calcSpells(self):
         '''

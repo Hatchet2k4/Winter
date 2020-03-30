@@ -4,7 +4,7 @@
 		(title )
 		(meta 
 			(entityLayer B2)
-                        (music winter.ogg)
+			(music winter.ogg)
 		)
 	)
 	(header 
@@ -45,28 +45,28 @@
 			)
 			(data 
 				(format zlib)
-				eJyMls1uGzEMhLWS9lRDh6RB07qFk7fo08SX5NT8OM3F
-eftKKAf+drxBexhIq5U4JEVSvEwpzR25o3a0jinGivUS
-++b417C/Yn2CvBLfE+aS97Xj23/gsuMqRnGVWPvXuQxb
-5pjfdOxibNgjvUusD/22K3pu4+yXjk+BHzFexH5xN5Mt
-n4zzG6xJD30P/W5jn3ALv+suaNcu+Gl3sf1a16i1Gd/S
-uYKvYT1DZ4HcLZ3Hgr5lfzaOKS3voqZznzDOMvbuwucF
-Z7PxaX1K5z6nXSUt9Wkr326PdKpxp9LtoWMPMFeoP+OP
-eTWnpb95V5yX4B177zvugvsh5kPeyJURtx/lieRcpWW8
-ynbJp/5cHzy/gj9D1uD0OBaYV1v4sKVTDG/SMo70X+st
-7JSfyMk4YV7Lry32TTivGGYeVdisda894lRsK+bIRb/W
-FQybrmOsxnsd/hrz7/Aha4J0JZ/H/+A+dLxi3wYjeVvw
-7tIy7plLrCO0mf4uwfcYOKZT7NQVXuZ1Tst88bzxWkN7
-x/je8dTxHDqIb06nXK0447XS60OD7BYyh+yX8OsxRvn4
-Pf6Jb3Aphj4H5EuOrK9eew7hR3EIj2Gr/JyNd+jMnKM/
-12p9CzmvwfW74w3+fMF/r2XMFd3lTVrGq/ccnq/iOYJH
-Pj1CDs8rZi/SKc94j14D6G/KeQPfIS3jhO9oM3nXsPmj
-mk1OvnsZd/e0wsG3z/Oc8cw7Zf+lnPS+hHHMvK0mXzb9
-nP6Cbw/fhbV6xHdXOTrbv5aWdYQ5p3Hw8k3y2kabyMm7
-pp5rfW41OdKtgNdzVvbQ597baB/vrhmfxwfv3ftF6uix
-wr6kpPV3yX1AsFdST6s49r3F5DInOJdvmJN80z0+195C
-8nl9ph6eX563rOF82+4C6muy/WdfSrhs9yu5JvCoVxvj
-HvZ6X6lzfHe9D/f3kXrn4LgPPvVq+5jL3oE/AAAA//8=
+				eJyMlsFSHDEMRD2255SNDxAqm2xSC3+Rr2EvcMoSIFyW
+v49dUde+aYZKDl32eGy1JEuyLlNKc0fuqB2tY4qxYr3E
+vjn+NeyvWJ8gr8T3hLnkfen4+h+47LiKUVwl1v51LsOW
+OebXHfsYG/ZI7xLrQ7/dip67OPu540Pge4wXsV/czWTL
+J+P8BmvSQ99Dv5vYJ9zA77oL2rUPftpdbL/WNWptxrd0
+ruBrWM/QWSB3S29jQd+yX/wf0zLesnHTJ4yzjL378HnB
+2Wx8Wp/SW5/TrpKW+rjdso32SKcadyrd7jsOAHOF+jP+
+mFdzWvqbd8V5Cd6x967jNrjvYz7kjVwZcftenkjOVVrG
+q2yXfOrP9cHzM/gzZA1Oj2OBebWDD1s6x/AmLeNI/7Xe
+wk75iZyME+a1/Npi34TzimHmUYXNWvfaI07FtmKOXPRr
+XcGwaRtjNd5t+GvMv8GHrAnSlXwe/4P7qeMZ+zYYyduC
+d5+Wcc9cYh2hzfR3Cb5j4JTOsVNXeJnXOS3zxfPGaw3t
+HeNrx0PHr9BBfHM652rFGa+VXh8aZLeQOWQ/hl9PMcrH
+r/FPfINLMfQpIF9yZH1lXdD9HcEhHMNW+Tkb79CZOUd/
+rtX6FnKeg+t3xwv8+Yj/XsuYK7rL67SMV+85PF/FcwKP
+fHqCHJ5XzF6kc57xHr0G0N+U8wK+p7SME76jzeRtYfN7
+NZucfPcy7u5hhYNvn+c545l3yv5LOel9CeOYeVtNvmz6
+Mf0F3x6+C2v1iO+ucnS2fy0t6whzTuPg5ZvktY02kZN3
+TT3X+txqcqRbAa/nrOyhz72X1j7eXTM+jw/eu/eL1NFj
+hX1JSevvkvuAYK+knlZx7HuLyWVOcC7fMCf5pnt8rr2F
+5PP6TD08vzxvWcP5tt0G1Nd4z8e+lHDZ7ldyTeBRrzbG
+A+z1vlLn+O56H+7vI/XOwXEXfOrVDjGXvQN/AAAA//8=
 
 			)
 			(obstructions 
@@ -162,7 +162,20 @@ bjqpa4Gm52aBOM8cEmirZxpWSSM4Wr6GkUYw0f0A+H4V
 UvvhBkV756r4MoAGZhre30Pq+2Md/gAAAP//
 			)
 			(entities 
-
+				(entity 
+					(label demiyeti)
+					(x 158)
+					(y 311)
+					(sprite yeti.ika-sprite)
+					(speed 100)
+					(direction up)
+					(move_script )
+					(obstructs_entities true)
+					(obstructed_by_entities true)
+					(obstructed_by_map true)
+					(adj_activate_script )
+					(activate_script )
+				)
 			)
 			(zones 
 				(zone 

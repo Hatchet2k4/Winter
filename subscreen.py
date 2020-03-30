@@ -123,7 +123,7 @@ class InvWindow(SubScreenWindow):
     def createContents(self):
         
         #txt = [gui.StaticText(text=''), gui.StaticText(text='Inventory') ]
-        txt = [gui.StaticText(text=''), gui.StaticText(text='') ]
+        txt = [gui.StaticText(text='Items'), gui.StaticText(text='') ]
         
         tnt = 0
         for k in savedata.__dict__.keys():
@@ -139,11 +139,11 @@ class InvWindow(SubScreenWindow):
         return tuple(txt)
 
         
-        def draw(): 
-            SubScreenWindow.draw(self)
-            
-            self.font.Print(self.Left, self.Top+ 4, 'Inventory:')
-            self.font.Print(128, 104, 'Inventory:')
+        #def draw(): 
+        #    SubScreenWindow.draw(self)
+            #ika.Log('drawing inventory?')
+        #    self.font.Print(self.Left, self.Top+ 4, 'Inventory:')
+        #    self.font.Print(128, 104, 'Inventory:')
 
 class MenuWindow(Menu):
     def __init__(self):

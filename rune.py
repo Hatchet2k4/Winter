@@ -52,16 +52,16 @@ class StrengthRune(_Rune):
         system.engine.player.stats.att += 2
 
     element = property(lambda self: 'Strength')
-
+    stat = property(lambda self: 'Attack')
 
 class GuardRune(_Rune):
 
     def apply(self):
         system.engine.player.stats.pres += 2
-        system.engine.player.stats.mres += 2
+        #system.engine.player.stats.mres += 2
 
     element = property(lambda self: 'Guard')
-
+    stat = property(lambda self: 'Defense')
 
 class PowerRune(_Rune):
 
@@ -69,3 +69,4 @@ class PowerRune(_Rune):
         system.engine.player.stats.mag += 2
 
     element = property(lambda self: 'Power')
+    stat = property(lambda self: 'Magic')
