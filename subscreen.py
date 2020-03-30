@@ -86,7 +86,7 @@ class MagicWindow(SubScreenWindow):
         if p.gale:
             txt.append(displayControls['gale']+' - Crushing Gale ')        
         if p.shiver:
-            txt.append(displayControls['shiver']+' - Shiver')
+            txt.append(displayControls['shiver']+' - Nova')
 
         return (gui.StaticText(text=txt),)
 
@@ -114,7 +114,9 @@ class AttribWindow(SubScreenWindow):
 class InvWindow(SubScreenWindow):
     def __init__(self):
         SubScreenWindow.__init__(self)
-        self.icons = {'tnt': gui.Picture(img='gfx/ui/item_dynamite.png') } 
+        self.icons = {'tnt': gui.Picture(img='gfx/ui/item_dynamite.png'),
+                      'strength': gui.Picture(img='gfx/ui/icon_strength.png')
+                      } 
         self.font = system.engine.font
         
     def createLayout(self):
@@ -126,14 +128,22 @@ class InvWindow(SubScreenWindow):
         txt = [gui.StaticText(text='Items'), gui.StaticText(text='') ]
         
         tnt = 0
+        
+        strengthrunes=0
+        magicrunes=0
+        
         for k in savedata.__dict__.keys():
             if k.startswith('dynamite') and savedata.__dict__[k] == 'True':
                 tnt+=1
-
+            if k.startswith('strength') and savedata.__dict__[k] == 'True':
+                strengthrunes+=1
         if tnt: 
-            txt += [self.icons['tnt'], gui.StaticText(text=' TNT - %i' % tnt) ]
-        else: 
-            txt += [gui.StaticText(text=''),gui.StaticText(text='')]
+            txt += [self.icons['tnt'], gui.StaticText(text=' - %i' % tnt) ]
+        if strengthrunes:
+            txt += [self.icons['strength'], gui.StaticText(text=' - %i' % strengthrunes) ]
+        
+        #else: 
+        #    txt += [gui.StaticText(text=''),gui.StaticText(text='')]
 
 
         return tuple(txt)
