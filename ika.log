@@ -8,7 +8,23 @@ Initializing Input
 Initializing sound
 Initing Python
 Executing system.py
-Loading map "maps/map12.ika-map"
-Loading map "maps/map12.ika-map"
+Loading map "maps/map02.ika-map"
+Loading map "maps/map02.ika-map"
+Loading map "maps/map06.ika-map"
+Loading map "maps/map07.ika-map"
+Loading map "maps/map13.ika-map"
+Loading map "maps/map14.ika-map"
+Loading map "maps/map13.ika-map"
+Loading map "maps/map16.ika-map"
+Loading map "maps/map19.ika-map"
+Loading map "maps/map16.ika-map"
+Loading map "maps/map17.ika-map"
+Loading map "maps/map16.ika-map"
+Loading map "maps/map19.ika-map"
+Loading map "maps/map21.ika-map"
+.\razormane.py:155: DeprecationWarning: integer argument expected, got float
+  yield self.walkState(d, ika.Random(n / 2, n))
+Loading map "maps/map22.ika-map"
+Loading map "maps/map50.ika-map"
 ---- shutdown ----
 

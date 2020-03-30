@@ -97,9 +97,9 @@ class Yeti(Enemy):
             (Brain.Passive(1), self.passiveMood)
         )
 
-        self.stats.maxhp = 100
+        self.stats.maxhp = 120
         self.stats.hp = self.stats.maxhp
-        self.stats.att = 12
+        self.stats.att = 16
         self.stats.exp = 100
         self.stats.ind = 0
 
