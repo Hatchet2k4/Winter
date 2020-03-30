@@ -120,12 +120,12 @@ class InvWindow(SubScreenWindow):
         self.font = system.engine.font
         
     def createLayout(self):
-        return layout.FlexGridLayout(cols=2, pad=4)
+        return layout.FlexGridLayout(cols=2, pad=2)
 
     def createContents(self):
         
         #txt = [gui.StaticText(text=''), gui.StaticText(text='Inventory') ]
-        txt = [gui.StaticText(text='Items'), gui.StaticText(text='') ]
+        txt = [gui.StaticText(text=''), gui.StaticText(text='   Items') ]
         
         tnt = 0
         
