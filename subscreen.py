@@ -61,8 +61,10 @@ class StatWindow(SubScreenWindow):
             # expbar thingie goes here
             gui.StaticText(text='HP'), gui.StaticText(text=' %03i/%03i' % (stats.hp, stats.maxhp)),
             # hp bar
-            gui.StaticText(text='MP'), gui.StaticText(text=' %03i/%03i' % (stats.mp, stats.maxmp))
+            gui.StaticText(text='MP'), gui.StaticText(text=' %03i/%03i' % (stats.mp, stats.maxmp)),
             # mp bar
+            
+            
             )
 
 
@@ -78,13 +80,13 @@ class MagicWindow(SubScreenWindow):
         txt = ['Magic:']
         p = system.engine.player.stats
         if p.heal:
-            txt.append(displayControls['heal']+'...Healing Rain')
+            txt.append(displayControls['heal']+' - Healing Rain ')
         if p.rend:
-            txt.append(displayControls['rend']+'...Hearth Rend')
+            txt.append(displayControls['rend']+' - Hearth Rend ')
         if p.gale:
-            txt.append(displayControls['gale']+'...Crushing Gale')        
+            txt.append(displayControls['gale']+' - Crushing Gale ')        
         if p.shiver:
-            txt.append(displayControls['shiver']+'...Shiver')
+            txt.append(displayControls['shiver']+' - Shiver')
 
         return (gui.StaticText(text=txt),)
 
@@ -103,34 +105,45 @@ class AttribWindow(SubScreenWindow):
         stats = system.engine.player.stats
         return (
             #gui.StaticText(text='Stats:'),gui.StaticText(text=''),
-            self.icons['att'], gui.StaticText(text=' %03i' % stats.att),
-            self.icons['mag'], gui.StaticText(text=' %03i' % stats.mag),
-            self.icons['pres'], gui.StaticText(text=' %03i' % stats.pres),
-            self.icons['mres'], gui.StaticText(text=' %03i' % stats.mres)
+            self.icons['att'], gui.StaticText(text=' - %02i' % stats.att),
+            self.icons['mag'], gui.StaticText(text=' - %02i' % stats.mag),
+            self.icons['pres'], gui.StaticText(text=' - %02i' % stats.pres),
+            #self.icons['mres'], gui.StaticText(text=' - %02i' % stats.mres)
             )
 
 class InvWindow(SubScreenWindow):
     def __init__(self):
         SubScreenWindow.__init__(self)
         self.icons = {'tnt': gui.Picture(img='gfx/ui/item_dynamite.png') } 
-        
+        self.font = system.engine.font
         
     def createLayout(self):
-        return layout.GridLayout(cols=2, pad=0)
+        return layout.FlexGridLayout(cols=2, pad=4)
 
     def createContents(self):
-        #txt = ['Inventory:']
         
-        #tnt = [k for k in savedata.__dict__.keys()
-        #       if k.startswith('dynamite')
-        #        and savedata.__dict__[k] == 'True']
-        #if tnt:
-        #    txt.append('TNT')        
+        #txt = [gui.StaticText(text=''), gui.StaticText(text='Inventory') ]
+        txt = [gui.StaticText(text=''), gui.StaticText(text='') ]
+        
+        tnt = 0
+        for k in savedata.__dict__.keys():
+            if k.startswith('dynamite') and savedata.__dict__[k] == 'True':
+                tnt+=1
+
+        if tnt: 
+            txt += [self.icons['tnt'], gui.StaticText(text=' TNT - %i' % tnt) ]
+        else: 
+            txt += [gui.StaticText(text=''),gui.StaticText(text='')]
 
 
-        return (gui.StaticText(text='Inventory:'), gui.StaticText(text='   '), 
-                self.icons['tnt'], gui.StaticText(text='TNT')
-                )
+        return tuple(txt)
+
+        
+        def draw(): 
+            SubScreenWindow.draw(self)
+            
+            self.font.Print(self.Left, self.Top+ 4, 'Inventory:')
+            self.font.Print(128, 104, 'Inventory:')
 
 class MenuWindow(Menu):
     def __init__(self):
@@ -139,7 +152,7 @@ class MenuWindow(Menu):
             'Resume',
             #'Controls',
             #'Load Game',
-            'Display Damage: ' + ('OFF', 'ON ')[system.engine.player.stats.damageind],
+            'Show Damage: ' + ('OFF', 'ON ')[system.engine.player.stats.damageind],
             'Exit')
         self.autoSize()
         self.Border = self.textCtrl.wnd.iLeft.width
@@ -176,18 +189,24 @@ class PauseScreen(object):
         
         self.statWnd.dockTop().dockLeft()
         self.attribWnd.Position = (self.statWnd.Left, self.statWnd.Bottom + self.statWnd.Border * 2) # eek
-        self.magWnd.Position = (self.statWnd.Left, self.attribWnd.Bottom + self.attribWnd.Border * 2)
+        #self.timer.Position = (self.attribWnd.Left, self.attribWnd.Bottom + self.attribWnd.Border * 2)
+        self.timer.Position = (self.statWnd.Left, 240-self.timer.height - 8)
         
         
-        
+        w = 113
         self.menu.dockRight().dockTop()
+        self.inv.width = w #same width as menu width at present
         self.inv.dockRight()
+        self.magWnd.width = w
+        self.magWnd.dockRight()        
         self.inv.Position = (self.inv.Left, self.menu.Bottom + self.menu.Border * 2 )
+        self.magWnd.Position = (self.magWnd.Left, self.inv.Bottom + self.inv.Border * 2)
         
-        self.timer.Position = (320-self.timer.width - 8, 240-self.timer.height - 8)
+        
+        
 
-        self.statWnd.width = 64 #hack! Don't want windows autosized..
-        self.attribWnd.width = 64 #hack! Don't want windows autosized..
+        self.statWnd.width = 56 #hack! Don't want windows autosized..
+        self.attribWnd.width = 56 #hack! Don't want windows autosized..
 
 
     def show(self):
@@ -270,7 +289,7 @@ class PauseScreen(object):
 
     def toggleDamage(self):
         system.engine.player.stats.damageind = (1, 0)[system.engine.player.stats.damageind]
-        self.menu.textCtrl.text.setText(['Resume','Display Damage: ' + ('OFF', 'ON ')[system.engine.player.stats.damageind],'Exit'])
+        self.menu.textCtrl.text.setText(['Resume','Show Damage: ' + ('OFF', 'ON ')[system.engine.player.stats.damageind],'Exit'])
            
     def exitGame(self):
         # TODO: shiny fade out
