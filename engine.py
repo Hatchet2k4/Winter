@@ -152,7 +152,7 @@ class Engine(object):
 
     def beginNewGame(self):
         saveload.SaveGame.clearSaveFlags()
-        #cabin.scene('intro')
+        cabin.scene('intro')
 
         self.mapSwitch(START_MAP, START_POS, fade = False)
         lay = ika.Map.GetMetaData()['entityLayer']
