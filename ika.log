@@ -8,40 +8,8 @@ Initializing Input
 Initializing sound
 Initing Python
 Executing system.py
-Loading map "maps/map02.ika-map"
-Loading map "maps/map02.ika-map"
-Loading map "maps/map06.ika-map"
-Loading map "maps/map08.ika-map"
-Loading map "maps/map09.ika-map"
-.\razormane.py:155: DeprecationWarning: integer argument expected, got float
-  yield self.walkState(d, ika.Random(n / 2, n))
-Loading map "maps/map10.ika-map"
-Loading map "maps/map09.ika-map"
-Loading map "maps/map08.ika-map"
+Loading map "maps/map12a.ika-map"
+Loading map "maps/map12a.ika-map"
 Loading map "maps/map11.ika-map"
-Loading map "maps/map12.ika-map"
-Loading map "maps/map11.ika-map"
-Loading map "maps/map08.ika-map"
-Loading map "maps/map42.ika-map"
-Loading map "maps/map41.ika-map"
-Loading map "maps/map42.ika-map"
-Loading map "maps/map08.ika-map"
-Loading map "maps/map11.ika-map"
-Loading map "maps/map08.ika-map"
-Loading map "maps/map06.ika-map"
-Loading map "maps/map02.ika-map"
-Loading map "maps/map03.ika-map"
-Loading map "maps/map04.ika-map"
-Loading map "maps/map05.ika-map"
-Loading map "maps/map04.ika-map"
-Loading map "maps/map03.ika-map"
-Loading map "maps/map02.ika-map"
-Loading map "maps/map06.ika-map"
-Loading map "maps/map07.ika-map"
-Loading map "maps/map13.ika-map"
-Loading map "maps/map14.ika-map"
-Loading map "maps/map13.ika-map"
-Loading map "maps/map16.ika-map"
-Loading map "maps/map17.ika-map"
 ---- shutdown ----
 

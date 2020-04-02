@@ -18,8 +18,8 @@ vivify=0
 ternion=0
 damageind=1
 FLAGS
-MAPNAME='map50.ika-map'
-POS='147,160,1'
+MAPNAME='map12a.ika-map'
+POS='147,160,3'
 TIME='0:20'
 SECONDS='37'
 MINUTES='20'

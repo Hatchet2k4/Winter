@@ -18,8 +18,12 @@
 	)
 	(zones 
 		(zone 
-			(label to27)
-			(script to27)
+			(label Default Zone)
+			(script )
+		)
+		(zone 
+			(label to5)
+			(script to5)
 		)
 	)
 	(layers 
@@ -45,44 +49,30 @@
 			)
 			(data 
 				(format zlib)
-				eJy0lv1qFDEUxe9YLS3SgghWoSr4ARVfwPd/BR+gdmFr
-YeyCmcJk8pc3eA975mzW7i4YOGQmk/zm5ubmJsnM0n9S
-cY3xfO364bpp1ItHOFnG1+el69b1s1HfPcIdZXx97l2/
-Grp3rYi7CHuKzDNR/8r6Hf1y/G+KfrV+IO6d+CNR/6qB
-WLX9VWf2OXTR/W1PxF2JP8AbQrwmlfHa9cV15XoTTPRN
-wWR/JPrfRKwPxKn11xCYifrD5sE21+U6+jHvvesT6W03
-j41MTLYtxdqW4F2FPsYc2cewZyD/M28I2/p4v3TGu7Ct
-2lMaaw3uKPGSo88y1nagPoXGZpvbqdJ91lP7SOuebR4D
-Iwkstg9M2MY+0DmBD0axzfnCt9w2yfhkc1t5bZXHcYNv
-k9QD8dg+3g88V/Yp28AxAs5C5q9zwz+Out2kOYD/z77q
-bZ2n7mUM9ufK2jlAfZbi23G3Fo/hds0BxTb3bolvz7z/
-E9fTbj7mKNr4O4Q56v741h2myeb5oMj7vjzsGfUf54Xj
-bn0u5Hj/l32t9cA5txTfcoy1eAvhTcLqbb6PkFO2MXHO
-tfIVzjaOec41Lf+uGvMpNj8nlcXMl8J7aPBSsDifsd8w
-31qfOePEdep6HjG57f6SxRbNWZVX4/nc9d2fXwSTGXpX
-UNs4P8G2yoIqc1thezTO4btz4eXtuI2zUPf6GbF2LRor
-4OMusA/LbH0u8lmGmC97smCf3pOYv29hn+m+O6SwXZgn
-fHdI0XsYzuxDi+YdrM8u5Q8AAAD//w==
+				eJy0lutq3DAQhcfNhZSSQCg0KfQCTQspfYG8/yvkAZIu
+bBtwa6jcYFu/OqJz2OOz2mZ3oYKDbVn6PDMajZzMLP0n
+ZdcQ93eue9fXynXxBGeU+eV+6frm+l65PjzBHWR+uW9d
+Pyr66eqIuwh7sviZaHxh/YpxY3xvinHl+pu4DxKPROOL
+emKV/leN2afQRfO3PxG3k3iA14d4TQrj0vXZde16HUyM
+TcHkeCT63kSsD8Qp1y8hMBONh829ra/LXYxj3nvXR9Lb
+Zp4bIzHZthRrm4N3HboKHznGsKen+DOvD9vaeH7jjHdh
+W7EnV9Ya3EHyZYwxy1jbnsZkmjva3E6V7rOW+gda99Hm
+OTCQwGL7wIRtHAP1CXwwsq37i9hy3yTzk81t5bVVHucN
+3k1y7YnH9vF+YF85pmwD5wg4C/FffcM3DprtpDWAv8+x
+akmPMqeL/s7qNUBjluLdcbMSz+F+rQHZ1vdujndHPv6Z
+67CZzzmIPn4PwUfdHzfNfppsXg+yPO/Kw57R+HFdOG5W
+58IYz/+yr7YeOOeWElvOsRpvIbxJWK3N9xFqyiYmzrla
+vcLZxjnPtaYW38eKP9nm56SymPlSeF2Fl4LF9YzjBn/L
+9dQZJ67nrhcVnuYN26I1q/BKPp+5bv3+PJjM0H8FtY3r
+E2wrLKgwNzW2R/McsTsT3rgZt3YW6l4/Jda2TXMFfPwL
+7MIyW52LfJYh5/OOLNin/0nM37VxzHTf7dPYLviJ2O3T
+9D8MZ/a+TesO1meb9gcAAP//
 			)
 			(obstructions 
 				(format tile)
 				eJxiYBgFo2AU4AIAAAAA//8=
 			)
 			(entities 
-				(entity 
-					(label c2)
-					(x 148)
-					(y 409)
-					(sprite carnivore.ika-sprite)
-					(speed 100)
-					(direction up)
-					(move_script )
-					(obstructs_entities true)
-					(obstructed_by_entities true)
-					(obstructed_by_map true)
-					(adj_activate_script )
-					(activate_script )
-				)
 			)
 			(zones 
 			)
@@ -143,8 +133,8 @@ IfWo6w23ZmEPOctfbO8UffJjD8i6AAAA//8=
 			)
 			(data 
 				(format zlib)
-				eJzszrEJACAUQ8H8TdX9h7ASe0Vs7iDtIwkA8EqrpNfv
-Fyyj9vTOenBrAgAA//8=
+				eJxiYBgFo2AUjIJRMAoGHwhhRGBc4uh4MIIERggeBYMD
+JDEi8Kh55Jk3CkYBpQAAAAD//w==
 			)
 			(obstructions 
 				(format tile)
@@ -178,8 +168,8 @@ Fyyj9vTOenBrAgAA//8=
 			(data 
 				(format zlib)
 				eJxiYBgFo2AUjIKhCXIYGRhyGQfaFcSBmUA8C4hnD2Pz
-EhgRGNk8ZHF0TE/30dI8dMBPg3RJCzOpDWjhRnLSCz4Q
-wgjBoUMgPIc7GAppehTQBgAAAAD//w==
+EhghGJd5yPID4T5amocO+GmQLmlhJrUBLdwISzfkph10
+EMIIwaFDIDyHOxgKaXoU0AYAAAAA//8=
 			)
 			(obstructions 
 				(format tile)
@@ -189,14 +179,63 @@ GV6z0FDhMOAWH7XklU17cVGfbZxoDZeeKuMy6u5txrth
 zF/N2wTh/4jNEwcAAAD//w==
 			)
 			(entities 
+				(entity 
+					(label c0)
+					(x 131)
+					(y 213)
+					(sprite carnivore.ika-sprite)
+					(speed 100)
+					(direction up)
+					(move_script )
+					(obstructs_entities true)
+					(obstructed_by_entities true)
+					(obstructed_by_map true)
+					(adj_activate_script )
+					(activate_script )
+				)
+				(entity 
+					(label c1)
+					(x 184)
+					(y 155)
+					(sprite carnivore.ika-sprite)
+					(speed 100)
+					(direction up)
+					(move_script )
+					(obstructs_entities true)
+					(obstructed_by_entities true)
+					(obstructed_by_map true)
+					(adj_activate_script )
+					(activate_script )
+				)
+				(entity 
+					(label c2)
+					(x 148)
+					(y 409)
+					(sprite carnivore.ika-sprite)
+					(speed 100)
+					(direction up)
+					(move_script )
+					(obstructs_entities true)
+					(obstructed_by_entities true)
+					(obstructed_by_map true)
+					(adj_activate_script )
+					(activate_script )
+				)
 			)
 			(zones 
 				(zone 
-					(label to27)
-					(x 208)
-					(y 464)
-					(width 80)
+					(label to5)
+					(x 128)
+					(y 608)
+					(width 16)
 					(height 16)
+				)
+				(zone 
+					(label Default Zone)
+					(x 304)
+					(y 112)
+					(width 16)
+					(height 48)
 				)
 			)
 		)
@@ -230,34 +269,6 @@ MByACJXrRikqm6cwwHU3AAAA//8=
 				eJxiYBgFo2AU4AIAAAAA//8=
 			)
 			(entities 
-				(entity 
-					(label c0)
-					(x 131)
-					(y 213)
-					(sprite carnivore.ika-sprite)
-					(speed 100)
-					(direction up)
-					(move_script )
-					(obstructs_entities true)
-					(obstructed_by_entities true)
-					(obstructed_by_map true)
-					(adj_activate_script )
-					(activate_script )
-				)
-				(entity 
-					(label c1)
-					(x 184)
-					(y 155)
-					(sprite carnivore.ika-sprite)
-					(speed 100)
-					(direction up)
-					(move_script )
-					(obstructs_entities true)
-					(obstructed_by_entities true)
-					(obstructed_by_map true)
-					(adj_activate_script )
-					(activate_script )
-				)
 			)
 			(zones 
 			)
@@ -284,46 +295,18 @@ MByACJXrRikqm6cwwHU3AAAA//8=
 			)
 			(data 
 				(format zlib)
-				eJzkllsKgDAMBOP9L+gDj+ITKZSiSTZZRDCw+CPD1NrV
-QUSGh0xHxuY6KfdrsWYksuqxWAvIs5gRnsb+Gy87TLeW
-F5n5yFol4zYL773TWCjPYqG8riOfWzZPrr4qoffAg29P
-5oUdX+KF12zsN8w0eEy/6DBZd47pLiXz2o74ul/m/Gr9
-ymQhjidnM1je5+j5fkD74uh775oRN5cj6KY5RtzumOUf
-JcMqQTk7AAAA//8=
+				eJzk1ksKgDAMBND0/hfUikfxiwi1aNJJBhEMBDfyGFsb
+7UWkf+hh61xdB+V+ra3KRKssy5pAzzI9nmb/zYsWM1vt
+eWrcei46km0U3nunWahnWaiXEvncsj055tXZ9DnwkLcj
+e+6ML3nuZzb2GzYNj5nPW0zrLmN4lpK9ekZ8PV/k/Grz
+lWkhGXdnMazWdWz5fkD70jDvW58ZyWaZXqs2z3+KiHVZ
+S3C9tEZzrQAAAP//
 			)
 			(obstructions 
 				(format tile)
 				eJxiYBgFo2AU4AIAAAAA//8=
 			)
 			(entities 
-				(entity 
-					(label c0)
-					(x 131)
-					(y 213)
-					(sprite carnivore.ika-sprite)
-					(speed 100)
-					(direction up)
-					(move_script )
-					(obstructs_entities true)
-					(obstructed_by_entities true)
-					(obstructed_by_map true)
-					(adj_activate_script )
-					(activate_script )
-				)
-				(entity 
-					(label c1)
-					(x 184)
-					(y 155)
-					(sprite carnivore.ika-sprite)
-					(speed 100)
-					(direction up)
-					(move_script )
-					(obstructs_entities true)
-					(obstructed_by_entities true)
-					(obstructed_by_map true)
-					(adj_activate_script )
-					(activate_script )
-				)
 			)
 			(zones 
 			)
