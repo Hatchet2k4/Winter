@@ -209,6 +209,7 @@ class PauseScreen(object):
         self.inv.dockRight()
         self.magWnd.width = w
         self.magWnd.dockRight()        
+        
         self.inv.Position = (self.inv.Left, self.menu.Bottom + self.menu.Border * 2 )
         self.magWnd.Position = (self.magWnd.Left, self.inv.Bottom + self.inv.Border * 2)
         
@@ -229,8 +230,10 @@ class PauseScreen(object):
         t = Transition()
         t.addChild(self.statWnd, startRect=(-self.statWnd.Right, self.statWnd.Top), time=TIME - 5)
         t.addChild(self.attribWnd, startRect=(-self.attribWnd.Right, self.attribWnd.Top), time=TIME - 5)
-        t.addChild(self.magWnd, startRect=(-self.magWnd.Right, self.magWnd.Top), time=TIME - 5)
+        t.addChild(self.magWnd, startRect=(ika.Video.xres, self.magWnd.Top), time=TIME - 5)
         t.addChild(self.menu, startRect=(ika.Video.xres, self.menu.Top), time=TIME - 5)
+        t.addChild(self.inv, startRect=(ika.Video.xres, self.inv.Top), time=TIME - 5)
+        t.addChild(self.timer, startRect=(-self.timer.Right, self.timer.Top), time=TIME - 5)
 
         for i in range(TIME):
             t.update(1)
@@ -250,9 +253,11 @@ class PauseScreen(object):
         t = Transition()
         t.addChild(self.statWnd, endRect=(-self.statWnd.Right, self.statWnd.Top), time=TIME - 5)
         t.addChild(self.attribWnd, endRect=(-self.attribWnd.Right, self.attribWnd.Top), time=TIME - 5)
-        t.addChild(self.magWnd, endRect=(-self.magWnd.Right, self.magWnd.Top), time=TIME - 5)
+        t.addChild(self.magWnd, endRect=(ika.Video.xres, self.magWnd.Top), time=TIME - 5)
         t.addChild(self.menu, endRect=(ika.Video.xres, self.menu.Top), time=TIME - 5)
-
+        t.addChild(self.inv, endRect=(ika.Video.xres, self.inv.Top), time=TIME - 5)
+        t.addChild(self.timer, endRect=(-self.timer.Right, self.timer.Top), time=TIME - 5)
+        
         for i in range(TIME - 1, -1, -1):
             t.update(1)
             o = i * 255 / TIME # menu opacity for this frame
