@@ -21,6 +21,10 @@
 			(label to11)
 			(script to11)
 		)
+		(zone 
+			(label to12a)
+			(script to12a)
+		)
 	)
 	(layers 
 		(layer 
@@ -45,17 +49,17 @@
 			)
 			(data 
 				(format zlib)
-				eJyslMtKA0EQRbsiAUUUxoWPhRvBhfqdfmFWEwWj+Iiv
-VidKZoIBq+hbUKnpRWZwceiB7j59qx9ThhBKx5i5Quv7
-unLDTJhbtHcd548N4npgHpkntFO4A7Xn5XwTg7hemTfm
-HW2E+zlTQy67zaKuL6ZiZsw33B9w3psappncmkPbTe7f
-o+QTGvAD54tZN2Z8DXIMKLl24Tuh1CfOA0o5xflp1t2m
-ds0yZ8e4RiH55mEVdapLxhaUarbOGj51qW8GzyVqP6bV
-GnRsxD4uXM6RYYhaa+xFE/IuQWqOWNvfYztmiFwL42rc
-ukKBfbSuX9wBP0adA+SqQ9tZZe5giTuQW3cD2TS3fq/z
-9nK1bJk9K/Dd5U17p6+twnkSre/0ezTHOet5xw75lCVc
-Mn+fs5xSutN6Jn3+heo6ZM6ZIzj7+pbIIq4LOP297YOc
-wRm131SO63/mDwAA//8=
+				eJyslE1Lw0AQhndaBEtByMWPgxfBg/o7/YWeUgWraK0f
+jZoqTYIFZ9h36DqZQxM8PGzY7D77zu4meQghN0yYa7T2
+XVdumSlzh/a+4/xJgrgemRnzhHYOd6D2PM+nOaZwvTJv
+zAJtAfezU4OXXXPMEtcnUzJL5gvudzgfkhrmTm7NsUhc
+S/iEGnzD+ZKsWzi+GvNXSaaGOaH4TvoOKOYU5wdcu9w3
+pnbN6pO2gtdDneraYzKKNafOCnkaZGlM5kuK/cfcDmjj
+ugqRAvvYmJwydgh2aJNXs3suQWousLa9xyOKjOHUvOqq
+w1+XkGF86vrBHbBj1DlAriq0naVzB3PcAW/dIbJpbfq8
+zbfn1TJK9izDc5dv2jptbSXOk2h7p92jFc5Zz7vokE9Z
+wyXz9znLKcU7rWfS51+orkPmnDmCs69vjSziuoDT3ts+
+yBmcUfub8rj5Z34BAAD//w==
 			)
 			(obstructions 
 				(format tile)
@@ -130,16 +134,16 @@ ENdRybxRMApGweACd5AwIQAAAAD//w==
 			)
 			(obstructions 
 				(format tile)
-				eJykj0EKACAIBJv/fzrIQneNLkkgDjraGL8BHa3nyDuR
-pAVvxnZRlFyUZKUsJnU4DpQtqj09xZqwMd/brpTvOKps
-AgAA//8=
+				eJykkEEOACAIw7b/f9oEFbZAvGg8Nd0Egd9DdhRXDIY0
+mHDzCZPxFoJSyVJoEQ5sJz28B5SXM+3LaGvBPvXEWt2B
+0x8mWwAAAP//
 			)
 			(entities 
 				(entity 
-					(label strength012)
-					(x 110)
-					(y 93)
-					(sprite strengthrune.ika-sprite)
+					(label guard012)
+					(x 112)
+					(y 96)
+					(sprite guardrune.ika-sprite)
 					(speed 100)
 					(direction up)
 					(move_script )
@@ -157,6 +161,13 @@ AgAA//8=
 					(y 320)
 					(width 16)
 					(height 16)
+				)
+				(zone 
+					(label to12a)
+					(x 0)
+					(y 96)
+					(width 16)
+					(height 48)
 				)
 			)
 		)
