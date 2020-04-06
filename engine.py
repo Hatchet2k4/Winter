@@ -31,6 +31,7 @@ from gameover import EndGameException, GameOverException
 
 import subscreen
 import saveload
+import saveloadmenu
 
 import controls
 import cabin
@@ -257,6 +258,9 @@ class Engine(object):
                 if controls.cancel():
                     self.pause()
 
+                if controls.savestate:
+                    self.SaveState()
+
                 # Do some thinking
                 self.tick()
 
@@ -438,3 +442,10 @@ class Engine(object):
         #self.time = '%01d:%02d:%02d' % (self.hours, self.minutes, self.seconds)
         self.time = '%01d:%02d' % (self.hours, self.minutes)
         
+    def SaveState(self):
+        n = saveloadmenu.readSaves()
+        i = len(n)+1
+        
+        s = SaveGame.currentGame()
+        s.save('save%i' % i)
+    

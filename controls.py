@@ -25,7 +25,8 @@ defaultControls = {
     'smoke': 'V',
     'shiver': 'B',
     'vivify': 'N',
-    'ternion': 'M'
+    'ternion': 'M',
+    'savestate': 'Q'
 }
 displayControls = {}
 
@@ -125,3 +126,4 @@ def setConfig(config=None):
 up = down = left = right = None
 attack = cancel = rend = None
 gale = heal = smoke = shiver = None
+savestate = None

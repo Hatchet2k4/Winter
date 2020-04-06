@@ -138,7 +138,6 @@ class SaveLoadMenu(object):
 
 def readSaves():
     saves = []
-
     
     
     for i in range(100): #support 100 saves?! :o

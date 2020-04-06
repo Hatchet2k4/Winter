@@ -14,7 +14,7 @@ class DragonPup(RazorMane):
 class DragonGuard(RazorMane):
 
     def __init__(self, *args):
-        super(DragonPup, self).__init__(*args)
+        super(DragonGuard, self).__init__(*args)
         self.speed = 160
         self.stats.maxhp = 200
         self.stats.hp = 200

@@ -98,6 +98,8 @@ class RuneListener(object):
                 system.engine.addEntity(en)                
             system.engine.mapThings.append(DeathListener(e))
             sound.playMusic("music/competative.xm")    
+            sound.razorManeStrike.Play()
+            
             return True
 
     def draw(self):
