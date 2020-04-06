@@ -214,8 +214,9 @@ class Engine(object):
 
             self.camera.center()
 
-        if 'music' in metaData:
+        if 'music' in metaData:                
             sound.playMusic('music/' + metaData['music'])
+                
 
         if fade:
             self.draw()

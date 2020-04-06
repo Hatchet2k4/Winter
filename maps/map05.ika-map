@@ -135,7 +135,7 @@ MU72XoVvLAAAAP//
 			)
 			(zones 
 				(zone 
-					(label to12a)
+					(label to4)
 					(x 160)
 					(y 320)
 					(width 16)
@@ -174,8 +174,8 @@ MU72XoVvLAAAAP//
 				(format zlib)
 				eJxiYBgF+IAaIwODOuNAu2IUEARocXSDyubBADnp4S6l
 boGa8R+KsQFS/EuseygOQzqZ+Z+AudQIfxRAZnmA7EYR
-ZDMoKF9uQLEUI8Sf1PDrXyBWYKTMXegAV7pFBwAAAAD/
-/w==
+ZDMoKF/+Qc2VYoT48x/5RjHchOK/QKzACHEXTIwSM0EA
+V7pFBwAAAAD//w==
 			)
 			(obstructions 
 				(format tile)
@@ -208,7 +208,8 @@ ZDMoKF9uQLEUI8Sf1PDrXyBWYKTMXegAV7pFBwAAAAD/
 			)
 			(data 
 				(format zlib)
-				eJxiYBgFo2AUjIJRMAog4AaUvjsAdgMAAAD//w==
+				eJxiYBgFo2AUjIJRAAM3gfjvQDuCCABy5w00sbtQcXLN
+Y0Ay8y6Z5qCbh0wTchsAAAD//w==
 			)
 			(obstructions 
 				(format tile)
