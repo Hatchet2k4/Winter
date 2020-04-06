@@ -23,6 +23,7 @@ mapnames = { #all the maps that have save points. Could have used metadata, but 
 'map50.ika-map' : 'Northeast Cave'
 } 
 
+debug = True
 
 class SaveGameFrame(gui.Frame):
     def __init__(self, *args, **kw):
@@ -36,11 +37,19 @@ class SaveGameFrame(gui.Frame):
     def update(self, icons):
         if self.save:
             stats = self.save.stats
+            
             m=''              
+            #if debug: m+=self.save.fname
             if self.save.mapName in mapnames:
-                m=mapnames[self.save.mapName]
-                
-            self.layout.setChildren([
+                m+=mapnames[self.save.mapName]
+            c = []
+            
+            if debug: 
+                c += [   layout.HorizontalBoxLayout(
+                    gui.StaticText(text=self.save.fname)) ] 
+            
+            
+            c += [
                         
                 layout.HorizontalBoxLayout(
                     gui.StaticText(text=m),
@@ -59,7 +68,9 @@ class SaveGameFrame(gui.Frame):
                     icons['mres'], gui.StaticText(text='%02i  ' % stats.mres),
                     gui.StaticText(text='  '+self.save.time)
                 )
-            ])
+            ]
+            
+            self.layout.setChildren(c)
 
             self.layout.layout()
             self.autoSize()

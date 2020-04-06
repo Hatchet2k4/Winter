@@ -16,6 +16,7 @@ class SaveGame(object):
         self.seconds=0
         self.minutes=0
         self.hours=0
+        self.fname = fileName
         
 
         self.pos = (0, 0, 0)
