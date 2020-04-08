@@ -3,14 +3,15 @@ import system
 import savedata
 import sound
 
-from dragonpup import DragonGuard
+from dragonpup import DragonGuard, DragonPup
 from rune import GuardRune
 from thing import Thing
 
 def AutoExec():
     if 'guard48' not in savedata.__dict__:
-        e = DragonGuard(ika.Entity(162, 111, system.engine.player.layer, 'dragonpup.ika-sprite'))
+        e = DragonPup(ika.Entity(162, 111, system.engine.player.layer, 'dragonpup.ika-sprite'))
         system.engine.addEntity(e)    
+        
         system.engine.things.append(DeathListener2(e)) # listen for dragonpup to be dead to drop a guard rune
                 
 
@@ -22,7 +23,7 @@ def to47():
     
 class DeathListener2(Thing): #for SoulReaver quest
 
-    def __init__(self, e=None):
+    def __init__(self, e):
         self.ent = e
 
     def update(self):

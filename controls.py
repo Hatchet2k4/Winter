@@ -8,6 +8,8 @@ from keynames import keyNames
 import controls
 import xi.controls
 
+from saveload import SaveGame
+
 # Name : Control pairs
 _allControls = dict()
 
@@ -108,7 +110,7 @@ def setConfig(config=None):
     # Buttons
     for name in ('attack', 'cancel', 'rend',
                  'gale', 'heal', 'smoke',
-                 'shiver', 'vivify', 'ternion'):
+                 'shiver', 'vivify', 'ternion', 'savestate'):
         globals()[name] = PressControl(name)
     
 

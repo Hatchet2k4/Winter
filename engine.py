@@ -32,6 +32,7 @@ from gameover import EndGameException, GameOverException
 import subscreen
 import saveload
 import saveloadmenu
+from saveload import SaveGame
 
 import controls
 import cabin
@@ -258,7 +259,7 @@ class Engine(object):
                 if controls.cancel():
                     self.pause()
 
-                if controls.savestate:
+                if controls.savestate():
                     self.SaveState()
 
                 # Do some thinking

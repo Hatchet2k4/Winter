@@ -13,6 +13,8 @@ from xi import gui, layout
 import controls
 from snow import Snow
 
+
+
 mapnames = { #all the maps that have save points. Could have used metadata, but this was more convenient.
 'map02.ika-map' : 'Mount Durinar Base',
 'map11.ika-map' : 'Misty Cliffs', #no longer valid but leaving it in anyways :D
