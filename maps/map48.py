@@ -9,10 +9,17 @@ from thing import Thing
 
 def AutoExec():
     if 'guard48' not in savedata.__dict__:
-        e = DragonPup(ika.Entity(162, 111, system.engine.player.layer, 'dragonpup.ika-sprite'))
-        system.engine.addEntity(e)    
+        en = ika.Entity(162, 111, system.engine.player.layer, 'dragonpup.ika-sprite')
+        en.name = 'dragonp'
+        e = DragonPup(en)
+        system.engine.addEntity(e)            
+        system.engine.things.append(DeathListener(e)) 
+
+        en = ika.Entity(162, 111, system.engine.player.layer, 'guardrune.ika-sprite')
+        en.name = 'guard48'
+        system.engine.addEntity(GuardRune(en))
         
-        system.engine.things.append(DeathListener2(e)) # listen for dragonpup to be dead to drop a guard rune
+        # listen for dragonpup to be dead to drop a guard rune
                 
 
 def to47():
@@ -21,40 +28,28 @@ def to47():
     x = system.engine.player.x - offset_from + offset_to
     system.engine.mapSwitch('map47.ika-map', (x, 1 * 16))
     
-class DeathListener2(Thing): #for SoulReaver quest
-
-    def __init__(self, e):
-        self.ent = e
-
-    def update(self):
-        if self.ent.stats.hp == 0:            
-            e = ika.Entity(162, 111, system.engine.player.layer, 'guardrune.ika-sprite')
-            e.name = 'guard48'
-            system.engine.addEntity(GuardRune(e))
-            return True
-
-
-    def draw(self):
-        pass
-
-
-    
-class DeathListener(Thing): 
-
+class DeathListener(Thing): #for SoulReaver quest
     def __init__(self, e=None):
-        self.enemies = e
-
-    def update(self):
-        done = True
-        for e in self.enemies:
-            if e.stats.hp > 0:
-                done = False
-        if done: #all are dead                        
-            e = ika.Entity(162, 111, system.engine.player.layer, 'guardrune.ika-sprite')
-            e.name = 'guard48'
-            system.engine.addEntity(GuardRune(e))
-            
+        self.ent = e
+        
+        
+    def update(self):    
+          
+        pass 
+        """
+        e= system.engine.entFromEnt[
+                ika.Map.entities['dragonp']
+                ]       
+        ika.Log(str(e)) #None?!
+    
+        if e.stats.hp == 0:            
+            en = ika.Entity(162, 111, system.engine.player.layer, 'guardrune.ika-sprite')
+            en.name = 'guard48'
+            system.engine.addEntity(GuardRune(en))
             return True
+        """
 
     def draw(self):
         pass
+
+
