@@ -141,6 +141,10 @@ class SaveLoadMenu(object):
 def readSaves():
     saves = []
     
+    try:
+        saves.append(SaveGame('quicksave')) #if a quicksave exists, why not!           
+    except IOError: 
+        pass #no file here
     
     for i in range(100): #support 100 saves?! :o
         try:
