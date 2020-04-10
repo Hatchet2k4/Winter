@@ -7,6 +7,8 @@ import savedata
 import system
 from statset import StatSet
 
+quicksave=None
+
 class SaveGame(object):
     def __init__(self, fileName = None):
         self.stats = StatSet()

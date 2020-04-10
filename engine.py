@@ -27,7 +27,7 @@ from field import Field
 from hud import HPBar, MPBar, EXPBar
 from caption import Caption
 from camera import Camera
-from gameover import EndGameException, GameOverException
+from gameover import EndGameException, GameOverException, LoadStateException
 
 import subscreen
 import saveload
@@ -96,7 +96,7 @@ class Engine(object):
 
         self.font = ika.Font('system.fnt')
         self.mapName = ''
-        self.friendlyMapName=''
+      
         
         #for game clock
         self.resetTime()
@@ -138,10 +138,6 @@ class Engine(object):
         else:
             self.player.x, self.player.y = START_POS
             lay = ika.Map.GetMetaData()['entityLayer']
-            try:
-                friendlyMapName=ika.Map.GetMetaData()['mapname']
-            except: 
-                pass
             self.player.layer = ika.Map.FindLayerByName(lay)
 
         self.things.append(HPBar())
@@ -167,9 +163,13 @@ class Engine(object):
         effects.blurFade(50, bleh, effects.createBlurImages())
         self.run()
 
-    def loadGame(self):
+    def loadGame(self, s=None):
         import saveloadmenu
-        result = saveloadmenu.loadMenu(fadeOut=False)
+        if not s:
+            result = saveloadmenu.loadMenu(fadeOut=False)
+        else:
+            result = s
+            
         if result:
             bleh = effects.createBlurImages()
             saveload.SaveGame.clearSaveFlags()
@@ -261,6 +261,9 @@ class Engine(object):
 
                 if controls.savestate():
                     self.SaveState()
+                
+                if controls.loadstate():
+                    self.LoadState()
 
                 # Do some thinking
                 self.tick()
@@ -280,9 +283,15 @@ class Engine(object):
             self.gameOver()
             self.killList = self.entities[:]
             self.clearKillQueue()
-        except EndGameException:
+        
+        except LoadStateException, l:
             self.killList = self.entities[:]
             self.clearKillQueue()
+            saveload.quicksave=l.s #assign quicksave to be loaded, to be interpreted back in system.py
+
+        except EndGameException: #must be last
+            self.killList = self.entities[:]
+            self.clearKillQueue()            
 
     def draw(self):
         if self.background:
@@ -367,8 +376,9 @@ class Engine(object):
 
         # making a gamble here: assuming all entities except the player are tied to the map
         if self.player:
-            self.killList= self.entities[:]
-            self.killList.remove(self.player)
+            self.killList= self.entities[:]            
+            
+            self.killList.remove(self.player)            
             self.clearKillQueue()
 
         for ent in ika.Map.entities.itervalues():
@@ -443,10 +453,26 @@ class Engine(object):
         #self.time = '%01d:%02d:%02d' % (self.hours, self.minutes, self.seconds)
         self.time = '%01d:%02d' % (self.hours, self.minutes)
         
-    def SaveState(self):
-        n = saveloadmenu.readSaves()
-        i = len(n)+1
-        
+    def SaveState(self):        
         s = SaveGame.currentGame()
-        s.save('save%i' % i)
+        s.save('quicksave')
+        
+    def LoadState(self):       
+        try:
+            s = SaveGame('quicksave')                        
+            raise LoadStateException(s)
+        except IOError: #no file here            
+            sound.menuBuzz.Play()
+
+       
+            #bleh = effects.createBlurImages()
+            #saveload.SaveGame.clearSaveFlags()
+            #self.mapSwitch(s.mapName, s.pos,  fade=False)
+            #self.init(s)
+            #self.draw()
+            #effects.blurFade(50, bleh, effects.createBlurImages())
+            #self.run()            
+ 
+
+        
     

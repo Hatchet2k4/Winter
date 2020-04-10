@@ -28,7 +28,9 @@ defaultControls = {
     'shiver': 'B',
     'vivify': 'N',
     'ternion': 'M',
-    'savestate': 'Q'
+    'savestate': 'F2',
+    'loadstate': 'F4'
+    
 }
 displayControls = {}
 
@@ -110,7 +112,8 @@ def setConfig(config=None):
     # Buttons
     for name in ('attack', 'cancel', 'rend',
                  'gale', 'heal', 'smoke',
-                 'shiver', 'vivify', 'ternion', 'savestate'):
+                 'shiver', 'vivify', 'ternion', 
+                 'savestate', 'loadstate'):
         globals()[name] = PressControl(name)
     
 
@@ -128,4 +131,4 @@ def setConfig(config=None):
 up = down = left = right = None
 attack = cancel = rend = None
 gale = heal = smoke = shiver = None
-savestate = None
+savestate = loadstate = None
