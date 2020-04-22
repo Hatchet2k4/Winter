@@ -10,6 +10,7 @@ controls.init()
 import subscreen
 subscreen.init()
 
+#import map2img
 
 try:
     c = controls.readConfig('controls.cfg')
@@ -26,6 +27,11 @@ except:
 
 
 introMusic = ika.Sound('music/Existing.s3m')
+
+
+
+
+
 
 intro()
 

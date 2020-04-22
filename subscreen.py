@@ -99,6 +99,9 @@ class AttribWindow(SubScreenWindow):
         )
 
     def createLayout(self):
+        #layout.HorizontalBoxLayout(
+        #            gui.StaticText(text=m),
+        #        )
         return layout.FlexGridLayout(cols=2, pad=0)
 
     def createContents(self):
@@ -107,7 +110,7 @@ class AttribWindow(SubScreenWindow):
             #gui.StaticText(text='Stats:'),gui.StaticText(text=''),
             self.icons['att'], gui.StaticText(text=' - %02i' % stats.att),
             self.icons['mag'], gui.StaticText(text=' - %02i' % stats.mag),
-            self.icons['pres'], gui.StaticText(text=' - %02i' % stats.pres),
+            self.icons['pres'], gui.StaticText(text=' - %02i' % stats.pres)
             #self.icons['mres'], gui.StaticText(text=' - %02i' % stats.mres)
             )
 
@@ -115,7 +118,9 @@ class InvWindow(SubScreenWindow):
     def __init__(self):
         SubScreenWindow.__init__(self)
         self.icons = {'tnt': gui.Picture(img='gfx/ui/item_dynamite.png'),
-                      'strength': gui.Picture(img='gfx/ui/icon_strength.png')
+                      'strength': gui.Picture(img='gfx/ui/icon_strength.png'),
+                      'def': gui.Picture(img='gfx/ui/icon_pres.png'),
+                      'mag': gui.Picture(img='gfx/ui/icon_mag.png'),
                       } 
         self.font = system.engine.font
         
