@@ -7,13 +7,10 @@ from xi.menu import Menu, Cancel
 from xi.cursor import ImageCursor
 import xi.effects
 
-
 from xi import gui, layout
 
 import controls
 from snow import Snow
-
-
 
 mapnames = { #all the maps that have save points. Could have used metadata, but this was more convenient.
 'map02.ika-map' : 'Mount Durinar Base',
