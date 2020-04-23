@@ -148,7 +148,7 @@ class Engine(object):
         self.camera.center()
         self.things.append(self.camera)
         
-        self.saveallmaps()
+        #self.saveallmaps()
         
 
     def beginNewGame(self):
