@@ -476,62 +476,7 @@ class Engine(object):
             #effects.blurFade(50, bleh, effects.createBlurImages())
             #self.run()            
  
-    def Map2TMX(self, mapName):
-            
-        ika.Log('Saving map ' + mapName)
-        ika.Map.Switch('maps/' + mapName + '.ika-map')
-        
-        twidth = theight = 16
-        
-        mheight = ika.Map.height / theight
-        mwidth = ika.Map.width / twidth
-        
-        #canvas = ika.Canvas(ika.Map.width, ika.Map.height) 
-        s = '''<?xml version="1.0" encoding="UTF-8"?>\n
-    <map version="1.2" tiledversion="2020.02.12" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="''' + str(mheight) + '''" height="''' + str(mwidth) + '''" tilewidth="''' +str(twidth) + '''" tileheight="''' + str(theight) +   '''" infinite="0" nextlayerid="5" nextobjectid="1">
-    <tileset firstgid="1" source="''' + ika.Map.tilesetname + '''.tsx"/> '''
-        
-        for l in range(ika.Map.layercount):                
-            n, w,h, wrapx,wrapy = ika.Map.GetLayerProperties(l)
-            lwidth = w 
-            lheight = h 
-            
-            s += '''\n<layer id="''' +str(l + 1) + '''" name="'''  + n + '''" width="''' +  str(lwidth) + '''" height="''' + str(lheight) +  '''"> 
-            <data encoding="csv">'''          
-            
-            
-            for y in range(int(ika.Map.height/16)):
-                for x in range(int(ika.Map.width/16)):
-                
-                    t=ika.Map.GetTile(x,y,l)
-                    s+= str(t) + ','
-                    
-                s= s [:-1] #hack to remove the last comma
-            s+='\n</data></layer>'
-        s+='\n</map>'
-        
-        file('maps/' + mapName + '.tmx', 'wt').write(s)                    
-        #canvas.Save('map2img/' +  mapName + '.png')
-                    
-        
-    def saveallmaps(self):
-        savemaps=[]
-        #tiles=self.rip_tiles('tiles.png', 16, 16, 6, 503)
-        
-        #hack!
-        for i in range(1, 10):
-            savemaps.append('map0'+str(i)) 
-        for i in range(10, 51):
-            if i in [33, 20, 18, 15]: #these maps don't exist!
-                pass
-            else: 
-                savemaps.append('map'+str(i))
 
-        ika.Log('maps: ' + str(savemaps))
-        
-        for m in savemaps:
-            #self.Map2Img(m, tiles)    
-            self.Map2TMX(m)
 
         
     
