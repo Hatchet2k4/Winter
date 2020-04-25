@@ -33,7 +33,7 @@ introMusic = ika.Sound('music/Existing.s3m')
 
 
 
-intro()
+#intro()
 
 
     
