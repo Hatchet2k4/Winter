@@ -26,6 +26,7 @@ class Gauge(Thing):
         self.colour = ika.GetRGB(colour)[:-1]
         self.width = None
         self.fadeIn = False
+        self.type = ''
 
     def update(self):
         v = sgn(self.curVal - self.oldVal)
@@ -43,11 +44,12 @@ class Gauge(Thing):
             self.oldVal += v
             self.oldMax += m
 
-    def draw(self):
-        if self.opacity == 0:
+    def draw(self, op=0):
+        if self.opacity == 0 and op == 0:
             return
 
         o = min(255, self.opacity)
+        o = max(op, o)
 
         # the width of the repeated span image thingo.
         # each end of the gauge occupies two pixels, so we subtract four.
@@ -94,6 +96,49 @@ class HPBar(Gauge):
         Gauge.__init__(self, 'gfx/ui/barhp%i.png', 0, 0, justify='right')
         self.y = ika.Video.yres - self.left.height - 1
         self.colour = (255, 0, 0)
+        self.type = 'HP'
+        
+        self.beeptime = 0
+        self.beepw = self.beeph = 0
+        self.beepx = self.beepy = 0
+        self.beepo = 0
+        
+    def update(self):
+        Gauge.update(self)
+        
+        if float(self.curVal) / float(self.curMax) < 0.95 and not self.beeptime: #less than 20% health, beep beep!
+            self.beeptime = 100
+            
+            #width = (self.width or self.oldMax) - 3
+            
+            if self.justify == 'left':
+                self.beepx = self.x + 2
+            else:
+                self.beepx = ika.Video.xres - self.left.width - self.right.width - self.x - 2
+            
+            #self.beepx = self.x + 2
+            self.beepy = self.y
+            
+            self.beepw = self.curVal
+            self.beeph=5
+            self.beepo=210
+            
+        elif self.beeptime > 0:
+            self.beepo = max(self.beepo-2, 0)
+            
+            #self.beepx-=1
+            #self.beepy-=1
+            #self.beepw+=2
+            #self.beeph+=2
+                        
+            self.beeptime-=1
+            
+    def draw(self):
+        Gauge.draw(self)
+        #if self.beeptime > 0: 
+        #    ika.Video.DrawRect(self.beepx, self.beepy, self.beepw, self.beeph, ika.RGB(*(self.colour + (self.beepo,))), False)
+        
+
 
     curVal = property(lambda self: system.engine.player.stats.hp)
     curMax = property(lambda self: system.engine.player.stats.maxhp)
@@ -105,6 +150,7 @@ class MPBar(Gauge):
         self.colour = (0, 0, 255)
         self.oldMax = self.curMax
         self.oldVal = self.curVal
+        self.type = 'MP'
 
     curVal = property(lambda self: system.engine.player.stats.mp)
     curMax = property(lambda self: system.engine.player.stats.maxmp)
@@ -117,6 +163,7 @@ class EXPBar(Gauge):
         self.colour = (0, 128, 128)
         self.oldMax = self.curMax
         self.oldVal = self.curVal
+        self.type = 'EXP'
 
     def drawRect(self, x, y, w, h, opacity):
         super(EXPBar, self).drawRect(x, y, w, h - 1, opacity)
