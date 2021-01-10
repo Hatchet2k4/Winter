@@ -20,7 +20,7 @@
 		(layer 
 			(label B0)
 			(dimensions 
-				(width 32)
+				(width 45)
 				(height 40)
 			)
 			(position 
@@ -39,32 +39,42 @@
 			)
 			(data 
 				(format zlib)
-				eJycmEFu6zAMRNWcqqexNtJK9983Bkzg5WUUOP2A4Cgx
-NeRwSLF/ttaO5xrP9dis8/f5XOv63K/nuuzq93qOa61r
-TexHsO+wIW6dOXQOfeAa1ztTtlMYZU9f67wU9wQ+/eCZ
-Ezh1fteefJWNuTN+io17xlSc1u8dn8njwnu/P++cdfjw
-ie8DvxXewp6cmK+yO/HPxfPK7iH+iEesinu113z4PO6N
-f67SRJ1f+ElDjIncjoBLzbA2pvDpN/FtS3vqgb6QY8ZF
-+yF8Yhf/zOPQecZkjuosa77yRv3Zh/LzgTN4ZvlEjdJ3
-6oK5c12ugN8DPn1nD2Kt9vaae+t94UlfjE8tsA9YB6lP
-O+bUK1iv1t/OB+aNcTOv5IA9qOItm9X29ZfWbO89zZor
-LZRGyNVqr3wx9qS/T36UFrlnrZp39jH39NGy/narYqIN
-88uckJd0p1Gn38SfOBvCIe8Jn++7/9yJP2nGOXeMvqP4
-vBu777Tdu8SesqF278bvu4t34R3f3ZPIUTrDuqSte/jd
-3NkXzoXOsWuY37FvlM6/9cG6JbbvMPfdNPd9U0N38uxc
-M9+uqzSP/JeLdIczF2mu8zu0TfPFrq5dM0lv5CLNPtRI
-x2e++wmf/TLN6e4d1qM1Yfvyo8sXYk6dxV7KuY6zBnln
-rqxZ5o3znDnmfGf9cwbgXbxwPmeArr017L8NlrDdr8gv
-e4P7g3t/0meKiZwdepoX+5buoCPsPaMxp6492y3ZmUP7
-4zg8D/suZgzMPfXL+ZXx+Ht+l/JBDdhPc9GF7Rokh6mH
-OL+pVlkj9KFsk//WSIqNuk6z667PMS5z435lbfL/VciF
-OUpzje8U14TzS18Yn2Mj5pDNrg+Rh9Xe85vuqB237tPe
-m1e+43p0Tt1Tk3aNx/xSp85zuhc9G7kHMZ++hxjL+e8P
-AAD//w==
+				eJysmUuO4zAMROV8tnOeOY0FDKKV77+fGFChX17odNIz
+C8I/SS6SxRKdjNbaerfb3U53W+72C3aaz8fdtnne5/j9
++WWO2c/Pc9xt2jZt4Po25696zmdD57lesXbH+RVYz9Nu
+eveKscG8zHsDtuIe3xG/h+7FBuZwrteJ78vEwXgnDjza
+1/iXdTos14klfVm11sCcW3uMA+fwSH6c22Osq/idgCNj
+iWNtjzg3WIX31h5j7+M+9vfynM+OnDt+tive2Q985HPz
+Y/smruRRjjvm3So+LYgbMS/T+L7EjjzxerxmLa96TuxV
+TQTzbvSnzzi/4r/zb8zREdYANYXcZf5jrAnGnZjpW0fe
+/T6+03WU8/Ocf23PHKF/jIfN9Za1iZl4WV/kl/0mTsZs
+KN5nrMMadG65jjHHR2IO7szNfrIVc+MT/Tqqq2CObnaM
+O+IvecJajG6Y08bMOJJXJ1gv3lPpNzlsLjMH1mTWqjGT
+26nDat86Fdb1fsYtuul9rdJl5oL1mGdHmIP7D/Akl+QE
+MWVd5jw8yZzE0Dhc31V+M+4V5vDbe5brLtxO7piT6MNS
+4GTv5bi6xmnfYbambO3xmrw0J3Kevq/ax28FzlVjrJPv
+Yk7stvbsB2uSe074cJlm3MyL64UamFh5734nzsF4tA+d
+xIn9PL1t7NyefU28yUP64Z700zhX+mgOO5beW6iD1X5U
+7b1HMXsV4665R2OJd2iO66zSu4q/1s1POOGae8df15Tr
+jPs0dck9xys+x1f3qM7j9ibmCj/3OuuYfbFuGjN9dt0y
+3j/RnQo/16/6ryEs1NrgrTTca7iP+ETjj/hP3bNmVzVv
+3lb5cl9fxftTHSLmqj7f5VkV56y3AZd9q965/dCHd4wx
+dI98pJ3VNwo5z56GY/83ZvOcmM3j3p5r0hz3fOruv+In
+Tn/jUGPW9sxd4jWPqt54yLhe5r2jR86/tdzfflVfyn6B
+PXTXtev4OzvSjS48xOt9i7mntlq/qVVHNco8cKy5Vxlj
+53VG8c4jf6o+qeqJq16ba1e9RrXf+PvD+zX1wn2N+ydr
+CH0n1q7zofW99lE+vU9WmsXfARg33+e9iisVp107jkXF
+d2uX929ioD/M1d4fL+3r9+hgd+/G3FtrzCuPZ23xHjUh
+a1za1/fSIj9z/IXn+/HaHjXEPRG1ljipPdbLo/2O4/Lb
+W76Pru2ZQ7nO9+oJY/19Ql6Se16LPSvvu4dw3zMQsxj5
+umotfrP6/xl+L5pbzDd1lHF0/VZ7S+KR91/bIw+qPir4
+gptcoS/5DYfcCB+2Yv0qrtV3QeUndc+6Gm6Q8+bHFf6z
+F2FNMV7uZ8hZ9hzWfvd75ILHBE+wXYDVuPn77if2FwAA
+//8=
 			)
 			(obstructions 
 				(format tile)
-				eJxiYBgFo2AUjIKRCQAAAAD//w==
+				eJxiYBgFo2AUjIJRMApGLgAAAAD//w==
 			)
 			(entities 
 			)
@@ -74,7 +84,7 @@ AAD//w==
 		(layer 
 			(label B2)
 			(dimensions 
-				(width 32)
+				(width 45)
 				(height 40)
 			)
 			(position 
@@ -93,29 +103,34 @@ AAD//w==
 			)
 			(data 
 				(format zlib)
-				eJzsWO1OwzAMdL/Gh6ZqAjEBQgMhQDwY7wU85xCjFj7l
-6iWjycYPJCxZXbM1d744jjuRf/uL1ptXgzeDt4XzrKt8
-3Now9doZB3A5NIcZYVYyjrd12OqLQg4fCQ5zwlBHvOBQ
-07WX8nX4CR9aI9aLwa/Nz228kXINUmsA/Nbmx1ooxp35
-lXGABsrz2Pwkg0NMgzMJ8SF+jX05+JP5reMAHeCnE/Fj
-Glza3K+Dvw3+btg39JsVcYBG++Qk81gZB8ZX7Hv3DDjU
-Mt4r++bDg83N+B4b9ighBxh/WYDPHMTh7zKuSfCbnU9M
-M8ZP7ZVLCfWANUjpVYovCQ4rCevP/vwL+DEODwn8Qxj0
-7N147vmVazPDRe3B2nJNWaNAHypYs031XX9x1qIGKofU
-nh5xyeSzIS2r4dkX+cZHzeczzmuQsqnabCLriLOf48e9
-XlWDz4z1T3GJYashdvQaigv9gS+ZHLa4yO6zH3nvawrj
-s+VyScUOfPRYcPQ6XQJfTXMHXqKN2kyC1px3qK+tfT/F
-Srho74I+opGQg6xD7tk6RZeZw63dPfYizrjSfhd8vM0l
-1DruY/hMxfdYl6n91RRDznHPj/g7N44ttI8GMXyWBdhY
-78aN77sGMXw+64ADrWPvGccHwj6ScX2HQ2+uhfwZ+ViS
-B+jPUeuBg73v3/Vi/S2P5RryB7oDm9+3/D3zAy7uS/B7
-CXnHtR4ac4yKw3WgkvE7agk+7zeOh3Owo/GGvJPQo5Tq
-j1q+IEzWoabfcQ1qZbtW5BrPuZDxfxuMi3h7N4Z6ibEc
-WxB/4Ps6X9HnLnL19SLXvgAAAP//
+				eJzEmI1u00AQhNc/CQVVUQQClR8BQlD1mdoiWYX3Ap6z
+iOKRb/B4c5fEje8YaZX6ek4+j/f21jYbdGNpdZGx28Tc
+6z3fk0Mpjq9Hzo3Ny61TmaFuGZSjNSc/NiGqPpo+2j1z
+l9Z9NT0G992e+eCsbeDE58oGbvJT3YKMMXluiPd+bSNn
+ZVNfW5vyIrbyHV0mXuq34ybzuXAh6Cu5a/nc2DRHoC4T
+L3SImXlAT1/28SbEizDe2K7X0DfLw+7zwzO3gYl5Aq6P
+IV7bwE2vcW1nIZ5mZlevyfzcRh/pMzx+1cdliA+Om34z
+nslvLF3D1WvWvYvA86OPn338Crzv5Lz3ws17kVqXufYd
+st8GngvHDN5P7hxy1zatMaWYIXDD68+BR5nBe2VDb4E5
+TTjni405TV7mEZW7H9FcUeYb99vMI6xX3WcQb23Mo9L9
+iDKn9iDkEOu1es08+p/MUKw2IofqSFzJvFy1OibPDPk6
+g9yPMXuV8pv3euPGPfddJLxyM6NHAhb3E+aq7hP33Nxj
+ptruteSsHQ/VUAvYd3IvBLfvKagJf+Ialmakqv73vtvA
+zB5DezfvdUqH7sEpeojUL/bO6jOP8Qmv/0TOS2lJ/hgv
+RI/Z34OVuUFmaA439Y//gLC3XrqAfO/smdmL6j6hzKrH
+8M9VymMIzHx+YvCZBH6n1iHWAqPENVBrG/NA1x735jb8
+/xiV4sczBnv3xsZ1qH7HnqP2KZf/a8dau2PWPfZuc5i9
+qoXq37mNe54+b2h/yf8zZ46p0znFdafvNOjzyo2zXJ3i
+9RJi306Rl/nbuPFT82MJaU3WdxbMg9i7l7PCjKonNu0n
+GMwF3RP1b67JUnnN9w/sLcjG2uzfzcWeq3WshLiGmBPk
+1Xdd/liviaw8LsW8sXHtaW/B+69egk3rdGXT95ClmLW2
+qW+6Dlcy3kisbHwuKJkb7B22wql+1zJP95XWdmt5CSnH
+1qbv8JWVvm7cGPdNjs3RY+u69sX02eer9hj+09fzEvoL
+AAD//w==
 			)
 			(obstructions 
 				(format tile)
-				eJxiYBgFo2AUjIKRCQAAAAD//w==
+				eJxiYBgFo2AUjIJRMApGLgAAAAD//w==
 			)
 			(entities 
 			)
@@ -125,7 +140,7 @@ WxB/4Ps6X9HnLnL19SLXvgAAAP//
 		(layer 
 			(label B3)
 			(dimensions 
-				(width 32)
+				(width 45)
 				(height 40)
 			)
 			(position 
@@ -144,16 +159,17 @@ WxB/4Ps6X9HnLnL19SLXvgAAAP//
 			)
 			(data 
 				(format zlib)
-				eJzsl1EKgCAMhn3KjJ6KblDUXbr/fVLwYclILKcz9sHQ
-MPjnttIpJWCckXVtrQdmyD2662JQ+QD3GmPIrN0lvl8q
-D0/kjkEqX2MQq30BZxT9qkyV9QUadPDM4R9fmxIxcOdA
-GHuBHi7nbyz3HL5DirtWSzXPIQeUuFwYZE6tCfudxY+z
-Hyn7vbD2Vmu7n2/WDrAGffx7HXAmtUflSu2+9Q1fYt/i
-fnNzAQAA//8=
+				eJzsmMEOwiAMhntSZ7wZrx50Rt/F938f18gS1mzWzpD+
+SL+EABmHn38FCkSBJ0/l+3You6x0xRWtZ9Q6B5Lu3FON
+fWEt37Axjkfy2gKC11Y8vNb2jMCXg7cAA32qa9LMsG4k
+zb3oPxbGIWm2cBT9s4sKG1ea6pb/CBH29eItgt45Us6n
+c459XYr3wA5q/sZ5h4yLoG1qzkW1WEZdhxoo96h/3ytq
+jQ80OE66mTYa8t3olOoxx0R7n5Prj/O0e2rfaJqz5fNC
+mkOAg/UdsnVQzuHS/BIXrXhUKy8AAAD//w==
 			)
 			(obstructions 
 				(format tile)
-				eJxiYBgFo2AUjIKRCQAAAAD//w==
+				eJxiYBgFo2AUjIJRMApGLgAAAAD//w==
 			)
 			(entities 
 			)
@@ -163,7 +179,7 @@ fnNzAQAA//8=
 		(layer 
 			(label A0)
 			(dimensions 
-				(width 32)
+				(width 45)
 				(height 40)
 			)
 			(position 
@@ -182,13 +198,13 @@ fnNzAQAA//8=
 			)
 			(data 
 				(format zlib)
-				eJzs0rEKACAIhGG36v1fuIamKLhBS+L/wFWPQzMAAAAA
-APC75rirjKlzPPeqt1dqjuisSo4bfUXd2HV/8uo/MsrQ
-QQcAAP//
+				eJzs0jsOACEIBUA7d+9/YS22dDswfmYSGgpC4JUCAAAA
+AADx3sBZtdfzVeTcLHXQy9w9+yZZu8/45Up5GeXiz055
+P8VNt24AAAD//w==
 			)
 			(obstructions 
 				(format tile)
-				eJxiYBgFo2AUjIKRCQAAAAD//w==
+				eJxiYBgFo2AUjIJRMApGLgAAAAD//w==
 			)
 			(entities 
 			)
