@@ -28,7 +28,7 @@ except:
 
 introMusic = ika.Sound('music/Existing.s3m')
 
-
+ika.SetCaption('Winter')
 
 
 
