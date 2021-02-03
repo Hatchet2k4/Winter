@@ -1,4 +1,4 @@
-{ "columns":9,
+{ "columns":6,
  "editorsettings":
     {
      "export":
@@ -7,14 +7,20 @@
          "target":"."
         }
     },
+ "grid":
+    {
+     "height":9,
+     "orientation":"orthogonal",
+     "width":12
+    },
  "image":"autotiles.png",
- "imageheight":86,
- "imagewidth":154,
+ "imageheight":61,
+ "imagewidth":118,
  "margin":1,
  "name":"autotiles",
  "spacing":1,
  "tilecount":45,
- "tiledversion":"1.4.2",
+ "tiledversion":"2021.01.13",
  "tileheight":16,
  "tilewidth":16,
  "type":"tileset",
