@@ -38,6 +38,7 @@ import controls
 import cabin
 import sound
 
+
 FRAME_RATE = 100
 MAX_SKIP_COUNT = 10
 START_MAP = 'map01.ika-map'
@@ -96,7 +97,6 @@ class Engine(object):
 
         self.font = ika.Font('system.fnt')
         self.mapName = ''
-      
         
         #for game clock
         self.resetTime()
@@ -267,6 +267,9 @@ class Engine(object):
                 
                 if controls.loadstate():
                     self.LoadState()
+                
+                if controls.showmap():
+                    self.ShowMap()
 
                 # Do some thinking
                 self.tick()
@@ -440,6 +443,12 @@ class Engine(object):
         s = subscreen.PauseScreen()
         s.run()
 
+        self.synchTime()
+    
+    def ShowMap(self):
+        self.draw()
+        s = subscreen.MapScreen()
+        s.run()
         self.synchTime()
         
     def updateTime(self):

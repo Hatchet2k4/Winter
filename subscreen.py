@@ -15,6 +15,21 @@ from controls import displayControls
 
 from gameover import EndGameException
 
+import controls
+import riptiles
+
+automapdata = { #automap data for all maps because I'm lazy, in (x, y, w, h, layer) notation
+'map01.ika-map' : (10, 32, 3, 2, 'snow'),
+'map02.ika-map' : (7, 30, 3, 3, 'snow'),
+'map03.ika-map' : (2, 30, 5, 2, 'snow'),
+'map04.ika-map' : (7, 30, 2, 3, 'snow'),
+'map05.ika-map' : (2, 26, 1, 1, 'cave'),
+'map06.ika-map' : (8, 18, 3, 3, 'snow'),
+#'map07.ika-map' : (7, 30, 3, 3, 'snow'),
+'map08.ika-map' : (5, 19, 3, 2, 'snow'),
+'map11.ika-map' : (5, 21, 3, 2, 'snow'),
+} 
+
 class Window(ImageWindow):
     '''
     Specialized xi window.  The only real differences are that it pulls
@@ -184,6 +199,34 @@ class TimerWindow(SubScreenWindow):
 
         return (gui.StaticText(text=txt),)
 
+
+
+class MapScreen(object):
+    def __init__(self):
+        assert _initted
+        self.maptiles=riptiles.RipTiles('overworld/autotiles.png', 16, 16)
+        
+    def update(self):
+        pass
+        
+    def show(self):
+        self.images = effects.createBlurImages()
+    
+    def hide(self):
+        pass
+    
+    def draw(self, opacity = 255):
+        pass
+    def run(self):
+        self.show()            
+        while True:            
+            ika.Video.ScaleBlit(self.images[-1], 0, 0, ika.Video.xres, ika.Video.yres, ika.Opaque)
+            ika.Video.DrawRect(0, 0, ika.Video.xres, ika.Video.yres, ika.RGB(0, 0, 0, 128), True)
+            ika.Video.ShowPage()
+            ika.Input.Update()
+            if controls.cancel() or controls.showmap(): 
+                break
+        
 class PauseScreen(object):
     def __init__(self):
         assert _initted
@@ -193,7 +236,7 @@ class PauseScreen(object):
         self.menu = MenuWindow()
         self.inv = InvWindow()
         self.timer = TimerWindow()
-
+        
 
     def update(self):
         self.statWnd.update()
@@ -289,7 +332,7 @@ class PauseScreen(object):
         while True:
             ika.Video.ScaleBlit(self.images[-1], 0, 0, ika.Video.xres, ika.Video.yres, ika.Opaque)
             ika.Video.DrawRect(0, 0, ika.Video.xres, ika.Video.yres, ika.RGB(0, 0, 0, 128), True)
-            self.draw()
+            self.draw()            
             ika.Video.ShowPage()
             ika.Input.Update()
 
@@ -309,7 +352,9 @@ class PauseScreen(object):
 
     def toggleDamage(self):
         system.engine.player.stats.damageind = (1, 0)[system.engine.player.stats.damageind]
-        self.menu.textCtrl.text.setText(['Resume','Show Damage: ' + ('OFF', 'ON ')[system.engine.player.stats.damageind],'Exit'])
+        self.menu.textCtrl.text.setText(['Resume','Show Damage: ' + ('OFF', 'ON ')[system.engine.player.stats.damageind], 'Exit'])
+
+
            
     def exitGame(self):
         # TODO: shiny fade out
