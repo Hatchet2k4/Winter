@@ -37,7 +37,7 @@ from saveload import SaveGame
 import controls
 import cabin
 import sound
-
+import automap
 
 FRAME_RATE = 100
 MAX_SKIP_COUNT = 10

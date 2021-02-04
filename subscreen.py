@@ -360,6 +360,7 @@ class MapScreen(object):
         scroll = maxscroll = 110
         topx=12
         topy=12
+        automap.map.update()
         
         while True:            
             ika.Video.ScaleBlit(self.images[-1], 0, 0, ika.Video.xres, ika.Video.yres, ika.Opaque)
