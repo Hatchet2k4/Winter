@@ -29,7 +29,7 @@ class Automap(object):
         self.tileheight=9
         
     def draw(self, topx, topy):
-        ika.Video.Blit(self.bg, 10,9)
+        ika.Video.Blit(self.bg, topx-2,topy-3)
     
         for y in range(self.mapheight):
             for x in range(self.mapwidth):
