@@ -9,7 +9,7 @@ def to12a():
     offset_from = 6 * 16  # first vertical pos possible on current
     offset_to = 7 * 16  # first vertical pos possible on destination
     y = system.engine.player.y - offset_from + offset_to
-    system.engine.mapSwitch('map12a.ika-map', (18 * 16, y))
+    system.engine.mapSwitch('map51.ika-map', (18 * 16, y))
 
 
 def heal():
