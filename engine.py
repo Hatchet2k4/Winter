@@ -202,6 +202,7 @@ class Engine(object):
         mapModule = __import__(moduleName, globals(), locals(), [''])
         ika.Map.Switch(mapName)
         metaData = ika.Map.GetMetaData()
+        
 
         self.readZones(mapModule)
         self.readEnts(mapModule)
@@ -218,6 +219,9 @@ class Engine(object):
                 assert False
 
             self.camera.center()
+        
+        if self.player:
+            automap.map.update()
 
         if 'music' in metaData:                
             sound.playMusic('music/' + metaData['music'])
