@@ -98,7 +98,7 @@ class AttribWindow(SubScreenWindow):
         SubScreenWindow.__init__(self)
         self.icons = dict(
             [(s, gui.Picture(img='gfx/ui/icon_%s.png' % s))
-                for s in ('att', 'mag', 'pres', 'mres')]
+                for s in ('att', 'mag', 'pres', 'mres', 'tnt')]
         )
 
     def createLayout(self):
@@ -109,12 +109,17 @@ class AttribWindow(SubScreenWindow):
 
     def createContents(self):
         stats = system.engine.player.stats
+        tnt=0
+        for k in savedata.__dict__.keys():
+            if k.startswith('dynamite') and savedata.__dict__[k] == 'True':
+                tnt+=1
+        
         return (
             #gui.StaticText(text='Stats:'),gui.StaticText(text=''),
             self.icons['att'], gui.StaticText(text=' - %02i' % stats.att),
             self.icons['mag'], gui.StaticText(text=' - %02i' % stats.mag),
-            self.icons['pres'], gui.StaticText(text=' - %02i' % stats.pres)
-            #self.icons['mres'], gui.StaticText(text=' - %02i' % stats.mres)
+            self.icons['pres'], gui.StaticText(text=' - %02i' % stats.pres),
+            self.icons['tnt'], gui.StaticText(text=' - %i' % tnt)
             )
 
 class InvWindow(SubScreenWindow):
@@ -198,7 +203,7 @@ class PauseScreen(object):
         self.attribWnd = AttribWindow()
         self.magWnd = MagicWindow()
         self.menu = MenuWindow()
-        self.inv = InvWindow()
+        #self.inv = InvWindow()
         self.timer = TimerWindow()
         
 
@@ -206,7 +211,7 @@ class PauseScreen(object):
         self.statWnd.update()
         self.attribWnd.update()
         self.magWnd.update()
-        self.inv.update()
+        #self.inv.update()
         self.timer.update()
         
         self.statWnd.dockTop().dockLeft()
@@ -217,13 +222,14 @@ class PauseScreen(object):
         
         w = 113
         self.menu.dockRight().dockTop()
-        self.inv.width = w #same width as menu width at present
-        self.inv.dockRight()
+        #self.inv.width = w #same width as menu width at present
+        #s1elf.inv.dockRight()
         self.magWnd.width = w
         self.magWnd.dockRight()        
         
-        self.inv.Position = (self.inv.Left, self.menu.Bottom + self.menu.Border * 2 )
-        self.magWnd.Position = (self.magWnd.Left, self.inv.Bottom + self.inv.Border * 2)
+        #self.inv.Position = (self.inv.Left, self.menu.Bottom + self.menu.Border * 2 )
+        #self.magWnd.Position = (self.magWnd.Left, self.inv.Bottom + self.inv.Border * 2)
+        self.magWnd.Position = (self.magWnd.Left, self.menu.Bottom + self.menu.Border * 2)
         
         
         
@@ -244,7 +250,7 @@ class PauseScreen(object):
         t.addChild(self.attribWnd, startRect=(-self.attribWnd.Right, self.attribWnd.Top), time=TIME - 5)
         t.addChild(self.magWnd, startRect=(ika.Video.xres, self.magWnd.Top), time=TIME - 5)
         t.addChild(self.menu, startRect=(ika.Video.xres, self.menu.Top), time=TIME - 5)
-        t.addChild(self.inv, startRect=(ika.Video.xres, self.inv.Top), time=TIME - 5)
+        #t.addChild(self.inv, startRect=(ika.Video.xres, self.inv.Top), time=TIME - 5)
         t.addChild(self.timer, startRect=(-self.timer.Right, self.timer.Top), time=TIME - 5)
 
         for i in range(TIME):
@@ -267,7 +273,7 @@ class PauseScreen(object):
         t.addChild(self.attribWnd, endRect=(-self.attribWnd.Right, self.attribWnd.Top), time=TIME - 5)
         t.addChild(self.magWnd, endRect=(ika.Video.xres, self.magWnd.Top), time=TIME - 5)
         t.addChild(self.menu, endRect=(ika.Video.xres, self.menu.Top), time=TIME - 5)
-        t.addChild(self.inv, endRect=(ika.Video.xres, self.inv.Top), time=TIME - 5)
+        #t.addChild(self.inv, endRect=(ika.Video.xres, self.inv.Top), time=TIME - 5)
         t.addChild(self.timer, endRect=(-self.timer.Right, self.timer.Top), time=TIME - 5)
         
         for i in range(TIME - 1, -1, -1):
@@ -287,7 +293,7 @@ class PauseScreen(object):
         self.attribWnd.draw()
         self.magWnd.draw()
         self.menu.draw()
-        self.inv.draw()
+        #self.inv.draw()
         self.timer.draw()
         
 
