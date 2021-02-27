@@ -69,6 +69,8 @@ class SaveGameFrame(gui.Frame):
         else:
             assert False
 
+New = object()
+
 class SaveLoadMenu(object):
     def __init__(self, saves, saving = False):
         self.icons = dict(
@@ -79,6 +81,7 @@ class SaveLoadMenu(object):
         self.cursor = ImageCursor('gfx/ui/pointer.png')
 
         self.saves = saves
+        self.saving = saving
 
         boxes = [SaveGameFrame(save=s, icons=self.icons) for s in saves]
         if saving:
@@ -121,7 +124,10 @@ class SaveLoadMenu(object):
                 self.cursorPos += 1
                 self.curY = self.cursorPos * self.wndHeight
             elif controls.attack():
-                return self.cursorPos
+                if self.saving and self.cursorPos == len(self.layout.children) -1: #create new
+                    return New
+                else: 
+                    return self.cursorPos
             elif controls.cancel():
                 return Cancel
 
@@ -137,7 +143,7 @@ def readSaves():
     
     for i in range(100): #support 100 saves?! :o
         try:
-            saves.append(SaveGame('save%i' % i))            
+            saves.append(SaveGame('Save %i' % i))            
         except IOError: 
             pass #no file here, skip to the next one
             
@@ -198,7 +204,16 @@ def saveMenu():
 
     if i is not Cancel:
         s = SaveGame.currentGame()
-        s.save('save%i' % i)
+        if i is New:
+            for j in range(100):
+                try: 
+                    f=file('Save %i' % j, 'rt')
+                    f.close()
+                except IOError: #found a slot that doesn't exist
+                    s.save('Save %i' % j)
+                    break
+        else:
+            s.save('Save %i' % i)
 
     xi.effects.fadeOut(50, draw=draw)
 
