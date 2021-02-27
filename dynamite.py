@@ -18,5 +18,6 @@ class Dynamite(Entity):
         assert self.flagName not in self.__dict__, 'Already have this.  Why are we updating?'
         if self.touches(system.engine.player):
             setattr(savedata, self.flagName, 'True')
+            system.engine.player.stats.tnt+=1
             system.engine.destroyEntity(self)
             system.engine.things.append(Caption('Got a stick of dynamite!'))

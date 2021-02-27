@@ -17,6 +17,7 @@ smoke=0
 vivify=0
 ternion=0
 damageind=1
+tnt=1
 FLAGS
 MAPNAME='map30.ika-map'
 POS='162,167,1'

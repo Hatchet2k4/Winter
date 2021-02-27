@@ -2,7 +2,7 @@
 
 import ika
 import system
-from saveload import SaveGame
+from saveload import SaveGame, mapnames
 from xi.menu import Menu, Cancel
 from xi.cursor import ImageCursor
 import xi.effects
@@ -12,15 +12,7 @@ from xi import gui, layout
 import controls
 from snow import Snow
 
-mapnames = { #all the maps that have save points. Could have used metadata, but this was more convenient.
-'map02.ika-map' : 'Mount Durinar Base',
-'map11.ika-map' : 'Misty Cliffs', #no longer valid but leaving it in anyways :D
-'map12.ika-map' : 'Misty Cave', #no longer valid but leaving it in anyways :D
-'map14.ika-map' : 'Lookout Point',
-'map30.ika-map' : 'Serpent Valley',
-'map38.ika-map' : 'Northwest Summit',
-'map50.ika-map' : 'Northeast Cave'
-} 
+
 
 debug = True
 
@@ -64,7 +56,7 @@ class SaveGameFrame(gui.Frame):
                     icons['mag'], gui.StaticText(text='%02i  ' % stats.mag),
                     gui.StaticText(text='  Time'),                    
                     icons['pres'], gui.StaticText(text='%02i  ' % stats.pres),
-                    icons['mres'], gui.StaticText(text='%02i  ' % stats.mres),
+                    icons['tnt'], gui.StaticText(text='% i  ' % stats.tnt),
                     gui.StaticText(text='  '+self.save.time)
                 )
             ]
@@ -81,7 +73,7 @@ class SaveLoadMenu(object):
     def __init__(self, saves, saving = False):
         self.icons = dict(
             [(s, gui.Picture(img='gfx/ui/icon_%s.png' % s))
-                for s in ('att', 'mag', 'pres', 'mres')]
+                for s in ('att', 'mag', 'pres', 'tnt')]
         )
 
         self.cursor = ImageCursor('gfx/ui/pointer.png')
@@ -110,7 +102,7 @@ class SaveLoadMenu(object):
     def draw(self):
         self.layout.Y = (ika.Video.yres - self.wndHeight) / 2 - self.oldY + 16
         self.layout.draw()
-        self.cursor.draw(100, ika.Video.yres / 2) # cursor doesn't move, everything else does
+        self.cursor.draw(100, ika.Video.yres / 2 - 14) # cursor doesn't move, everything else does
         #self.cursor.draw(100, 3) # cursor doesn't move, everything else does
 
     def update(self):

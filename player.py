@@ -216,7 +216,8 @@ initialStats = StatSet(
     level=1,
     exp=0,
     next=10,
-    damageind=1)
+    damageind=1,
+    tnt=0)
 
 class Player(Entity):
     def __init__(self, x=0, y=0, layer=0):

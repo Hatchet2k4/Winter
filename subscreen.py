@@ -18,6 +18,8 @@ from gameover import EndGameException
 import controls
 import automap
 
+from saveload import mapnames
+
 class Window(ImageWindow):
     '''
     Specialized xi window.  The only real differences are that it pulls

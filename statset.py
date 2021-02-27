@@ -10,7 +10,8 @@ class StatSet(object):
         # horrible hack, yes.  But whatever.
         'rend', 'heal', 'gale', 'shiver',
         'smoke', 'vivify', 'ternion',
-        'damageind' #toggle for damage numbers. Hack!
+        'damageind', #toggle for damage numbers. Hack!
+        'tnt'
         )
 
     def __init__(self, **kw):
