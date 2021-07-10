@@ -13,7 +13,7 @@ from caption import Caption, DamageCaption
 
 from entity import Entity
 from enemy import Enemy
-from obstacle import IceWall, IceChunks, Gap
+from obstacle import IceWall, IceChunks, Gap, _Obstacle
 from effects import Nova
 
 
@@ -673,6 +673,13 @@ class Player(Entity):
             for e in ents:
                 if isinstance(e, Enemy) and not e.invincible:
                     e.hurt(int(self.stats.att + self.stats.mag * 1.5) + ika.Random(-4, 8), 300, (self.direction + 2) & 3)
+                elif isinstance(e, _Obstacle):                  
+                    self.stop()
+                    # stall
+                    for i in range(20):
+                        yield None
+                    self.state = self.standState()
+
 
             yield None
             self.speed = max(saver.speed, self.speed - 20)
