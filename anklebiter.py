@@ -161,7 +161,7 @@ class AnkleBiter(Enemy):
             yield self.idleState()
 
             if dist < 150:
-                sound.anklebiterStrike.Play()
+                #sound.anklebiterStrike.Play()
                 self.mood = self.attackMood
                 yield self.idleState()
                 break

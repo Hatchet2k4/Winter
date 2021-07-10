@@ -675,11 +675,7 @@ class Player(Entity):
                     e.hurt(int(self.stats.att + self.stats.mag * 1.5) + ika.Random(-4, 8), 300, (self.direction + 2) & 3)
                 elif isinstance(e, _Obstacle):                  
                     self.stop()
-                    # stall
-                    for i in range(20):
-                        yield None
                     self.state = self.standState()
-
 
             yield None
             self.speed = max(saver.speed, self.speed - 20)
@@ -694,8 +690,8 @@ class Player(Entity):
         self.stop()
 
         # stall
-        for i in range(20):
-            yield None
+        #for i in range(8):
+        #    yield None
 
     def healingRainState(self):
 
