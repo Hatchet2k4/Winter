@@ -2,7 +2,8 @@
 
 import ika
 import system
-from saveload import SaveGame, mapnames
+from saveload import SaveGame
+from automap import mapnames
 from xi.menu import Menu, Cancel
 from xi.cursor import ImageCursor
 import xi.effects

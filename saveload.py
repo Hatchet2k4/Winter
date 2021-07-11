@@ -9,15 +9,7 @@ from statset import StatSet
 
 quicksave=None
 
-mapnames = { #all the maps that have save points. Could have used metadata, but this was more convenient.
-'map02.ika-map' : 'Mount Durinar Base',
-'map11.ika-map' : 'Misty Cliffs', #no longer valid but leaving it in anyways :D
-'map12.ika-map' : 'Misty Cave', #no longer valid but leaving it in anyways :D
-'map14.ika-map' : 'Lookout Point',
-'map30.ika-map' : 'Serpent Valley',
-'map38.ika-map' : 'Northwest Summit',
-'map50.ika-map' : 'Northeast Cave'
-} 
+from automap import mapnames
 
 class SaveGame(object):
     def __init__(self, fileName = None):
