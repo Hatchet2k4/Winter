@@ -9,7 +9,7 @@ from statset import StatSet
 
 quicksave=None
 
-from automap import mapnames
+from automap import mapnames, map
 
 class SaveGame(object):
     def __init__(self, fileName = None):
@@ -85,6 +85,9 @@ class SaveGame(object):
         for k in StatSet.STAT_NAMES:
             s += '%s=%i\n' % (k, self.stats[k])
 
+
+
+
         s += 'FLAGS\n'
         s += 'MAPNAME=\'%s\'\n' % self.mapName        
         s += 'POS=\'%s\'\n' % ','.join([str(x) for x in self.pos])
@@ -92,7 +95,7 @@ class SaveGame(object):
         s += 'SECONDS=\'%s\'\n' % str(self.seconds)
         s += 'MINUTES=\'%s\'\n' % str(self.minutes)
         s += 'HOURS=\'%s\'\n' % str(self.hours)
-        
+        s += 'MAPDATA=\'%s\'\n' % ','.join([str(x) for x in map.visible])        
         for var, val in savedata.__dict__.iteritems():
             if not var.startswith('_'):
                 if isinstance(val, (int, str)):
@@ -103,6 +106,8 @@ class SaveGame(object):
                     for el in val:
                         s += '  %s\n' % `el`
                     s += 'END\n'
+
+        
         return s
 
     def read(self, f):
@@ -128,7 +133,7 @@ class SaveGame(object):
             s = lines.pop(0)
 
             if s == 'FLAGS':    break
-
+            
             p = s.find('=')
             k, v = s[:p], s[p + 1:]
             setattr(self.stats, k, parse(v))
@@ -136,6 +141,7 @@ class SaveGame(object):
         # read flags
         while lines:
             s = lines.pop(0)
+
             p = s.find('=')
             k, v = s[:p], parse(s[p + 1:])
             if k == 'MAPNAME':  self.mapName = v
@@ -145,28 +151,13 @@ class SaveGame(object):
             elif k == 'HOURS': self.hours=int(v)
             elif k == 'POS':
                 self.pos = tuple([int(x) for x in v.split(',')])
+            elif k == 'MAPDATA':                 
+                map.visible = [int(x) for x in v.split(',')]      
             else:               self.flags[k] = v
 
-def test():
-    savedata.test1 = 'COCKS'
-    savedata.test8 = 1337
-    savedata.test1337 = range(10,40)
-    sg = SaveGame.currentGame()
-    #sg.save('bleh.txt')
-    #f = file('bleh.txt', 'w')
-    #writeSaveFlags(f)
-    #f.close()
-
-    #f = file('bleh.txt', 'r')
-    #readSaveFlags(f)
-    #f.close()
-    bleh = SaveGame()
-    bleh.load('bleh.txt')
-    bleh.setCurrent()
-    s = StatSet.STAT_NAMES
-
-    print `savedata.test1`
-    print `savedata.test8`
-    print `savedata.test1337`
+        #read map data
+        #s = lines.pop(0)
+        #map.visible = [int(x) for x in s.split(', ')]
+        
 
 #test()
