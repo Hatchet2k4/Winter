@@ -4,7 +4,7 @@
 		(title )
 		(meta 
 			(entityLayer B1)
-                        (music wind.ogg)
+			(music wind.ogg)
 		)
 	)
 	(header 
@@ -97,10 +97,10 @@ RCWUBeag6IUoxNSMLghUCgAAAP//
 			)
 			(entities 
 				(entity 
-					(label dynamite3)
-					(x 196)
+					(label strength5)
+					(x 193)
 					(y 160)
-					(sprite dynamite.ika-sprite)
+					(sprite strengthrune.ika-sprite)
 					(speed 100)
 					(direction up)
 					(move_script )

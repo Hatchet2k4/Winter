@@ -22,8 +22,12 @@
 			(script breakIce)
 		)
 		(zone 
-			(label to3)
-			(script to3)
+			(label manaPool)
+			(script manaPool)
+		)
+		(zone 
+			(label to47)
+			(script to47)
 		)
 		(zone 
 			(label to5)
@@ -53,25 +57,17 @@
 			)
 			(data 
 				(format zlib)
-				eJy0mE1OwzAQhV0nkRCgCFgghFhwDE5DN+2KVe/DrbgQ
-tjRP/XikpaX2SMMEO51nz5/HySmlVeFceAoeQuaYO4ff
-yp+XkM51/j14HTwXHkMOeF7FsyTXVf9/Bk8YP4a9DuxN
-yG1giXNI6cvAz8Co9ApO2P8SvnQKX3sXvusXpvYt3Tnt
-yfFT6Lqr75WXx8JT4VvopO0/QmrP0k+sKR0mrXG28cfC
-V2XyuvBN4QforPo2sW/ZX+PSlWGPnA5TfUfxQKr2n4vS
-ryLvi3wKDPlYuFtgCl+YS/Ym0V6+zl366ftd2vtQMbCx
-/WpOsdCDhCF/u63r/BCyF/5STMuWQ+q7/xHMnBOuYulY
-zF9CwvB8k09Y23qQ+11rkC80PnTCZ03VOli39b/Xk1ZE
-e+uZdZd26UGKOWEu5cKQ+tlfca69C8v90QufsUaba12y
-Sc/64/3MiHH2HD1I+r3uKR5mjPXCV32XdL//deZfii//
-sw57v9Fr/45HP9D/p+b/Z/CpxLNeOKPJnviMdbHXgHPq
-z3/xecfweqh47IGvmNc6eK/gOXys57yEhO93LdVB9mc9
-iHcZ3u94/rBGtyThrfDsPTR7MMVFC1JOEX+2cfqDedGC
-lN+MfdZ99v5+B2xBtDV7XPZi7EN4L2lBynPq5l1rqf9S
-LLYgxr37gPZemm9BrPeKPdZa//6g8VbnMGsOMVX3WQcZ
-B638zz6D31d47mSb4/lY2b+lsJfhu3yPecTfeNxRsg7T
-L8whfi+Y0u/9CHuppjIXvB9i/0efea54rDCGB/u9r8G/
-s1T5DQAA//8=
+				eJzslksOwyAMRG0MW86T+5+srZRRH26XuIsKqSMoJIw/
+Y4fLza6Dg4ODg4ODv8bzZ+2JuPFL7mFv/td83uMv7BCv
+Ax32yJYq/pm4J2wQv9aq+OM+P2ADc9AKYyAe+dxtjUnD
+fgV/5mMeGvZmof8t8fY0VvJT64J6gPyv7AniH9CbdNAQ
+gyr/pXnZofmA9hSXSn4HnzARmyr+Bp8j+e1ARQ0Gzo3k
+s2I+sSdd7OB2W3tPpFpjHDTfWQeqbweH8tCwPmGHnt/B
+z1iHrbpT3HuyS7bsyn1PZ8v3ZutdgH14l//Ufc4B4/1t
+f5f+pDVpj712AtTeru+ww1dyqu8rNsNWHezKvyf/8n1D
+69zTO9/6AOPn6dms+24rf9in7jiyDzMvrCH971inP+J2
+gL2np3NYF/l+ou8ibc5aoYYjvZ9tGLbW92t8AAAA//8=
+
 			)
 			(obstructions 
 				(format tile)
@@ -104,55 +100,16 @@ s1T5DQAA//8=
 			)
 			(data 
 				(format zlib)
-				eJxiYKAu4AfiFUCsBMRujAwMnkDsDsSroPJRVLYPBKSQ
-2DC71yCJrSfT7kwoxge80PhcaHazIbETSLQfH/DDI+fK
-CAl7ULgjg1gizJUirAQMQki0H2ZuApK6RCLtIhXg8j8I
-wNIArexWQuPLofETcNidRRPXjAJiwGjY0x+MhjkqGEnh
-QahOHe5hQcj/AwEGo5uGKxju6XsU4AeDKa8NJrdQC+Dy
-EzF+pXXeJOSG4RAfQ80P9CiPh1qYIANywqcbSlPD38kM
-kH4zaCyFAw8Gjb1QIy5xmaFOQJ8q1A2EzCIkRs/2AQAA
-AP//
+				eJzsmM0KwjAQhOMPWj14Vw/qofpagid9Jh/WDa6XsDbB
+jp0o+8FQGtrOLNkUkhDyzPU6Uk1Fi4L3UETPVeIftUye
+S+8jM5A/Ciuj4zhOKWvRRrUl+O9Ee9WB4N+KjqoTwf+f
+aAieV2OMkYOFVT+bGjPVzF31CTeyv8OlprXWJ8tkDIsx
+CCW1ItZmnww19UYX7P8P0v/bcx75lXlFg6j7IjqH51lO
+0yHU2cq7fsjtNVojg/Wt3NgQ/fjiAQAA//8=
 			)
 			(obstructions 
 				(format tile)
 				eJxiYBgFo2AUjIKRCQAAAAD//w==
-			)
-			(entities 
-			)
-			(zones 
-			)
-		)
-		(layer 
-			(label Fog1)
-			(dimensions 
-				(width 100)
-				(height 100)
-			)
-			(position 
-				(x 0)
-				(y 0)
-			)
-			(parallax 
-				(mulx 1)
-				(muly 1)
-				(divx 1)
-				(divy 1)
-			)
-			(wrap 
-				(x false)
-				(y false)
-			)
-			(data 
-				(format zlib)
-				eJzs0VEJACAUwMDXP5TZbKAgCPu4gyXYDAAAAAA360O8
-86PFjxY/Wvxo8aPFjxY/Wvxo8aPFjxY/Wvxo8aPFjxY/
-Wvxo8aPJhxY/Wvxo8aPFjxY/Wvxo8QMAAAAAAAAAAAAA
-AAAAAAAAAAAAAAAAAADONgAAAP//
-			)
-			(obstructions 
-				(format tile)
-				eJzswQENAAAAwqD3T20ON6AAAAAAAAAAAADg3wAAAP//
-
 			)
 			(entities 
 			)
@@ -181,32 +138,122 @@ AAAAAAAAAAAAAAAAAADONgAAAP//
 			)
 			(data 
 				(format zlib)
-				eJxiYKAd8GJEYGoCLjQ+G3WNJwgE0Pg8dLRbFIjF0MSE
-gFgYiU9JuIPCVgoPlgZiGTQ9EkAsCZXHZj9InNg4AoWt
-AhQrI9EwtiIO++WharDZD9JHbBwh24/NDSD7ldD0yEHt
-V8BhJqn2q+HB6jj0qULlcQFS7KcFGIz2Bw6w/eEDbD82
-QA/7rYDYegDtdwBixwG03w2I3QfQfh8g9kWTN6Oj/diA
-DYn2zwfihVS032mA7YeBUfuHhv0twLZFKwntK0L2w9q0
-A5X/BNBoWtnvPcD2gwC2+oee9jswYNY/tLIXG8BW/yDb
-z0KEGV3AtN9NRPrH1u7HVv+g+59QeBCb/8nN96P2U9d+
-fG0+etjvwICa57ClS+RxBWrlR5j96HkOW7wI4GBTw37k
-PIerL05L+/GJ0aruw+ZPbGK0LvtJARxQjA6IdRuu/I4r
-zgEAAAD//w==
+				eJzsl0tPwkAQgLfbVnylwRgxBeIriv4CDsoBOegBvejF
+xwXCDzP+U6dhJh3WXTrbFrgwyZe++83O7nZBqeLoAzNg
+AIyAN+Bd8FzVaAC76B2jOwA+gE9gAkwxtxkem8Gv73m6
+NRCi9wvPfwMRQ2NOAe6TS2PuIV6LgcQjh4ARs7ZN8T1B
+BZoC/zHeG+E2wXbFiGY1iNm9WuV1o2c5J0BL4E+BNssj
+Zu9P2DHlFrJ9m7ONdICuwH+OpEYO5Ncq79PE0ta2WnS2
+0HsJXAn8Z44caJyRO1R5zc0aXzC6iMRNccPySNn7zTGd
+KHuNyU1tvvVwU1yzHHgNKIcI3R30dNmW/Jn7roTbzCFV
+//vCdFONe4wqbp4DjYcsIj1HMXfZGkuD+iGLI+BU5f6q
+NZYEHwsHmMO63DyyeUF961tvWtOIdUbDcT5bk/qe79Iw
+9kItv3+n4PpA+a3PP8Cvx/2HBddHuN3fkJ9CsjZv/Zv3
+Z9/e2GP8F/lp3En9k2BOXf6msa07yD/esD+Le+Chot/3
++8f9Q+DR4ZeG7/jn8QQ8L/FHNfpt3/0X4HWJ33Zc1l92
+3m/99fptc26d/qFanHO2ccnX/rr95pyz9UvTsV+Hn885
+12+xVfqXnfNd+6Rha6ft3KrXHp9w/S+Q5uaa764+/wMA
+AP//
 			)
 			(obstructions 
 				(format tile)
-				eJysklEOwCAIQ+n9L70smbGUIh/TL/VBKWjE1YUJHwMw
-KLQc36ItwLSEs1CRbDh2rRBOJS0PcmR5sEfHs7+Jj/2l
-+Yz5GjH4F1UsyQOf8iO955G377Nx836Le//isNSXAJ1v
-nx9a8G2m0fI3v3n9AsLpQ6AmIM+vzuoKdwe68wfTItMH
+				eJyklAsOgDAIQ+n9L22iMAp0zsQlmrE3/ihwWmYWr0ek
+49j40xfbUCvgluc9rWybC9Up7tCVYZbAByWoysN04Zkm
+JOdSjGxcz5ZXxcPRL75C09Uo+hw/Km8NH/Fb1/ekX/hJ
+n7mqL3EaygwbiPnFlq9LOv42ysN/G+UxP978yVdRs766
+Q2RfTfAPjhNHxpctYA44V5/8N54/l42+EOhMCy3FtrUL
 AAD//w==
 			)
 			(entities 
 				(entity 
-					(label icewall1)
+					(label d1)
 					(x 224)
-					(y 20)
-					(sprite icecave.ika-sprite)
+					(y 64)
+					(sprite devourer.ika-sprite)
+					(speed 100)
+					(direction up)
+					(move_script )
+					(obstructs_entities true)
+					(obstructed_by_entities true)
+					(obstructed_by_map true)
+					(adj_activate_script )
+					(activate_script )
+				)
+				(entity 
+					(label gap0)
+					(x 224)
+					(y 352)
+					(sprite vgap.ika-sprite)
+					(speed 100)
+					(direction up)
+					(move_script )
+					(obstructs_entities true)
+					(obstructed_by_entities true)
+					(obstructed_by_map true)
+					(adj_activate_script )
+					(activate_script )
+				)
+				(entity 
+					(label gap0)
+					(x 240)
+					(y 352)
+					(sprite vgap.ika-sprite)
+					(speed 100)
+					(direction up)
+					(move_script )
+					(obstructs_entities true)
+					(obstructed_by_entities true)
+					(obstructed_by_map true)
+					(adj_activate_script )
+					(activate_script )
+				)
+				(entity 
+					(label gap5)
+					(x 224)
+					(y 192)
+					(sprite vgap.ika-sprite)
+					(speed 100)
+					(direction up)
+					(move_script )
+					(obstructs_entities true)
+					(obstructed_by_entities true)
+					(obstructed_by_map true)
+					(adj_activate_script )
+					(activate_script )
+				)
+				(entity 
+					(label gap6)
+					(x 240)
+					(y 192)
+					(sprite vgap.ika-sprite)
+					(speed 100)
+					(direction up)
+					(move_script )
+					(obstructs_entities true)
+					(obstructed_by_entities true)
+					(obstructed_by_map true)
+					(adj_activate_script )
+					(activate_script )
+				)
+				(entity 
+					(label d2)
+					(x 239)
+					(y 305)
+					(sprite devourer.ika-sprite)
+					(speed 100)
+					(direction up)
+					(move_script )
+					(obstructs_entities true)
+					(obstructed_by_entities true)
+					(obstructed_by_map true)
+					(adj_activate_script )
+					(activate_script )
+				)
+				(entity 
+					(label dynamite3)
+					(x 378)
+					(y 57)
+					(sprite dynamite.ika-sprite)
 					(speed 100)
 					(direction up)
 					(move_script )
@@ -219,25 +266,18 @@ AAD//w==
 			)
 			(zones 
 				(zone 
-					(label to3)
-					(x 176)
+					(label to47)
+					(x 224)
 					(y 624)
-					(width 144)
-					(height 16)
-				)
-				(zone 
-					(label to5)
-					(x 240)
-					(y 40)
 					(width 16)
 					(height 16)
 				)
 				(zone 
-					(label breakIce)
-					(x 176)
-					(y 520)
-					(width 144)
-					(height 8)
+					(label manaPool)
+					(x 164)
+					(y 35)
+					(width 43)
+					(height 27)
 				)
 			)
 		)
@@ -263,13 +303,11 @@ AAD//w==
 			)
 			(data 
 				(format zlib)
-				eJxiYMAOrIDYGoccsSCBEYFJBQ5A7Eih/SGMCEwIoPvX
-DYjdybSXHH87MKD61weIfcm0nxR/wwAl/qUGoMS/6AAW
-7uSkO2oAcsJ/FIyCkQoCB9j+8AG2fxSMgpEKOAfYfqZB
-4IZRMHgAKC00U9nMJiBmJ1ItHwP10yPIbhYS1IPcwEVl
-N4yCUYAOYHnCm2HklcHElge0BujhDhsHoUY5iKvcw+d3
-BwbIOAiovOKAYlLTBjuSXj4i1HMi0djGQVgZiC8P2Rhw
-l7Xo/vbG4gbYOAi98gMAAAD//w==
+				eJzslMEKwyAQRIeSVJNDPqi9tJf0kPan2h/vSiPIGouC
+bQKZB4Ogq+7KOgAhhBBCCCH/o1v5/sMGciDbwfXCq/KZ
+T5HJjB1Qvx/d3U1BvMuhr5wDIRr/Jybsz4Nz/eDX6Hc/
+ic6o44Mp3/tW+0V0xcev7KzS3jDB3iEjvgvGUXRT6y3y
+/fCItNfquqeFHO6iB+KaLeL3MGreq4Q3AAAA//8=
 			)
 			(obstructions 
 				(format tile)
