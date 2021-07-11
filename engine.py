@@ -164,6 +164,7 @@ class Engine(object):
         bleh = effects.createBlurImages()
         self.draw()
         effects.blurFade(50, bleh, effects.createBlurImages())
+        automap.map.update()
         self.run()
 
     def loadGame(self, s=None):

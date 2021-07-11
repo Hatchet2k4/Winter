@@ -101,6 +101,8 @@ class Automap(object):
         
         self.total = self.counttotalrooms()
         self.visited = 0 #number of rooms visited
+        
+        
 
     def counttotalrooms(self):
         i = 0
