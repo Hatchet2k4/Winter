@@ -2,7 +2,7 @@ import ika
 from thing import Thing
 import system
 # Some neat-O special effects
-
+import math
 
 class Nova(Thing):
     def __init__(self, x, y, radius=1.0, duration=200, speed=2, color=ika.RGB(128,128,128), filled=False):
@@ -37,12 +37,11 @@ class Nova(Thing):
         color = ika.RGB(self.r, self.g, self.b, self.opacity)
         ika.Video.DrawEllipse(self.x  - ika.Map.xwin, self.y - ika.Map.ywin, int(self.rad), int(self.rad), color, self.filled)
 
-class Point(Thing):
-    def __init__(self, x, y):
-        self.x=x
-        self.y=y    
+   
 
 class Bolt(Thing):
+    boltimg = ika.Image("gfx/ui/bolt.png")
+
     def __init__(self, x, y, endx, endy, color):
         self.x=x
         self.y=y
@@ -54,34 +53,51 @@ class Bolt(Thing):
                 
         self.r, self.g, self.b, self.a = ika.GetRGB(color)        
         self.color=color        
-        self.points=self.generatePoints(ika.Random(4, 8))
+        self.points=self.generatePoints(ika.Random(6, 12))
         
                 
         self.update = self._update().next 
+    
+    def dist(self, x1, y1, x2, y2):
+        return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+        
+    
         
     def generatePoints(self, numpoints=5):
         points = []
+        self.numpoints=numpoints
         
-        #for i in range(numpoints):
-                
+        distancePerPoint = self.dist(self.x, self.y, self.endx, self.endy) / numpoints
+        
+        dx = self.endx - self.x
+        dy = self.endy - self.y
+        angle = math.atan2(dy, dx) 
+
+        points.append( (self.x, self.y) )
+        for d in range(1, numpoints-1):                        
+            angleoffset = (ika.Random(-100, 100) * math.pi / 16) / 100            
+            points.append( 
+                ( int(self.x + math.cos(angle + angleoffset)*(d*distancePerPoint)), int(self.y + math.sin(angle + angleoffset)*(d*distancePerPoint)) )
+            )                      
+        points.append( (self.endx, self.endy) )
+            
         return points
         
     def _update(self): 
         while self.duration <= self.maxduration:
             self.duration += 1
-            
+            self.opacity -= 4
+            self.opacity = max(0, self.opacity)    
+            self.color = ika.RGB(self.r, self.g, self.b, self.opacity)
 
             yield None
 
         yield True # seppuku
 
     def draw(self):                   
-        #ika.Video.DrawEllipse(self.x  - ika.Map.xwin, self.y - ika.Map.ywin, int(self.rad), int(self.rad), color, self.filled)
-        x1 = self.x - ika.Map.xwin
-        y1 = self.y - ika.Map.ywin
-        x2 = self.endx - ika.Map.xwin
-        y2 = self.endy - ika.Map.ywin
-        ika.Video.DrawLine(x1, y1, x2, y2, self.color)
+        for i in range(1, self.numpoints):
+            ika.Video.DrawLine(self.points[i-1][0] - ika.Map.xwin, self.points[i-1][1]- ika.Map.ywin, 
+            self.points[i][0] - ika.Map.xwin, self.points[i][1]- ika.Map.ywin, self.color)
 
 def blurScreen(factor):
     '''Grabs the screen, blurs it up a bit, then returns the image.

@@ -756,11 +756,12 @@ class Player(Entity):
         self.stop()
         self.anim = 'thrust'
 
-        if self.stats.mp < 45 or not self.stats.shiver:
+        if self.stats.mp < 5 or not self.stats.shiver:
             sound.menuBuzz.Play()
             return
 
-        self.stats.mp -= 45
+        #self.stats.mp -= 45
+        self.stats.mp -= 5
         
         for i in range(8): #8 cycle delay before attack starts
             yield None
@@ -790,6 +791,8 @@ class Player(Entity):
                 e.hurt((self.stats.att + self.stats.mag) + ika.Random(1, int(self.stats.mag)), 400, d)
                 system.engine.addThing(Bolt(self.x+offsetx, self.y+offsety, 
                                             e.x+(e.ent.hotwidth/2), e.y+(e.ent.hotheight/2), ika.RGB(240,40,128) ))
+                system.engine.addThing(Nova(self.x+offsetx, self.y+offsety, 0.5, 16, speed=0.5, color = ika.RGB(240, 100, 128, 255), filled=True ))                                            
+                system.engine.addThing(Nova(e.x+(e.ent.hotwidth/2), e.y+(e.ent.hotheight/2), 0.5, 16, speed=0.5, color = ika.RGB(240, 100, 128, 255), filled=True ))                                            
                 sound.boltStorm.Play()                                            
                 for i in range(4): #wait a few frames before attacking next enemy
                     yield None

@@ -91,7 +91,7 @@ class MagicWindow(SubScreenWindow):
         if p.gale:
             txt.append(displayControls['gale']+' - Crushing Gale ')        
         if p.shiver:
-            txt.append(displayControls['shiver']+' - Nova')
+            txt.append(displayControls['shiver']+' - Bolt Storm')
 
         return (gui.StaticText(text=txt),)
 
