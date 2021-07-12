@@ -20,7 +20,7 @@ from soulreaver import SoulReaver
 
 from dynamite import Dynamite
 from savepoint import SavePoint
-from obstacle import IceWall, Gap, IceChunks, Boulder
+from obstacle import IceWall, Gap, IceChunks, Boulder, Crystal
 from rune import WaterRune, FireRune, WindRune, CowardRune, StrengthRune, PowerRune, GuardRune
 
 from field import Field
@@ -69,6 +69,7 @@ spawnMap = {
 
     'icecave.ika-sprite': IceWall,
     'ice.ika-sprite': IceWall,
+    'crystal.ika-sprite': Crystal,
     'icechunks.ika-sprite': IceChunks,
     'boulder.ika-sprite': Boulder,
     'vgap.ika-sprite': Gap,

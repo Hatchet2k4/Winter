@@ -13,7 +13,7 @@ from caption import Caption, DamageCaption
 
 from entity import Entity
 from enemy import Enemy
-from obstacle import IceWall, IceChunks, Gap, _Obstacle
+from obstacle import IceWall, IceChunks, Gap, _Obstacle, Crystal
 from effects import Nova, Bolt
 
 
@@ -722,8 +722,6 @@ class Player(Entity):
 
         self.invincible = True
 
-        #for i in range(20):
-        #    yield None
 
         amount = self.stats.mag * 2 + 20
         amount += int(amount/10.0 * ika.Random(-2, 4))               
@@ -755,14 +753,12 @@ class Player(Entity):
     def shiverState(self):
         self.stop()
         self.anim = 'thrust'
-
-        if self.stats.mp < 5 or not self.stats.shiver:
+        costperhit=30
+        
+        if self.stats.mp < costperhit or not self.stats.shiver:
             sound.menuBuzz.Play()
             return
 
-        #self.stats.mp -= 45
-        self.stats.mp -= 5
-        
         for i in range(8): #8 cycle delay before attack starts
             yield None
         offsetx = offsety = 0
@@ -784,11 +780,28 @@ class Player(Entity):
         ents = self.detectCollision((
            -96, -96, 192, 192, self.layer
             ))
-
+        
+        costmp=False
+            
+        self.invincible=True
+        destroyents = []
         for e in ents:
-            if isinstance(e, Enemy) and not e.invincible:
-                d = dir.fromDelta(self.x - e.x, self.y - e.y)
-                e.hurt((self.stats.att + self.stats.mag) + ika.Random(1, int(self.stats.mag)), 400, d)
+            if (isinstance(e, Enemy) and not e.invincible) or isinstance(e, IceWall) or isinstance(e, Crystal):
+                if not costmp:                    
+                    costmp=True
+                    self.stats.mp -= costperhit 
+                                               
+                if isinstance(e, Enemy):
+                    d = dir.invert[dir.fromDelta(self.x - e.x, self.y - e.y)]
+                    e.hurt((self.stats.att + self.stats.mag) + ika.Random(1, int(self.stats.mag)), 300, d)
+                elif isinstance(e, IceWall):
+                    setattr(savedata, e.flagName, 'Broken')                    
+                    system.engine.things.append(Caption('The ice melted!'))
+                    destroyents.append(e)
+                elif isinstance(e, Crystal):
+                    setattr(savedata, e.flagName, 'Broken')                    
+                    system.engine.things.append(Caption('The crystal reacted!'))
+                    destroyents.append(e)                    
                 system.engine.addThing(Bolt(self.x+offsetx, self.y+offsety, 
                                             e.x+(e.ent.hotwidth/2), e.y+(e.ent.hotheight/2), ika.RGB(240,40,128) ))
                 system.engine.addThing(Nova(self.x+offsetx, self.y+offsety, 0.5, 16, speed=0.5, color = ika.RGB(240, 100, 128, 255), filled=True ))                                            
@@ -796,12 +809,19 @@ class Player(Entity):
                 sound.boltStorm.Play()                                            
                 for i in range(4): #wait a few frames before attacking next enemy
                     yield None
+        
+        for e in destroyents:
+            system.engine.destroyEntity(e)
+        
 
         self.stop()
-
-        # stall
-        for i in range(60):
+        self.invincible=False
+        for i in range(20):
             yield None
+
+        if costmp: # continue stall only if there were enemies in range
+            for i in range(40):
+                yield None
 
     def vivifyState(self):
         pass

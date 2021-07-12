@@ -32,6 +32,13 @@ class IceWall(_Obstacle):
     '''
     pass
 
+class Crystal(_Obstacle):
+    '''
+    Not very exciting.  The entity's type is all the information
+    we need.
+    '''
+    pass
+
 class Gap(_Obstacle):
     '''A big empty hole. :P'''
     pass

@@ -40,8 +40,6 @@ class Nova(Thing):
    
 
 class Bolt(Thing):
-    boltimg = ika.Image("gfx/ui/bolt.png")
-
     def __init__(self, x, y, endx, endy, color):
         self.x=x
         self.y=y
@@ -49,19 +47,14 @@ class Bolt(Thing):
         self.endy=endy
         self.duration=0
         self.maxduration=50
-        self.opacity=200
-                
+        self.opacity=200               
         self.r, self.g, self.b, self.a = ika.GetRGB(color)        
         self.color=color        
-        self.points=self.generatePoints(ika.Random(6, 12))
-        
-                
+        self.points=self.generatePoints(ika.Random(6, 12))                        
         self.update = self._update().next 
     
     def dist(self, x1, y1, x2, y2):
         return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
-        
-    
         
     def generatePoints(self, numpoints=5):
         points = []
