@@ -37,6 +37,51 @@ class Nova(Thing):
         color = ika.RGB(self.r, self.g, self.b, self.opacity)
         ika.Video.DrawEllipse(self.x  - ika.Map.xwin, self.y - ika.Map.ywin, int(self.rad), int(self.rad), color, self.filled)
 
+class Point(Thing):
+    def __init__(self, x, y):
+        self.x=x
+        self.y=y    
+
+class Bolt(Thing):
+    def __init__(self, x, y, endx, endy, color):
+        self.x=x
+        self.y=y
+        self.endx=endx
+        self.endy=endy
+        self.duration=0
+        self.maxduration=50
+        self.opacity=200
+                
+        self.r, self.g, self.b, self.a = ika.GetRGB(color)        
+        self.color=color        
+        self.points=self.generatePoints(ika.Random(4, 8))
+        
+                
+        self.update = self._update().next 
+        
+    def generatePoints(self, numpoints=5):
+        points = []
+        
+        #for i in range(numpoints):
+                
+        return points
+        
+    def _update(self): 
+        while self.duration <= self.maxduration:
+            self.duration += 1
+            
+
+            yield None
+
+        yield True # seppuku
+
+    def draw(self):                   
+        #ika.Video.DrawEllipse(self.x  - ika.Map.xwin, self.y - ika.Map.ywin, int(self.rad), int(self.rad), color, self.filled)
+        x1 = self.x - ika.Map.xwin
+        y1 = self.y - ika.Map.ywin
+        x2 = self.endx - ika.Map.xwin
+        y2 = self.endy - ika.Map.ywin
+        ika.Video.DrawLine(x1, y1, x2, y2, self.color)
 
 def blurScreen(factor):
     '''Grabs the screen, blurs it up a bit, then returns the image.

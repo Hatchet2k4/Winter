@@ -14,7 +14,7 @@ from caption import Caption, DamageCaption
 from entity import Entity
 from enemy import Enemy
 from obstacle import IceWall, IceChunks, Gap, _Obstacle
-from effects import Nova
+from effects import Nova, Bolt
 
 
 PLAYER_SPRITE = 'protagonist.ika-sprite'
@@ -763,13 +763,15 @@ class Player(Entity):
         self.stats.mp -= 45
 
         ents = self.detectCollision((
-            self.x-160, self.y-160, 320, 320, self.layer
+           -96, -96, 192, 192, self.layer
             ))
 
         for e in ents:
             if isinstance(e, Enemy) and not e.invincible:
                 d = dir.fromDelta(self.x - e.x, self.y - e.y)
                 e.hurt((self.stats.att + self.stats.mag) * 3, 400, d)
+                system.engine.addThing(Bolt(self.x+(self.ent.hotwidth/2), self.y+(self.ent.hotheight/2), 
+                                            e.x+(e.ent.hotwidth/2), e.y+(e.ent.hotheight/2), ika.RGB(240,40,128) ))
 
         self.stop()
 
