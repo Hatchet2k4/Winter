@@ -65,13 +65,11 @@ class Entity(object):
             self.stats.hp -= amount
             self.state = self.hurtState(recoilSpeed, recoilDir)
             
-        #if damage option on
+        #if damage display option on
         if system.engine.player.stats.damageind:
             x=self.ent.x # + self.ent.hotwidth/2
             y=self.ent.y #+ self.ent.hotheight/2
-            system.engine.addThing(DamageCaption(str(amount), x, y, 40, 250, 0, 0))
-        #system.engine.addThing(Caption('~1test'))
-        
+            system.engine.addThing(DamageCaption(str(amount), x, y, 40, 250, 0, 0))        
         
         
     def _setState(self, newState):

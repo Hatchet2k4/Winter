@@ -38,6 +38,8 @@ slash1, slash2, slash3 = [
     ]
 playerHurt = NullSound()
 
+
+
 achievement = RepeatableSound('sfx/LevelUp.wav')
 
 menuClick = RepeatableSound('sfx/MenuClick.wav')
@@ -46,6 +48,7 @@ menuBuzz = RepeatableSound('sfx/MenuBuzz.wav')
 hearthRend = RepeatableSound('sfx/HearthRend.wav')
 crushingGale = RepeatableSound('sfx/CrushingGale.wav')
 healingRain = RepeatableSound('sfx/HealingRain.wav')
+boltStorm = RepeatableSound('sfx/bolt2.wav')
 
 monsterHit = RepeatableSound('sfx/MonsterHit.wav')
 

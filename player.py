@@ -761,7 +761,25 @@ class Player(Entity):
             return
 
         self.stats.mp -= 45
-
+        
+        for i in range(8): #8 cycle delay before attack starts
+            yield None
+        offsetx = offsety = 0
+        
+        #hack, should use a dict but lazy
+        if self.direction == dir.DOWN:
+            offsetx=8
+            offsety=30
+        elif self.direction == dir.UP:
+            offsetx=5
+            offsety=-25
+        elif self.direction in [dir.RIGHT, dir.UPRIGHT, dir.DOWNRIGHT]:  
+            offsetx=34
+            offsety=-2
+        elif self.direction in [dir.LEFT, dir.UPLEFT, dir.DOWNLEFT]: 
+            offsetx=-24
+            offsety=-2            
+            
         ents = self.detectCollision((
            -96, -96, 192, 192, self.layer
             ))
@@ -769,14 +787,17 @@ class Player(Entity):
         for e in ents:
             if isinstance(e, Enemy) and not e.invincible:
                 d = dir.fromDelta(self.x - e.x, self.y - e.y)
-                e.hurt((self.stats.att + self.stats.mag) * 3, 400, d)
-                system.engine.addThing(Bolt(self.x+(self.ent.hotwidth/2), self.y+(self.ent.hotheight/2), 
+                e.hurt((self.stats.att + self.stats.mag) + ika.Random(1, int(self.stats.mag)), 400, d)
+                system.engine.addThing(Bolt(self.x+offsetx, self.y+offsety, 
                                             e.x+(e.ent.hotwidth/2), e.y+(e.ent.hotheight/2), ika.RGB(240,40,128) ))
+                sound.boltStorm.Play()                                            
+                for i in range(4): #wait a few frames before attacking next enemy
+                    yield None
 
         self.stop()
 
         # stall
-        for i in range(100):
+        for i in range(60):
             yield None
 
     def vivifyState(self):
