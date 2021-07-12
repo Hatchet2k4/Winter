@@ -18,7 +18,7 @@ def AutoExec():
     if 'icechunks1' in savedata.__dict__:
         breakIceRun()
     sound.playMusic("music/wind.ogg")
-        
+
         
 
 def to3():

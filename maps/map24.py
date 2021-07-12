@@ -5,11 +5,14 @@ import savedata
 
 from thing import Thing
 from rune import CowardRune
+import sound
+from soulreaver import SoulReaver
+from rune import CowardRune
+from obstacle import Crystal
 
-def AutoExec():
-    #nearend quest completed!
-    if 'waterguard' in savedata.__dict__ and 'windguard' in savedata.__dict__ and 'fireguard' in savedata.__dict__:
-        system.engine.mapThings.append(AddRune())
+def AutoExec():    
+    pass
+
         
 def to23():
     system.engine.mapSwitch('map23.ika-map', (5 * 16, 5 * 16))
@@ -17,16 +20,56 @@ def to23():
 def to50():
     system.engine.mapSwitch('map50.ika-map', (9 * 16, 13 * 16))
     
-class AddRune(object):
-    
+def kaboom():
+    #nearend quest completed!
+    if 'almostfinalbattle' not in savedata.__dict__ and 'waterguard' in savedata.__dict__ and 'windguard' in savedata.__dict__ and 'fireguard' in savedata.__dict__:
+        #system.engine.mapThings.append(AddRune())
+        savedata.almostfinalbattle = 'True'
+        p = system.engine.player
+        
+        def noOp():
+            while True:
+                yield None
+        
+        p.anim = 'stand'
+        p.state = noOp()
+        sound.playMusic('music/resurrection.it')        
+        for n in range(150):
+            # teh earthquake
+            ika.Map.xwin += ika.Random(-3, 3)
+            ika.Map.ywin += ika.Random(-3, 3)
+            system.engine.tick()
+            system.engine.draw()
+            ika.Video.ShowPage()
+            ika.Input.Update()
+        
+        e = ika.Entity(48*16-8, 9*16, 1, 'crystal.ika-sprite')
+        e.name = 'penultimatecrystal'
+        system.engine.addEntity(Crystal(e))      
+
+        y = SoulReaver(ika.Entity(20*16, 20*16, 1, 'soulreaver.ika-sprite'))
+        system.engine.addEntity(y)
+        system.engine.mapThings.append(DeathListener(y))
+        
+        p.state = p.defaultState()
+        system.engine.synchTime()
+
+class DeathListener(Thing):
+    'Waits until the soulreaver is dead, then drops the final rune.'
+    def __init__(self, yeti=None):
+        self.yeti = yeti
+
     def update(self):
-        
-        e = ika.Entity(315, 320, 1, 'cowardrune.ika-sprite')
-        e.name = 'cowardrune'
-        system.engine.addEntity(CowardRune(e))        
-        
-        return True
-        
+        if self.yeti.stats.hp == 0:
+            e = ika.Entity(315, 320, 1, 'cowardrune.ika-sprite')
+            e.name = 'cowardrune'
+            system.engine.addEntity(CowardRune(e))    
+            sound.playMusic("music/lampoons.it")
+            savedata.finalrune = 'True'
+            return True
+
     def draw(self):
         pass
+    
+
         
