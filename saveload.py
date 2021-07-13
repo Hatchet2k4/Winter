@@ -21,7 +21,7 @@ class SaveGame(object):
         self.minutes=0
         self.hours=0
         self.fname = fileName
-        
+        self.visible = [0]*(map.mapwidth*map.mapheight)
 
         self.pos = (0, 0, 0)
         if fileName:
@@ -29,7 +29,8 @@ class SaveGame(object):
 
     def getStats(self):
         self.stats = system.engine.player.stats.clone()
-
+        self.visible = map.visible[:]
+		
     def getFlags(self):
         self.flags = {}
         for k, v in savedata.__dict__.iteritems():
@@ -38,6 +39,7 @@ class SaveGame(object):
 
     def setStats(self):
         system.engine.player.stats = self.stats.clone()
+        map.visible = self.visible[:]
 
     def setFlags(self):
         self.clearSaveFlags()
@@ -63,7 +65,8 @@ class SaveGame(object):
         s.seconds = system.engine.seconds
         s.minutes = system.engine.minutes
         s.hours = system.engine.hours
-        
+        s.visible = map.visible
+		
         p = system.engine.player
         s.pos = (p.x, p.y, p.layer)
         return s
@@ -152,7 +155,8 @@ class SaveGame(object):
             elif k == 'POS':
                 self.pos = tuple([int(x) for x in v.split(',')])
             elif k == 'MAPDATA':                 
-                map.visible = [int(x) for x in v.split(',')]      
+                #map.visible = [int(x) for x in v.split(',')]      
+				self.visible = [int(x) for x in v.split(',')]      
             else:               self.flags[k] = v
 
         #read map data

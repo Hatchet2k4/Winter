@@ -101,6 +101,7 @@ class Engine(object):
         
         #for game clock
         self.resetTime()
+        self.mapscreen = automap.MapScreen()
     
     def resetTime(self, s=0,m=0,h=0):
         self.seconds = s
@@ -226,8 +227,7 @@ class Engine(object):
             automap.map.update()
 
         if 'music' in metaData:                
-            sound.playMusic('music/' + metaData['music'])
-                
+            sound.playMusic('music/' + metaData['music'])                
 
         if fade:
             self.draw()
@@ -453,8 +453,7 @@ class Engine(object):
     
     def ShowMap(self):
         self.draw()
-        s = subscreen.MapScreen()
-        s.run()
+        self.mapscreen.run()
         self.synchTime()
         
     def updateTime(self):

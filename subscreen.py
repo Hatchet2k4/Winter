@@ -345,45 +345,8 @@ def init():
 
 
 
-class MapScreen(object):
-    def __init__(self):
-        assert _initted
 
 
-        
-    def update(self):
-        pass
-        
-    def show(self):
-        self.images = effects.createBlurImages()
-    
-    def hide(self):
-        pass
-    
-    def draw(self, opacity = 255):
-        pass
-        
-    def run(self):
-        self.show()          
-        scroll = maxscroll = 110
-        topx=12
-        topy=12
-        automap.map.update()
-        
-        while True:            
-            ika.Video.ScaleBlit(self.images[-1], 0, 0, ika.Video.xres, ika.Video.yres, ika.Opaque)
-            ika.Video.DrawRect(0, 0, ika.Video.xres, ika.Video.yres, ika.RGB(0, 0, 0, 128), True)
-            
-            automap.map.draw(topx, topy-scroll)
-            
-            ika.Video.ShowPage()
-            ika.Input.Update()
-            
-            if controls.cancel() or controls.showmap(): 
-                break
-            
-            if controls.down() and scroll < maxscroll: 
-                scroll+=1
-            elif controls.up() and scroll > 0: 
-                scroll-=1
+
+
 

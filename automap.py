@@ -1,7 +1,8 @@
 import ika
 import riptiles
 import system
-
+import effects
+import controls
 
 automapdata = { #automap data for all maps because I'm lazy, in (x, y, w, h, maptype) notation
 'map01.ika-map' : (10, 32, 3, 2, 'snow'),
@@ -169,6 +170,46 @@ class Automap(object):
             font.Print(20,  10, mapnames[system.engine.mapName])
         font.Print(20,  20, 'Map Completion: ' + str(pct) + '%')
         
+
+class MapScreen(object):
+    def __init__(self):        
+        self.maxscroll = 110
+        self.scroll = self.maxscroll
+        
+    def update(self):
+        pass
+        
+    def show(self):
+        self.images = effects.createBlurImages()
+    
+    def hide(self):
+        pass
+    
+    def draw(self, opacity = 255):
+        pass
+        
+    def run(self):
+        self.show()          
+        
+        topx=12
+        topy=12
+        
+        while True:            
+            ika.Video.ScaleBlit(self.images[-1], 0, 0, ika.Video.xres, ika.Video.yres, ika.Opaque)
+            ika.Video.DrawRect(0, 0, ika.Video.xres, ika.Video.yres, ika.RGB(0, 0, 0, 128), True)
+            
+            map.draw(topx, topy-self.scroll)
+            
+            ika.Video.ShowPage()
+            ika.Input.Update()
+            
+            if controls.cancel() or controls.showmap(): 
+                break
+            
+            if controls.down() and self.scroll < self.maxscroll: 
+                self.scroll+=1
+            elif controls.up() and self.scroll > 0: 
+                self.scroll-=1
         
         
 map = Automap()        
