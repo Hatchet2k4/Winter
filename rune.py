@@ -6,7 +6,6 @@ import savedata
 from controls import displayControls
 
 class _Rune(Entity):
-
     def __init__(self, ent):
         super(_Rune, self).__init__(ent, None)
         self.invincible = True

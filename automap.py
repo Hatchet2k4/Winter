@@ -64,6 +64,7 @@ automapdata = { #automap data for all maps because I'm lazy, in (x, y, w, h, map
 
 mapnames = { #all the maps that have save points. Could have used metadata, but this was more convenient.
 'map02.ika-map' : 'Mount Durinar Base',
+'map08.ika-map' : 'Lake Durinar',
 'map11.ika-map' : 'Misty Cliffs',
 'map12.ika-map' : 'Misty Cave', 
 'map14.ika-map' : 'Lookout Point',
@@ -102,8 +103,8 @@ class Automap(object):
         
         self.total = self.counttotalrooms()
         self.visited = 0 #number of rooms visited
-        
-        
+        self.time=ika.GetTime()
+        self.ticks=0
 
     def counttotalrooms(self):
         i = 0

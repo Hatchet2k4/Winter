@@ -57,26 +57,26 @@ zB4GPTItjRl+js3PyjQNmpOuiAH+F1bHvEZXR+B9EPSc
 DX+Ve0Sca/IVfeLSnvcx38eJMaDv+5QQ+j+Po654MdbQ
 jyvzC9zgrCLlSmqnEf1WUpmRbPs6xgfuPyeEPFBSvdMM
 XvRl1Aff2He8j/PLCQn9AoKPPifhN/5+ZP5/T2hC7YSy
-2ncuWvIitpxzERP2DQxcDmMWmspuHgYP8jTackr1wP9F
-0GvZjt9fQbOgL0Ffg77Jbu5YZPBi7kH7w0fEZUS/cRnk
-cB6zvn3wDPNDY3tmbazePO+KtIiUb2LnsjtvIBf7McOc
-PtaF3M8p+IyYVpHfCmNN+d4H78zV4+cgji/nGebnXMTj
-PMWO9ptKOrZ98fo5kucgcHNf55zDscYY5nzMayzO2WDF
-uE1ZH7zXshvjpcS5OeY+Z/u1JNg4pjxmwbovtnW8+56r
-s2uqB+yeW5VaH2o7xGLMa25eg4K1LkbqV4xXWT+2ZI29
-Q+v03P6e1XSdjPJracb7Vu7zdsnK5rn9PavJOnnt7jHf
-1hnzfpB+WNlifd3rT3mbst4E3ZJu2iG0NmZnNeFd0H3T
-XHMb0bFN12cvZbMmxRX3Kt3TrqRdPh0qLxh5Har32MO3
-tSHzFnatZMuu1xzeO9llvcvytBvDfoP7MIQzixzj/DwE
-05yN+Te2d2u77oMNjVdzNvKzXxvUrReb2NB4dQ303tSH
-b0PjZWPfHmfUw2fDWIcXmXV2beojn4HpPiF15lgnf26P
-vad+9+RQQHtMz/xi+93UmWOd0Ga8r0SdOfNbV6ZnQtgT
-wi/1N3XmWCf+Lwf16ecu5rdc09jqnARmxDnHN/x/hRj7
-c8xjmnIqF8/DuXOvr2tu71hk1NmVzcyH2F6xjW/oL6n6
-hsT7SjZ+nUl73nOr643VgetTGR7vSvLju7S6YnvqofAi
-rqoz6ZYX8UV9Q+BdyYYT3Lh2HV9V7no811JnWqo2vDgP
-V17EFn2mr7PJY5ruP/x/AKp/kRWmzO9ku+86xDnsf/t7
-7TcAAAD//w==
+2ncuWvIitmhv+I98Ct/AwLkZYxaaym4eBg/yNNpySvXA
+/0XQa9mO319Bs6AvQV+Dvslu7lhk8GLuAS98RFy4LbgM
+cjiPWd8+eIb5obE9szZWb553RVpEyjexc9mdN5CL/Zhh
+Th/rQu7nFHxGTKvIb4Wxpnzvg3fm6vFzEMeX8wzzcy7i
+cZ5iR/tNJR3bvnj9HMlzELi5r3PO4VhjDHM+5jUW52yw
+YtymrA/ea9mN8VLi3Bxzn7P9WhJsHFMes2DdF9s63n3P
+1dk11QN2z61KrQ+1HWIx5jU3r0HBWhcj9SvGq6wfW7LG
+3qF1em5/z2q6Tkb5tTTjfSv3ebtkZfPc/p7VZJ28dveY
+b+uMeT9IP6xssb7u9ae8TVlvgm5JN+0QWhuzs5rwLui+
+aa65jejYpuuzl7JZk+KKe5XuaVfSLp8OlReMvA7Ve+zh
+29qQeQu7VrJl12sO753sst5ledqNYb/BfRjCmUWOcX4e
+gmnOxvwb27u1XffBhsarORv52a8N6taLTWxovLoGem/q
+w7eh8bKxb48z6uGzYazDi8w6uzb1kc/AdJ+QOnOskz+3
+x95Tv3tyKKA9pmd+sf1u6syxTmgz3leizpz5rSvTMyHs
+CeGX+ps6c6wT/5eD+vRzF/NbrmlsdU4CM+Kc4xv+v0KM
+/TnmMU05lYvn4dy519c1t3csMursymbmQ2yv2MY39JdU
+fUPifSUbv86kPe+51fXG6sD1qQyPdyX58V1aXbE99VB4
+EVfVmXTLi/iiviHwrmTDCW5cu46vKnc9nmupMy1VG16c
+hysvYos+09fZ5DFN9x/+PwDVv8gKU+Z3st13HeIc9r/9
+vfYbAAD//w==
 			)
 			(obstructions 
 				(format tile)
@@ -193,7 +193,7 @@ U++yqt7wRvPweIfIv9Fvvz1vCwAAAP//
 				)
 				(entity 
 					(label r1)
-					(x 696)
+					(x 692)
 					(y 245)
 					(sprite razormane.ika-sprite)
 					(speed 100)
@@ -238,20 +238,6 @@ U++yqt7wRvPweIfIv9Fvvz1vCwAAAP//
 					(x 680)
 					(y 407)
 					(sprite razormane.ika-sprite)
-					(speed 100)
-					(direction up)
-					(move_script )
-					(obstructs_entities true)
-					(obstructed_by_entities true)
-					(obstructed_by_map true)
-					(adj_activate_script )
-					(activate_script )
-				)
-				(entity 
-					(label save11)
-					(x 80)
-					(y 80)
-					(sprite savepoint.ika-sprite)
 					(speed 100)
 					(direction up)
 					(move_script )

@@ -39,7 +39,7 @@ import cabin
 import sound
 import automap
 
-FRAME_RATE = 100
+FRAME_RATE = 300
 MAX_SKIP_COUNT = 10
 START_MAP = 'map01.ika-map'
 START_POS = (34 * 16, 23  * 16)
@@ -85,7 +85,7 @@ class Engine(object):
         self.things = []
         self.mapThings = [] # same as self.things, but is cleared every mapSwitch
         self.fields = []
-
+        self.framerate = 100
         # ika Entity : Entity
         self.entFromEnt = {}
 
@@ -93,7 +93,7 @@ class Engine(object):
         self.background = None
 
         # framerate regulating stuff:
-        self.ticksPerFrame = 100.0 / FRAME_RATE
+        self.ticksPerFrame = 100.0 / self.framerate
         self.nextFrameTime = 0
 
         self.font = ika.Font('system.fnt')
@@ -118,6 +118,7 @@ class Engine(object):
         self.things = []
         self.mapThings = []
         self.fields = []
+        
 
         # ika Entity : Entity
         self.entFromEnt = {}
@@ -276,6 +277,14 @@ class Engine(object):
                 
                 if controls.showmap():
                     self.ShowMap()
+
+                if controls.speedhack():
+                    if self.framerate == 100:
+                        self.framerate = 200
+                        self.ticksPerFrame = 100.0 / self.framerate
+                    else: 
+                        self.framerate = 100
+                        self.ticksPerFrame = 100.0 / self.framerate
 
                 # Do some thinking
                 self.tick()

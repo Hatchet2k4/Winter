@@ -294,7 +294,7 @@ class Player(Entity):
             self.mptimer+=1
             if self.mptimer >= 200:
                 self.mptimer = 0
-                self.stats.mp+=1
+                self.stats.mp+=1 + int(self.stats.mag / 10)
                 
 
     def defaultState(self):
@@ -785,6 +785,7 @@ class Player(Entity):
             
         self.invincible=True
         destroyents = []
+        n=0
         for e in ents:
             if (isinstance(e, Enemy) and not e.invincible) or isinstance(e, IceWall) or isinstance(e, Crystal):
                 if not costmp:                    
@@ -806,8 +807,13 @@ class Player(Entity):
                                             e.x+(e.ent.hotwidth/2), e.y+(e.ent.hotheight/2), ika.RGB(240,40,128) ))
                 system.engine.addThing(Nova(self.x+offsetx, self.y+offsety, 0.5, 16, speed=0.5, color = ika.RGB(240, 100, 128, 255), filled=True ))                                            
                 system.engine.addThing(Nova(e.x+(e.ent.hotwidth/2), e.y+(e.ent.hotheight/2), 0.5, 16, speed=0.5, color = ika.RGB(240, 100, 128, 255), filled=True ))                                            
-                sound.boltStorm.Play()                                            
-                for i in range(4): #wait a few frames before attacking next enemy
+                 
+                #if n % 3==0:
+                #sound.boltStorm.StopAllSounds()
+                sound.boltStorm.Play()  #only play sound every 4 to minimize noise                                          
+                n+=1    
+                
+                for i in range(5): #wait a few frames before attacking next enemy
                     yield None
         
         for e in destroyents:

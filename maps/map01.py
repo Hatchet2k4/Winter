@@ -19,7 +19,7 @@ def to2():
     system.engine.mapSwitch('map02.ika-map', (48 * 16, y))
 
 def to49():
-    system.engine.mapSwitch('map49.ika-map', (14 * 16, 23 * 16))
+    system.engine.mapSwitch('map54.ika-map', (3 * 16, 12 * 16))
 
 class RuneListener(object):
     def update(self):

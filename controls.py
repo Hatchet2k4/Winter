@@ -30,8 +30,8 @@ defaultControls = {
     'ternion': 'M',
     'savestate': 'F2',
     'loadstate': 'F4',
-    'showmap': 'TAB'
-    
+    'showmap': 'TAB',
+    'speedhack': 'Q'
 }
 displayControls = {}
 
@@ -114,7 +114,7 @@ def setConfig(config=None):
     for name in ('attack', 'cancel', 'rend',
                  'gale', 'heal', 'smoke',
                  'shiver', 'vivify', 'ternion', 
-                 'savestate', 'loadstate', 'showmap'):
+                 'savestate', 'loadstate', 'showmap', 'speedhack'):
         globals()[name] = PressControl(name)
     
 
@@ -126,6 +126,7 @@ def setConfig(config=None):
     
     #displayControls=config
     #ika.Log(str(config))
+
     
 
 # global control objects.  These are all set by setConfig
@@ -134,3 +135,4 @@ attack = cancel = rend = None
 gale = heal = smoke = shiver = None
 savestate = loadstate = None
 showmap = None
+speedhack= None

@@ -18,6 +18,10 @@
 	)
 	(zones 
 		(zone 
+			(label fightBoss)
+			(script fightBoss)
+		)
+		(zone 
 			(label to9)
 			(script to9)
 		)
@@ -100,23 +104,23 @@ A+z1vlLn+O56H+7vI/XOwXEXfOrVDjGXvQN/AAAA//8=
 			)
 			(data 
 				(format zlib)
-				eJzMVk1PAkEMnRMxhpNGo4GgEgV/hx8n9eIJRZJVL8ov
-40NA+IVO47z4trbDBi++pNmZ2c68ttt2NoQyhqEaqur9
-B3i2Hjty9AeuQ2f9LEqLzu440sqc3U46vSgPxh6PG/yi
-W6c1jstplC7pQbrGWUPa43FDpxZlK4ngRum9O2MP0JkR
-d83hzJ13kXm3LreZ28NjlD49q/jGsdmmcU09c5zAc5TX
-Cpwa+zSuu1plFMS5KZo03gk/8crFTd55PqJWrPqSGjwh
-PebVQJ7sZexgfKp9Mh9FGaf5NMqH2mPlEnKwQWsNQ6+d
-zl8lDoxXiWeW9Ebp+ZJEIPWLvqTBPbAZynGCT/BjFn77
-NCadAa33Da7bKHdp3CV7hPOc7IdPGlzLsEV81PXgATkm
-8egoTvCh515GuY5yFX5qGzGV+Zs6+ynDy9z43pwf3A+Y
-Iwev7g8yeyR+I5rDloHS077l+AArtxBLjq9G4XAVofwt
-OXc0+C4DrPrzuC3fFlHmxp5198HUWNO9Dd9W58yCxnNa
-mycbNTffX6OwHkWw62OibFyGbz/Ghq4Adcgx3uQ/ceKs
-L531expb30aDfRL7FsbZbDdyTPvSC+W6tc7PQeKY+w/R
-8GJZxWeG9EjEWMfCwq6aY4/OLWs/97CF8R7+65hxv+J3
-uZ5hAZxV8lDqz+rXVXqGBuewVee4N1Dz1r0oyH1bK8+8
-2ll3bwBfAAAA//8=
+				eJzMVk1PAkEMnRMxhpNGo4GgEgV/h1f14glFkkUvyi/j
+Q0D4hU7jvPi2trMbvPiSZmdmO/PabtvZEMqYhHqoq/cf
+4Nl67sjZH7hOnfWrKB06u+dIJ3N2N+kMojwaezxu8Itu
+k9Y4LpdR+qQH6RtnTWiPxw2dRpS9JIJbpffujD1AZ0nc
+DYczd95N5l1VbjO3h6coQ3rW8Y1js0/jhnrmOIFxlNca
+nBrHNG66WmUUxLkr2jQ+CD/xysVN3nk+olas+pIavCA9
+5tVAnhxl7GB8qn0yn0aZpfkiyofaY+UScrBFay1Dr5vO
+3yYOjLeJZ5n0pun5kkQg9Yu+pME9sB3KcYJP8GMZfvs0
+I50RrQ8Nrrso92ncJ3uE85rsh08C3UcA2CI+6nrwgByT
+ePQUp/aLgdpGTGX+pnSeM/uZG9+b84N9ZI4cvLo/yeyR
+XJ3SHLaMlJ72LccHWLmF+ysX38LhKkL9PsN3GWDVn8dt
++baOsqI5crfqPlgYa7q34dvqnFkbfLBjbHDz/TUN1SiC
+HdO5snETvv2YGboC9DyO8S7/iXNnfeOsP9B45egw2Cex
+b22czXYj5tqXQSjXrXV+DhLH3H+IhhfLOj4zpEcixjoW
+Fg7VHHt0bln7uYetjffwX8eM+xW/q+rJGuCsk4dSf1a/
+rtMzNDiHrTrHvYGat+5FQe7bWnnm1U7VvQF8AQAA//8=
+
 			)
 			(obstructions 
 				(format tile)
@@ -150,32 +154,18 @@ uZ5hAZxV8lDqz+rXVXqGBuewVee4N1Dz1r0oyH1bK8+8
 			(data 
 				(format zlib)
 				eJxiYBgFo2AUoAMfIPalgjlRVDCDFJAJpbPQxKXoYDe6
-nSMNKAGxBh55VSBWA2J1KtsLsnMtDrn1VLRHDQnj8+dg
-AukD7QAagbQBtme4hutAA1LjVQWPHLXqMHLsHgWjgBIg
-MUD2yg2AnZmEldDNHgAAAAD//w==
+nSMNKAGxBh55VSBWA2J1KtsLsnMtDrn1VLRHDQmD7AyE
+intT0Q5iQDgJatNp5oqBBWkDbM9wDdeBBqTGqwoeOWrV
+YeTYPQpGASVAYoDslRsAOzMJK6GbPQAAAAD//w==
 			)
 			(obstructions 
 				(format tile)
-				eJykkgEOhTAIQ9f7X/rHjI9tLWoiMTHwCgO2tb4Zytgh
-qpoDNRYh1Tt/gW/cABIu39NQn+d2r5uGgn+JUXANoWCr
-bjqpa4Gm52aBOM8cEmirZxpWSSM4Wr6GkUYw0f0A+H4V
-UvvhBkV756r4MoAGZhre30Pq+2Md/gAAAP//
+				eJykkgEOgDAIA9f/f9qYIWsLmyYSE2XXImwb418gghOi
+qrlRYhFSvfVq+MQJIMuRuw3xuDd7nbQp+EiMgmsIBUd0
+k6asBZqem21MOrntGAR6gL8KpxGqtezrhjZgnWo5Br0p
+LdxZTXtKVVwG0IU9be7fi/X7bx1eAAAA//8=
 			)
 			(entities 
-				(entity 
-					(label demiyeti)
-					(x 158)
-					(y 311)
-					(sprite yeti.ika-sprite)
-					(speed 100)
-					(direction up)
-					(move_script )
-					(obstructs_entities true)
-					(obstructed_by_entities true)
-					(obstructed_by_map true)
-					(adj_activate_script )
-					(activate_script )
-				)
 			)
 			(zones 
 				(zone 
@@ -183,6 +173,13 @@ UvvhBkV756r4MoAGZhre30Pq+2Md/gAAAP//
 					(x 48)
 					(y 464)
 					(width 176)
+					(height 16)
+				)
+				(zone 
+					(label fightBoss)
+					(x 334)
+					(y 120)
+					(width 36)
 					(height 16)
 				)
 			)
@@ -209,12 +206,11 @@ UvvhBkV756r4MoAGZhre30Pq+2Md/gAAAP//
 			)
 			(data 
 				(format zlib)
-				eJzsljsSgCAMRNPpifx/sNFe738XQ0GpJDEBnfHNbIUQ
-yOyCAD9SdtSRuGaH6onfFox1q8i4Qy3KNT1DZHxFbcw1
-U+DPWebeRAZiPtGeF4j5RHueh5M1TRzQsnaFtNeSrNWo
-FtXAs15TCXfuiJpRk0GNp171SLyj0T8HdO9ovl8c73w1
-V1yCj6zesKs+WufQgV0f77Jn+S+Q4u6ioHH3SHjL+X/y
-cgIAAP//
+				eJzslTsSgCAMRNPpiSzUIjba6/3vIhRpHDUBFvwMbyYV
+nwVmNxBVYlldbYU1e1eDcW4TsG+njLOrCazpGZXx2dUS
+uGcJ/D3bpw/xAJpP0OsEzSfodZ6QrCFhsmUNzVuzVppU
+r8aS4tUjFu8i/y/RY9K9i8yV6Fm8K3MRWPTER7lydfWO
+SB+dwZSvP91lL2d/yv1mVv7QeyrfZQcAAP//
 			)
 			(obstructions 
 				(format tile)

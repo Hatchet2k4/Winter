@@ -31,6 +31,11 @@ class RepeatableSound(object):
         s.Play()
         self.sounds.append(s)
 
+    def StopAllSounds(self):
+        for s in self.sounds:
+            s.volume=0 #hack!
+
+
 # effects:
 
 slash1, slash2, slash3 = [
@@ -48,7 +53,8 @@ menuBuzz = RepeatableSound('sfx/MenuBuzz.wav')
 hearthRend = RepeatableSound('sfx/HearthRend.wav')
 crushingGale = RepeatableSound('sfx/CrushingGale.wav')
 healingRain = RepeatableSound('sfx/HealingRain.wav')
-boltStorm = RepeatableSound('sfx/bolt2.wav')
+#boltStorm = RepeatableSound('sfx/bolt2.wav')
+boltStorm = RepeatableSound('sfx/slash3.wav')
 
 monsterHit = RepeatableSound('sfx/MonsterHit.wav')
 
