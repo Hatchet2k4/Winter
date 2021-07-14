@@ -36,7 +36,7 @@ class Enemy(Entity):
         self.state = self.idleState()
         self.stats.hp = 15
         self._mood = None
-
+        self.name = ''
         # Describe how we implement various moods
         self.actions = {
             Brain.Attack : self.idleState,
@@ -79,6 +79,7 @@ class Enemy(Entity):
         self.state = self.deathState(recoilSpeed, recoilDir)
         system.engine.player.giveXP(self.stats.exp)
         #system.engine.player.stats.mp += self.stats.exp # MP Regen for the player.
+        
 
     def deathState(self, recoilSpeed, recoilDir):
         self.invincible = True
@@ -102,6 +103,7 @@ class Enemy(Entity):
 
 
         self.ent.isobs = False
+        system.engine.player.stats[self.name]+=1
         # burn cycles until the engine kills us
         while True:
             yield None

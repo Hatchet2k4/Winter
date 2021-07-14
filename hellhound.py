@@ -10,3 +10,4 @@ class HellHound(RazorMane):
         self.stats.hp = 200
         self.stats.att = 32
         self.stats.exp = 80
+        self.name='hellhound'

@@ -11,7 +11,17 @@ class StatSet(object):
         'rend', 'heal', 'gale', 'shiver',
         'smoke', 'vivify', 'ternion',
         'damageind', #toggle for damage numbers. Hack!
-        'tnt'
+        'tnt',
+        'anklebiter', 
+        'devourer', 
+        'carnivore', 
+        'razormane', 
+        'dragonpup',
+        'hellhound', 
+        'yeti', 
+        'gorilla',
+        'soulreaver',
+        'serpent'        
         )
 
     def __init__(self, **kw):

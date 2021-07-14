@@ -10,6 +10,7 @@ class Carnivore(AnkleBiter):
         self.stats.hp = 40
         self.stats.att = 16
         self.stats.exp = 10
+        self.name='carnivore'
 
     def attackState(self, dir):
         class SpeedSaver(object):

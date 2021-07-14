@@ -101,6 +101,7 @@ class RazorMane(Enemy):
         self.stats.maxhp = self.stats.hp = 60
         self.stats.att = 15
         self.stats.exp = 13
+        self.name='razormane'
 
     def hurtState(self, recoilSpeed, recoilDir):
         if self.stats.hp > 0:
@@ -212,7 +213,7 @@ class RazorMane(Enemy):
 
     def deathState(self, *args, **kwargs):
         sound.razorManeDie.Play()
-        self.anim = 'die'
+        self.anim = 'die'        
         return super(RazorMane, self).deathState(*args, **kwargs)
 
     def attackState(self, dir):

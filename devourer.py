@@ -10,7 +10,8 @@ class Devourer(AnkleBiter):
         self.stats.hp = self.stats.maxhp
         self.stats.att = 24
         self.stats.exp = 40
-
+        self.name='devourer'
+        
     def attackState(self, dir):
         class SpeedSaver(object):
             def __init__(_self): _self.s = self.speed

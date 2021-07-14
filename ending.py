@@ -2,6 +2,7 @@
 import ika
 import sound
 from snow import Snow
+import system
 
 _text = '''\
 Winter
@@ -171,6 +172,35 @@ def credits():
     snow = Snow(velocity=(0, 1))
     y = -ika.Video.yres
     font = ika.Font('system.fnt')
+    
+    class CreditEnt(object):
+        def __init__(self, e, name, x, y, h):
+            self.ent=e
+            self.name=name
+            self.x=x
+            self.y=y
+            self.h=int(h/2)
+            #self.stat=stat
+        def draw(self, offset):
+            self.ent.Draw(self.x, self.y-offset)
+            num= str(system.engine.player.stats[self.name])
+            font.Print(100, self.y-offset+self.h, num)
+    
+    
+    entlist=[]
+    
+    startx=80
+    starty=0
+    #hack because the full sprite dimensions aren't directly accessible 
+    heights = [16]*3 + [32]*3 + [96]*4
+    halfwidths=[8]*3 + [16]*3 + [48]*4
+    
+    for i, entname in enumerate(['anklebiter', 'carnivore', 'devourer', 'razormane', 'dragonpup','hellhound', 'yeti', 'gorilla','soulreaver','serpent']):
+        e=ika.Entity(-100,-100, 2, entname+'.ika-sprite')                
+        entlist.append(CreditEnt(e, entname, startx-halfwidths[i], starty, heights[i]))
+        starty+=heights[i]+10
+            
+    
 
     def draw():
         ika.Video.Blit(bg, 0, 0, ika.Opaque)
@@ -189,7 +219,10 @@ def credits():
             Y += font.height
             firstLine += 1
 
-
+        
+        for en in entlist:
+            en.draw(int(y))
+            
         ika.Video.DrawTriangle(
             (0, 0, ika.RGB(0, 0, 0)),
             (ika.Video.xres, 0, ika.RGB(0, 0, 0, 0)),
@@ -199,8 +232,11 @@ def credits():
             (ika.Video.xres, ika.Video.yres, ika.RGB(0, 0, 0)),
             (0, ika.Video.yres, ika.RGB(0, 0, 0, 0)),
             (ika.Video.xres, ika.Video.yres - 60, ika.RGB(0, 0, 0, 0)))
-
+        
+        
+        
         snow.draw()
+        
 
     now = ika.GetTime()
     while True:
@@ -213,3 +249,5 @@ def credits():
         draw()
         ika.Video.ShowPage()
         ika.Input.Update()
+        
+        

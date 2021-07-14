@@ -47,13 +47,15 @@ class Serpent(Enemy):
             (Brain.Attack(1), self.watchMood)
             )
 
-        self.stats.maxhp = 300
+        self.stats.maxhp = 30
         self.stats.hp = self.stats.maxhp
         self.stats.att = 30
         self.invincible = True
-
+        
+        self.name='serpent'
         ent.mapobs = ent.entobs = False
         self.bleh = self.watchMood()
+        
 
     def die(self):
         xi.effects.fadeOut(200, draw=system.engine.draw)

@@ -98,6 +98,7 @@ class AnkleBiter(Enemy):
             (Brain.Flee(1), self.passiveMood)
         )
 
+        self.name='anklebiter'
         self.mood = self.passiveMood
         self.stats.maxhp = self.stats.hp = 12
         self.stats.att = 6
@@ -183,7 +184,7 @@ class AnkleBiter(Enemy):
 
     def deathState(self, *args, **kwargs):
         sound.anklebiterDie.Play()
-        self.anim = 'die'
+        self.anim = 'die'        
         return super(AnkleBiter, self).deathState(*args, **kwargs)
 
     def attackState(self, dir):

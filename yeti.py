@@ -102,6 +102,7 @@ class Yeti(Enemy):
         self.stats.att = 16
         self.stats.exp = 100
         self.stats.ind = 0
+        self.name='yeti'
 
     def hurtState(self, dist, dir):
         if self.stats.hp > 0:

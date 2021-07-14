@@ -10,3 +10,4 @@ class Gorilla(Yeti):
         self.stats.hp = 200
         self.stats.att = 24
         self.stats.exp = 200
+        self.name='gorilla'

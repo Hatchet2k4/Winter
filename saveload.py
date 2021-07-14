@@ -7,6 +7,7 @@ import savedata
 import system
 from statset import StatSet
 
+
 quicksave=None
 
 from automap import mapnames, map

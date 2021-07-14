@@ -217,7 +217,19 @@ initialStats = StatSet(
     exp=0,
     next=10,
     damageind=1,
-    tnt=0)
+    tnt=0,    
+    #kill stats
+    anklebiter=0,    
+    devourer=0,   
+    carnivore=0,    
+    razormane=0,    
+    dragonpup=0,
+    hellhound=0,
+    yeti=0,
+    gorilla=0,
+    soulreaver=0,
+    serpent=0    
+    )
 
 class Player(Entity):
     def __init__(self, x=0, y=0, layer=0):
@@ -234,11 +246,14 @@ class Player(Entity):
     def levelUp(self):
 
         sound.achievement.Play()
+        
 
         while self.stats.exp >= self.stats.next:
+            lev5 = int(self.stats.level / 5)
             
-            hpup = ika.Random(2, 8) + ((self.stats.level / 5) * 2)
-            mpup = ika.Random(2, 6) + ((self.stats.level / 5) * 2)
+            #every 5 levels, increase potential hp gain
+            hpup = ika.Random(2, 5 + lev5) + lev5
+            mpup = ika.Random(2, 4 + lev5) + lev5
             
             self.stats.maxhp += hpup
             self.stats.maxmp += mpup
@@ -248,14 +263,14 @@ class Player(Entity):
             statsup = {'att':0, 'mag':0, 'pres':0}
             statnames = {'att':'Attack', 'mag':'Magic', 'pres':'Defense'}
             
-            statpoints = 2 + int(self.stats.level / 5) #every 5 levels, gain another stat point           
+            statpoints = 1 + + lev5 #every 5 levels, gain another stat point           
             
             for n in range(statpoints):
                 #random chance of any stat increase. mres not included because it's useless :P
                 s = statlist[ika.Random(0,len(statlist))] 
                 self.stats[s]+= 1
                 statsup[s]+=1
-
+            
             self.stats.level += 1
 
             self.stats.maxhp = min(self.stats.maxhp, 285)

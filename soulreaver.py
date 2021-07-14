@@ -21,6 +21,7 @@ class SoulReaver(Yeti):
         self.stats.att = 40
         self.stats.exp = 500
         self.stats.ind = 1
+        self.name='soulreaver'
         
     def attackState(self, direc):
         self.direction = direc
