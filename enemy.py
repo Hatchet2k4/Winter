@@ -35,6 +35,7 @@ class Enemy(Entity):
         self.brain = brain
         self.state = self.idleState()
         self.stats.hp = 15
+        self.stats.givemp = 1
         self._mood = None
         self.name = ''
         # Describe how we implement various moods
@@ -78,7 +79,7 @@ class Enemy(Entity):
         self.interruptable = True
         self.state = self.deathState(recoilSpeed, recoilDir)
         system.engine.player.giveXP(self.stats.exp)
-        #system.engine.player.stats.mp += self.stats.exp # MP Regen for the player.
+        system.engine.player.stats.mp += ika.Random(1, int(self.stats.maxhp/10)+1) # MP Regen for the player.
         
 
     def deathState(self, recoilSpeed, recoilDir):
@@ -103,7 +104,8 @@ class Enemy(Entity):
 
 
         self.ent.isobs = False
-        system.engine.player.stats[self.name]+=1
+        if self.name in system.engine.player.stats.__dict__:
+            system.engine.player.stats[self.name]+=1
         # burn cycles until the engine kills us
         while True:
             yield None

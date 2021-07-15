@@ -103,6 +103,7 @@ class AnkleBiter(Enemy):
         self.stats.maxhp = self.stats.hp = 12
         self.stats.att = 6
         self.stats.exp = 1
+        
 
     def hurtState(self, recoilSpeed, recoilDir):
         if self.stats.hp > 0:

@@ -15,7 +15,7 @@ from entity import Entity
 from enemy import Enemy
 from obstacle import IceWall, IceChunks, Gap, _Obstacle, Crystal
 from effects import Nova, Bolt
-
+from serpent import Serpent
 
 PLAYER_SPRITE = 'protagonist.ika-sprite'
 
@@ -809,7 +809,10 @@ class Player(Entity):
                                                
                 if isinstance(e, Enemy):
                     d = dir.invert[dir.fromDelta(self.x - e.x, self.y - e.y)]
-                    e.hurt((self.stats.att + self.stats.mag) + ika.Random(1, int(self.stats.mag)), 300, d)
+                    if(isinstance(e, Serpent)): #he resists!
+                        e.hurt( int( ((self.stats.att + self.stats.mag) + ika.Random(1, int(self.stats.mag))) / 4), 300, d)
+                    else:
+                        e.hurt((self.stats.att + self.stats.mag) + ika.Random(1, int(self.stats.mag)), 300, d)
                 elif isinstance(e, IceWall):
                     setattr(savedata, e.flagName, 'Broken')                    
                     system.engine.things.append(Caption('The ice melted!'))

@@ -1,0 +1,109 @@
+(ika-sprite 
+	(version 1.0)
+	(information 
+		(title Untitled)
+		(meta 
+		)
+	)
+	(header 
+		(depth 32)
+	)
+	(scripts 
+		(script 
+			(label script0)
+			
+		)
+		(script 
+			(label script1)
+			
+		)
+		(script 
+			(label script2)
+			
+		)
+		(script 
+			(label script3)
+			
+		)
+		(script 
+			(label script4)
+			
+		)
+		(script 
+			(label script5)
+			
+		)
+		(script 
+			(label script6)
+			
+		)
+		(script 
+			(label script7)
+			
+		)
+		(script 
+			(label script8)
+			
+		)
+		(script 
+			(label script9)
+			
+		)
+		(script 
+			(label script10)
+			
+		)
+		(script 
+			(label script11)
+			
+		)
+		(script 
+			(label script12)
+			
+		)
+		(script 
+			(label script13)
+			
+		)
+		(script 
+			(label script14)
+			
+		)
+		(script 
+			(label script15)
+			
+		)
+	)
+	(frames 
+		(count 10)
+		(dimensions 
+			(width 16)
+			(height 16)
+		)
+		(hotspot 
+			(x 0)
+			(y 0)
+			(width 16)
+			(height 16)
+		)
+		(data 
+			(format zlib)
+			eJzsV8FtwzAMzIgdoL9s00dX6BBdIM8OUXSVtjYsgKGP
+Eo+knRYQAQGJrDueKFICL5dpf9Ken27Xj9d1LL9Z+IJ7
++3pZx8pxMj6rf9q0h1oif2Xt0DX066thPr/f19H+e3Q0
+3w0rOTwasvisfqkhFD+hY94/SVviFoldw+lB4Hbvj4dH
+4Mz8tfAd7JBj09XDSo7dPjbfI2wbdxoI31BDFp/VXxG/
+7PlV5I/YRzh/AQ+Fs3giGH1/erjA3mEMDGym/kZYk6OT
+e/ods+pH577cs4wFrAHgW8cL7U1q0G/t7swAx1H4iP5s
+/FLnl82fivytqJ+K+gU63H4BTp/jqP7RvWneowDf1mp/
+kmd0dtCH0ober/atp6/lqb5/IK+Of0fnne/NzP5dayjE
+h/Rn41dxfoCDyh/gg85fxUHXT4eHqn2B3w0W25vrYSPf
+ydh45sz+0drfZsP+Vb09msvVPxtn4+7fD8LT+rPxQ/+3
+Off5WXPIMjnI1ECkftB6FsvqrfQv1s7+39k/E76t/iWF
+z+qviF/2/CryR+wjnL+A5/T6VXuY/f/s/xl8RP/s/wvq
+p6J+gY7Z/++1ndL/GzHy9v89jqPwIf1qno5fJy4aO/t/
+p6m7P3J3oPi7767IdzI2Iay1PoNnsZrjv+P1bxZbgWc4
+MjnI1ECkftD6AfYHAAD//w==
+		)
+	)
+)
