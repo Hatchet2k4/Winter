@@ -62,7 +62,7 @@ anklebiterStrike = ika.Sound('sfx/AnklebiterStrike.wav')
 anklebiterHurt = NullSound() # ika.Sound('sfx/AnklebiterHurt.wav')
 anklebiterDie = RepeatableSound('sfx/AnklebiterDie.wav')
 
-beam = RepeatableSound('sfx/beam1.wav')
+beam = RepeatableSound('sfx/beam.wav')
 serpentRoar = RepeatableSound('sfx/serpentroar.wav')
 serpentDie = RepeatableSound('sfx/serpentdie.wav')
 

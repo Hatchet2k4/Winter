@@ -98,6 +98,39 @@ cybOZBjDGVM96/7dzPIZ946bL2X1ddsp4/+MPZ5bMudN
 			)
 		)
 		(layer 
+			(label B1.5)
+			(dimensions 
+				(width 50)
+				(height 40)
+			)
+			(position 
+				(x 0)
+				(y 0)
+			)
+			(parallax 
+				(mulx 1)
+				(muly 1)
+				(divx 1)
+				(divy 1)
+			)
+			(wrap 
+				(x false)
+				(y false)
+			)
+			(data 
+				(format zlib)
+				eJzswQEBAAAAgJD+r+4ICgAAAAAAAAAYAAD//w==
+			)
+			(obstructions 
+				(format tile)
+				eJxiYBgFo2AUjIJRMApGwVAHAAAAAP//
+			)
+			(entities 
+			)
+			(zones 
+			)
+		)
+		(layer 
 			(label B1)
 			(dimensions 
 				(width 50)

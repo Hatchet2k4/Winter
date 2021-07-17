@@ -615,10 +615,10 @@ class Player(Entity):
             for e in ents:
                 if isinstance(e, Enemy) and not e.invincible and e not in hitList:
                     hitList.append(e)
-                    if(isinstance(e, Serpent)): #he resists, no 1.5!
+                    if(isinstance(e, Serpent)): #he resists, no extra 1.5!
                         e.hurt( int( ((self.stats.att + self.stats.mag) + ika.Random(-3, 3))), 300, self.direction)
                     else: 
-                        e.hurt(int(self.stats.att + self.stats.mag) * 1.5 + ika.Random(-3, 3), 300, self.direction)
+                        e.hurt(int((self.stats.att + self.stats.mag) * 1.5) + ika.Random(-3, 3), 300, self.direction)
                 elif isinstance(e, IceWall):
                     # TODO: some sort of nice animation.
                     setattr(savedata, e.flagName, 'Broken')
@@ -722,11 +722,6 @@ class Player(Entity):
             return
 
         self.stats.mp -= 20
-
-        # not much to do here :)
-        # TODO: particles or something, for confirmation for the player
-        # if for no other reason.
-
         sound.healingRain.Play()
 
         duration=45
@@ -741,9 +736,9 @@ class Player(Entity):
         self.invincible = True
 
 
-        amount = self.stats.mag * 2 + 20
+        amount = self.stats.mag + self.stats.maxhp/5 + ika.Random(0, int(self.stats.mag/2)) #minimum 20% heal
         amount += int(amount/10.0 * ika.Random(-2, 4))               
-        self.stats.hp +=  amount  # min(20, amount) #not sure why min was used here originally? setting to actual amount calculated
+        self.stats.hp += min(20, amount) 
                
         if self.stats.damageind:
             x=self.ent.x 
@@ -805,7 +800,7 @@ class Player(Entity):
         destroyents = []
         n=0
         for e in ents:
-            if (isinstance(e, Enemy) and not e.invincible) or isinstance(e, IceWall) or isinstance(e, Crystal):
+            if e and (isinstance(e, Enemy) and not e.invincible) or isinstance(e, IceWall) or isinstance(e, Crystal):
                 if not costmp:                    
                     costmp=True
                     self.stats.mp -= costperhit 

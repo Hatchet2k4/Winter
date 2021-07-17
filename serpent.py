@@ -23,7 +23,7 @@ _stareAnim = animator.makeAnim((4, 5, 5, 6, 6, 7, 7, 6, 5, 4, 4), 6)
 _roarAnim = animator.makeAnim((12, 13, 13, 14, 15, 16, 16, 16, 14, 12), 20)
 #_deathAnim = animator.makeAnim(range(24, 27), 100)
 _appearAnim = animator.makeAnim((26, 25, 24), 20)
-_deathAnim = animator.makeAnim(range(28, 36)+[27, 27], 10)
+_deathAnim = animator.makeAnim(range(28, 36)+[27, 27], 16)
 
 
 _hurtAnim = ((10, 50),)
@@ -71,9 +71,15 @@ class Serpent(Enemy):
     def die(self, *args):
         #xi.effects.fadeOut(200, draw=system.engine.draw)
         #ending.credits()
-    #    self.anim='die'
-    #    self.invincible = True
-        sound.serpentDie.Play()
+
+        #destroy all remaining enemies!
+        #for some reason this causes a potential crash.. will just need to kill the enemies too!
+        #for e in system.engine.entities:
+        #    if isinstance(e, Enemy) and not isinstance(e, Serpent):
+        #        system.engine.destroyEntity(e)
+                #e.die()
+    
+        sound.serpentDie.Play()        
         super(Serpent, self).die(*args)
           
         
@@ -167,14 +173,7 @@ class Serpent(Enemy):
             yield None
         
         self.invincible = True
-        # TODO: finish this if someone can think of a good idea for
-        # what it should do!
-        
-        #stole from Mannux
-        #dx = self.x - engine.player.x - engine.player.width / 2 + 8
-        #dy = self.y - engine.player.y - engine.player.height / 2 + 8
-        #angle = math.atan2(dy, dx) + math.pi
-        #engine.AddEntity(Laser(self.x + 8, self.y + 8, angle, self))
+
         
 
     def roarState(self):
