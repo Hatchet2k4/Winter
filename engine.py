@@ -39,7 +39,7 @@ import cabin
 import sound
 import automap
 
-FRAME_RATE = 300
+
 MAX_SKIP_COUNT = 10
 START_MAP = 'map01.ika-map'
 START_POS = (34 * 16, 23  * 16)
@@ -102,6 +102,10 @@ class Engine(object):
         #for game clock
         self.resetTime()
         self.mapscreen = automap.MapScreen()
+    
+    def SetFrameRate(self, rate):
+        self.framerate = rate
+        self.ticksPerFrame = 100.0 / self.framerate
     
     def resetTime(self, s=0,m=0,h=0):
         self.seconds = s
@@ -280,11 +284,10 @@ class Engine(object):
 
                 if controls.speedhack():
                     if self.framerate == 100:
-                        self.framerate = 200
-                        self.ticksPerFrame = 100.0 / self.framerate
+                        self.SetFrameRate(200)                        
                     else: 
-                        self.framerate = 100
-                        self.ticksPerFrame = 100.0 / self.framerate
+                        self.SetFrameRate(100)
+                        
 
                 # Do some thinking
                 self.tick()

@@ -2,8 +2,10 @@
 import system
 import savedata
 import cabin
+from snow import Snow
 
 def AutoExec():
+    system.engine.mapThings.append(Snow(velocity=(0, 0.5)))    
     system.engine.things.append(CabinListener())
     
 def to25():

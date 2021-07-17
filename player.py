@@ -615,7 +615,10 @@ class Player(Entity):
             for e in ents:
                 if isinstance(e, Enemy) and not e.invincible and e not in hitList:
                     hitList.append(e)
-                    e.hurt(int(self.stats.att + self.stats.mag) * 2 + ika.Random(-3, 3), 300, self.direction)
+                    if(isinstance(e, Serpent)): #he resists, no 1.5!
+                        e.hurt( int( ((self.stats.att + self.stats.mag) + ika.Random(-3, 3))), 300, self.direction)
+                    else: 
+                        e.hurt(int(self.stats.att + self.stats.mag) * 1.5 + ika.Random(-3, 3), 300, self.direction)
                 elif isinstance(e, IceWall):
                     # TODO: some sort of nice animation.
                     setattr(savedata, e.flagName, 'Broken')
@@ -809,8 +812,8 @@ class Player(Entity):
                                                
                 if isinstance(e, Enemy):
                     d = dir.invert[dir.fromDelta(self.x - e.x, self.y - e.y)]
-                    if(isinstance(e, Serpent)): #he resists!
-                        e.hurt( int( ((self.stats.att + self.stats.mag) + ika.Random(1, int(self.stats.mag))) / 4), 300, d)
+                    if(isinstance(e, Serpent)): #he resists, half damage to prevent bolt spam!
+                        e.hurt( int( ((self.stats.att + self.stats.mag) + ika.Random(1, int(self.stats.mag))) / 2), 300, d)
                     else:
                         e.hurt((self.stats.att + self.stats.mag) + ika.Random(1, int(self.stats.mag)), 300, d)
                 elif isinstance(e, IceWall):

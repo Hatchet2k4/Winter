@@ -8,18 +8,24 @@ import ending
 import xi.effects
 import math
 import player
+import sound
 
 from enemy import Enemy
 from carnivore import Carnivore
 from anklebiter import AnkleBiter
+from devourer import Devourer
 
 # arbitrary :D
 _idleAnim = animator.makeAnim((0, 4, 0, 0, 0, 4, 0, 0, 1, 2, 3, 2, 1, 0), 50)
-_biteAnim = animator.makeAnim(range(16, 22), 7) # could do some speed-tinkering here.  Make the first and last frames slower than the middle ones.
-_stareAnim = animator.makeAnim((4, 5, 5, 6, 6, 7, 7, 6, 5, 4, 4), 4)
+#_biteAnim = animator.makeAnim(range(16, 22), 7) # could do some speed-tinkering here.  Make the first and last frames slower than the middle ones.
+_biteAnim = animator.makeAnim([16] + range(16, 22) + [21], 7) # could do some speed-tinkering here.  Make the first and last frames slower than the middle ones.
+_stareAnim = animator.makeAnim((4, 5, 5, 6, 6, 7, 7, 6, 5, 4, 4), 6)
 _roarAnim = animator.makeAnim((12, 13, 13, 14, 15, 16, 16, 16, 14, 12), 20)
-_deathAnim = animator.makeAnim(range(24, 27), 100)
+#_deathAnim = animator.makeAnim(range(24, 27), 100)
 _appearAnim = animator.makeAnim((26, 25, 24), 20)
+_deathAnim = animator.makeAnim(range(28, 36)+[27, 27], 10)
+
+
 _hurtAnim = ((10, 50),)
 
 _anim = {
@@ -34,9 +40,11 @@ _anim = {
 
 _biteRange = (
     (0, 41, 30, 0),
+    (0, 41, 30, 0),
     (0, 41, 30, 6),
     (0, 41, 30, 20),
     (0, 41, 30, 30),
+    (0, 41, 30, 0),
     (0, 41, 30, 0),
     (0, 41, 30, 0),
 )
@@ -49,22 +57,33 @@ class Serpent(Enemy):
             (Brain.Attack(1), self.watchMood)
             )
 
-        self.stats.maxhp = 300 #must bump up before release!
+        self.stats.maxhp = 80 #must bump up before release!
         self.stats.hp = self.stats.maxhp
         self.stats.att = 40
-        self.invincible = True
+        self.stats.exp = 0
+        self.invincible = False
         
         self.name='serpent'
         ent.mapobs = ent.entobs = False
         self.bleh = self.watchMood()
         
 
-    def die(self):
-        xi.effects.fadeOut(200, draw=system.engine.draw)
-        ending.credits()
+    def die(self, *args):
+        #xi.effects.fadeOut(200, draw=system.engine.draw)
+        #ending.credits()
+    #    self.anim='die'
+    #    self.invincible = True
+        sound.serpentDie.Play()
+        super(Serpent, self).die(*args)
+          
+        
+        
 
     def think(self):
-        self.state = self.bleh.next()
+        if self.stats.hp>0:
+            self.state = self.bleh.next()
+        else: 
+            self.state = self.deathState()
 
     def hurt(self, amount, speed = 0, dir = None):
         Enemy.hurt(self, amount, 0, dir)
@@ -83,7 +102,7 @@ class Serpent(Enemy):
     def watchMood(self):
         '''
         Go left to right, try to vertically align with the player,
-        then try to bite.
+        then try to bite or fire beam.
         Roar every now and again.
         '''
         p = system.engine.player
@@ -92,16 +111,18 @@ class Serpent(Enemy):
             # why is this necessary? O_o
             #self.interruptable = True
             #self._state = None
-
-            for n in range(ika.Random(1, 8)):
-                x = self.x + self.ent.hotwidth / 2
-                d = dir.fromDelta(p.x - x, 0)
-                yield self.moveState(d, abs(p.x - x))
-
-                c = ika.Random(0, 100) 
-                if c < 35:
-                    yield self.biteState()
-                elif c < 75: 
+            s=0 #used to increase stare chance
+            for n in range(ika.Random(4, 10)): #min 4 attacks before next roar state                
+                c = ika.Random(0, 100) + s
+                if c < 75:
+                    s=0
+                    x = self.x + self.ent.hotwidth / 2
+                    d = dir.fromDelta(p.x - x, 0)
+                    yield self.moveState(d, abs(p.x - x))
+                    if c > 30:
+                        yield self.biteState()
+                else: 
+                    s = 30 #increase chance of staring again if just stared for multiple shots
                     yield self.stareState()
                 
             yield self.roarState()
@@ -135,10 +156,14 @@ class Serpent(Enemy):
     def stareState(self):
         self.anim = 'stare'
         self.invincible = False
-        e = Beam(ika.Entity(self.x+8, self.y-8, self.layer, 'beam.ika-sprite'))
-        system.engine.addEntity(e)
         
+        launchbeam=False
         while not self._animator.kill:
+            if self._animator.index==7 and not launchbeam:
+                sound.beam.Play()
+                e = Beam(ika.Entity(self.x+8, self.y-8, self.layer, 'beam.ika-sprite'))
+                system.engine.addEntity(e)
+                launchbeam=True
             yield None
         
         self.invincible = True
@@ -157,34 +182,44 @@ class Serpent(Enemy):
         self.anim = 'roar'
         s = False
 
+        sound.serpentRoar.Play()
+
         for wait in range(200):
             n = self._animator.curFrame - 12 # Yet another gay hack.
             ika.Map.xwin += ika.Random(-n, n + 1)
             ika.Map.ywin += ika.Random(-n, n + 1)
             yield None
 
-        for q in range(ika.Random(1, 4)):
-            x, y = 320 + (q * 60), 588
-            n = ika.EntitiesAt(x, y, x + 16, y + 16, self.layer)
-
-            if not n:
-                if ika.Random(0, 2):
-                    e = Carnivore(ika.Entity(x, y, self.layer, 'carnivore.ika-sprite'))
-                else:
-                    e = AnkleBiter(ika.Entity(x, y, self.layer, 'anklebiter.ika-sprite'))
-                system.engine.addEntity(e)
-                e.mood = e.attackMood
-
         # need to destroy old corpses (a first!)
         for e in system.engine.entities:
             if e.stats.hp == 0 and isinstance(e, Enemy):
                 system.engine.destroyEntity(e)
 
-        while not self._animator.kill:
-            n = self._animator.curFrame - 12
-            ika.Map.xwin += ika.Random(-n, n + 1)
-            ika.Map.ywin += ika.Random(-n, n + 1)
-            yield None
+        for q in range(ika.Random(1, 4)):
+            x, y = 320 + (q * 60), 588
+            n = ika.EntitiesAt(x, y, x + 16, y + 16, self.layer)
+
+            if not n:            
+                if self.stats.hp>self.stats.maxhp/2: #normal                
+                    if ika.Random(0, 2):
+                        e = Carnivore(ika.Entity(x, y, self.layer, 'carnivore.ika-sprite'))
+                    else:
+                        e = AnkleBiter(ika.Entity(x, y, self.layer, 'anklebiter.ika-sprite'))
+                else: #half dead, stronger spawns
+                    if ika.Random(0, 2):
+                        e = Devourer(ika.Entity(x, y, self.layer, 'devourer.ika-sprite'))
+                    else:
+                        e = Carnivore(ika.Entity(x, y, self.layer, 'carnivore.ika-sprite'))
+                system.engine.addEntity(e)
+                e.mood = e.attackMood
+
+
+
+        #while not self._animator.kill:
+        #    n = self._animator.curFrame - 12
+        #    ika.Map.xwin += ika.Random(-n, n + 1)
+        #    ika.Map.ywin += ika.Random(-n, n + 1)
+        #    yield None
 
 
 flyAnim = animator.makeAnim(range(10), 10)  
@@ -197,13 +232,11 @@ _beamanim = {
 }
 class Beam(Enemy):
     def __init__(self, ent):
-        Enemy.__init__(self, ent, _beamanim, Brain.Brain())
+        Enemy.__init__(self, ent, _beamanim, None)
 
         flyAnim = animator.makeAnim(range(10), 10)   
         
-        self.addMoods(
-            (Brain.Attack(1), self.flyMood)
-            )
+        
 
         self.stats.maxhp = 10
         self.stats.hp = self.stats.maxhp
@@ -214,31 +247,29 @@ class Beam(Enemy):
         
         self.name='beam'
         ent.mapobs = ent.entobs = False
-        self.bleh = self.flyMood()
+        self.state = self.flyState()
         
         p = system.engine.player
         
-        self.x=self.ent.x
-        self.y=self.ent.y
+        self.x=self.px=self.ent.x
+        self.y=self.py=self.ent.y
+        
         
         dx = (self.x - 8) - (p.x + 7)
         dy = (self.y - 8) - (p.y + 8)
         self.angle = math.atan2(dy, dx) + math.pi        
 
-    def think(self):
-        self.state = self.bleh.next()
-        
-    def flyMood(self):    
-            yield self.flyState()               
-    
 
     def flyState(self):        
         self.direction=dir.DOWN
-        while not self._animator.kill:
-            self.x += 3 * math.cos(self.angle)
-            self.y += 3 * math.sin(self.angle)
+        time=100
+        while time:
+            self.px += 2.5 * math.cos(self.angle)
+            self.py += 2.5 * math.sin(self.angle)
+            self.x=int(self.px)
+            self.y=int(self.py)
             ents = self.detectCollision((0,0,16,16))
-            
+            time-=1
             for e in ents:
                 if isinstance(e, player.Player):
                     d = max(1, self.stats.att - e.stats.pres)
