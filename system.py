@@ -3,8 +3,11 @@ from engine import Engine
 from intro import intro, menu
 import sound
 import saveload
-
 import controls
+
+
+ika.SetCaption('Winter')
+
 controls.init()
 
 import subscreen
@@ -28,26 +31,23 @@ except:
 
 introMusic = ika.Sound('music/Existing.s3m')
 
-ika.SetCaption('Winter')
+
+while not controls.attack():
+        ika.Video.ShowPage()
+        ika.Input.Update()
 
 
-
-
-#intro()
+#sound.fader.kill()
+introMusic.Play()
+introMusic.position = 0
+intro()
 
 
     
-while True:
-        
-    #if saveload.quicksave: # a quicksave exists from a previous attempt to load! Load it instead
-    #    s=saveload.quicksave
-    #    saveload.quicksave=None #reset it to None so that if player dies or exits, doesn't autoload the quicksave
-    #    engine = Engine()
-    #    engine.loadGame(s)
-    #else:
-        sound.fader.kill()
-        introMusic.position = 0
-        introMusic.Play()
+while True:        
+        #sound.fader.kill()
+        #introMusic.position = 0
+        #introMusic.Play()
         if saveload.quicksave:
             result = 3
         else: 

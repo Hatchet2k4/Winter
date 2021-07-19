@@ -22,23 +22,27 @@ def delay(draw, count, snow):
 def intro():
     snow = Snow(velocity=(0,0.5))
     gba = ika.Image('gfx/gba.png')
-    #yourmom = ika.Image('gfx/yourmother.png')
-    #isabitch = ika.Image('gfx/isabigfatbitch.png')
-
+    ikalogo = ika.Image('gfx/ika.png')
+    hatchlogo = ika.Image('gfx/HatchetLogo2.png')
     controls.attack() # unpress
 
     v = ika.Video
-    d = 40
+    d = 50
 
     def showGba():
         v.ClearScreen()
         v.Blit(gba, (v.xres - gba.width) / 2, (v.yres - gba.height) / 2)
 
-    try:
-        delay(showGba, 300, snow)
-
+    try:                
+        delay(lambda: v.Blit(ikalogo, 0, 0, ika.Opaque), 200, snow)
+        delay(lambda: v.ClearScreen(), d, snow)        
+        delay(lambda: v.Blit(hatchlogo, 0, 0, ika.Opaque), 200, snow)
         delay(lambda: v.ClearScreen(), d, snow)
-
+        delay(showGba, 200, snow)
+        delay(lambda: v.ClearScreen(), d, snow)
+        
+        
+        
         #for x in range(3):
         #    delay(lambda: v.Blit(yourmom, 0, 0, ika.Opaque), d, snow)
         #    delay(lambda: v.ClearScreen(), d, snow)

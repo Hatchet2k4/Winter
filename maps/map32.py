@@ -20,13 +20,9 @@ def finalBattle():
         pass
         # make the river passable
     else:
-        savedata['finalbattle'] = 'True'
+        savedata['finalbattle'] = 'True'        
 
-        
-
-        p = system.engine.player
-        
-
+        p = system.engine.player        
         
         def walkUp():
             p.move(dir.UP, 96)
@@ -95,18 +91,7 @@ icebridge = {
 19: [141, 108, 113, 112, 140],
 }
 
-icebridgeobs = {
-28: [0, 113, 112, 113, 0],
-27: [1, 0, 0, 0, 1],
-26: [142, 110, 113, 109, 143],
-25: [142, 109, 110, 112, 143],
-24: [142, 113, 112, 110, 143],
-23: [142, 110, 113, 109, 143],
-22: [142, 109, 110, 112, 143],
-21: [142, 113, 112, 110, 143],
-20: [142, 110, 113, 109, 143],
-19: [141, 108, 113, 112, 140],
-}
+
 
 
 class DeathListener(Thing):
