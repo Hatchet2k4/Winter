@@ -95,6 +95,19 @@ icebridge = {
 19: [141, 108, 113, 112, 140],
 }
 
+icebridgeobs = {
+28: [0, 113, 112, 113, 0],
+27: [1, 0, 0, 0, 1],
+26: [142, 110, 113, 109, 143],
+25: [142, 109, 110, 112, 143],
+24: [142, 113, 112, 110, 143],
+23: [142, 110, 113, 109, 143],
+22: [142, 109, 110, 112, 143],
+21: [142, 113, 112, 110, 143],
+20: [142, 110, 113, 109, 143],
+19: [141, 108, 113, 112, 140],
+}
+
 
 class DeathListener(Thing):
     'Waits until the serpent is dead, then starts the credits music and sets the ice to cross'
@@ -113,9 +126,18 @@ class DeathListener(Thing):
             self.buildbrige = True
 
         if self.buildbrige:
-            if self.time==0:
-                self.time = 10
+            if self.time==0:                
+                self.time = 20
                 l = ika.Map.FindLayerByName('B1.5')
+                if self.row == 27: 
+                    ol = ika.Map.FindLayerByName('B2')
+                    for y in range(27, 18, -1): #haaaack
+                        if y == 19 or y == 27:
+                            obs = [0, 0, 0, 0, 0]
+                        else: obs = [1, 0, 0, 0 ,1]
+                        for x, o in enumerate(obs):                                                    
+                            ika.Map.SetObs(x+21, y, ol, o)
+                            
                 for x in range(5):                    
                     ika.Map.SetTile(x+21, self.row, l, icebridge[self.row][x])
                     if self.row>19:
