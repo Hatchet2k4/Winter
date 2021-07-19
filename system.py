@@ -39,7 +39,7 @@ while not controls.attack():
 
 #sound.fader.kill()
 introMusic.Play()
-introMusic.position = 0
+introMusic.position = -100
 intro()
 
 
