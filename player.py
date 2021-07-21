@@ -299,10 +299,8 @@ class Player(Entity):
         self.stats.rend = 'firerune' in savedata.__dict__
         self.stats.heal = 'waterrune' in savedata.__dict__
         self.stats.gale = 'windrune' in savedata.__dict__
-        self.stats.shiver = 'cowardrune' in savedata.__dict__
-        self.stats.smoke = self.stats.rend and self.stats.gale and (bind > 0)
-        self.stats.vivify = self.stats.rend and self.stats.heal and (bind > 0)
-        self.stats.ternion = self.stats.heal and self.stats.gale and self.stats.rend and (bind == 2)
+        self.stats.bolt = 'cowardrune' in savedata.__dict__
+
 
     def regenMP(self):
         if self.stats.mp < self.stats.maxmp:
@@ -334,8 +332,8 @@ class Player(Entity):
             elif controls.heal():
                 self.state = self.healingRainState()
                 yield None
-            elif controls.shiver():
-                self.state = self.shiverState()
+            elif controls.bolt():
+                self.state = self.boltState()
                 yield None
             elif controls.left() or controls.right() or controls.up() or controls.down():
                 self.state = self.walkState()
@@ -360,8 +358,8 @@ class Player(Entity):
             elif controls.heal():
                 self.state = self.healingRainState()
                 yield None
-            elif controls.shiver():
-                self.state = self.shiverState()
+            elif controls.bolt():
+                self.state = self.boltState()
                 yield None
             elif controls.left():
                 if controls.up():
@@ -763,12 +761,12 @@ class Player(Entity):
     def smokeScreenState(self):
         pass
 
-    def shiverState(self):
+    def boltState(self):
         self.stop()
         self.anim = 'thrust'
         costperhit=30
         
-        if self.stats.mp < costperhit or not self.stats.shiver:
+        if self.stats.mp < costperhit or not self.stats.bolt:
             sound.menuBuzz.Play()
             return
 

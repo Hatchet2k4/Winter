@@ -90,8 +90,8 @@ class MagicWindow(SubScreenWindow):
             txt.append(displayControls['rend']+' - Hearth Rend ')
         if p.gale:
             txt.append(displayControls['gale']+' - Crushing Gale ')        
-        if p.shiver:
-            txt.append(displayControls['shiver']+' - Bolt Storm')
+        if p.bolt:
+            txt.append(displayControls['bolt']+' - Bolt Storm')
 
         return (gui.StaticText(text=txt),)
 

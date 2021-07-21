@@ -24,10 +24,7 @@ defaultControls = {
     'rend': 'Z',
     'gale': 'X',
     'heal': 'C',
-    'smoke': 'V',
-    'shiver': 'B',
-    'vivify': 'N',
-    'ternion': 'M',
+    'bolt': 'B',
     'savestate': 'F2',
     'loadstate': 'F4',
     'showmap': 'TAB',
@@ -111,9 +108,8 @@ def setConfig(config=None):
         globals()[name] = PosControl(name)
 
     # Buttons
-    for name in ('attack', 'cancel', 'rend',
-                 'gale', 'heal', 'smoke',
-                 'shiver', 'vivify', 'ternion', 
+    for name in ('attack', 'cancel', 
+                 'rend', 'gale', 'heal',  'bolt', 
                  'savestate', 'loadstate', 'showmap', 'speedhack'):
         globals()[name] = PressControl(name)
     
@@ -132,7 +128,7 @@ def setConfig(config=None):
 # global control objects.  These are all set by setConfig
 up = down = left = right = None
 attack = cancel = rend = None
-gale = heal = smoke = shiver = None
+gale = heal = smoke = bolt = None
 savestate = loadstate = None
 showmap = None
 speedhack= None

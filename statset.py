@@ -8,10 +8,10 @@ class StatSet(object):
 
         # spells go here because its as good a place as any.
         # horrible hack, yes.  But whatever.
-        'rend', 'heal', 'gale', 'shiver',
-        'smoke', 'vivify', 'ternion',
+        'rend', 'heal', 'gale', 'bolt',
         'damageind', #toggle for damage numbers. Hack!
         'tnt',
+        #how many of each enemy type killed
         'anklebiter', 
         'devourer', 
         'carnivore', 

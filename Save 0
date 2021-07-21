@@ -12,10 +12,7 @@ next=1360
 rend=1
 heal=1
 gale=1
-shiver=1
-smoke=0
-vivify=0
-ternion=0
+bolt=1
 damageind=1
 tnt=1
 FLAGS

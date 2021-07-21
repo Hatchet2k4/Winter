@@ -41,7 +41,7 @@ class WindRune(_Rune):
 
 class CowardRune(_Rune):
     element = property(lambda self: 'Lightning')
-    effect = property(lambda self: 'Bolt Storm spell learned. (%s)' % displayControls['shiver'])        
+    effect = property(lambda self: 'Bolt Storm spell learned. (%s)' % displayControls['bolt'])        
         
 class BindingRune(_Rune):
     element = property(lambda self: 'Binding')
