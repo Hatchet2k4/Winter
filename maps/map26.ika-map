@@ -134,20 +134,6 @@ AAAA//8=
 			)
 			(entities 
 				(entity 
-					(label dynamite2)
-					(x 508)
-					(y 132)
-					(sprite dynamite.ika-sprite)
-					(speed 100)
-					(direction up)
-					(move_script )
-					(obstructs_entities true)
-					(obstructed_by_entities true)
-					(obstructed_by_map true)
-					(adj_activate_script )
-					(activate_script )
-				)
-				(entity 
 					(label a0)
 					(x 410)
 					(y 250)
