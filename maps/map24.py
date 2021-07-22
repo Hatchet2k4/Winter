@@ -22,9 +22,8 @@ def to50():
     
 def kaboom():
     #nearend quest completed!
-    if 'almostfinalbattle' not in savedata.__dict__ and 'waterguard' in savedata.__dict__ and 'windguard' in savedata.__dict__ and 'fireguard' in savedata.__dict__:
-        #system.engine.mapThings.append(AddRune())
-        savedata.almostfinalbattle = 'True'
+    if 'penultimatebattle' not in savedata.__dict__ and 'waterguard' in savedata.__dict__ and 'windguard' in savedata.__dict__ and 'fireguard' in savedata.__dict__:        
+        savedata.penultimatebattle = 'True'
         p = system.engine.player
         
         def noOp():
@@ -61,9 +60,9 @@ class DeathListener(Thing):
 
     def update(self):
         if self.yeti.stats.hp == 0:
-            e = ika.Entity(315, 320, 1, 'cowardrune.ika-sprite')
-            e.name = 'cowardrune'
-            system.engine.addEntity(CowardRune(e))    
+            e = ika.Entity(315, 320, 1, 'unityrune.ika-sprite')
+            e.name = 'unityrune'
+            system.engine.addEntity(UnityRune(e))    
             sound.playMusic("music/lampoons.it")
             savedata.finalrune = 'True'
             return True

@@ -9,7 +9,7 @@ from snow import Snow
 
 def AutoExec():
     system.engine.mapThings.append(Snow(velocity=(0, 0.5)))
-    if 'cowardrune' not in savedata.__dict__:
+    if 'unityrune' not in savedata.__dict__:
         system.engine.things.append(RuneListener())
 
 def to2():

@@ -299,7 +299,7 @@ class Player(Entity):
         self.stats.rend = 'firerune' in savedata.__dict__
         self.stats.heal = 'waterrune' in savedata.__dict__
         self.stats.gale = 'windrune' in savedata.__dict__
-        self.stats.bolt = 'cowardrune' in savedata.__dict__
+        self.stats.bolt = 'unityrune' in savedata.__dict__
 
 
     def regenMP(self):

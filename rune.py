@@ -21,7 +21,10 @@ class _Rune(Entity):
     def update(self):
         if self.touches(system.engine.player):
             system.engine.destroyEntity(self)
-            system.engine.addThing(Caption('You got the %s Rune!' % self.element, y=160))
+            if self.element in ['Strength', 'Guard', 'Power']:
+                system.engine.addThing(Caption('%s Rune collected!' % self.element, y=160))
+            else:
+                system.engine.addThing(Caption('You got the %s Rune!' % self.element, y=160))
             system.engine.addThing(Caption('%s' % self.effect, y=170))
             setattr(savedata, self.name, 'True')
             self.apply()
@@ -39,7 +42,7 @@ class WindRune(_Rune):
     element = property(lambda self: 'Wind')
     effect = property(lambda self: 'Crushing Gale spell learned. (%s)' % displayControls['gale'])
 
-class CowardRune(_Rune):
+class UnityRune(_Rune):
     element = property(lambda self: 'Lightning')
     effect = property(lambda self: 'Bolt Storm spell learned. (%s)' % displayControls['bolt'])        
         
@@ -48,7 +51,6 @@ class BindingRune(_Rune):
     effect = property(lambda self: 'Magic +2')
 
 class StrengthRune(_Rune):
-
     def apply(self):
         system.engine.player.stats.att += 2
 
@@ -56,16 +58,13 @@ class StrengthRune(_Rune):
     effect = property(lambda self: 'Attack +2')
 
 class GuardRune(_Rune):
-
     def apply(self):
-        system.engine.player.stats.pres += 2
-        #system.engine.player.stats.mres += 2
+        system.engine.player.stats.pres += 2        
 
     element = property(lambda self: 'Guard')
     effect = property(lambda self: 'Defense +2')
 
 class PowerRune(_Rune):
-
     def apply(self):
         system.engine.player.stats.mag += 2
 

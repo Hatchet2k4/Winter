@@ -21,7 +21,7 @@ from soulreaver import SoulReaver
 from dynamite import Dynamite
 from savepoint import SavePoint
 from obstacle import IceWall, Gap, IceChunks, Boulder, Crystal
-from rune import WaterRune, FireRune, WindRune, CowardRune, StrengthRune, PowerRune, GuardRune
+from rune import WaterRune, FireRune, WindRune, UnityRune, StrengthRune, PowerRune, GuardRune
 
 from field import Field
 from hud import HPBar, MPBar, EXPBar
@@ -60,7 +60,7 @@ spawnMap = {
     'waterrune.ika-sprite': WaterRune,
     'firerune.ika-sprite': FireRune,
     'windrune.ika-sprite': WindRune,
-    'cowardrune.ika-sprite': CowardRune,
+    'unityrune.ika-sprite': UnityRune,
     'strengthrune.ika-sprite': StrengthRune,
     'powerrune.ika-sprite': PowerRune,
     'guardrune.ika-sprite': GuardRune,
