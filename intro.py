@@ -60,9 +60,16 @@ def menu():
     cursorPos = 0
     FADE_TIME = 60
 
+    font = ika.Font('system.fnt')
+
     def draw():
         ika.Video.Blit(bg, 0, 0, ika.Opaque)
         ika.Video.Blit(cursor, 68, 128 + cursorPos * 26)
+        txt = '(c) 2003, 2021'
+        length = font.StringWidth(txt)
+        font.Print(ika.Video.xres - length - 10, ika.Video.yres-10, txt)
+        if controls.useGamePad:
+            font.Print(10, ika.Video.yres-10, 'Gamepad controls enabled.')
 
     for i in range(FADE_TIME - 1, -1, -1):
         draw()

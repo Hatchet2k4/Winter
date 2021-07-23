@@ -13,7 +13,6 @@ controls.init()
 import subscreen
 subscreen.init()
 
-#import map2img
 
 try:
     c = controls.readConfig('controls.cfg')

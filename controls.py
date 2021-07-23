@@ -10,6 +10,8 @@ import xi.controls
 
 from saveload import SaveGame
 
+useGamePad = False
+
 # Name : Control pairs
 _allControls = dict()
 
@@ -37,18 +39,17 @@ displayControls = {}
 
 def init():
     # fill up _allControls
-
+    global useGamePad
     # Null control
     _allControls['none'] = lambda: False
 
     # keyboard keys:
     for k in keyNames:
         _allControls[k] = ika.Input.keyboard[k]
-
     
 
     # joystick:
-    for joyIndex, joy in enumerate(ika.Input.joysticks):
+    for joyIndex, joy in enumerate(ika.Input.joysticks):        
         # axes:
         for axisIndex, axis in enumerate(joy.axes):
             _allControls['joy%iaxis%i+' % (joyIndex, axisIndex)] = axis
@@ -61,7 +62,8 @@ def init():
         for buttonIndex, button in enumerate(joy.buttons):
             _allControls['joy%ibutton%i' % (joyIndex, buttonIndex)] = button
             #_friendlyNames['joy%ibutton%i' % (joyIndex, buttonIndex)] = 'Joy:'+str(buttonIndex)
-
+        
+        useGamePad = True #got this far - presumably this worked!
     #ika.Log(str(_allControls))
 
     setConfig(defaultControls)
@@ -90,8 +92,11 @@ def setConfig(config=None):
             self.name = name
             self.c = _allControls[config[name]]
             
-            if config[name][0:3] == 'joy': #dealing with a gamepad                        
-                displayControls[name] = config[name][-1] #haaack, just grab last character. will break if more than 10 buttons..                
+            if config[name][0:3] == 'joy': #dealing with a gamepad
+                if config[name][-2] in '0123456789': #double digit buttons!
+                    displayControls[name] = config[name][-2] + config[name][-1]
+                else:
+                    displayControls[name] = config[name][-1] #haaack, just grab last character. will break if more than 10 buttons..                
             else:
                 displayControls[name] = config[name]
         def __call__(self):   return self.c.Position() > 0
