@@ -95,6 +95,45 @@ class MagicWindow(SubScreenWindow):
 
         return (gui.StaticText(text=txt),)
 
+class ControlsWindow(SubScreenWindow):
+    def __init__(self):
+        SubScreenWindow.__init__(self)
+
+    def createLayout(self):
+        return layout.VerticalBoxLayout()
+
+    def createContents(self):
+        txt = ['Controls:']
+        txt.append(displayControls['up'] + ' - Up')
+        txt.append(displayControls['down'] + ' - Down')
+        txt.append(displayControls['left'] + ' - Left')
+        txt.append(displayControls['right'] + ' - Right')
+        txt.append(displayControls['attack'] + ' - Attack')
+        txt.append(displayControls['cancel'] + ' - Cancel')
+        txt.append(displayControls['showmap'] + ' - Map')     
+        txt.append(' ')
+        txt.append('Magic:')
+        p = system.engine.player.stats               
+        if p.heal:           
+            txt.append(displayControls['heal']+' - Healing Rain')
+        else:
+            txt.append(displayControls['heal']+' - Spell 1')            
+        
+        if p.rend:
+            txt.append(displayControls['rend']+' - Hearth Rend')
+        else:
+            txt.append(displayControls['rend']+' - Spell 2')
+        if p.gale:
+            txt.append(displayControls['gale']+' - Crushing Gale')        
+        else:
+            txt.append(displayControls['gale']+' - Spell 3')
+        if p.bolt:
+            txt.append(displayControls['bolt']+' - Bolt Storm')
+        else:
+            txt.append(displayControls['bolt']+' - Spell 4')            
+
+        return (gui.StaticText(text=txt),)
+
 class AttribWindow(SubScreenWindow):
     def __init__(self):
         SubScreenWindow.__init__(self)
@@ -178,6 +217,7 @@ class MenuWindow(Menu):
             #'Controls',
             #'Load Game',
             'Show Damage: ' + ('OFF', 'ON ')[system.engine.player.stats.damageind],
+            'Set Controls',
             'Exit')
         self.autoSize()
         self.Border = self.textCtrl.wnd.iLeft.width
@@ -203,7 +243,8 @@ class PauseScreen(object):
         assert _initted
         self.statWnd = StatWindow()
         self.attribWnd = AttribWindow()
-        self.magWnd = MagicWindow()
+        #self.magWnd = MagicWindow()
+        self.magWnd = ControlsWindow()
         self.menu = MenuWindow()
         #self.inv = InvWindow()
         self.timer = TimerWindow()
@@ -317,6 +358,7 @@ class PauseScreen(object):
                     #lambda: None, # Control setup
                     #lambda: None, # Load game
                     self.toggleDamage, # Damange indicator Menu
+                    self.setControls,
                     self.exitGame, # Exit game
                 ][result]()
 
@@ -326,7 +368,8 @@ class PauseScreen(object):
         system.engine.player.stats.damageind = (1, 0)[system.engine.player.stats.damageind]
         self.menu.textCtrl.text.setText(['Resume','Show Damage: ' + ('OFF', 'ON ')[system.engine.player.stats.damageind], 'Exit'])
 
-
+    def setControls(self):
+        pass
            
     def exitGame(self):
         # TODO: shiny fade out

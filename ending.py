@@ -34,10 +34,11 @@ Troy Potts (aka Thrasher)
 
 Music
 -
+'Existing' by Mick Rippon
 'Winter' by David Churchill (aka infey)
 'Competative' by Disturbed
-'Existing' by Mick Rippon
-'Ressurection' (Author unknown)
+'Boss' by Troupe
+'Resurrection' (Author unknown)
 'xerxes vs solo' (Author unknown)
 'Lampoons Haunting' (Author Unknown)
 
