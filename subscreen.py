@@ -98,6 +98,7 @@ class MagicWindow(SubScreenWindow):
 class ControlsWindow(SubScreenWindow):
     def __init__(self):
         SubScreenWindow.__init__(self)
+        self.select = -1
 
     def createLayout(self):
         return layout.VerticalBoxLayout()

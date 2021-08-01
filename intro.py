@@ -21,7 +21,9 @@ def delay(draw, count, snow):
 
 def intro():
     snow = Snow(velocity=(0,0.5))
-    gba = ika.Image('gfx/gba.png')
+    
+    i = ika.Random(0, 8)
+    gba = ika.Image('gfx/gba'+str(i)+'.png')
     ikalogo = ika.Image('gfx/ika.png')
     hatchlogo = ika.Image('gfx/HatchetLogo2.png')
     controls.attack() # unpress
