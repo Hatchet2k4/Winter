@@ -118,18 +118,18 @@ class SaveLoadMenu(object):
         elif self.curY > self.oldY:
             self.oldY += 2
         else:
-            if controls.up() and self.cursorPos > 0:
+            if (controls.up() or controls.ui_up()) and self.cursorPos > 0:
                 self.cursorPos -= 1
                 self.curY = self.cursorPos * self.wndHeight
-            elif controls.down() and self.cursorPos < len(self.layout.children) - 1:
+            elif (controls.down() or controls.ui_down()) and self.cursorPos < len(self.layout.children) - 1:
                 self.cursorPos += 1
                 self.curY = self.cursorPos * self.wndHeight
-            elif controls.attack():
+            elif controls.attack() or controls.ui_accept():
                 if self.saving and self.cursorPos == len(self.layout.children) -1: #create new
                     return New
                 else: 
                     return self.cursorPos
-            elif controls.cancel():
+            elif controls.cancel() or controls.ui_cancel():
                 return Cancel
 
             return None

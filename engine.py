@@ -270,7 +270,7 @@ class Engine(object):
                 if t < self.nextFrameTime:
                     ika.Delay(int(self.nextFrameTime - t))
 
-                if controls.cancel():
+                if controls.cancel() or controls.ui_cancel():
                     self.pause()
 
                 if controls.savestate():

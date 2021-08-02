@@ -204,12 +204,12 @@ class MapScreen(object):
             ika.Video.ShowPage()
             ika.Input.Update()
             
-            if controls.cancel() or controls.showmap(): 
+            if controls.cancel() or controls.ui_cancel() or controls.showmap(): 
                 break
             
-            if controls.down() and self.scroll < self.maxscroll: 
+            if (controls.down() or controls.ui_up()) and self.scroll < self.maxscroll: 
                 self.scroll+=1
-            elif controls.up() and self.scroll > 0: 
+            elif (controls.up() or controls.ui_up()) and self.scroll > 0: 
                 self.scroll-=1
         
         

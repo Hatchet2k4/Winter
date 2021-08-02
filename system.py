@@ -31,12 +31,12 @@ except:
 introMusic = ika.Sound('music/Existing.s3m')
 
 
-while not controls.attack():
-        ika.Video.ShowPage()
-        ika.Input.Update()
+#while not controls.attack():
+#        ika.Video.ShowPage()
+#        ika.Input.Update()
 
 
-#sound.fader.kill()
+sound.fader.kill()
 introMusic.Play()
 introMusic.position = -100
 intro()

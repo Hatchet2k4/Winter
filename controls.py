@@ -17,6 +17,12 @@ _allControls = dict()
 
 
 defaultControls = {
+    'ui_up': 'UP',
+    'ui_down': 'DOWN',
+    'ui_left': 'LEFT',
+    'ui_right': 'RIGHT',
+    'ui_accept': 'RETURN',
+    'ui_cancel': 'ESCAPE',
     'up': 'UP',
     'down': 'DOWN',
     'left': 'LEFT',
@@ -111,6 +117,10 @@ def setConfig(config=None):
     # Directional controls:
     for name in ('up', 'down', 'left', 'right'):
         globals()[name] = PosControl(name)
+    
+    #Dedicated UI controls
+    for name in ('ui_up', 'ui_down', 'ui_left', 'ui_right', 'ui_accept', 'ui_cancel'):
+        globals()[name] = PosControl(name)
 
     # Buttons
     for name in ('attack', 'cancel', 
@@ -120,7 +130,7 @@ def setConfig(config=None):
     
 
     # Copy controls over to xi.
-    for c in ('up', 'down', 'left', 'right'):
+    for c in ('up', 'down', 'left', 'right', 'ui_up', 'ui_down', 'ui_left', 'ui_right', 'ui_accept', 'ui_cancel'):
         setattr(xi.controls, c, getattr(controls, c))
     xi.controls.enter = controls.attack
     xi.controls.cancel = controls.cancel
@@ -131,6 +141,7 @@ def setConfig(config=None):
     
 
 # global control objects.  These are all set by setConfig
+ui_up = ui_down = ui_left = ui_right = ui_accept = ui_cancel = None
 up = down = left = right = None
 attack = cancel = rend = None
 gale = heal = smoke = bolt = None
