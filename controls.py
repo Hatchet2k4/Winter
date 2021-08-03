@@ -42,10 +42,11 @@ displayControls = {}
 
 #joystick friendly names
 #_friendlyNames = dict()
+firstrun = False
 
 def init():
     # fill up _allControls
-    global useGamePad
+    global useGamePad, firstrun
     # Null control
     _allControls['none'] = lambda: False
 
@@ -53,23 +54,30 @@ def init():
     for k in keyNames:
         _allControls[k] = ika.Input.keyboard[k]
     
-
-    # joystick:
-    for joyIndex, joy in enumerate(ika.Input.joysticks):        
-        # axes:
-        for axisIndex, axis in enumerate(joy.axes):
-            _allControls['joy%iaxis%i+' % (joyIndex, axisIndex)] = axis
-            #_friendlyNames['joy%ibutton%i' % (joyIndex, axisIndex)] = 'JoyAxis:'+str(axisIndex)
-        for axisIndex, axis in enumerate(joy.reverseAxes):
-            _allControls['joy%iaxis%i-' % (joyIndex, axisIndex)] = axis
-            #_friendlyNames['joy%ibutton%i' % (joyIndex, axisIndex)] = 'JoyAxis:'+str(axisIndex)
-
-        # buttons:
-        for buttonIndex, button in enumerate(joy.buttons):
-            _allControls['joy%ibutton%i' % (joyIndex, buttonIndex)] = button
-            #_friendlyNames['joy%ibutton%i' % (joyIndex, buttonIndex)] = 'Joy:'+str(buttonIndex)
+    if len(ika.Input.joysticks) > 0:
+        if not firstrun: 
+            ika.Log(str(len(ika.Input.joysticks)) +' gamepad(s) found:')
         
-        useGamePad = True #got this far - presumably this worked!
+        # joystick:
+        for joyIndex, joy in enumerate(ika.Input.joysticks):        
+            # axes:                        
+            for axisIndex, axis in enumerate(joy.axes):
+                _allControls['joy%iaxis%i+' % (joyIndex, axisIndex)] = axis
+                if not firstrun: ika.Log('Gamepad: '+str(joyIndex) + '  axisIndex: ' + str(axisIndex))
+                #_friendlyNames['joy%ibutton%i' % (joyIndex, axisIndex)] = 'JoyAxis:'+str(axisIndex)
+            for axisIndex, axis in enumerate(joy.reverseAxes):
+                if not firstrun: ika.Log('Gamepad: '+str(joyIndex) + '  Reverse axisIndex: ' + str(axisIndex))
+                _allControls['joy%iaxis%i-' % (joyIndex, axisIndex)] = axis
+                #_friendlyNames['joy%ibutton%i' % (joyIndex, axisIndex)] = 'JoyAxis:'+str(axisIndex)
+
+            # buttons:
+            for buttonIndex, button in enumerate(joy.buttons):
+                if not firstrun: ika.Log('Gamepad: '+str(joyIndex) + '  buttonIndex: ' + str(buttonIndex))
+                _allControls['joy%ibutton%i' % (joyIndex, buttonIndex)] = button
+                #_friendlyNames['joy%ibutton%i' % (joyIndex, buttonIndex)] = 'Joy:'+str(buttonIndex)
+            
+            useGamePad = True #got this far - presumably this worked!
+            firstrun = True
     #ika.Log(str(_allControls))
 
     setConfig(defaultControls)
@@ -92,20 +100,31 @@ def writeConfig(f, config):
     for k, v in config.iteritems():
         print >> f, '%s %s' % (k, v)
 
+buttonmapping = {}
+
+#joy0axis1-
+#joy0axis1+
+#joy0axis0-
+#joy0axis0+
+
 def setConfig(config=None):
     class PosControl(object):
         def __init__(self, name):
             self.name = name
             self.c = _allControls[config[name]]
             
-            if config[name][0:3] == 'joy': #dealing with a gamepad
+            
+            if 'joy' in config[name]: #dealing with a gamepad
+                if 'axis' in config[name]: #joystick
+                    pass
+            
                 if config[name][-2] in '0123456789': #double digit buttons!
                     displayControls[name] = config[name][-2] + config[name][-1]
                 else:
                     displayControls[name] = config[name][-1] #haaack, just grab last character. will break if more than 10 buttons..                
             else:
                 displayControls[name] = config[name]
-        def __call__(self):   return self.c.Position() > 0
+        def __call__(self):   return self.c.Position() > 0.5
         def __repr__(self):   return '<Winter control %s>' % self.name
 
     class PressControl(PosControl):
@@ -119,11 +138,11 @@ def setConfig(config=None):
         globals()[name] = PosControl(name)
     
     #Dedicated UI controls
-    for name in ('ui_up', 'ui_down', 'ui_left', 'ui_right', 'ui_accept', 'ui_cancel'):
+    for name in ('ui_up', 'ui_down', 'ui_left', 'ui_right'):
         globals()[name] = PosControl(name)
 
     # Buttons
-    for name in ('attack', 'cancel', 
+    for name in ('attack', 'cancel', 'ui_accept', 'ui_cancel', 
                  'rend', 'gale', 'heal',  'bolt', 
                  'savestate', 'loadstate', 'showmap', 'speedhack'):
         globals()[name] = PressControl(name)

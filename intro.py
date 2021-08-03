@@ -16,7 +16,7 @@ def delay(draw, count, snow):
         ika.Video.ShowPage()
 
         ika.Input.Update()
-        #if controls.attack(): #commented because I'm mean, muahaha
+        #if controls.attack() or controls.up_accept() or controls.cancel() or controls.ui_cancel(): #commented because I'm mean, muahaha
         #    raise _DoneException()
 
 def intro():
@@ -96,7 +96,7 @@ def menu():
             if not u:
                 cursorPos -= 1
                 u = 1
-        elif controls.down()  or controls.ui_down() and cursorPos < 2:
+        elif (controls.down()  or controls.ui_down()) and cursorPos < 2:
             if not u:
                 cursorPos += 1
                 u = 1
