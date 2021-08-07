@@ -197,3 +197,7 @@ gale = heal = smoke = bolt = None
 savestate = loadstate = None
 showmap = None
 speedhack= None
+
+#baaad
+allControls=[ui_up,ui_down,ui_left,ui_right,ui_accept,ui_cancel,
+up,down,left,right,attack,cancel,rend,gale,heal,smoke,bolt,savestate,loadstate,showmap,speedhack]

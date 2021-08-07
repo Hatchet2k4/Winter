@@ -161,7 +161,7 @@ class AttribWindow(SubScreenWindow):
             self.icons['att'], gui.StaticText(text=' - %02i' % stats.att),
             self.icons['mag'], gui.StaticText(text=' - %02i' % stats.mag),
             self.icons['pres'], gui.StaticText(text=' - %02i' % stats.pres),
-            self.icons['tnt'], gui.StaticText(text=' - %i' % tnt)
+            self.icons['tnt'], gui.StaticText(text=' - %02i' % tnt)
             )
 
 class InvWindow(SubScreenWindow):
@@ -235,20 +235,82 @@ class TimerWindow(SubScreenWindow):
 
         return (gui.StaticText(text=txt),)
 
+class ControlsScreen(object):
+    def __init__(self, background):
+        assert _initted
+        self.controlsWnd = ControlsWindow()
+        self.controlsWnd.update()
+        #self.controlsWnd.setBorder(15)
+        self.controlsWnd.Position = (160-self.controlsWnd.Width/2, 60)
+        self.background = background
+    
+    def show(self):
+        TIME = 40
+        self.update()
+        t = Transition()
+        t.addChild(self.controlsWnd, startRect=(self.controlsWnd.Left, 240+self.controlsWnd.Top), time=TIME - 5)
 
+        for i in range(TIME):
+            t.update(1)
 
+            ika.Video.ScaleBlit(self.background, 0, 0, ika.Video.xres, ika.Video.yres, ika.Opaque)
+            ika.Video.DrawRect(0, 0, ika.Video.xres, ika.Video.yres, ika.RGB(0, 0, 0, 128), True)
+                
+            self.draw()
+            ika.Video.ShowPage()
+            ika.Input.Update()
 
+    def hide(self):
+        TIME = 40
+        self.update()
+        t = Transition()
+        t.addChild(self.controlsWnd, endRect=(self.controlsWnd.Left, 240+self.controlsWnd.Top), time=TIME - 5)
+
+        for i in range(TIME):
+            t.update(1)
+
+            ika.Video.ScaleBlit(self.background, 0, 0, ika.Video.xres, ika.Video.yres, ika.Opaque)
+            ika.Video.DrawRect(0, 0, ika.Video.xres, ika.Video.yres, ika.RGB(0, 0, 0, 128), True)
+                
+            self.draw()
+            ika.Video.ShowPage()
+            ika.Input.Update()
+
+    def draw(self, opacity = 255):
+        gui.default_window.opacity = opacity
+        self.controlsWnd.draw()
+
+    def update(self):
+        self.controlsWnd.update()
+                
+        
+    def run(self):
+        self.show()
+        while True:
+            ika.Video.ScaleBlit(self.background, 0, 0, ika.Video.xres, ika.Video.yres, ika.Opaque)
+            ika.Video.DrawRect(0, 0, ika.Video.xres, ika.Video.yres, ika.RGB(0, 0, 0, 128), True)
+            self.draw()            
+            ika.Video.ShowPage()
+            ika.Input.Update()
+            if controls.cancel() or controls.ui_cancel(): 
+                break
+
+        self.hide()    
         
 class PauseScreen(object):
     def __init__(self):
         assert _initted
         self.statWnd = StatWindow()
         self.attribWnd = AttribWindow()
-        #self.magWnd = MagicWindow()
-        self.magWnd = ControlsWindow()
+        self.magWnd = MagicWindow()
+        #self.magWnd = ControlsWindow()
         self.menu = MenuWindow()
         #self.inv = InvWindow()
         self.timer = TimerWindow()
+        
+        self.allWindows = [self.statWnd, self.attribWnd, self.magWnd, self.menu, self.timer]
+        for w in self.allWindows:
+            w.setBorder(15)
         
 
     def update(self):
@@ -258,10 +320,12 @@ class PauseScreen(object):
         #self.inv.update()
         self.timer.update()
         
+
+        
         self.statWnd.dockTop().dockLeft()
         self.attribWnd.Position = (self.statWnd.Left, self.statWnd.Bottom + self.statWnd.Border * 2) # eek
         #self.timer.Position = (self.attribWnd.Left, self.attribWnd.Bottom + self.attribWnd.Border * 2)
-        self.timer.Position = (self.statWnd.Left, 240-self.timer.height - 8)
+        self.timer.Position = (self.statWnd.Left, 240-self.timer.height - 8 - self.timer.Border/2)
         
         
         w = 113
@@ -282,9 +346,10 @@ class PauseScreen(object):
         self.attribWnd.width = 56 #hack! Don't want windows autosized..
 
 
-    def show(self):
+    def show(self, usebackground=False):
         # assume the backbuffer is already filled
-        self.images = effects.createBlurImages()
+        if not usebackground: 
+            self.images = effects.createBlurImages()
         TIME = 40
 
         self.update()
@@ -302,15 +367,20 @@ class PauseScreen(object):
             o = i * 128 / TIME # tint intensity for this frame
             f = i * len(self.images) / TIME # blur image to draw
 
-            ika.Video.ScaleBlit(self.images[f], 0, 0, ika.Video.xres, ika.Video.yres, ika.Opaque)
-            ika.Video.DrawRect(0, 0, ika.Video.xres, ika.Video.yres, ika.RGB(0, 0, 0, o), True)
+            if not usebackground:
+                ika.Video.ScaleBlit(self.images[f], 0, 0, ika.Video.xres, ika.Video.yres, ika.Opaque)
+                ika.Video.DrawRect(0, 0, ika.Video.xres, ika.Video.yres, ika.RGB(0, 0, 0, o), True)
+            else:
+                ika.Video.ScaleBlit(self.background, 0, 0, ika.Video.xres, ika.Video.yres, ika.Opaque)
+                ika.Video.DrawRect(0, 0, ika.Video.xres, ika.Video.yres, ika.RGB(0, 0, 0, 128), True)
+                
             self.draw()
             ika.Video.ShowPage()
             ika.Input.Update()
 
         self.background = self.images[-1]
 
-    def hide(self):
+    def hide(self, usebackground=False):
         TIME = 40
         t = Transition()
         t.addChild(self.statWnd, endRect=(-self.statWnd.Right, self.statWnd.Top), time=TIME - 5)
@@ -324,10 +394,15 @@ class PauseScreen(object):
             t.update(1)
             o = i * 255 / TIME # menu opacity for this frame
             f = i * len(self.images) / TIME # blur image to draw
-
-            ika.Video.ScaleBlit(self.images[f], 0, 0, ika.Video.xres, ika.Video.yres, ika.Opaque)
-            ika.Video.DrawRect(0, 0, ika.Video.xres, ika.Video.yres, ika.RGB(0, 0, 0, o / 2), True)
-            self.draw(o)
+            if not usebackground:
+                ika.Video.ScaleBlit(self.images[f], 0, 0, ika.Video.xres, ika.Video.yres, ika.Opaque)
+                ika.Video.DrawRect(0, 0, ika.Video.xres, ika.Video.yres, ika.RGB(0, 0, 0, o / 2), True)
+                self.draw(o)
+            else:
+                ika.Video.ScaleBlit(self.background, 0, 0, ika.Video.xres, ika.Video.yres, ika.Opaque)
+                ika.Video.DrawRect(0, 0, ika.Video.xres, ika.Video.yres, ika.RGB(0, 0, 0,128), True)
+                self.draw(255)
+            
             ika.Video.ShowPage()
             ika.Input.Update()
 
@@ -370,7 +445,10 @@ class PauseScreen(object):
         self.menu.textCtrl.text.setText(['Resume','Show Damage: ' + ('OFF', 'ON ')[system.engine.player.stats.damageind], 'Exit'])
 
     def setControls(self):
-        pass
+        self.hide(usebackground=True)
+        s=ControlsScreen(self.background)
+        s.run()
+        self.show(usebackground=True)        
            
     def exitGame(self):
         # TODO: shiny fade out
