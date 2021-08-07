@@ -16,8 +16,8 @@ def delay(draw, count, snow):
         ika.Video.ShowPage()
 
         ika.Input.Update()
-        #if controls.attack() or controls.up_accept() or controls.cancel() or controls.ui_cancel(): #commented because I'm mean, muahaha
-        #    raise _DoneException()
+        if controls.attack() or controls.ui_accept() or controls.cancel() or controls.ui_cancel(): #commented because I'm mean, muahaha
+            raise _DoneException()
 
 def intro():
     snow = Snow(velocity=(0,0.5))

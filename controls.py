@@ -100,29 +100,59 @@ def writeConfig(f, config):
     for k, v in config.iteritems():
         print >> f, '%s %s' % (k, v)
 
-buttonmapping = {}
+buttonmapping = {
+'0-': 'Stick Left',
+'0+': 'Stick Right',
+'1-': 'Stick Up',
+'1+': 'Stick Down',
+'0': 'Button X',
+'1': 'Button A',
+'2': 'Button B',
+'3': 'Button Y',
+'4': 'Button L1',
+'5': 'Button R1',
+'6': 'Button L2',
+'7': 'Button R2',
+'8': 'Button Select',
+'9': 'Button Start',
+'10': 'Button L3',
+'11': 'Button R3',
+}
 
-#joy0axis1-
-#joy0axis1+
-#joy0axis0-
-#joy0axis0+
+#left joy0axis0-
+#right joy0axis0+
+#down joy0axis1+
+#up joy0axis1-
 
 def setConfig(config=None):
     class PosControl(object):
         def __init__(self, name):
             self.name = name
             self.c = _allControls[config[name]]
-            
-            
-            if 'joy' in config[name]: #dealing with a gamepad
-                if 'axis' in config[name]: #joystick
-                    pass
-            
-                if config[name][-2] in '0123456789': #double digit buttons!
-                    displayControls[name] = config[name][-2] + config[name][-1]
-                else:
-                    displayControls[name] = config[name][-1] #haaack, just grab last character. will break if more than 10 buttons..                
-            else:
+                        
+            if 'joy' in config[name]: #dealing with a gamepad, hack code follows
+                if 'axis' in config[name]: #stick/dpad
+                    #hack, assuming directions always align logically. No up=down here! :P
+                    ax = config[name][-2:]
+                    if ax in buttonmapping:
+                        displayControls[name] = buttonmapping[ax]
+                    else:
+                        ika.Log('Invalid axis: ' + ax)
+                        displayControls[name] = ax
+                else: #button
+                    if config[name][-2] in '0123456789': #double digit button
+                        b = config[name][-2:] #get last two characters
+                    else: #single digit button
+                        b =  config[name][-1] #get just last character                    
+                    
+                    if b in buttonmapping:
+                        displayControls[name] = buttonmapping[b]
+                    else:
+                        displayControls[name] = b
+                        
+                    
+                    #    displayControls[name] =#haaack, just grab last character. will break if more than 10 buttons..                
+            else: #regular 
                 displayControls[name] = config[name]
         def __call__(self):   return self.c.Position() > 0.5
         def __repr__(self):   return '<Winter control %s>' % self.name
