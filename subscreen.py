@@ -87,29 +87,37 @@ class MagicWindow(SubScreenWindow):
         txt = ['Magic:']
         p = system.engine.player.stats
         if p.heal:
-            txt.append('Healing Rain')
-        if p.rend:
+            txt.append('Healing Rain')      
+            txt.append('')            
+        if p.rend:            
             txt.append('Hearth Rend')
-        if p.gale:
+            txt.append('')
+        if p.gale:            
             txt.append('Crushing Gale')        
+            txt.append('')
         if p.bolt:
             txt.append('Bolt Storm')
+            txt.append('')
 
         return (gui.StaticText(text=txt),)
 
     def draw(self):
         SubScreenWindow.draw(self)
         p = system.engine.player.stats
-        x=self.Left+92
-        y=self.Top+12
+        x=self.Left+72
+        y=self.Top+22
         if p.heal:
-            gui.default_font.Print(x, y, '- '+displayControls['heal'])
+            x = 300 - gui.default_font.StringWidth(displayControls['heal'])
+            gui.default_font.Print(x, y, displayControls['heal'])
         if p.rend:
-            gui.default_font.Print(x, y+10, '- '+displayControls['rend'])
+            x = 300 - gui.default_font.StringWidth(displayControls['rend'])
+            gui.default_font.Print(x, y+20, displayControls['rend'])
         if p.gale:
-            gui.default_font.Print(x, y+20, '- '+displayControls['gale'])
+            x = 300 - gui.default_font.StringWidth(displayControls['gale'])
+            gui.default_font.Print(x, y+40, displayControls['gale'])
         if p.bolt:
-            gui.default_font.Print(x, y+30, '- '+displayControls['bolt'])
+            x = 300 - gui.default_font.StringWidth(displayControls['bolt'])
+            gui.default_font.Print(x, y+60, displayControls['bolt'])
 
 class AttribWindow(SubScreenWindow):
     def __init__(self):
@@ -243,7 +251,7 @@ class PauseScreen(object):
         self.timer.Position = (self.statWnd.Left, 240-self.timer.height - 8 - self.timer.Border/2)
         
         
-        w = 164
+        w = 113
         self.menu.dockRight().dockTop()
         #self.inv.width = w #same width as menu width at present
         #s1elf.inv.dockRight()
@@ -411,7 +419,8 @@ class ControlsWindow(Menu):
     def refreshContents(self):        
         txt = []        
         txt.append("Exit")        
-        
+        txt.append("Restore Defaults")        
+        txt.append("Save to File")
         txt.append('Up                          ') #hack to autosize because lazy
         txt.append('Down')
         txt.append('Left')
@@ -499,7 +508,7 @@ class ControlsScreen(object):
         x = self.controlsWnd.Left+self.controlsWnd.linewidth + 10
         
         for i, name in enumerate( ['up', 'down', 'left', 'right', 'attack', 'cancel', 'showmap', 'heal', 'rend', 'gale', 'bolt']):           
-            y = self.controlsWnd.Top + h*(i+1)
+            y = self.controlsWnd.Top + h*(i+3)
             if i != selected: 
                 gui.default_font.Print(x, y, ' - ' + displayControls[name])
             else:
@@ -508,7 +517,7 @@ class ControlsScreen(object):
         if selected > 0:
             txt = 'Awaiting input. Press Escape to Cancel'
             w = gui.default_font.StringWidth(txt) / 2
-            gui.default_font.Print(160-w, 200, txt)
+            gui.default_font.Print(160-w, 220, txt)
 
     def update(self):
         self.controlsWnd.update()
@@ -531,9 +540,15 @@ class ControlsScreen(object):
                     done = True
                     
                 result = self.controlsWnd.update()
+                if result == 0:
+                    done = True
+                elif result == 1:
+                    controls.setConfig(controls.defaultControls)
+                elif result == 2:
+                    pass
                 if result > 0:
                     selectmode=1 #now poll for input!
-                    selected = result - 1 #-1 because Exit
+                    selected = result - 3 #-3 because top options
                     ika.Input.Unpress()
                     ika.Input.keyboard.ClearKeyQueue()
                     
@@ -547,25 +562,43 @@ class ControlsScreen(object):
                     self.draw(selected)                                    
                     ika.Video.ShowPage()
                     ika.Input.Update()
-                    for k in keyNames: #check keyboard
- 
+                    for k in keyNames: #check keyboard 
                             key = ika.Input.keyboard[k]
                             if key.Pressed(): #key pressed!
                                 if k == 'ESCAPE': #skip escape         
                                     polling = False
                                     break  
                                 else:
-                                    #controls.control_list[self.configkeys[optselected]].buttons['key'].Set('key:'+keyName)
-                                    #controls.configcontrolsList[selected].set(k) # = _allControls[k]
                                     controls.currentConfig[ controls.configcontrolsList[selected] ] = k
-                                    #controls.currentConfig[ 'attack' ] = k
                                     controls.setConfig(controls.currentConfig)
                                     polling = False
                                     break    
-  
-
-
-                            
+                                    
+                    if len(ika.Input.joysticks) > 0: #check gamepad
+                        for joyIndex in range(len(ika.Input.joysticks)):
+                            for axisIndex in range(len(ika.Input.joysticks[joyIndex].axes)):
+                                if ika.Input.joysticks[joyIndex].axes[axisIndex].Position() > 0.5:
+                                    ax = 'joy%iaxis%i+' % (joyIndex, axisIndex)
+                                    controls.currentConfig[ controls.configcontrolsList[selected] ] = ax       
+                                    controls.setConfig(controls.currentConfig)
+                                    polling = False                                    
+                                    break
+                            for axisIndex in range(len(ika.Input.joysticks[joyIndex].reverseAxes)):
+                                if ika.Input.joysticks[joyIndex].reverseAxes[axisIndex].Position() > 0.5:
+                                    ax = 'joy%iaxis%i-' % (joyIndex, axisIndex)
+                                    controls.currentConfig[ controls.configcontrolsList[selected] ] = ax       
+                                    controls.setConfig(controls.currentConfig)
+                                    polling = False                                                                   
+                                    break                                                                        
+                            for buttonIndex in range(len(ika.Input.joysticks[joyIndex].buttons)):
+                                if ika.Input.joysticks[joyIndex].buttons[buttonIndex].Pressed():
+                                    btn = 'joy%ibutton%i' % (joyIndex, buttonIndex)
+                                    controls.currentConfig[ controls.configcontrolsList[selected] ] = btn       
+                                    controls.setConfig(controls.currentConfig)
+                                    polling = False    
+                                    break
+                ika.Input.Unpress()
+                ika.Input.keyboard.ClearKeyQueue()
                 selectmode = 0
                 selected = -1
 
