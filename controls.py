@@ -40,6 +40,8 @@ defaultControls = {
 }
 displayControls = {}
 
+currentConfig = {}
+
 #joystick friendly names
 #_friendlyNames = dict()
 firstrun = False
@@ -105,6 +107,29 @@ buttonmapping = {
 '0+': 'Stick Right',
 '1-': 'Stick Up',
 '1+': 'Stick Down',
+'0': 'Button 1',
+'1': 'Button 2',
+'2': 'Button 3',
+'3': 'Button 4',
+'4': 'Button 5',
+'5': 'Button 6',
+'6': 'Button 7',
+'7': 'Button 8',
+'8': 'Button 9',
+'9': 'Button 10',
+'10': 'Button 11',
+'11': 'Button 12',
+'13': 'Button 13',
+'14': 'Button 14',
+'15': 'Button 15',
+'16': 'Button 16'
+}
+
+joybuttonmapping = {
+'0-': 'Stick Left',
+'0+': 'Stick Right',
+'1-': 'Stick Up',
+'1+': 'Stick Down',
 '0': 'Button X',
 '1': 'Button A',
 '2': 'Button B',
@@ -116,8 +141,9 @@ buttonmapping = {
 '8': 'Button Select',
 '9': 'Button Start',
 '10': 'Button L3',
-'11': 'Button R3',
+'11': 'Button R3'
 }
+
 
 #left joy0axis0-
 #right joy0axis0+
@@ -127,6 +153,8 @@ buttonmapping = {
 def setConfig(config=None):
     class PosControl(object):
         def __init__(self, name):
+            self.set(name)
+        def set(self, name):        
             self.name = name
             self.c = _allControls[config[name]]
                         
@@ -154,15 +182,21 @@ def setConfig(config=None):
                     #    displayControls[name] =#haaack, just grab last character. will break if more than 10 buttons..                
             else: #regular 
                 displayControls[name] = config[name]
+                
         def __call__(self):   return self.c.Position() > 0.5
         def __repr__(self):   return '<Winter control %s>' % self.name
 
     class PressControl(PosControl):
         def __call__(self):
             return self.c.Pressed()
+    
+    global currentConfig
 
     if config is None:
         config = defaultControls
+    
+    currentConfig = config.copy()
+    
     # Directional controls:
     for name in ('up', 'down', 'left', 'right'):
         globals()[name] = PosControl(name)
@@ -193,11 +227,31 @@ def setConfig(config=None):
 ui_up = ui_down = ui_left = ui_right = ui_accept = ui_cancel = None
 up = down = left = right = None
 attack = cancel = rend = None
-gale = heal = smoke = bolt = None
+gale = heal = bolt = None
 savestate = loadstate = None
 showmap = None
 speedhack= None
 
 #baaad
 allControls=[ui_up,ui_down,ui_left,ui_right,ui_accept,ui_cancel,
-up,down,left,right,attack,cancel,rend,gale,heal,smoke,bolt,savestate,loadstate,showmap,speedhack]
+up,down,left,right,attack,cancel,rend,gale,heal,bolt,savestate,loadstate,showmap,speedhack]
+
+configcontrolsDict = {
+'up': up,
+'down': down,
+'left': left,
+'right': right,
+'attack': attack,
+'cancel': cancel,
+'showmap': showmap,
+'rend': rend,
+'gale': gale,
+'heal': heal,
+'bolt': bolt
+}
+
+configcontrolsList = [
+'up','down','left', 'right',
+'attack','cancel','showmap',
+'rend','gale','heal','bolt'
+]

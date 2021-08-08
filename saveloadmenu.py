@@ -52,7 +52,7 @@ class SaveGameFrame(gui.Frame):
                     layout.Spacer(width=16),
                     gui.StaticText(text='Lv. %02i' % stats.level)
                 ),                                
-                layout.FlexGridLayout(5,
+                layout.FlexGridLayout(5,    
                     icons['att'], gui.StaticText(text='%02i  ' % stats.att),
                     icons['mag'], gui.StaticText(text='%02i  ' % stats.mag),
                     gui.StaticText(text='  Time'),                    

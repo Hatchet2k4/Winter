@@ -12,13 +12,15 @@ import effects
 import system
 import savedata
 from controls import displayControls
-
+from keynames import keyNames
 from gameover import EndGameException
 
 import controls
 import automap
 
 from saveload import mapnames
+
+
 
 class Window(ImageWindow):
     '''
@@ -85,17 +87,29 @@ class MagicWindow(SubScreenWindow):
         txt = ['Magic:']
         p = system.engine.player.stats
         if p.heal:
-            txt.append(displayControls['heal']+' - Healing Rain ')
+            txt.append('Healing Rain')
         if p.rend:
-            txt.append(displayControls['rend']+' - Hearth Rend ')
+            txt.append('Hearth Rend')
         if p.gale:
-            txt.append(displayControls['gale']+' - Crushing Gale ')        
+            txt.append('Crushing Gale')        
         if p.bolt:
-            txt.append(displayControls['bolt']+' - Bolt Storm')
+            txt.append('Bolt Storm')
 
         return (gui.StaticText(text=txt),)
 
-
+    def draw(self):
+        SubScreenWindow.draw(self)
+        p = system.engine.player.stats
+        x=self.Left+92
+        y=self.Top+12
+        if p.heal:
+            gui.default_font.Print(x, y, '- '+displayControls['heal'])
+        if p.rend:
+            gui.default_font.Print(x, y+10, '- '+displayControls['rend'])
+        if p.gale:
+            gui.default_font.Print(x, y+20, '- '+displayControls['gale'])
+        if p.bolt:
+            gui.default_font.Print(x, y+30, '- '+displayControls['bolt'])
 
 class AttribWindow(SubScreenWindow):
     def __init__(self):
@@ -229,7 +243,7 @@ class PauseScreen(object):
         self.timer.Position = (self.statWnd.Left, 240-self.timer.height - 8 - self.timer.Border/2)
         
         
-        w = 113
+        w = 164
         self.menu.dockRight().dockTop()
         #self.inv.width = w #same width as menu width at present
         #s1elf.inv.dockRight()
@@ -386,7 +400,7 @@ class ControlsWindow(Menu):
         Menu.__init__(self, textctrl=ScrollableTextFrame())
         #self.select = -1        
         self.refreshContents()        
-        
+        self.maxwidth = 0
 
     #def createLayout(self):
     #    return layout.VerticalBoxLayout()
@@ -397,12 +411,15 @@ class ControlsWindow(Menu):
     def refreshContents(self):        
         txt = []        
         txt.append("Exit")        
-        txt.append('Up                       ') #hack to autosize because lazy
+        
+        txt.append('Up                          ') #hack to autosize because lazy
         txt.append('Down')
         txt.append('Left')
         txt.append('Right')
         txt.append('Attack')
         txt.append('Cancel')
+        
+        self.linewidth = gui.default_font.StringWidth('Open Map ') #assume widest line by default
         txt.append('Open Map')     
         
         p = system.engine.player.stats               
@@ -423,6 +440,11 @@ class ControlsWindow(Menu):
         else:
             txt.append('Spell 4')                    
         
+        for t in txt[-4:]: #find if any of the spell names push it wider..
+            w = gui.default_font.StringWidth(t+' ')
+            if self.linewidth < w:
+                self.linewidth = w
+        
         self.last = len(txt)        
         self.addText(*txt)
         self.autoSize()
@@ -436,19 +458,20 @@ class ControlsScreen(object):
 
         self.controlsWnd.Position = (160-self.controlsWnd.Width/2, 60)
         self.background = background
-    
+        self.yellowfont = ika.Font('system_yellow.fnt')
+        
+        self.title = gui.TextFrame(text='Set Controls')
+        self.title.Position = (12, 12)
+        
     def show(self):
         TIME = 40
         self.update()
         t = Transition()
         t.addChild(self.controlsWnd, startRect=(self.controlsWnd.Left, 240+self.controlsWnd.Top), time=TIME - 5)
+        t.addChild(self.title, startRect = (-self.title.Right, 12), time = TIME-5)
 
         for i in range(TIME):
             t.update(1)
-
-            ika.Video.ScaleBlit(self.background, 0, 0, ika.Video.xres, ika.Video.yres, ika.Opaque)
-            ika.Video.DrawRect(0, 0, ika.Video.xres, ika.Video.yres, ika.RGB(0, 0, 0, 128), True)
-                
             self.draw()
             ika.Video.ShowPage()
             ika.Input.Update()
@@ -458,62 +481,94 @@ class ControlsScreen(object):
         self.update()
         t = Transition()
         t.addChild(self.controlsWnd, endRect=(self.controlsWnd.Left, 240+self.controlsWnd.Top), time=TIME - 5)
-
+        t.addChild(self.title, endRect = (-self.title.Right, 12), time = TIME-5)
         for i in range(TIME):
-            t.update(1)
-
-            ika.Video.ScaleBlit(self.background, 0, 0, ika.Video.xres, ika.Video.yres, ika.Opaque)
-            ika.Video.DrawRect(0, 0, ika.Video.xres, ika.Video.yres, ika.RGB(0, 0, 0, 128), True)
-                
+            t.update(1)                
             self.draw()
             ika.Video.ShowPage()
             ika.Input.Update()
+            
 
-    def draw(self, selected = -1):        
+    def draw(self, selected = -1):     
+        ika.Video.ScaleBlit(self.background, 0, 0, ika.Video.xres, ika.Video.yres, ika.Opaque)
+        ika.Video.DrawRect(0, 0, ika.Video.xres, ika.Video.yres, ika.RGB(0, 0, 0, 128), True)         
         self.controlsWnd.draw()        
+        self.title.draw()
+        
         h = gui.default_font.height
-        x = 140 #magic number because blagh
+        x = self.controlsWnd.Left+self.controlsWnd.linewidth + 10
+        
         for i, name in enumerate( ['up', 'down', 'left', 'right', 'attack', 'cancel', 'showmap', 'heal', 'rend', 'gale', 'bolt']):           
             y = self.controlsWnd.Top + h*(i+1)
-            gui.default_font.Print(x, y, ' - ' + displayControls[name])
+            if i != selected: 
+                gui.default_font.Print(x, y, ' - ' + displayControls[name])
+            else:
+                self.yellowfont.Print(x, y, ' - ' + 'Press Key...')
+        
         if selected > 0:
-            txt = 'Awaiting input...'
+            txt = 'Awaiting input. Press Escape to Cancel'
             w = gui.default_font.StringWidth(txt) / 2
             gui.default_font.Print(160-w, 200, txt)
 
     def update(self):
         self.controlsWnd.update()
-                
-        
+                        
     def run(self):
         self.show()
         selectmode = 0 #nothing selected
         done = False
         selected = -1 
-        while not done:
-            ika.Video.ScaleBlit(self.background, 0, 0, ika.Video.xres, ika.Video.yres, ika.Opaque)
-            ika.Video.DrawRect(0, 0, ika.Video.xres, ika.Video.yres, ika.RGB(0, 0, 0, 128), True)                                   
-            self.draw(selected)            
-            
-            
+        
+        ika.Input.Unpress()
+        
+        while not done:                              
+            self.draw(selected)                                    
             ika.Video.ShowPage()
             ika.Input.Update()
             
             if selectmode == 0:
-                #if controls.cancel() or controls.ui_cancel(): 
-                #    done = True
+                if controls.cancel() or controls.ui_cancel(): 
+                    done = True
                     
                 result = self.controlsWnd.update()
                 if result > 0:
                     selectmode=1 #now poll for input!
-                    selected = result
+                    selected = result - 1 #-1 because Exit
+                    ika.Input.Unpress()
+                    ika.Input.keyboard.ClearKeyQueue()
+                    
                 elif result == None:
                     pass
-                else: #hit Exit
+                else: #hit Exit or Cancel
                     done = True
             else: #polling for input now
-                pass
-                    
+                polling = True
+                while polling:
+                    self.draw(selected)                                    
+                    ika.Video.ShowPage()
+                    ika.Input.Update()
+                    for k in keyNames: #check keyboard
+ 
+                            key = ika.Input.keyboard[k]
+                            if key.Pressed(): #key pressed!
+                                if k == 'ESCAPE': #skip escape         
+                                    polling = False
+                                    break  
+                                else:
+                                    #controls.control_list[self.configkeys[optselected]].buttons['key'].Set('key:'+keyName)
+                                    #controls.configcontrolsList[selected].set(k) # = _allControls[k]
+                                    controls.currentConfig[ controls.configcontrolsList[selected] ] = k
+                                    #controls.currentConfig[ 'attack' ] = k
+                                    controls.setConfig(controls.currentConfig)
+                                    polling = False
+                                    break    
+  
+
+
+                            
+                selectmode = 0
+                selected = -1
+
             
 
         self.hide()    
