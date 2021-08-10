@@ -321,21 +321,21 @@ class Player(Entity):
         while True:
             self.regenMP()
         
-            if controls.attack():
+            if controls.attack() or controls.joy_attack():
                 self.state = self.slashState()
-            elif controls.rend():
+            elif controls.rend() or controls.joy_rend):
                 self.state = self.hearthRendState()
                 yield None
-            elif controls.gale():
+            elif controls.gale() or controls.joy_gale():
                 self.state = self.crushingGaleState()
                 yield None
-            elif controls.heal():
+            elif controls.heal() or controls.joy_heal():
                 self.state = self.healingRainState()
                 yield None
-            elif controls.bolt():
+            elif controls.bolt() or controls.joy_bolt():
                 self.state = self.boltState()
                 yield None
-            elif controls.left() or controls.right() or controls.up() or controls.down():
+            elif controls.left() or controls.right() or controls.up() or controls.down() or controls.joy_left() or controls.joy_right() or controls.joy_up() or controls.joy_down():
                 self.state = self.walkState()
                 self._state() # get the walk state started right now.
             yield None
@@ -346,38 +346,39 @@ class Player(Entity):
 
         while True:
             self.regenMP()
-            if controls.attack():
+                
+            if controls.attack() or controls.joy_attack():
                 self.state = self.slashState()
-                yield None
-            elif controls.rend():
+            elif controls.rend() or controls.joy_rend):
                 self.state = self.hearthRendState()
                 yield None
-            elif controls.gale():
+            elif controls.gale() or controls.joy_gale():
                 self.state = self.crushingGaleState()
                 yield None
-            elif controls.heal():
+            elif controls.heal() or controls.joy_heal():
                 self.state = self.healingRainState()
                 yield None
-            elif controls.bolt():
+            elif controls.bolt() or controls.joy_bolt():
                 self.state = self.boltState()
                 yield None
-            elif controls.left():
+                
+            elif controls.left() or controls.joy_left():
                 if controls.up():
                     d = dir.UPLEFT
                 elif controls.down():
                     d = dir.DOWNLEFT
                 else:
                     d = dir.LEFT
-            elif controls.right():
+            elif controls.right() or controls.joy_right():
                 if controls.up():
                     d = dir.UPRIGHT
                 elif controls.down():
                     d = dir.DOWNRIGHT
                 else:
                     d = dir.RIGHT
-            elif controls.up():
+            elif controls.up() or contros.joy_up():
                 d = dir.UP
-            elif controls.down():
+            elif controls.down() controls.joy_down():
                 d = dir.DOWN
             else:
                 self.state = self.standState()

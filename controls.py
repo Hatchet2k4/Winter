@@ -17,12 +17,7 @@ _allControls = dict()
 
 
 defaultControls = {
-    'ui_up': 'UP',
-    'ui_down': 'DOWN',
-    'ui_left': 'LEFT',
-    'ui_right': 'RIGHT',
-    'ui_accept': 'RETURN',
-    'ui_cancel': 'ESCAPE',
+    #default mappable keyboard keys
     'up': 'UP',
     'down': 'DOWN',
     'left': 'LEFT',
@@ -33,12 +28,69 @@ defaultControls = {
     'gale': 'X',
     'heal': 'C',
     'bolt': 'B',
-    'savestate': 'F2',
-    'loadstate': 'F4',
     'showmap': 'TAB',
+    #default mappable gamepad buttons
+    'joy_up': 'joy0axis1-',
+    'joy_down': 'joy0axis1+',
+    'joy_left': 'joy0axis0-',
+    'joy_right': 'joy0axis0+',
+    'joy_attack': 'joy0button1',
+    'joy_menu': 'joy0button2',
+    'joy_rend': 'joy0button0',
+    'joy_gale': 'joy0button3',
+    'joy_heal': 'joy0button4',
+    'joy_bolt': 'joy0button5',
+    'joy_showmap': 'joy0button9',  
+    #unremappable ui keys
+    'ui_up': 'UP',
+    'ui_down': 'DOWN',
+    'ui_left': 'LEFT',
+    'ui_right': 'RIGHT',
+    'ui_accept': 'RETURN',
+    'ui_cancel': 'ESCAPE',
+    #to be removed/disabled before release
+    'savestate': 'F2',
+    'loadstate': 'F4',    
     'speedhack': 'Q'
 }
-displayControls = {}
+
+displayControls = {
+    #default mappable keyboard keys
+    'up': 'UP',
+    'down': 'DOWN',
+    'left': 'LEFT',
+    'right': 'RIGHT',
+    'attack': 'SPACE',
+    'cancel': 'ESCAPE',
+    'rend': 'Z',
+    'gale': 'X',
+    'heal': 'C',
+    'bolt': 'B',
+    'showmap': 'TAB',
+    #default mappable gamepad buttons
+    'joy_up': 'None',
+    'joy_down': 'None',
+    'joy_left': 'None',
+    'joy_right': 'None',
+    'joy_attack': 'None',
+    'joy_menu': 'None',
+    'joy_rend': 'None',
+    'joy_gale': 'None',
+    'joy_heal': 'None',
+    'joy_bolt': 'None',
+    'joy_showmap': 'None',  
+    #unremappable ui keys
+    'ui_up': 'UP',
+    'ui_down': 'DOWN',
+    'ui_left': 'LEFT',
+    'ui_right': 'RIGHT',
+    'ui_accept': 'RETURN',
+    'ui_cancel': 'ESCAPE',
+    #to be removed/disabled before release
+    'savestate': 'F2',
+    'loadstate': 'F4',    
+    'speedhack': 'Q'
+}
 
 currentConfig = {}
 
@@ -154,38 +206,50 @@ joybuttonmapping = {
 #down joy0axis1+
 #up joy0axis1-
 
+
+        
+class NullControl(object):        
+    def Pressed(self):
+        return False
+    def Position(self):
+        return 0
+    def __call__(self):
+        return False
+        
 def setConfig(config=None):
     class PosControl(object):
         def __init__(self, name):
             self.set(name)
         def set(self, name):        
             self.name = name
-            self.c = _allControls[config[name]]
+            try:
+                self.c = _allControls[config[name]]       
+                if 'joy' in config[name]: #dealing with a gamepad, hack code follows
+                    if 'axis' in config[name]: #stick/dpad
+                        #hack, assuming directions always align logically. No up=down here! :P
+                        ax = config[name][-2:]
+                        if ax in buttonmapping:
+                            displayControls[name] = buttonmapping[ax]
+                        else:
+                            ika.Log('Invalid axis: ' + ax)
+                            displayControls[name] = ax
+                    else: #button
+                        if config[name][-2] in '0123456789': #double digit button
+                            b = config[name][-2:] #get last two characters
+                        else: #single digit button
+                            b =  config[name][-1] #get just last character                    
                         
-            if 'joy' in config[name]: #dealing with a gamepad, hack code follows
-                if 'axis' in config[name]: #stick/dpad
-                    #hack, assuming directions always align logically. No up=down here! :P
-                    ax = config[name][-2:]
-                    if ax in buttonmapping:
-                        displayControls[name] = buttonmapping[ax]
-                    else:
-                        ika.Log('Invalid axis: ' + ax)
-                        displayControls[name] = ax
-                else: #button
-                    if config[name][-2] in '0123456789': #double digit button
-                        b = config[name][-2:] #get last two characters
-                    else: #single digit button
-                        b =  config[name][-1] #get just last character                    
-                    
-                    if b in buttonmapping:
-                        displayControls[name] = buttonmapping[b]
-                    else:
-                        displayControls[name] = b
-                        
-                    
-                    #    displayControls[name] =#haaack, just grab last character. will break if more than 10 buttons..                
-            else: #regular 
-                displayControls[name] = config[name]
+                        if b in buttonmapping:
+                            displayControls[name] = buttonmapping[b]
+                        else:
+                            displayControls[name] = b
+                                       
+                else: #regular 
+                    displayControls[name] = config[name]
+            except:
+                ika.Log('Unable to set control '+name) 
+                displayControls[name] = 'None'
+                self.c = NullControl()
                 
         def __call__(self):   return self.c.Position() > 0.5
         def __repr__(self):   return '<Winter control %s>' % self.name
@@ -214,10 +278,11 @@ def setConfig(config=None):
                  'rend', 'gale', 'heal',  'bolt', 
                  'savestate', 'loadstate', 'showmap', 'speedhack'):
         globals()[name] = PressControl(name)
-    
+        globals()['joy_'+name] = PressControl('joy_'+name)
 
     # Copy controls over to xi.
-    for c in ('up', 'down', 'left', 'right', 'ui_up', 'ui_down', 'ui_left', 'ui_right', 'ui_accept', 'ui_cancel'):
+    for c in ('up', 'down', 'left', 'right', 'joy_up', 'joy_down', 'joy_left', 'joy_right', 
+            'ui_up', 'ui_down', 'ui_left', 'ui_right', 'ui_accept', 'ui_cancel'):
         setattr(xi.controls, c, getattr(controls, c))
     xi.controls.enter = controls.attack
     xi.controls.cancel = controls.cancel
@@ -228,17 +293,26 @@ def setConfig(config=None):
     
 
 # global control objects.  These are all set by setConfig
-ui_up = ui_down = ui_left = ui_right = ui_accept = ui_cancel = None
-up = down = left = right = None
-attack = cancel = rend = None
-gale = heal = bolt = None
-savestate = loadstate = None
-showmap = None
-speedhack= None
+ui_up = ui_down = ui_left = ui_right = ui_accept = ui_cancel = NullControl()
+
+up = down = left = right = NullControl()
+attack = cancel = rend = NullControl()
+gale = heal = bolt = NullControl()
+showmap = NullControl()
+
+joy_up = joy_down = joy_left = joy_right = NullControl()
+joy_attack = joy_cancel = joy_rend = NullControl()
+joy_gale = joy_heal = joy_bolt = NullControl()
+joy_showmap = NullControl()
+
+savestate = loadstate = NullControl()
+speedhack= NullControl()
 
 #baaad
 allControls=[ui_up,ui_down,ui_left,ui_right,ui_accept,ui_cancel,
-up,down,left,right,attack,cancel,rend,gale,heal,bolt,savestate,loadstate,showmap,speedhack]
+up,down,left,right,attack,cancel,rend,gale,heal,bolt,showmap,
+joy_up,joy_down,joy_left,joy_right,joy_attack,joy_cancel,joy_rend,joy_gale,joy_heal,joy_bolt,joy_showmap,
+savestate,loadstate,speedhack]
 
 configcontrolsDict = {
 'up': up,
@@ -251,9 +325,21 @@ configcontrolsDict = {
 'rend': rend,
 'gale': gale,
 'heal': heal,
-'bolt': bolt
+'bolt': bolt,
+'joy_up': joy_up,
+'joy_down': joy_down,
+'joy_left': joy_left,
+'joy_right': joy_right,
+'joy_attack': joy_attack,
+'joy_cancel': joy_cancel,
+'joy_showmap': joy_showmap,
+'joy_rend': joy_rend,
+'joy_gale': joy_gale,
+'joy_heal': joy_heal,
+'joy_bolt': joy_bolt
 }
 
+#used for controls menu, order is important
 configcontrolsList = [
 'up','down','left', 'right',
 'attack','cancel','showmap',

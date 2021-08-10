@@ -16,7 +16,7 @@ def delay(draw, count, snow):
         ika.Video.ShowPage()
 
         ika.Input.Update()
-        if controls.attack() or controls.ui_accept() or controls.cancel() or controls.ui_cancel(): #commented because I'm mean, muahaha
+        if controls.attack() or controls.ui_accept() or controls.cancel() or controls.ui_cancel() or controls.joy_cancel() or controls.joy_accept():
             raise _DoneException()
 
 def intro():
@@ -26,7 +26,7 @@ def intro():
     gba = ika.Image('gfx/gba'+str(i)+'.png')
     ikalogo = ika.Image('gfx/ika.png')
     hatchlogo = ika.Image('gfx/HatchetLogo2.png')
-    controls.attack() # unpress
+
 
     v = ika.Video
     d = 50
@@ -96,11 +96,11 @@ def menu():
             if not u:
                 cursorPos -= 1
                 u = 1
-        elif (controls.down()  or controls.ui_down()) and cursorPos < 2:
+        elif (controls.down()  or controls.ui_down() or controls.joy_down()) and cursorPos < 2:
             if not u:
                 cursorPos += 1
                 u = 1
-        elif controls.attack() or controls.ui_accept():
+        elif controls.attack() or controls.ui_accept() or controls.joy_attack():
             result = cursorPos
         else:
             u = 0

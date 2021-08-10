@@ -80,7 +80,7 @@ def text(where, txt):
     """
     frame = textBox(where, txt)
 
-    while not (controls.attack() or controls.ui_accept()):
+    while not (controls.attack() or controls.joy_attack() or controls.ui_accept()):
         draw()
         frame.draw()
         ika.Video.ShowPage()
@@ -108,7 +108,7 @@ def animate(ent, frames, delay, thing=None, loop=True, text=None):
                     ika.Video.ShowPage()
                     ika.Delay(1)
                     ika.Input.Update()
-                    if controls.attack() or controls.ui_accept():
+                    if controls.attack() or controls.ui_accept() or controls.joy_attack():
                         loop = False
                         raise AnimException
             if not loop:

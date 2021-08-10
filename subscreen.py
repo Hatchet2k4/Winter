@@ -416,20 +416,23 @@ class ControlsWindow(Menu):
     #def update(self):
     #    return None
 
-    def refreshContents(self):        
+    def refreshContents(self):     
+
+        self.linewidth = gui.default_font.StringWidth('Restore Defaults') #assume this is widest line
+        
         txt = []        
         txt.append("Exit")        
         txt.append("Restore Defaults")        
         txt.append("Save to File")
-        txt.append('Up                                    ') #hack to autosize because lazy
+        txt.append('Up                                    ') #hack to autosize total window because lazy
         txt.append('Down')
         txt.append('Left')
         txt.append('Right')
-        txt.append('Attack')
-        txt.append('Cancel')
-        
-        self.linewidth = gui.default_font.StringWidth('Open Map ') #assume widest line by default
+        txt.append('Attack/Accept')
+        txt.append('Cancel/Menu')
         txt.append('Open Map')     
+
+        
         
         p = system.engine.player.stats               
         if p.heal:           
@@ -448,16 +451,21 @@ class ControlsWindow(Menu):
             txt.append('Bolt Storm')
         else:
             txt.append('Spell 4')                    
-        
-        for t in txt[-4:]: #find if any of the spell names push it wider..
-            w = gui.default_font.StringWidth(t+' ')
-            if self.linewidth < w:
-                self.linewidth = w
+
         
         self.last = len(txt)        
         self.addText(*txt)
         self.autoSize()
         
+
+class Header(gui.TextFrame):
+    def __init__(self, x = 0, y = 0, width = 0, height = 0, *args, **kwargs):
+        gui.TextFrame.__init__(self, x, y, width, height, *args, **kwargs)
+
+    def draw(self, x1, x2):
+        gui.TextFrame.draw(self)
+        gui.default_font.Print(x1, self.Top+2, 'Keyboard')
+        gui.default_font.Print(x2, self.Top+2, 'Gamepad')
 
 class ControlsScreen(object):
     def __init__(self, background):
@@ -468,11 +476,12 @@ class ControlsScreen(object):
         self.controls.Position = (160-self.controls.Width/2-8, 48)
         self.background = background
         self.yellowfont = ika.Font('system_yellow.fnt')
-        
+        self.greyfont = ika.Font('system_grey.fnt')
+
         #self.title = gui.TextFrame(text='Set Controls')
         #self.title.Position = (12, 12)
         
-        self.header = gui.TextFrame(text ='Control')
+        self.header = Header(text='Control')  #gui.TextFrame(text ='Control')
         self.header.setSize( (self.controls.Width-16, self.header.Height) )
         self.header.Position=(self.controls.Left+16, self.controls.Top - self.header.Height*3)
         
@@ -509,17 +518,25 @@ class ControlsScreen(object):
         ika.Video.DrawRect(0, 0, ika.Video.xres, ika.Video.yres, ika.RGB(0, 0, 0, 128), True)         
         self.controls.draw()        
         #self.title.draw()
-        self.header.draw()
+     
         
         h = gui.default_font.height
         x = self.controls.Left+self.controls.linewidth + 10
+        offset=70
+        self.header.draw(x, x+offset)
         
         for i, name in enumerate( ['up', 'down', 'left', 'right', 'attack', 'cancel', 'showmap', 'heal', 'rend', 'gale', 'bolt']):           
             y = self.controls.Top + h*(i+3)
             if i != selected: 
-                gui.default_font.Print(x, y, ' - ' + displayControls[name])
+                gui.default_font.Print(x, y, displayControls[name])
+                if displayControls['joy_'+name] == 'None':
+                    self.greyfont.Print(x+offset, y, displayControls['joy_'+name])
+                else: #hack hack
+                    gui.default_font.Print(x+offset, y, displayControls['joy_'+name])
             else:
-                self.yellowfont.Print(x, y, ' - ' + 'Press Key...')
+                #self.yellowfont.Print(x, y, ' - ' + 'Press Key...')
+                self.yellowfont.Print(x, y, displayControls[name])
+                self.yellowfont.Print(x+offset, y, displayControls['joy_'+name])
         
         if selected > 0:
             txt = 'Awaiting input. Press Escape to Cancel'
@@ -584,21 +601,21 @@ class ControlsScreen(object):
                             for axisIndex in range(len(ika.Input.joysticks[joyIndex].axes)):
                                 if ika.Input.joysticks[joyIndex].axes[axisIndex].Position() > 0.5:
                                     ax = 'joy%iaxis%i+' % (joyIndex, axisIndex)
-                                    controls.currentConfig[ controls.configcontrolsList[selected] ] = ax       
+                                    controls.currentConfig[ 'joy_'+controls.configcontrolsList[selected] ] = ax       
                                     controls.setConfig(controls.currentConfig)
                                     polling = False                                    
                                     break
                             for axisIndex in range(len(ika.Input.joysticks[joyIndex].reverseAxes)):
                                 if ika.Input.joysticks[joyIndex].reverseAxes[axisIndex].Position() > 0.5:
                                     ax = 'joy%iaxis%i-' % (joyIndex, axisIndex)
-                                    controls.currentConfig[ controls.configcontrolsList[selected] ] = ax       
+                                    controls.currentConfig[ 'joy_'+ controls.configcontrolsList[selected] ] = ax       
                                     controls.setConfig(controls.currentConfig)
                                     polling = False                                                                   
                                     break                                                                        
                             for buttonIndex in range(len(ika.Input.joysticks[joyIndex].buttons)):
                                 if ika.Input.joysticks[joyIndex].buttons[buttonIndex].Pressed():
                                     btn = 'joy%ibutton%i' % (joyIndex, buttonIndex)
-                                    controls.currentConfig[ controls.configcontrolsList[selected] ] = btn       
+                                    controls.currentConfig[ 'joy_'+ controls.configcontrolsList[selected] ] = btn       
                                     controls.setConfig(controls.currentConfig)
                                     polling = False    
                                     break

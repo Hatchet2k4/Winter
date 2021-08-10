@@ -270,7 +270,7 @@ class Engine(object):
                 if t < self.nextFrameTime:
                     ika.Delay(int(self.nextFrameTime - t))
 
-                if controls.cancel() or controls.ui_cancel():
+                if controls.cancel() or controls.ui_cancel() or controls.joy_cancel():
                     self.pause()
 
                 if controls.savestate():
@@ -453,7 +453,7 @@ class Engine(object):
             ika.Video.ShowPage()
             ika.Delay(4)
 
-            if i == t and controls.attack():
+            if i == t and (controls.attack() or controls.joy_attack() or controls.ui_accept() or controls.ui_cancel() or controls.cancel() or controls.joy_cancel()):
                 break
 
     def pause(self):
