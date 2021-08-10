@@ -421,7 +421,7 @@ class ControlsWindow(Menu):
         txt.append("Exit")        
         txt.append("Restore Defaults")        
         txt.append("Save to File")
-        txt.append('Up                          ') #hack to autosize because lazy
+        txt.append('Up                                    ') #hack to autosize because lazy
         txt.append('Down')
         txt.append('Left')
         txt.append('Right')
@@ -462,23 +462,28 @@ class ControlsWindow(Menu):
 class ControlsScreen(object):
     def __init__(self, background):
         assert _initted
-        self.controlsWnd = ControlsWindow()
-        self.controlsWnd.update()
-
-        self.controlsWnd.Position = (160-self.controlsWnd.Width/2, 60)
+        self.controls = ControlsWindow()
+        self.controls.update()
+        self.controls.autoSize()
+        self.controls.Position = (160-self.controls.Width/2-8, 48)
         self.background = background
         self.yellowfont = ika.Font('system_yellow.fnt')
         
-        self.title = gui.TextFrame(text='Set Controls')
-        self.title.Position = (12, 12)
+        #self.title = gui.TextFrame(text='Set Controls')
+        #self.title.Position = (12, 12)
+        
+        self.header = gui.TextFrame(text ='Control')
+        self.header.setSize( (self.controls.Width-16, self.header.Height) )
+        self.header.Position=(self.controls.Left+16, self.controls.Top - self.header.Height*3)
+        
         
     def show(self):
         TIME = 40
         self.update()
         t = Transition()
-        t.addChild(self.controlsWnd, startRect=(self.controlsWnd.Left, 240+self.controlsWnd.Top), time=TIME - 5)
-        t.addChild(self.title, startRect = (-self.title.Right, 12), time = TIME-5)
-
+        t.addChild(self.controls, startRect=(self.controls.Left, 240+self.controls.Top), time=TIME - 5)
+        #t.addChild(self.title, startRect = (-self.title.Right, 12), time = TIME-5)
+        t.addChild(self.header, startRect = (self.header.Left, -40), time = TIME-5)
         for i in range(TIME):
             t.update(1)
             self.draw()
@@ -489,8 +494,9 @@ class ControlsScreen(object):
         TIME = 40
         self.update()
         t = Transition()
-        t.addChild(self.controlsWnd, endRect=(self.controlsWnd.Left, 240+self.controlsWnd.Top), time=TIME - 5)
-        t.addChild(self.title, endRect = (-self.title.Right, 12), time = TIME-5)
+        t.addChild(self.controls, endRect=(self.controls.Left, 240+self.controls.Top), time=TIME - 5)
+        #t.addChild(self.title, endRect = (-self.title.Right, 12), time = TIME-5)
+        t.addChild(self.header, endRect = (self.header.Left, -40), time = TIME-5)
         for i in range(TIME):
             t.update(1)                
             self.draw()
@@ -501,14 +507,15 @@ class ControlsScreen(object):
     def draw(self, selected = -1):     
         ika.Video.ScaleBlit(self.background, 0, 0, ika.Video.xres, ika.Video.yres, ika.Opaque)
         ika.Video.DrawRect(0, 0, ika.Video.xres, ika.Video.yres, ika.RGB(0, 0, 0, 128), True)         
-        self.controlsWnd.draw()        
-        self.title.draw()
+        self.controls.draw()        
+        #self.title.draw()
+        self.header.draw()
         
         h = gui.default_font.height
-        x = self.controlsWnd.Left+self.controlsWnd.linewidth + 10
+        x = self.controls.Left+self.controls.linewidth + 10
         
         for i, name in enumerate( ['up', 'down', 'left', 'right', 'attack', 'cancel', 'showmap', 'heal', 'rend', 'gale', 'bolt']):           
-            y = self.controlsWnd.Top + h*(i+3)
+            y = self.controls.Top + h*(i+3)
             if i != selected: 
                 gui.default_font.Print(x, y, ' - ' + displayControls[name])
             else:
@@ -520,7 +527,7 @@ class ControlsScreen(object):
             gui.default_font.Print(160-w, 220, txt)
 
     def update(self):
-        self.controlsWnd.update()
+        self.controls.update()
                         
     def run(self):
         self.show()
@@ -539,7 +546,7 @@ class ControlsScreen(object):
                 if controls.cancel() or controls.ui_cancel(): 
                     done = True
                     
-                result = self.controlsWnd.update()
+                result = self.controls.update()
                 if result == 0:
                     done = True
                 elif result == 1:
@@ -549,9 +556,7 @@ class ControlsScreen(object):
                 if result > 0:
                     selectmode=1 #now poll for input!
                     selected = result - 3 #-3 because top options
-                    ika.Input.Unpress()
-                    ika.Input.keyboard.ClearKeyQueue()
-                    
+                    controls.UnpressAllKeys()
                 elif result == None:
                     pass
                 else: #hit Exit or Cancel
@@ -597,11 +602,10 @@ class ControlsScreen(object):
                                     controls.setConfig(controls.currentConfig)
                                     polling = False    
                                     break
-                ika.Input.Unpress()
-                ika.Input.keyboard.ClearKeyQueue()
+                controls.UnpressAllKeys()
                 selectmode = 0
                 selected = -1
-
+                self.controls.unpress=True
             
 
         self.hide()    

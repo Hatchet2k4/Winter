@@ -14,4 +14,3 @@ ui_left = lambda: ika.Input.left.Pressed()
 ui_right = lambda: ika.Input.right.Pressed()
 ui_accept = lambda: ika.Input.enter.Pressed()
 ui_cancel = lambda: ika.Input.cancel.Pressed()
-

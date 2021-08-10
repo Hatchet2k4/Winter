@@ -46,6 +46,10 @@ currentConfig = {}
 #_friendlyNames = dict()
 firstrun = False
 
+def UnpressAllKeys():
+    for k in keyNames: 
+        ika.Input.keyboard[k].Pressed()
+
 def init():
     # fill up _allControls
     global useGamePad, firstrun

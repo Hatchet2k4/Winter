@@ -72,7 +72,7 @@ class Menu(gui.Widget):
         If the user hit the cancel (ESC) key, the Cancel object is returned.
         else, None is returned, to signify that nothing has happened yet.
         '''
-        ika.Input.Update()
+        #ika.Input.Update()
         cy = self.cursorY
         #unpress = False # lame unpress faking
         # TODO: handle it the manly way, by making the cursor repeat after a moment
