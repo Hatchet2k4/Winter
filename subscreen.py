@@ -8,7 +8,7 @@ from xi.transition import Transition
 from xi.window import ImageWindow
 from xi.cursor import ImageCursor
 import effects
-
+import sound
 import system
 import savedata
 from controls import displayControls
@@ -528,7 +528,10 @@ class ControlsScreen(object):
         for i, name in enumerate( ['up', 'down', 'left', 'right', 'attack', 'cancel', 'showmap', 'heal', 'rend', 'gale', 'bolt']):           
             y = self.control_menu.Top + h*i
             if i != selected: 
-                gui.default_font.Print(x, y, displayControls[name])
+                if displayControls[name] == 'None':
+                    self.greyfont.Print(x, y, displayControls[name])
+                else:
+                    gui.default_font.Print(x, y, displayControls[name])
                 if displayControls['joy_'+name] == 'None':
                     self.greyfont.Print(x+offset, y, displayControls['joy_'+name])
                 else: #hack hack
@@ -568,7 +571,7 @@ class ControlsScreen(object):
                         selectmode=1 #now poll for input!
                         selected = result #-3 because top options
                         controls.UnpressAllKeys()                  
-                        self.text = 'Awaiting input. Press Escape to Cancel'                        
+                        self.text = 'Press Escape to Cancel, Backspace to clear.'                        
                     elif result == self.control_menu.default:
                         controls.setConfig(controls.defaultControls)
                         self.text = 'Default Controls Loaded'
@@ -595,33 +598,63 @@ class ControlsScreen(object):
                     self.draw(selected)                                    
                     ika.Video.ShowPage()
                     ika.Input.Update()
+  
                     for k in keyNames: #check keyboard 
                             key = ika.Input.keyboard[k]
                             if key.Pressed(): #key pressed!
                                 if k == 'ESCAPE': #skip escape         
                                     polling = False
+                                    self.text=''
                                     break  
-                                else:
-                                    controls.currentConfig[ controls.configcontrolsList[selected] ] = k
+                                elif k == 'BACKSPACE':                                    
+                                    controls.currentConfig[ controls.configcontrolsList[selected] ] = 'None'
+                                    controls.currentConfig[ 'joy_'+controls.configcontrolsList[selected] ] = 'None'
                                     controls.setConfig(controls.currentConfig)
-                                    polling = False
+                                    self.text = 'Control cleared'
+                                    polling=False
+                                    break
+                                else:
+                                    badkey=False
+                                    for c in controls.configcontrolsDict.keys():
+                                        d = controls.currentConfig[c]
+                                        if k == d:
+                                            sound.menuBuzz.Play()
+                                            self.text = 'Key already assigned'
+                                            badkey=True
+                                            polling=False
+                                            break
+                                    if not badkey:                                    
+                                        controls.currentConfig[ controls.configcontrolsList[selected] ] = k
+                                        controls.setConfig(controls.currentConfig)
+                                        polling = False
+                                        self.text = ''                                                                            
                                     break    
                                     
                     if len(ika.Input.joysticks) > 0: #check gamepad
+                        badkey=False
                         for joyIndex in range(len(ika.Input.joysticks)):
                             for axisIndex in range(len(ika.Input.joysticks[joyIndex].axes)):
                                 if ika.Input.joysticks[joyIndex].axes[axisIndex].Position() > 0.5:
                                     ax = 'joy%iaxis%i+' % (joyIndex, axisIndex)
+                                    for c in controls.configcontrolsDict.keys():
+                                        d = controls.currentConfig[c]
+                                        if ax==d:
+                                            sound.menuBuzz.Play()
+                                            self.text = 'Button already assigned'
+                                            badkey=True
+                                            break
                                     controls.currentConfig[ 'joy_'+controls.configcontrolsList[selected] ] = ax       
                                     controls.setConfig(controls.currentConfig)
-                                    polling = False                                    
+                                    polling = False    
+                                    self.text = ''                                    
                                     break
                             for axisIndex in range(len(ika.Input.joysticks[joyIndex].reverseAxes)):
                                 if ika.Input.joysticks[joyIndex].reverseAxes[axisIndex].Position() > 0.5:
                                     ax = 'joy%iaxis%i-' % (joyIndex, axisIndex)
                                     controls.currentConfig[ 'joy_'+ controls.configcontrolsList[selected] ] = ax       
                                     controls.setConfig(controls.currentConfig)
-                                    polling = False                                                                   
+                                    polling = False 
+                                    self.text = ''                                    
                                     break                                                                        
                             for buttonIndex in range(len(ika.Input.joysticks[joyIndex].buttons)):
                                 if ika.Input.joysticks[joyIndex].buttons[buttonIndex].Pressed():
@@ -629,12 +662,13 @@ class ControlsScreen(object):
                                     controls.currentConfig[ 'joy_'+ controls.configcontrolsList[selected] ] = btn       
                                     controls.setConfig(controls.currentConfig)
                                     polling = False    
+                                    self.text = ''                                                                        
                                     break
                 controls.UnpressAllKeys()
                 selectmode = 0
                 selected = -1
                 self.control_menu.unpress=True
-                self.text = ''
+                
 
         self.hide()    
 
