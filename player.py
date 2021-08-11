@@ -323,7 +323,7 @@ class Player(Entity):
         
             if controls.attack() or controls.joy_attack():
                 self.state = self.slashState()
-            elif controls.rend() or controls.joy_rend):
+            elif controls.rend() or controls.joy_rend():
                 self.state = self.hearthRendState()
                 yield None
             elif controls.gale() or controls.joy_gale():
@@ -349,7 +349,7 @@ class Player(Entity):
                 
             if controls.attack() or controls.joy_attack():
                 self.state = self.slashState()
-            elif controls.rend() or controls.joy_rend):
+            elif controls.rend() or controls.joy_rend():
                 self.state = self.hearthRendState()
                 yield None
             elif controls.gale() or controls.joy_gale():
@@ -363,22 +363,22 @@ class Player(Entity):
                 yield None
                 
             elif controls.left() or controls.joy_left():
-                if controls.up():
+                if controls.up()  or controls.joy_up():
                     d = dir.UPLEFT
-                elif controls.down():
+                elif controls.down()  or controls.joy_down():
                     d = dir.DOWNLEFT
                 else:
                     d = dir.LEFT
             elif controls.right() or controls.joy_right():
-                if controls.up():
+                if controls.up() or controls.joy_up():
                     d = dir.UPRIGHT
-                elif controls.down():
+                elif controls.down() or controls.joy_down():
                     d = dir.DOWNRIGHT
                 else:
                     d = dir.RIGHT
-            elif controls.up() or contros.joy_up():
+            elif controls.up() or controls.joy_up():
                 d = dir.UP
-            elif controls.down() controls.joy_down():
+            elif controls.down() or controls.joy_down():
                 d = dir.DOWN
             else:
                 self.state = self.standState()
@@ -418,10 +418,10 @@ class Player(Entity):
                     x.hurt(self.stats.att + ika.Random(0, 3), 120, self.direction)
                     self.giveMPforHit()
 
-            if controls.up() and self.direction == dir.DOWN:  backthrust = True
-            elif controls.down() and self.direction == dir.UP:  backthrust = True
-            elif controls.left() and self.direction in [dir.RIGHT, dir.UPRIGHT, dir.DOWNRIGHT]:  backthrust = True
-            elif controls.right() and self.direction in [dir.LEFT, dir.UPLEFT, dir.DOWNLEFT]:  backthrust = True
+            if (controls.up() or controls.joy_up()) and self.direction == dir.DOWN:  backthrust = True
+            elif (controls.down()  or controls.joy_down()) and self.direction == dir.UP:  backthrust = True
+            elif (controls.left() or controls.joy_left()) and self.direction in [dir.RIGHT, dir.UPRIGHT, dir.DOWNRIGHT]:  backthrust = True
+            elif (controls.right() or controls.joy_right()) and self.direction in [dir.LEFT, dir.UPLEFT, dir.DOWNLEFT]:  backthrust = True
 
             elif controls.attack():
                 backslash = True
@@ -439,7 +439,7 @@ class Player(Entity):
             count = 10
             while count > 0:
                 count -= 1
-                if controls.attack():
+                if controls.attack() or controls.joy_attack():
                     self.state = self.thrustState()
                 yield None
 
@@ -472,9 +472,9 @@ class Player(Entity):
         count = 10
         while count > 0:
             count -= 1
-            if controls.rend():
+            if controls.rend() or controls.joy_rend():
                 self.state = self.hearthRendState()
-            elif controls.attack():
+            elif controls.attack() or controls.joy_attack():
                 self.state = self.thrustState()
             yield None
 
@@ -558,9 +558,9 @@ class Player(Entity):
         while i > 0:
             i -= 1
             self.speed = max(0, self.speed - 10)
-            if controls.attack():
+            if controls.attack() or controls.joy_attack():
                 thrust = True
-            elif controls.gale():
+            elif controls.gale() or controls.joy_gale():
                 gale = True
             yield None
 

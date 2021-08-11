@@ -421,9 +421,6 @@ class ControlsWindow(Menu):
         self.linewidth = gui.default_font.StringWidth('Restore Defaults') #assume this is widest line
         
         txt = []        
-        txt.append("Exit")        
-        txt.append("Restore Defaults")        
-        txt.append("Save to File")
         txt.append('Up                                    ') #hack to autosize total window because lazy
         txt.append('Down')
         txt.append('Left')
@@ -432,8 +429,7 @@ class ControlsWindow(Menu):
         txt.append('Cancel/Menu')
         txt.append('Open Map')     
 
-        
-        
+                
         p = system.engine.player.stats               
         if p.heal:           
             txt.append('Healing Rain')
@@ -450,10 +446,20 @@ class ControlsWindow(Menu):
         if p.bolt:
             txt.append('Bolt Storm')
         else:
-            txt.append('Spell 4')                    
-
+            txt.append('Spell 4')
+            
         
-        self.last = len(txt)        
+        txt.append("Restore Default Controls")        
+        txt.append("Restore Saved Controls")        
+        txt.append("Save Controls")
+        txt.append("Exit")        
+
+        self.lastcontrol = len(txt)-5
+        self.default = len(txt)-4
+        self.restore = len(txt)-3
+        self.save = len(txt)-2
+        self.exit = len(txt)-1
+             
         self.addText(*txt)
         self.autoSize()
         
@@ -470,28 +476,24 @@ class Header(gui.TextFrame):
 class ControlsScreen(object):
     def __init__(self, background):
         assert _initted
-        self.controls = ControlsWindow()
-        self.controls.update()
-        self.controls.autoSize()
-        self.controls.Position = (160-self.controls.Width/2-8, 48)
+        self.control_menu = ControlsWindow()
+        self.control_menu.update()
+        self.control_menu.autoSize()
+        self.control_menu.Position = (160-self.control_menu.Width/2-8, 48)
         self.background = background
         self.yellowfont = ika.Font('system_yellow.fnt')
         self.greyfont = ika.Font('system_grey.fnt')
-
-        #self.title = gui.TextFrame(text='Set Controls')
-        #self.title.Position = (12, 12)
         
-        self.header = Header(text='Control')  #gui.TextFrame(text ='Control')
-        self.header.setSize( (self.controls.Width-16, self.header.Height) )
-        self.header.Position=(self.controls.Left+16, self.controls.Top - self.header.Height*3)
-        
+        self.header = Header(text='Control')
+        self.header.setSize( (self.control_menu.Width-16, self.header.Height) )
+        self.header.Position=(self.control_menu.Left+16, self.control_menu.Top - self.header.Height*3)
+        self.text = ''
         
     def show(self):
         TIME = 40
         self.update()
         t = Transition()
-        t.addChild(self.controls, startRect=(self.controls.Left, 240+self.controls.Top), time=TIME - 5)
-        #t.addChild(self.title, startRect = (-self.title.Right, 12), time = TIME-5)
+        t.addChild(self.control_menu, startRect=(self.control_menu.Left, 240+self.control_menu.Top), time=TIME - 5)
         t.addChild(self.header, startRect = (self.header.Left, -40), time = TIME-5)
         for i in range(TIME):
             t.update(1)
@@ -503,8 +505,7 @@ class ControlsScreen(object):
         TIME = 40
         self.update()
         t = Transition()
-        t.addChild(self.controls, endRect=(self.controls.Left, 240+self.controls.Top), time=TIME - 5)
-        #t.addChild(self.title, endRect = (-self.title.Right, 12), time = TIME-5)
+        t.addChild(self.control_menu, endRect=(self.control_menu.Left, 240+self.control_menu.Top), time=TIME - 5)
         t.addChild(self.header, endRect = (self.header.Left, -40), time = TIME-5)
         for i in range(TIME):
             t.update(1)                
@@ -516,17 +517,16 @@ class ControlsScreen(object):
     def draw(self, selected = -1):     
         ika.Video.ScaleBlit(self.background, 0, 0, ika.Video.xres, ika.Video.yres, ika.Opaque)
         ika.Video.DrawRect(0, 0, ika.Video.xres, ika.Video.yres, ika.RGB(0, 0, 0, 128), True)         
-        self.controls.draw()        
-        #self.title.draw()
+        self.control_menu.draw()        
      
-        
+
         h = gui.default_font.height
-        x = self.controls.Left+self.controls.linewidth + 10
-        offset=70
+        x = self.control_menu.Left+self.control_menu.linewidth + 20
+        offset=75
         self.header.draw(x, x+offset)
         
         for i, name in enumerate( ['up', 'down', 'left', 'right', 'attack', 'cancel', 'showmap', 'heal', 'rend', 'gale', 'bolt']):           
-            y = self.controls.Top + h*(i+3)
+            y = self.control_menu.Top + h*i
             if i != selected: 
                 gui.default_font.Print(x, y, displayControls[name])
                 if displayControls['joy_'+name] == 'None':
@@ -534,17 +534,15 @@ class ControlsScreen(object):
                 else: #hack hack
                     gui.default_font.Print(x+offset, y, displayControls['joy_'+name])
             else:
-                #self.yellowfont.Print(x, y, ' - ' + 'Press Key...')
                 self.yellowfont.Print(x, y, displayControls[name])
                 self.yellowfont.Print(x+offset, y, displayControls['joy_'+name])
         
-        if selected > 0:
-            txt = 'Awaiting input. Press Escape to Cancel'
-            w = gui.default_font.StringWidth(txt) / 2
-            gui.default_font.Print(160-w, 220, txt)
+            
+        w = gui.default_font.StringWidth(self.text) / 2
+        gui.default_font.Print(160-w, 220, self.text)
 
     def update(self):
-        self.controls.update()
+        self.control_menu.update()
                         
     def run(self):
         self.show()
@@ -563,23 +561,36 @@ class ControlsScreen(object):
                 if controls.cancel() or controls.ui_cancel(): 
                     done = True
                     
-                result = self.controls.update()
-                if result == 0:
-                    done = True
-                elif result == 1:
-                    controls.setConfig(controls.defaultControls)
-                elif result == 2:
-                    pass
-                if result > 0:
-                    selectmode=1 #now poll for input!
-                    selected = result - 3 #-3 because top options
-                    controls.UnpressAllKeys()
-                elif result == None:
-                    pass
-                else: #hit Exit or Cancel
-                    done = True
+                result = self.control_menu.update()
+                                
+                if isinstance(result, int):
+                    if result >= 0 and result < self.control_menu.lastcontrol:
+                        selectmode=1 #now poll for input!
+                        selected = result #-3 because top options
+                        controls.UnpressAllKeys()                  
+                        self.text = 'Awaiting input. Press Escape to Cancel'                        
+                    elif result == self.control_menu.default:
+                        controls.setConfig(controls.defaultControls)
+                        self.text = 'Default Controls Loaded'
+                    elif result == self.control_menu.save:
+                        c=controls.currentConfig
+                        try:
+                            controls.writeConfig('controls.cfg', c)
+                            self.text = 'Controls Saved'
+                        except:
+                            self.text = 'Error saving controls.cfg' 
+                    elif result == self.control_menu.restore:
+                         try:
+                            c = controls.readConfig('controls.cfg')
+                            controls.setConfig(c)
+                            self.text = 'Controls Loaded'
+                         except:                            
+                            self.text = 'Error loading controls.cfg' 
+                    elif result == self.control_menu.exit:
+                        done = True
+
             else: #polling for input now
-                polling = True
+                polling = True                                
                 while polling:
                     self.draw(selected)                                    
                     ika.Video.ShowPage()
@@ -622,8 +633,8 @@ class ControlsScreen(object):
                 controls.UnpressAllKeys()
                 selectmode = 0
                 selected = -1
-                self.controls.unpress=True
-            
+                self.control_menu.unpress=True
+                self.text = ''
 
         self.hide()    
 

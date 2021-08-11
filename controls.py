@@ -35,7 +35,7 @@ defaultControls = {
     'joy_left': 'joy0axis0-',
     'joy_right': 'joy0axis0+',
     'joy_attack': 'joy0button1',
-    'joy_menu': 'joy0button2',
+    'joy_cancel': 'joy0button2',
     'joy_rend': 'joy0button0',
     'joy_gale': 'joy0button3',
     'joy_heal': 'joy0button4',
@@ -73,7 +73,7 @@ displayControls = {
     'joy_left': 'None',
     'joy_right': 'None',
     'joy_attack': 'None',
-    'joy_menu': 'None',
+    'joy_cancel': 'None',
     'joy_rend': 'None',
     'joy_gale': 'None',
     'joy_heal': 'None',
@@ -86,7 +86,7 @@ displayControls = {
     'ui_right': 'RIGHT',
     'ui_accept': 'RETURN',
     'ui_cancel': 'ESCAPE',
-    #to be removed/disabled before release
+    #to be removed/disabled before release, unremappable
     'savestate': 'F2',
     'loadstate': 'F4',    
     'speedhack': 'Q'
@@ -138,7 +138,7 @@ def init():
             firstrun = True
     #ika.Log(str(_allControls))
 
-    setConfig(defaultControls)
+    #setConfig(defaultControls)
 
 # returns a dict
 def readConfig(f):
@@ -266,19 +266,20 @@ def setConfig(config=None):
     currentConfig = config.copy()
     
     # Directional controls:
-    for name in ('up', 'down', 'left', 'right'):
+    for name in ('up', 'down', 'left', 'right', 'joy_up', 'joy_down', 'joy_right', 'joy_left'):
         globals()[name] = PosControl(name)
     
     #Dedicated UI controls
     for name in ('ui_up', 'ui_down', 'ui_left', 'ui_right'):
         globals()[name] = PosControl(name)
-
+    
     # Buttons
-    for name in ('attack', 'cancel', 'ui_accept', 'ui_cancel', 
-                 'rend', 'gale', 'heal',  'bolt', 
-                 'savestate', 'loadstate', 'showmap', 'speedhack'):
+    for name in ('attack', 'cancel', 'rend', 'gale', 'heal',  'bolt', 'showmap'):
         globals()[name] = PressControl(name)
         globals()['joy_'+name] = PressControl('joy_'+name)
+
+    for name in ('ui_accept', 'ui_cancel', 'savestate', 'loadstate', 'speedhack'):
+        globals()[name] = PressControl(name)
 
     # Copy controls over to xi.
     for c in ('up', 'down', 'left', 'right', 'joy_up', 'joy_down', 'joy_left', 'joy_right', 
@@ -286,6 +287,8 @@ def setConfig(config=None):
         setattr(xi.controls, c, getattr(controls, c))
     xi.controls.enter = controls.attack
     xi.controls.cancel = controls.cancel
+    xi.controls.joy_enter = controls.joy_attack
+    xi.controls.joy_cancel = controls.joy_cancel    
     
     #displayControls=config
     #ika.Log(str(config))
@@ -343,5 +346,5 @@ configcontrolsDict = {
 configcontrolsList = [
 'up','down','left', 'right',
 'attack','cancel','showmap',
-'rend','gale','heal','bolt'
+'heal','rend','gale','bolt'
 ]

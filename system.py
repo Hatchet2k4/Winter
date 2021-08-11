@@ -19,12 +19,10 @@ try:
 except IOError: #file not found, write defaults to a config file and reload it
     c = controls.defaultControls
     controls.writeConfig('controls.cfg', c)
-
 try: 
     controls.setConfig(c)
 except: 
-    #c = controls.defaultControls
-    #controls.writeConfig('controls_bak.cfg', c)
+    controls.writeConfig('controls_bak.cfg', c)
     controls.setConfig(controls.defaultControls) #any fails (missing gamepad usually), default to original controls
 
 
