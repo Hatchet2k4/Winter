@@ -593,44 +593,50 @@ class ControlsScreen(object):
                         done = True
 
             else: #polling for input now
-                polling = True                                
+                polling = True
+                controls.UnpressAllKeys()
+                joyconfirm=controls.joy_attack()
+                
                 while polling:
                     self.draw(selected)                                    
                     ika.Video.ShowPage()
                     ika.Input.Update()
   
                     for k in keyNames: #check keyboard 
-                            key = ika.Input.keyboard[k]
-                            if key.Pressed(): #key pressed!
-                                if k == 'ESCAPE': #skip escape         
-                                    polling = False
-                                    self.text=''
-                                    break  
-                                elif k == 'BACKSPACE':                                    
-                                    controls.currentConfig[ controls.configcontrolsList[selected] ] = 'None'
-                                    controls.currentConfig[ 'joy_'+controls.configcontrolsList[selected] ] = 'None'
+                        key = ika.Input.keyboard[k]
+                        if key.Pressed(): #key pressed!
+                            if k == 'ESCAPE': #skip escape         
+                                polling = False
+                                self.text=''
+                                break  
+                            elif k == 'BACKSPACE':                                    
+                                controls.currentConfig[ controls.configcontrolsList[selected] ] = 'None'
+                                controls.currentConfig[ 'joy_'+controls.configcontrolsList[selected] ] = 'None'
+                                controls.setConfig(controls.currentConfig)
+                                self.text = 'Control cleared'
+                                polling=False
+                                break
+                            else:
+                                badkey=False
+                                for c in controls.configcontrolsDict.keys():
+                                    d = controls.currentConfig[c]
+                                    if k == d:
+                                        sound.menuBuzz.Play()
+                                        self.text = 'Key ' + k + ' already assigned.'
+                                        badkey=True
+                                        polling=False
+                                        break
+                                if not badkey:                                    
+                                    controls.currentConfig[ controls.configcontrolsList[selected] ] = k
                                     controls.setConfig(controls.currentConfig)
-                                    self.text = 'Control cleared'
-                                    polling=False
-                                    break
-                                else:
-                                    badkey=False
-                                    for c in controls.configcontrolsDict.keys():
-                                        d = controls.currentConfig[c]
-                                        if k == d:
-                                            sound.menuBuzz.Play()
-                                            self.text = 'Key already assigned'
-                                            badkey=True
-                                            polling=False
-                                            break
-                                    if not badkey:                                    
-                                        controls.currentConfig[ controls.configcontrolsList[selected] ] = k
-                                        controls.setConfig(controls.currentConfig)
-                                        polling = False
-                                        self.text = ''                                                                            
-                                    break    
-                                    
-                    if len(ika.Input.joysticks) > 0: #check gamepad
+                                    polling = False
+                                    self.text = ''                                                                            
+                                break    
+                     
+                    if joyconfirm and not controls.joy_attack():
+                        joyconfirm = False
+                     
+                    if len(ika.Input.joysticks) > 0 and not joyconfirm: #check gamepad only if gamepad confirm button was unpressed
                         badkey=False
                         for joyIndex in range(len(ika.Input.joysticks)):
                             for axisIndex in range(len(ika.Input.joysticks[joyIndex].axes)):
@@ -640,29 +646,46 @@ class ControlsScreen(object):
                                         d = controls.currentConfig[c]
                                         if ax==d:
                                             sound.menuBuzz.Play()
-                                            self.text = 'Button already assigned'
+                                            self.text = controls.buttonmapping[str(axisIndex)+'+']  +' already assigned.'
                                             badkey=True
-                                            break
-                                    controls.currentConfig[ 'joy_'+controls.configcontrolsList[selected] ] = ax       
-                                    controls.setConfig(controls.currentConfig)
-                                    polling = False    
-                                    self.text = ''                                    
+                                            break                                            
+                                    if not badkey:                                               
+                                        controls.currentConfig[ 'joy_'+controls.configcontrolsList[selected] ] = ax       
+                                        controls.setConfig(controls.currentConfig)
+                                        polling = False    
+                                        self.text = ''                                    
                                     break
                             for axisIndex in range(len(ika.Input.joysticks[joyIndex].reverseAxes)):
                                 if ika.Input.joysticks[joyIndex].reverseAxes[axisIndex].Position() > 0.5:
                                     ax = 'joy%iaxis%i-' % (joyIndex, axisIndex)
-                                    controls.currentConfig[ 'joy_'+ controls.configcontrolsList[selected] ] = ax       
-                                    controls.setConfig(controls.currentConfig)
-                                    polling = False 
-                                    self.text = ''                                    
+                                    for c in controls.configcontrolsDict.keys():
+                                        d = controls.currentConfig[c]
+                                        if ax==d:
+                                            sound.menuBuzz.Play()
+                                            self.text = controls.buttonmapping[str(axisIndex)+'-'] + ' already assigned.'
+                                            badkey=True
+                                            break   
+                                    if not badkey:   
+                                        controls.currentConfig[ 'joy_'+ controls.configcontrolsList[selected] ] = ax       
+                                        controls.setConfig(controls.currentConfig)
+                                        polling = False 
+                                        self.text = ''                                    
                                     break                                                                        
                             for buttonIndex in range(len(ika.Input.joysticks[joyIndex].buttons)):
                                 if ika.Input.joysticks[joyIndex].buttons[buttonIndex].Pressed():
                                     btn = 'joy%ibutton%i' % (joyIndex, buttonIndex)
-                                    controls.currentConfig[ 'joy_'+ controls.configcontrolsList[selected] ] = btn       
-                                    controls.setConfig(controls.currentConfig)
-                                    polling = False    
-                                    self.text = ''                                                                        
+                                    for c in controls.configcontrolsDict.keys():
+                                        d = controls.currentConfig[c]
+                                        if btn==d:
+                                            sound.menuBuzz.Play()
+                                            self.text = controls.buttonmapping[str(buttonIndex)] + ' already assigned.'
+                                            badkey=True
+                                            break                                    
+                                    if not badkey:                                       
+                                        controls.currentConfig[ 'joy_'+ controls.configcontrolsList[selected] ] = btn       
+                                        controls.setConfig(controls.currentConfig)
+                                        polling = False    
+                                        self.text = ''                                                                        
                                     break
                 controls.UnpressAllKeys()
                 selectmode = 0
