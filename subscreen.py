@@ -596,7 +596,7 @@ class ControlsScreen(object):
                 polling = True
                 controls.UnpressAllKeys()
                 joyconfirm=controls.joy_attack()
-                
+                unpress = False
                 while polling:
                     self.draw(selected)                                    
                     ika.Video.ShowPage()
@@ -635,12 +635,25 @@ class ControlsScreen(object):
                      
                     if joyconfirm and not controls.joy_attack():
                         joyconfirm = False
-                     
+                    
+                    if unpress: #hack hack hack
+                        repress = False
+                        for joyIndex in range(len(ika.Input.joysticks)):
+                            for axisIndex in range(len(ika.Input.joysticks[joyIndex].axes)):
+                                if ika.Input.joysticks[joyIndex].axes[axisIndex].Position() > 0.5:
+                                    repress = True 
+                            for axisIndex in range(len(ika.Input.joysticks[joyIndex].reverseAxes)):
+                                if ika.Input.joysticks[joyIndex].reverseAxes[axisIndex].Position() > 0.5: 
+                                    repress = True 
+                        unpress = repress
+                    
+                    
                     if len(ika.Input.joysticks) > 0 and not joyconfirm: #check gamepad only if gamepad confirm button was unpressed
                         badkey=False
                         for joyIndex in range(len(ika.Input.joysticks)):
                             for axisIndex in range(len(ika.Input.joysticks[joyIndex].axes)):
-                                if ika.Input.joysticks[joyIndex].axes[axisIndex].Position() > 0.5:
+                                if ika.Input.joysticks[joyIndex].axes[axisIndex].Position() > 0.5 and not unpress:
+                                    unpress = True
                                     ax = 'joy%iaxis%i+' % (joyIndex, axisIndex)
                                     for c in controls.configcontrolsDict.keys():
                                         d = controls.currentConfig[c]
@@ -656,7 +669,8 @@ class ControlsScreen(object):
                                         self.text = ''                                    
                                     break
                             for axisIndex in range(len(ika.Input.joysticks[joyIndex].reverseAxes)):
-                                if ika.Input.joysticks[joyIndex].reverseAxes[axisIndex].Position() > 0.5:
+                                if ika.Input.joysticks[joyIndex].reverseAxes[axisIndex].Position() > 0.5 and not unpress:
+                                    unpress = True
                                     ax = 'joy%iaxis%i-' % (joyIndex, axisIndex)
                                     for c in controls.configcontrolsDict.keys():
                                         d = controls.currentConfig[c]
