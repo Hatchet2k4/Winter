@@ -15,6 +15,18 @@
 	(waypoints 
 	)
 	(zones 
+		(zone 
+			(label Default Zone)
+			(script )
+		)
+		(zone 
+			(label to18)
+			(script to18)
+		)
+		(zone 
+			(label to2)
+			(script to2)
+		)
 	)
 	(layers 
 		(layer 
@@ -245,6 +257,20 @@ NwtZUlve4OxY37o4orIlwuqrtb6ydc9bkjM9/9CH2K4Q
 				)
 			)
 			(zones 
+				(zone 
+					(label to2)
+					(x 112)
+					(y 704)
+					(width 160)
+					(height 16)
+				)
+				(zone 
+					(label to18)
+					(x 160)
+					(y 88)
+					(width 16)
+					(height 16)
+				)
 			)
 		)
 		(layer 
