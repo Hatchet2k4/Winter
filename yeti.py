@@ -148,6 +148,7 @@ class Yeti(Enemy):
     def deathState(self, *args, **kwargs):
         sound.yetiDie[self.stats.ind].Play()
         self.anim = 'die'
+        self.ent.layer-=1
         return super(Yeti, self).deathState(*args, **kwargs)
 
     def walkState(self, dir, dist):

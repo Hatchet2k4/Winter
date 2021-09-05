@@ -14,7 +14,7 @@ def AutoExec():
     if 'fireguard' not in savedata.__dict__ and 'nearend' in savedata.__dict__: #final quest active            
         system.engine.mapThings.append(SetupBattle())        
     if 'bossin10' in savedata.__dict__:
-        AddIce():
+        AddIce()
 
 def to9():
     system.engine.mapSwitch('map09.ika-map', (system.engine.player.x, 1 * 16))

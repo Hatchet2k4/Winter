@@ -40,8 +40,8 @@ def breakIce():
 def breakIceRun():
     for x in range(13, 18):
         for y in range(33,37):
-            ika.Map.SetTile(x, y, 2, 0)
-            if x in (13, 17) and y > 33: ika.Map.SetObs(x, y, 2, 1)
+            ika.Map.SetTile(x, y, 3, 0)
+            if x in (13, 17) and y > 33: ika.Map.SetObs(x, y, 3, 1)
                 
     ika.Map.entities['icechunks1'].layer = 2
 
@@ -87,8 +87,7 @@ class RuneListener(object):
             system.engine.addEntity(y)
             system.engine.mapThings.append(DeathListener2(y))
             return True
-        elif 'waterrune' in savedata.__dict__ and 'nearend' not in savedata.__dict__:
-            #y=Yeti(ika.Entity(15* 16, 30 * 16, system.engine.player.layer, 'yeti.ika-sprite'))
+        elif 'waterrune' in savedata.__dict__ and 'nearend' not in savedata.__dict__:            
             e = [
             RazorMane(ika.Entity(15* 16, 29 * 16, system.engine.player.layer, 'razormane.ika-sprite')),
             RazorMane(ika.Entity(11* 16, 31 * 16, system.engine.player.layer, 'razormane.ika-sprite')),

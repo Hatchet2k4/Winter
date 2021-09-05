@@ -13,9 +13,9 @@ def AutoExec():
 
     if 'bridge_broken' not in savedata.__dict__:
         for x in range(19, 22):
-            ika.Map.SetTile(x, 28, 3, 152)
-            ika.Map.SetTile(x, 29, 3, 158)
-            ika.Map.SetTile(x, 30, 3, 164)
+            ika.Map.SetTile(x, 28, 4, 152)
+            ika.Map.SetTile(x, 29, 4, 158)
+            ika.Map.SetTile(x, 30, 4, 164)
             ika.Map.entities['break_gap'].x = -100
 
     if 'windguard' not in savedata.__dict__ and 'nearend' in savedata.__dict__:
@@ -36,9 +36,9 @@ def bridge_break():
         )
 
         for x in range(3):
-            ika.Map.SetTile(x + 19, 28, 3, bridge[0][x])
-            ika.Map.SetTile(x + 19, 29, 3, bridge[1][x])
-            ika.Map.SetTile(x + 19, 30, 3, bridge[2][x])
+            ika.Map.SetTile(x + 19, 28, 4, bridge[0][x])
+            ika.Map.SetTile(x + 19, 29, 4, bridge[1][x])
+            ika.Map.SetTile(x + 19, 30, 4, bridge[2][x])
             ika.Map.entities['break_gap'].x = 320
 
         # This is really cheap.  Probably fragile too.  I'm stepping beyond
@@ -47,7 +47,7 @@ def bridge_break():
         engine = system.engine
         p = engine.player
         p.stop()
-        p.layer = 2
+        p.layer = 3
         p.ent.specframe = 91
         p._state = lambda: None # keep the player from moving
 
@@ -63,7 +63,7 @@ def bridge_break():
             ika.Video.ShowPage()
             ika.Delay(1)
 
-        p.layer = 1
+        p.layer = 2
 
         for y in range(32):
             p.y += 1
@@ -82,7 +82,7 @@ def bridge_break():
 
         p.state = p.standState()
 
-        y = Yeti(ika.Entity(304, 64, 1, 'yeti.ika-sprite'))
+        y = Yeti(ika.Entity(304, 64, 2, 'yeti.ika-sprite'))
         # UBER-YETI
         y.stats.maxhp = 400
         y.stats.hp = y.stats.maxhp
@@ -109,10 +109,10 @@ def to19():
     system.engine.mapSwitch('map19.ika-map', (48 * 16, y))
 
 def toLowerLayer():
-    system.engine.player.layer = 1
+    system.engine.player.layer = 2
 
 def toUpperLayer():
-    system.engine.player.layer = 3
+    system.engine.player.layer = 4
 
 class DeathListener(Thing):
     'Waits until the yeti is dead, then drops the wind rune.'
@@ -122,7 +122,7 @@ class DeathListener(Thing):
     def update(self):
         if self.yeti.stats.hp == 0:
             if 'windrune' not in savedata.__dict__:
-                e = ika.Entity(304, 304, 1, 'windrune.ika-sprite')
+                e = ika.Entity(304, 304, 2, 'windrune.ika-sprite')
                 e.name = 'windrune'
                 system.engine.addEntity(
                     WindRune(e)

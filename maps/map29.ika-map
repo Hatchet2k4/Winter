@@ -68,6 +68,41 @@ m5LR3PgFAAD//w==
 			)
 		)
 		(layer 
+			(label yeti die)
+			(dimensions 
+				(width 100)
+				(height 100)
+			)
+			(position 
+				(x 0)
+				(y 0)
+			)
+			(parallax 
+				(mulx 1)
+				(muly 1)
+				(divx 1)
+				(divy 1)
+			)
+			(wrap 
+				(x false)
+				(y false)
+			)
+			(data 
+				(format zlib)
+				eJzswTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbAAAA//8=
+			)
+			(obstructions 
+				(format tile)
+				eJzswQENAAAAwqD3T20ON6AAAAAAAAAAAADg3wAAAP//
+
+			)
+			(entities 
+			)
+			(zones 
+			)
+		)
+		(layer 
 			(label B1)
 			(dimensions 
 				(width 25)
@@ -141,7 +176,7 @@ AAAA//8=
 					(obstructed_by_map true)
 					(adj_activate_script )
 					(activate_script )
-				)                                
+				)
 			)
 			(zones 
 				(zone 

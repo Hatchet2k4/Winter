@@ -18,14 +18,6 @@
 	)
 	(zones 
 		(zone 
-			(label )
-			(script to12)
-		)
-		(zone 
-			(label Default Zone)
-			(script )
-		)
-		(zone 
 			(label layerfader)
 			(script layerfader)
 		)
@@ -311,13 +303,6 @@ eM3xrY7JiEv9Q7u4GHtlaNxAyM+0gQ5VKpVKpf90AAAA
 			)
 			(zones 
 				(zone 
-					(label )
-					(x 128)
-					(y 608)
-					(width 16)
-					(height 16)
-				)
-				(zone 
 					(label to15)
 					(x 176)
 					(y 1184)
@@ -414,47 +399,6 @@ Us7eptDF16fG2eVIIWcgQwWcgYwSUisM9Y98LzpD1jpr
 			(entities 
 			)
 			(zones 
-			)
-		)
-		(layer 
-			(label Hidden)
-			(dimensions 
-				(width 40)
-				(height 75)
-			)
-			(position 
-				(x 0)
-				(y 0)
-			)
-			(parallax 
-				(mulx 1)
-				(muly 1)
-				(divx 1)
-				(divy 1)
-			)
-			(wrap 
-				(x false)
-				(y false)
-			)
-			(data 
-				(format zlib)
-				eJzswTEBAAAAwqD1T20MH6AAAAAAAAAAAAAAAOBvAAAA
-//8=
-			)
-			(obstructions 
-				(format tile)
-				eJzswTEBAAAAwqD1T20ND6AAAIB3AwAA//8=
-			)
-			(entities 
-			)
-			(zones 
-				(zone 
-					(label layerfader)
-					(x 128)
-					(y 864)
-					(width 17)
-					(height 17)
-				)
 			)
 		)
 	)

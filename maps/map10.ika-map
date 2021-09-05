@@ -132,6 +132,39 @@ rtMzNDiHrTrHvYGat+5FQe7bWnnm1U7VvQF8AQAA//8=
 			)
 		)
 		(layer 
+			(label YetiDie)
+			(dimensions 
+				(width 30)
+				(height 30)
+			)
+			(position 
+				(x 0)
+				(y 0)
+			)
+			(parallax 
+				(mulx 1)
+				(muly 1)
+				(divx 1)
+				(divy 1)
+			)
+			(wrap 
+				(x false)
+				(y false)
+			)
+			(data 
+				(format zlib)
+				eJzswQEBAAAAgiD/r25IQAEAAPBoAAAA//8=
+			)
+			(obstructions 
+				(format tile)
+				eJxiYBgFo2AUDCQAAAAA//8=
+			)
+			(entities 
+			)
+			(zones 
+			)
+		)
+		(layer 
 			(label B2)
 			(dimensions 
 				(width 30)
