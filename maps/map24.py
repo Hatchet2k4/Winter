@@ -42,11 +42,11 @@ def kaboom():
             ika.Video.ShowPage()
             ika.Input.Update()
         
-        e = ika.Entity(48*16-8, 9*16, 1, 'crystal.ika-sprite')
+        e = ika.Entity(48*16-8, 9*16, 2, 'crystal.ika-sprite')
         e.name = 'penultimatecrystal'
         system.engine.addEntity(Crystal(e))      
 
-        y = SoulReaver(ika.Entity(20*16, 20*16, 1, 'soulreaver.ika-sprite'))
+        y = SoulReaver(ika.Entity(20*16, 20*16, 2, 'soulreaver.ika-sprite'))
         system.engine.addEntity(y)
         system.engine.mapThings.append(DeathListener(y))
         
@@ -60,7 +60,7 @@ class DeathListener(Thing):
 
     def update(self):
         if self.yeti.stats.hp == 0:
-            e = ika.Entity(315, 320, 1, 'unityrune.ika-sprite')
+            e = ika.Entity(315, 320, 2, 'unityrune.ika-sprite')
             e.name = 'unityrune'
             system.engine.addEntity(UnityRune(e))    
             sound.playMusic("music/lampoons.it")
