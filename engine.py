@@ -38,7 +38,7 @@ import controls
 import cabin
 import sound
 import automap
-
+from darkness import Darkglow
 
 MAX_SKIP_COUNT = 10
 START_MAP = 'map01.ika-map'
@@ -230,7 +230,9 @@ class Engine(object):
         
         if self.player:
             automap.map.update()
-
+            if automap.map.maptype == 'cave':
+                self.mapThings.append(Darkglow())
+            
         if 'music' in metaData:                
             sound.playMusic('music/' + metaData['music'])                
 

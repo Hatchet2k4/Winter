@@ -99,12 +99,13 @@ class Automap(object):
         self.px=0
         self.py=0
         self.frame=0
-        self.layer=''
+        self.maptype=''
         
         self.total = self.counttotalrooms()
         self.visited = 0 #number of rooms visited
         self.time=ika.GetTime()
         self.ticks=0
+
 
     def counttotalrooms(self):
         i = 0
@@ -124,7 +125,7 @@ class Automap(object):
         x=y=w=h=0        
         
         if system.engine.mapName in automapdata:                    
-            x,y,w,h,self.layer = automapdata[system.engine.mapName]
+            x,y,w,h,self.maptype = automapdata[system.engine.mapName]
         
         #refresh which rooms should be visible:
         for tx in range(x, x+w):
@@ -149,7 +150,7 @@ class Automap(object):
             self.time=t
             self.ticks+=1
             
-        if self.layer=='cave': 
+        if self.maptype=='cave': 
             ika.Video.Blit(self.cavebg, topx-2,topy-3)
         else:
             ika.Video.Blit(self.bg, topx-2,topy-3)

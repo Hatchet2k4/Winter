@@ -2,6 +2,7 @@ import system
 import ika
 from snow import Snow
 from thing import Thing
+from darkness import Darkglow
 
 fader = Thing()
 
@@ -9,6 +10,7 @@ def AutoExec():
     global fader
     fader = LayerFader()
     system.engine.mapThings.append(fader)
+    system.engine.mapThings.append(Darkglow())
 
 def to2():
     offset_from = 16 * 16  # first vertical pos possible
