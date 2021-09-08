@@ -22,10 +22,11 @@ class _Rune(Entity):
         if self.touches(system.engine.player):
             system.engine.destroyEntity(self)
             if self.element in ['Strength', 'Guard', 'Power']:
-                system.engine.addThing(Caption('%s Rune collected!' % self.element, y=160))
+                system.engine.addThing(Caption('%s Rune collected!' % self.element, y=160, duration=400))
             else:
-                system.engine.addThing(Caption('You got the %s Rune!' % self.element, y=160))
-            system.engine.addThing(Caption('%s' % self.effect, y=170))
+                system.engine.addThing(Caption('You got the %s Rune!' % self.element, y=160, duration=400))
+            system.engine.addThing(Caption('%s' % self.effect, y=170, duration=400))
+            system.engine.addThing(Caption('%s' % self.effect2, y=180. duration=400))
             setattr(savedata, self.name, 'True')
             self.apply()
 
@@ -33,23 +34,28 @@ class _Rune(Entity):
 class WaterRune(_Rune):
     element = property(lambda self: 'Water')
     effect = property(lambda self: 'Healing Rain spell learned. (%s)' % displayControls['heal'])
+    effect2 = property(lambda self: 'Can freeze floating ice formations.')
 
 class FireRune(_Rune):
     element = property(lambda self: 'Fire')
     effect = property(lambda self: 'Hearth Rend spell learned. (%s)' % displayControls['rend'])
+    effect2 = property(lambda self: 'Can melt certain ice blocks.')
 
 class WindRune(_Rune):
     element = property(lambda self: 'Wind')
     effect = property(lambda self: 'Crushing Gale spell learned. (%s)' % displayControls['gale'])
+    effect2 = property(lambda self: 'Can cross broken bridges.')
 
 class UnityRune(_Rune):
     element = property(lambda self: 'Lightning')
-    effect = property(lambda self: 'Bolt Storm spell learned. (%s)' % displayControls['bolt'])        
+    effect = property(lambda self: 'Bolt Storm spell learned. (%s)' % displayControls['bolt'])     
+    effect2 = property(lambda self: 'Can destroy crystal blocks.')    
         
 class BindingRune(_Rune):
     element = property(lambda self: 'Binding')
     effect = property(lambda self: 'Magic +2')
-
+    effect2 = property(lambda self: '')
+    
 class StrengthRune(_Rune):
     def apply(self):
         system.engine.player.stats.att += 2

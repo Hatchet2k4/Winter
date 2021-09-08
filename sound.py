@@ -43,7 +43,7 @@ slash1, slash2, slash3 = [
     ]
 playerHurt = NullSound()
 
-
+dodge = RepeatableSound('sfx/dodge.ogg')
 
 achievement = RepeatableSound('sfx/LevelUp.wav')
 

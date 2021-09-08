@@ -18,6 +18,12 @@ from effects import Nova, Bolt
 from serpent import Serpent
 
 PLAYER_SPRITE = 'protagonist.ika-sprite'
+SLASH_LEVEL = 3
+BACK_LEVEL = 6
+THRUST_LEVEL = 9
+
+
+
 
 # one entry for each direction
 _playerAnim = {
@@ -252,8 +258,8 @@ class Player(Entity):
             lev5 = int(self.stats.level / 5)
             
             #every 5 levels, increase potential hp gain
-            hpup = ika.Random(2, 5 + lev5) + lev5
-            mpup = ika.Random(2, 4 + lev5) + lev5
+            hpup = ika.Random(2, 5 + lev5) + (lev5*2)
+            mpup = ika.Random(1, 4 + lev5) + lev5
             
             self.stats.maxhp += hpup
             self.stats.maxmp += mpup
@@ -278,15 +284,31 @@ class Player(Entity):
             self.stats.exp -= self.stats.next
             self.stats.next = self.stats.level * (self.stats.level + 1) * 5
 
-        system.engine.things.append(Caption('Level %i!' % self.stats.level, y=140))
-        system.engine.things.append(Caption('HP +%i' % hpup, y=150))
-        system.engine.things.append(Caption('MP +%i' % hpup, y=160))
+        d = 400
+        starty=135
+
+        system.engine.things.append(Caption('Level %i!' % self.stats.level, y=starty, duration=d))
+        system.engine.things.append(Caption('HP +%i' % hpup, y=starty+10, duration=d))
+        system.engine.things.append(Caption('MP +%i' % mpup, y=starty+20, duration=d))
         i=0
         for s in statlist:
             if statsup[s]:
-                system.engine.things.append(Caption(statnames[s] +' +%i' % statsup[s], y=170 + 10*i))
+                system.engine.things.append(Caption(statnames[s] +' +%i' % statsup[s], y=starty+30 + 10*i, duration=d))
                 i+=1
                 
+        if self.stats.level in [SLASH_LEVEL, BACK_LEVEL, THRUST_LEVEL]:
+            line1=line2=''
+            if self.stats.level == SLASH_LEVEL: 
+                line1= 'Slash skill learned!'
+                line2= 'Press attack twice to combo.'
+            elif self.stats.level == BACK_LEVEL: 
+                line1= 'Backdash skill learned!'
+                line2= 'Press opposite direction after attacking.'
+            elif self.stats.level == THRUST_LEVEL: 
+                line1= 'Thrust skill learned!'
+                line2= 'Attack again a moment after a slash.'                                        
+            system.engine.things.append(Caption(line1, y=starty+40 + 10*i, duration=d))
+            system.engine.things.append(Caption(line2, y=starty+50 + 10*i, duration=d))
             
         
 
@@ -417,13 +439,13 @@ class Player(Entity):
                     hitList.append(x)
                     x.hurt(self.stats.att + ika.Random(0, 3), 120, self.direction)
                     self.giveMPforHit()
+            if self.stats.level >= BACK_LEVEL: 
+                if (controls.up() or controls.joy_up()) and self.direction == dir.DOWN:  backthrust = True
+                elif (controls.down()  or controls.joy_down()) and self.direction == dir.UP:  backthrust = True
+                elif (controls.left() or controls.joy_left()) and self.direction in [dir.RIGHT, dir.UPRIGHT, dir.DOWNRIGHT]:  backthrust = True
+                elif (controls.right() or controls.joy_right()) and self.direction in [dir.LEFT, dir.UPLEFT, dir.DOWNLEFT]:  backthrust = True
 
-            if (controls.up() or controls.joy_up()) and self.direction == dir.DOWN:  backthrust = True
-            elif (controls.down()  or controls.joy_down()) and self.direction == dir.UP:  backthrust = True
-            elif (controls.left() or controls.joy_left()) and self.direction in [dir.RIGHT, dir.UPRIGHT, dir.DOWNRIGHT]:  backthrust = True
-            elif (controls.right() or controls.joy_right()) and self.direction in [dir.LEFT, dir.UPLEFT, dir.DOWNLEFT]:  backthrust = True
-
-            elif controls.attack():
+            if controls.attack() and self.stats.level >= SLASH_LEVEL: 
                 backslash = True
 
             yield None
@@ -439,7 +461,7 @@ class Player(Entity):
             count = 10
             while count > 0:
                 count -= 1
-                if controls.attack() or controls.joy_attack():
+                if self.stats.level >= THRUST_LEVEL and (controls.attack() or controls.joy_attack()):
                     self.state = self.thrustState()
                 yield None
 
@@ -463,7 +485,7 @@ class Player(Entity):
                 x = system.engine.entFromEnt[e]
                 if isinstance(x, Enemy) and not x.invincible and x not in hitList:
                     hitList.append(x)
-                    x.hurt(self.stats.att, 130, self.direction)
+                    x.hurt(self.stats.att*1.2 + ika.Random(0, 3), 130, self.direction)
                     self.giveMPforHit()
 
             yield None
@@ -474,7 +496,7 @@ class Player(Entity):
             count -= 1
             if controls.rend() or controls.joy_rend():
                 self.state = self.hearthRendState()
-            elif controls.attack() or controls.joy_attack():
+            elif self.stats.level >= THRUST_LEVEL and (controls.attack() or controls.joy_attack()):
                 self.state = self.thrustState()
             yield None
 
@@ -512,7 +534,7 @@ class Player(Entity):
                 for e in ents:
                     x = system.engine.entFromEnt[e]
                     if isinstance(x, Enemy) and not x.invincible:
-                        x.hurt(int(self.stats.att * 1.5) + + ika.Random(0, 4), 300, self.direction)
+                        x.hurt(int(self.stats.att * 1.5) + ika.Random(0, 4), 300, self.direction)
                         self.giveMPforHit()
                         self.stop()
                         return
@@ -544,6 +566,7 @@ class Player(Entity):
         self.anim = 'backthrust'
         self.speed += 400
         self.move(dir.invert[self.direction], 1000)
+        sound.dodge.Play()
 
         i = 8
         while i > 0:
