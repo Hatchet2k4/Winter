@@ -10,7 +10,7 @@ from statset import StatSet
 
 quicksave=None
 
-from automap import mapnames, map
+from automap import map
 
 class SaveGame(object):
     def __init__(self, fileName = None):

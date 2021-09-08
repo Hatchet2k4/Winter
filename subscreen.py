@@ -18,7 +18,7 @@ from gameover import EndGameException
 import controls
 import automap
 
-from saveload import mapnames
+
 
 
 

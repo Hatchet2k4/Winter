@@ -3,7 +3,7 @@
 import ika
 import system
 from saveload import SaveGame
-from automap import mapnames
+from automap import automapdata
 from xi.menu import Menu, Cancel
 from xi.cursor import ImageCursor
 import xi.effects
@@ -32,8 +32,8 @@ class SaveGameFrame(gui.Frame):
             
             m=''              
             #if debug: m+=self.save.fname
-            if self.save.mapName in mapnames:
-                m+=mapnames[self.save.mapName]
+            if self.save.mapName in automapdata:
+                m+=automapdata[self.save.mapName][5]
             c = []
             
             if debug: 

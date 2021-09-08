@@ -228,10 +228,10 @@ class Engine(object):
 
             self.camera.center()
         
-        if self.player:
-            automap.map.update()
-            if automap.map.maptype == 'cave':
-                self.mapThings.append(Darkglow())
+        #if self.player:
+        automap.map.update()
+        if automap.map.maptype == 'cave':
+            self.mapThings.append(Darkglow())
             
         if 'music' in metaData:                
             sound.playMusic('music/' + metaData['music'])                

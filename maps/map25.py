@@ -1,9 +1,10 @@
 import system
 import ika
-from darkness import Darkglow
 
-def AutoExec():
-    system.engine.mapThings.append(Darkglow())
+#from darkness import Darkglow
+
+#def AutoExec():
+#    system.engine.mapThings.append(Darkglow())
 
 def to23():
     system.engine.mapSwitch('map23.ika-map', (6 * 16, 42 * 16))

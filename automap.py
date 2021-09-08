@@ -4,62 +4,63 @@ import system
 import effects
 import controls
 
-automapdata = { #automap data for all maps because I'm lazy, in (x, y, w, h, maptype) notation
-'map01.ika-map' : (10, 32, 3, 2, 'snow'),
-'map02.ika-map' : (7, 30, 3, 3, 'snow'),
-'map03.ika-map' : (2, 30, 5, 2, 'snow'),
-'map04.ika-map' : (2, 27, 2, 3, 'snow'),
-'map05.ika-map' : (2, 26, 1, 1, 'cave'),
-'map06.ika-map' : (8, 18, 3, 3, 'snow'),
-'map07.ika-map' : (11, 17, 4, 2, 'snow'),
-'map08.ika-map' : (5, 16, 3, 3, 'snow'),
-'map09.ika-map' : (3, 16, 2, 3, 'snow'),
-'map10.ika-map' : (3, 14, 2, 2, 'snow'),
-'map11.ika-map' : (5, 19, 3, 2, 'snow'),
-'map12.ika-map' : (4, 20, 1, 1, 'cave'),
-'map13.ika-map' : (15, 17, 4, 2, 'snow'),
-'map14.ika-map' : (17, 16, 1, 1, 'snow'),
-'map15.ika-map' : (8, 27, 1, 3, 'snow'),
-'map16.ika-map' : (19, 15, 3, 3, 'snow'),
-'map17.ika-map' : (22, 15, 1, 1, 'snow'),
-'map18.ika-map' : (8, 22, 2, 5, 'cave'),
-'map19.ika-map' : (16, 13, 3, 3, 'snow'),
-'map20.ika-map' : (8, 21, 2, 1, 'snow'),
-'map21.ika-map' : (16, 10, 2, 3, 'snow'),
-'map22.ika-map' : (18, 1, 1, 1, 'snow'),
-'map23.ika-map' : (13, 10, 3, 3, 'snow'),
-'map24.ika-map' : (12, 14, 3, 2, 'snow'),
-'map25.ika-map' : (9, 10, 4, 3, 'cave'),
-'map26.ika-map' : (7, 11, 2, 2, 'cave'),
-'map27.ika-map' : (7, 6, 2, 5, 'cave'),
-'map28.ika-map' : (8, 4, 1, 2, 'cave'),
-'map29.ika-map' : (9, 7, 1, 1, 'cave'),
-'map30.ika-map' : (11, 8, 1, 2, 'snow'),
-'map31.ika-map' : (11, 6, 2, 2, 'snow'),
-'map32.ika-map' : (10, 3, 3, 3, 'snow'),
-'map33.ika-map' : (10, 0, 3, 3, 'snow'), 
-'map34.ika-map' : (3, 8, 4, 2, 'snow'),
-'map35.ika-map' : (4, 6, 2, 2, 'snow'),
-'map36.ika-map' : (4, 3, 1, 3, 'snow'),
-'map37.ika-map' : (4, 2, 1, 1, 'snow'),
-'map38.ika-map' : (1, 9, 2, 1, 'snow'),
-'map39.ika-map' : (1, 10, 2, 2, 'snow'),
-'map40.ika-map' : (1, 12, 2, 2, 'snow'),
-'map41.ika-map' : (5, 11, 2, 3, 'snow'),
-'map42.ika-map' : (5, 14, 2, 2, 'snow'),
-'map43.ika-map' : (10, 30, 3, 2, 'snow'),
-'map44.ika-map' : (13, 29, 3, 3, 'snow'),
-'map45.ika-map' : (14, 32, 2, 2, 'snow'),
-'map46.ika-map' : (16, 30, 1, 1, 'snow'), 
-'map47.ika-map' : (18, 28, 5, 2, 'cave'), 
-'map48.ika-map' : (22, 26, 1, 2, 'cave'), 
-'map49.ika-map' : (16, 28, 2, 2, 'cave'), 
-'map50.ika-map' : (18, 9, 2, 1, 'cave'), 
-'map51.ika-map' : (3, 20, 1, 3, 'cave'), 
-'map52.ika-map' : (2, 23, 2, 3, 'cave'), 
-'map53.ika-map' : (3, 11, 2, 1, 'snow'), 
-'map54.ika-map' : (13, 32, 1, 1, 'cave'), 
-'map55.ika-map' : (20, 25, 2, 3, 'snow'), 
+#automap data for all maps because I'm lazy, in (x, y, w, h, maptype) notation
+automapdata = {
+'map01.ika-map' : (10, 32, 3, 2, 'snow', 'South Valley'),
+'map02.ika-map' : (7, 30, 3, 3, 'snow', 'Mount Durinar Base Camp'),
+'map03.ika-map' : (2, 30, 5, 2, 'snow', 'West Valley'),
+'map04.ika-map' : (2, 27, 2, 3, 'snow', 'Durinar Cairn Stones'),
+'map05.ika-map' : (2, 26, 1, 1, 'cave', 'Cairn Cave'),
+'map06.ika-map' : (8, 18, 3, 3, 'snow', 'Durinar Ascent'),
+'map07.ika-map' : (11, 17, 4, 2, 'snow', 'Spur Cliffs'),
+'map08.ika-map' : (5, 16, 3, 3, 'snow', 'Central Lake Durinar'),
+'map09.ika-map' : (3, 16, 2, 3, 'snow', 'West Lake Durinar'),
+'map10.ika-map' : (3, 14, 2, 2, 'snow', 'Yeti Pond'),
+'map11.ika-map' : (5, 19, 3, 2, 'snow', 'Misty Cliffs'),
+'map12.ika-map' : (4, 20, 1, 1, 'cave', 'Misty Cave'),
+'map13.ika-map' : (15, 17, 4, 2, 'snow', 'Foggy Foothills'),
+'map14.ika-map' : (17, 16, 1, 1, 'snow', 'Lookout Point'),
+'map15.ika-map' : (8, 27, 1, 3, 'snow', 'Lower Durinar River'),
+'map16.ika-map' : (19, 15, 3, 3, 'snow', 'Fog Valley'),
+'map17.ika-map' : (22, 15, 1, 1, 'snow', 'Eastern Caves'),
+'map18.ika-map' : (8, 22, 2, 5, 'cave', 'Lower Durinar Cave'),
+'map19.ika-map' : (16, 13, 3, 3, 'snow', 'Donut Hills'),
+'map20.ika-map' : (8, 21, 2, 1, 'snow', 'Lower Cave Exit'),
+'map21.ika-map' : (16, 10, 2, 3, 'snow', 'Northeast Cliffs'),
+'map22.ika-map' : (18, 1, 1, 1, 'snow', 'Northeast Summit'),
+'map23.ika-map' : (13, 10, 3, 3, 'snow', 'Labyrinth Heights'),
+'map24.ika-map' : (12, 14, 3, 2, 'snow', 'Rune Cave'),
+'map25.ika-map' : (9, 10, 4, 3, 'cave', 'Summit Cave East'),
+'map26.ika-map' : (7, 11, 2, 2, 'cave', 'Twisted Cave'),
+'map27.ika-map' : (7, 6, 2, 5, 'cave', 'Summit Cave North'),
+'map28.ika-map' : (8, 4, 1, 2, 'cave', 'Bone Chamber'),
+'map29.ika-map' : (9, 7, 1, 1, 'cave', 'Gorilla Lair'),
+'map30.ika-map' : (11, 8, 1, 2, 'snow', 'Serpent Valley'),
+'map31.ika-map' : (11, 6, 2, 2, 'snow', 'Serpent Valley North'),
+'map32.ika-map' : (10, 3, 3, 3, 'snow', 'Serpent River'),
+'map33.ika-map' : (10, 0, 3, 3, 'snow', 'Durinar Descent'), 
+'map34.ika-map' : (3, 8, 4, 2, 'snow', 'Bridge Cliffs'),
+'map35.ika-map' : (4, 6, 2, 2, 'snow', ''),
+'map36.ika-map' : (4, 3, 1, 3, 'snow', ''),
+'map37.ika-map' : (4, 2, 1, 1, 'snow', ''),
+'map38.ika-map' : (1, 9, 2, 1, 'snow', 'Northwest Summit'),
+'map39.ika-map' : (1, 10, 2, 2, 'snow', ''),
+'map40.ika-map' : (1, 12, 2, 2, 'snow', ''),
+'map41.ika-map' : (5, 11, 2, 3, 'snow', ''),
+'map42.ika-map' : (5, 14, 2, 2, 'snow', 'Upper Durinar River'),
+'map43.ika-map' : (10, 30, 3, 2, 'snow', ''),
+'map44.ika-map' : (13, 29, 3, 3, 'snow', ''),
+'map45.ika-map' : (14, 32, 2, 2, 'snow', ''),
+'map46.ika-map' : (16, 30, 1, 1, 'snow', ''), 
+'map47.ika-map' : (18, 28, 5, 2, 'cave', ''), 
+'map48.ika-map' : (22, 26, 1, 2, 'cave', ''), 
+'map49.ika-map' : (16, 28, 2, 2, 'cave', ''), 
+'map50.ika-map' : (18, 9, 2, 1, 'cave', 'Northeast Cave'), 
+'map51.ika-map' : (3, 20, 1, 3, 'cave', ''), 
+'map52.ika-map' : (2, 23, 2, 3, 'cave', ''), 
+'map53.ika-map' : (3, 11, 2, 1, 'snow', ''), 
+'map54.ika-map' : (13, 32, 1, 1, 'cave', ''), 
+'map55.ika-map' : (20, 25, 2, 3, 'snow', ''), 
 } 
 
 mapnames = { #all the maps that have save points. Could have used metadata, but this was more convenient.
@@ -125,21 +126,21 @@ class Automap(object):
         x=y=w=h=0        
         
         if system.engine.mapName in automapdata:                    
-            x,y,w,h,self.maptype = automapdata[system.engine.mapName]
+            x,y,w,h,self.maptype,mapname = automapdata[system.engine.mapName]
         
-        #refresh which rooms should be visible:
+        #update current room to be visible in map data
         for tx in range(x, x+w):
            for ty in range(y, y+h):
               self.visible[ty*self.mapwidth+tx]=1
               
-        self.visited = self.countvisitedrooms() #number of rooms visited
+        self.visited = self.countvisitedrooms() #refresh number of rooms visited
         
-        px = system.engine.player.x
-        py = system.engine.player.y        
-        
-        
-        self.py = int((float(py) / ika.Map.height) * h) + y        
-        self.px = int((float(px) / ika.Map.width) * w) + x        
+        if system.engine.player: #player may not be inited yet
+            px = system.engine.player.x
+            py = system.engine.player.y                        
+            self.py = int((float(py) / ika.Map.height) * h) + y        
+            self.px = int((float(px) / ika.Map.width) * w) + x        
+            
         self.ticks=0
         self.time=ika.GetTime()
         
@@ -168,8 +169,9 @@ class Automap(object):
         font = system.engine.font
         pct = round(self.visited * 100.0 / self.total, 1)
         
-        if system.engine.mapName in mapnames:                                
-            font.Print(20,  10, mapnames[system.engine.mapName])
+        if system.engine.mapName in automapdata:                                
+            m = automapdata[system.engine.mapName][5]
+            font.Print(20,  10, m)
         font.Print(20,  20, 'Map Completion: ' + str(pct) + '%')
         
 
@@ -190,9 +192,9 @@ class MapScreen(object):
     def draw(self, opacity = 255):
         pass
         
-    def run(self):
+    def run(self):        
         self.show()          
-        
+        map.update()
         topx=12
         topy=12
         
