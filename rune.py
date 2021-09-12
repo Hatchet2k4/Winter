@@ -26,7 +26,7 @@ class _Rune(Entity):
             else:
                 system.engine.addThing(Caption('You got the %s Rune!' % self.element, y=160, duration=400))
             system.engine.addThing(Caption('%s' % self.effect, y=170, duration=400))
-            system.engine.addThing(Caption('%s' % self.effect2, y=180. duration=400))
+            system.engine.addThing(Caption('%s' % self.effect2, y=180, duration=400))
             setattr(savedata, self.name, 'True')
             self.apply()
 
