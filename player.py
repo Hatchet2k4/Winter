@@ -437,7 +437,7 @@ class Player(Entity):
                 x = system.engine.entFromEnt[e]
                 if isinstance(x, Enemy) and not x.invincible and x not in hitList:
                     hitList.append(x)
-                    x.hurt(self.stats.att + ika.Random(0, 3), 120, self.direction)
+                    x.hurt( int(self.stats.att + ika.Random(0, 3)), 120, self.direction)
                     self.giveMPforHit()
             if self.stats.level >= BACK_LEVEL: 
                 if (controls.up() or controls.joy_up()) and self.direction == dir.DOWN:  backthrust = True
@@ -485,7 +485,7 @@ class Player(Entity):
                 x = system.engine.entFromEnt[e]
                 if isinstance(x, Enemy) and not x.invincible and x not in hitList:
                     hitList.append(x)
-                    x.hurt(self.stats.att*1.2 + ika.Random(0, 3), 130, self.direction)
+                    x.hurt(int(self.stats.att + ika.Random(0, 3) * 1.25 ), 130, self.direction)
                     self.giveMPforHit()
 
             yield None
@@ -832,7 +832,7 @@ class Player(Entity):
                     if(isinstance(e, Serpent)): #he resists, half damage to prevent bolt spam!
                         e.hurt( int( ((self.stats.att + self.stats.mag) + ika.Random(1, int(self.stats.mag))) / 2), 300, d)
                     else:
-                        e.hurt((self.stats.att + self.stats.mag) + ika.Random(1, int(self.stats.mag)), 300, d)
+                        e.hurt(int(self.stats.att + self.stats.mag) + ika.Random(1, int(self.stats.mag)), 300, d)
                 elif isinstance(e, IceWall):
                     setattr(savedata, e.flagName, 'Broken')                    
                     system.engine.things.append(Caption('The ice melted!'))

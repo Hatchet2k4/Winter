@@ -49,11 +49,11 @@
 			)
 			(data 
 				(format zlib)
-				eJzsk8EKgDAIhtU26NJ2jZ6k93+yin5J1rosZB0SPtgK
-80ON6I8/6hFA6i3yEMEQnWqs3M7hJTsDnT188y0PEvom
-6GFvHwujZ4cbA486I92pvbM5Aq9El6eXXzmjCJK5s9kz
-7ZfunOaJk5/WmXayOYt5lnHXc4Cf5rKj30JtDEXfvebb
-ygzHQN/8f3V32exjb5+an844OvltAAAA//8=
+				eJxiYBgFo2AU4AIWjKN4IDEHAwTT2nxkjE0OWQ8TAwLT
+2v98QDtYoXaxQNkgzIfEZ4TKM0NpRiibD0kfrdwKs4cX
+iPmR2ExIYvxQPozNAnUfTC8jDd0nxUAeZkYLd0Y87qN1
+WpAEmi2MxQ5mpLhlIWA/E5I6QmopDWda54mhhAEAAAD/
+/w==
 			)
 			(obstructions 
 				(format tile)
@@ -86,15 +86,18 @@ ygzHQN/8f3V32exjb5+an844OvltAAAA//8=
 			)
 			(data 
 				(format zlib)
-				eJxiYBgFAwXWA/FGIF430A7BAtaj8WnlxgRG8vAqLGat
-o8A8XDiETIzNfasZyDcPFyYX4HLfYADoaQ8G6OW+ZCjG
-JoYujgwGS/jhAqPuIw5E4xCnhfvUyMByDIM7/6ow0N99
-XCSqp5f7AAAAAP//
+				eJzskc0KwjAQhGvTXHNpvSh4EP/eQ49686A3oe+n9A3d
+wA4uy5ZEESzSgY+QdDM72RbFqFG/020ybM4D5x/1IDoG
+ur9xV9fCL9ejZawznB+JExF/QcWr1bdVxFpXvN7X8V3H
+q67/piqRMWYL3BNrSXhxFvjMqRq81yf6YUa58gxmEkQv
+7GVGJ/Ze7GXOHNVEo7BUKpBrTxxET3zDv0bdlJgpNgkW
+3BuzbNhnbniBWswg8GwuxFX4WFmi51L1T2klMkKWj3xP
+X+5UlsguI5OVUXpsE/XrnuyfZHkCAAD//w==
 			)
 			(obstructions 
 				(format tile)
-				eJxiYCAPMBKrjCiFjMSZyEik1YwoFFnqGFEAkeahGktT
-dWS5j47qAAAAAP//
+				eJxiYBjBgBEM0MWQpGAALoEshEszI9wQwtbjliLK6VhM
+QBJBkUY4GcmH2EIASYARpy0EAQAAAP//
 			)
 			(entities 
 				(entity 
@@ -179,8 +182,9 @@ dWS5j47qAAAAAP//
 			)
 			(data 
 				(format zlib)
-				eJxiYBgFo2AUjIJRMApGwSgYWoADirkG2iE4AAAAAP//
-
+				eJxiYBgFo2AUUBtYAbH1QDsCD3AAYscBdgO+MHIDYnc6
+ugUbcGAY+DDCB5DDiJL0Zg7EFlQwBx9wYCA/LG2B2I4K
+5uADlKa3ICAOpoI5o4A0wAHFXAPtEBwAAAAA//8=
 			)
 			(obstructions 
 				(format tile)
