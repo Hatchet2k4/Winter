@@ -278,10 +278,10 @@ wFHGTA8AAAD//w==
 					(activate_script )
 				)
 				(entity 
-					(label guard18)
+					(label strength18)
 					(x 132)
 					(y 768)
-					(sprite guardrune.ika-sprite)
+					(sprite strengthrune.ika-sprite)
 					(speed 100)
 					(direction up)
 					(move_script )
