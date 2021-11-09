@@ -7,6 +7,7 @@ from xi import gui
 from xi.misc import WrapText
 from xi.scrolltext import ScrollableTextFrame
 import xi.effects
+import sound
 
 #------------------------------------------------------------------------------
 
@@ -85,6 +86,15 @@ def text(where, txt):
         frame.draw()
         ika.Video.ShowPage()
         ika.Input.Update()
+
+def wait(duration): 
+    t = ika.GetTime()
+    d = t+duration
+    while t < d:
+        draw()
+        ika.Video.ShowPage()
+        ika.Input.Update()
+        t = ika.GetTime()
 
 #------------------------------------------------------------------------------
 
@@ -183,67 +193,40 @@ narration = lambda t: animate(grandpa, TALKING, 25, text=t)
 # Scenes
 #------------------------------------------------------------------------------
 
-def fake_scene_1():
-    speech(grandpa, "Listen kids, for in my drunken stupour, I shall tell a tale like none you've ever heard!")
-    speech(grandpa, '*hic*')
-    speech(kid1, 'All right!  Alchohol induced ranting!')
-    speech(kid2, 'COCKS')
-    speech(kid3, 'POTTYMOUTH')
-    speech(kid2, 'You just shut the fuck up, freak!')
-    speech(kid3, ':(')
-    speech(grandpa, 'And thus, the world exploded.')
-
-
-def fake_intro():
-    speech(grandpa, 'Heeeeey kids!')
-    speech(grandpa, "Sit back, fuckers, 'cause I'm gonna tell you a story, and you're going enjoy it whether you want to or not.")
-    speech(kid1, '....')
-    speech(kid2, 'Who are you, and what are you doing in our house?')
-    animate(kid3, (0, 1), delay=20,
-        text="PLEASE DON'T RAPE ME"
-    )
-    animate(grandpa, (6, 0, 7, 0), delay=100,
-        text='The curse compels me to rant about shit you do not care about to atone for my previous child molestations.'
-    )
-    speech(kid2, 'HURRAY STORY TIME')
-    speech(kid1, 'Tell us a story about ramming your old wrinkly dick in baby orofices!')
-
-    speech(grandpa, 'It was a dark and stormy night!')
-    speech(grandpa, 'Perfect for a night on the town.')
-    speech(grandpa, 'Except that, as a child molester, I had to live far away from town.')
-    speech(kid3, 'OMG')
-    speech(grandpa, 'So, anyway, there I was in the middle of nowhere, off to town so I could find somewhere cozy to hide my cock....')
-
-
 def intro():
-    speech(kid1, 'Tell us a story!')
-    animate(kid2, (1,), delay=10, text='Yeah, the one about the ice man!')
-    animate(kid3, (0, 1), delay=20, text="Yeah!!")
+    sound.playMusic('music/Wind.ogg')   
+    wait(75)
+    speech(grandpa, "It's getting to be quite the blizzard out there...")
+    wait(75)
+    animate(kid1, (0, 1), delay=20, text='Oh no! I hope daddy will be able to get back here?')
+    speech(grandpa, "Oh, he'll be fine. We grew up in these mountains, this is nothing for him.")
+    animate(kid1, (0, 1), delay=20, text="Ok, if you're sure!")
+    wait(75)
+    speech(grandpa, "While we wait, why don't I tell you a story?")    
+    animate(kid3, (0, 1), delay=20, text='Yeah! Tell us a story!')
+    animate(kid2, (1,), delay=20, text='How about the one about the ice man?')
+    animate(kid1, (0, 1), delay=20, text="Yeah!")
     speech(grandpa, "Isn't that story a little scary?")
-    speech(kid1, 'No!')
-    speech(kid2, 'Please tell us!')
+    animate(kid1, (0, 1), delay=20, text='No!')
+    animate(kid2, (0, 1), delay=20, text='Please tell us!')
     speech(grandpa, 'Oh all right.  Ahem.')
-    animate(kid3, (0, 1), delay=20, text="I'm scared!!")
+    animate(kid3, (0, 1), delay=20, text="I'm a little scared...")
 
     tint.tint = 200
 
-    narration("""\
-Across the frozen hills of Kuladriat, hunters pursue a man like any other \
-prey.  Ever-northward their prey runs, till at last, at the foot of Mount \
-Durinar, a chasm of ice confronts him.""")
+    narration("""Across the frozen hills of the province of Kuladriat, a simple man was returning home from \
+a long journey. Even dressed in his warmest cloak, he could feel the stinging wind chilling him right down to his bones.""")
+    narration("""Undaunted, he travelled ever-northward. He needed only traverse the final peaks of Mount Durinar.  As he neared his destination, suddenly... """)
 
-    narration("""\
-The crack of a bow sounds across the vale; an instant later its arrow burying \
-itself in the leg of the hunted man.  His legs buckle beneath him, and he \
-tumbles down the cold ravine--""")
+    animate(kid3, (0, 1), delay=20, text="Oh no!!")
 
-    narration("""--the sound of stone 'gainst stone resounding.""")
+    narration("""The howls of a razormane pack startled him, and just as suddenly they gave chase. Even with his sword in hand, he would be no match for a full pack for the wolf-like animals. He was forced to flee.""")
+
+    narration("""The wild animals led him to the edge of a cliff. Before he could stop himself, his boots lost their grip on the ice, and he tumbled down into a ravine.""")
     
     tint.tint = 0
 
-    narration("""\
-A sharp whistle signifies the hunt's end.  The hunters will not bother \
-to claim their prize, for it is far too cold--his fate is come.""")
+    narration("""They did not follow, the cliff face far too steep to climb back up, and they left him to his fate...""")
 
 
 

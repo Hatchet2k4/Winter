@@ -11,6 +11,14 @@ def AutoExec():
     system.engine.mapThings.append(Snow(velocity=(0, 0.5)))
     if 'unityrune' not in savedata.__dict__:
         system.engine.things.append(RuneListener())
+    #if 'introanim' not in savedata.__dict__:
+    system.engine.things.append(IntroAnim())
+    #    savedata.introanim = True
+                
+            
+        
+        
+        
 
 def to2():
     offset_from = 4 * 16  # first vertical pos possible
@@ -20,6 +28,40 @@ def to2():
 
 def to49():
     system.engine.mapSwitch('map54.ika-map', (3 * 16, 12 * 16))
+
+class IntroAnim(object):    
+    def __init__(self):
+        self.d = 0
+        
+    def update(self):        
+        p = system.engine.player;
+        p.stop()
+        p._state = lambda: None # keep the player from moving
+        p.ent.specframe=74
+        
+        for i in range(200):
+            ika.Input.Update()
+            ika.ProcessEntities()
+            system.engine.camera.update()
+            system.engine.draw()
+            ika.Video.ShowPage()
+            ika.Delay(1)
+            
+        p.ent.specframe=72            
+        for i in range(100):
+            ika.Input.Update()
+            ika.ProcessEntities()
+            system.engine.camera.update()
+            system.engine.draw()
+            ika.Video.ShowPage()
+            ika.Delay(1)        
+        
+        p.state = p.standState()
+        system.engine.synchTime()
+        return True        
+
+    def draw(self):
+        pass
 
 class RuneListener(object):
     def update(self):

@@ -43,13 +43,6 @@ def intro():
         delay(showGba, 200, snow)
         delay(lambda: v.ClearScreen(), d, snow)
         
-        
-        
-        #for x in range(3):
-        #    delay(lambda: v.Blit(yourmom, 0, 0, ika.Opaque), d, snow)
-        #    delay(lambda: v.ClearScreen(), d, snow)
-        #delay(lambda: v.Blit(isabitch, 0, 0, ika.Opaque), d / 2, snow)
-        #delay(lambda: v.ClearScreen(), d, snow)
     except _DoneException:
         return
 

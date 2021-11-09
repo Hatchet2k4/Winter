@@ -137,6 +137,8 @@ class Engine(object):
 
         if not self.player:
             self.player = Player()
+            if not saveData:
+                self.player.ent.specframe=74 #haaack
         self.addEntity(self.player)
 
         if saveData:
