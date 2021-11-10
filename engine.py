@@ -164,8 +164,8 @@ class Engine(object):
         saveload.SaveGame.clearSaveFlags()
         cabin.scene('intro')
 
-        self.mapSwitch(START_MAP, START_POS, fade = False)
-        lay = ika.Map.GetMetaData()['entityLayer']
+        #self.mapSwitch(START_MAP, START_POS, fade = False)
+        #lay = ika.Map.GetMetaData()['entityLayer']
 
         self.init()
 
@@ -193,6 +193,7 @@ class Engine(object):
             self.run()
 
     def mapSwitch(self, mapName, dest = None, fade = True):
+        
         if fade:
             self.draw()
             startImages = effects.createBlurImages()
