@@ -16,7 +16,7 @@ def to25():
     
 def Tunnel1_1():  system.engine.warp((21 * 16, 21 * 16))
 def Tunnel1_2():  system.engine.warp((31 * 16, 36 * 16))
-def Tunnel2_1():  pass
+def Tunnel2_1():  system.engine.warp((45 * 16, 28 * 16)) #fall!
 def Tunnel2_2():  pass
 def Tunnel3_1():  system.engine.warp((6 * 16, 16 * 16))
 def Tunnel3_2():  system.engine.warp((22 * 16, 27 * 16))
@@ -26,5 +26,43 @@ def Tunnel5_1():  system.engine.warp((18 * 16, 36 * 16))
 def Tunnel5_2():  system.engine.warp((45 * 16, 44 * 16))
 def Tunnel6_1():  system.engine.warp((45 * 16, 37 * 16))
 def Tunnel6_2():  system.engine.warp((6 * 16, 25 * 16))
-def Tunnel7_1():  pass
+def Tunnel7_1():  system.engine.warp((24 * 16, 35 * 16)) #fall!
 def Tunnel7_2():  pass    
+
+
+def fall1(): 
+    fall(7)
+
+def fall2(): 
+    fall(9)
+
+def fall(numtiles):
+    engine = system.engine
+    p = engine.player
+    p.stop()        
+    p.ent.specframe = 91
+    p._state = lambda: None # keep the player from moving
+    engine.draw()
+    ika.Video.ShowPage()
+    ika.Delay(2)
+    
+    for y in range(numtiles * 8):
+        p.y += 2
+        ika.ProcessEntities()
+        engine.camera.update()
+        engine.draw()
+        ika.Video.ShowPage()
+        ika.Delay(1)        
+        
+    p.ent.specframe = 92
+    t = ika.GetTime() + 80
+    while t > ika.GetTime():
+        ika.ProcessEntities()
+        engine.camera.update()
+        engine.draw()
+        ika.Video.ShowPage()
+        ika.Input.Update()
+        ika.Delay(1)        
+
+    p.state = p.standState()
+    engine.synchTime()

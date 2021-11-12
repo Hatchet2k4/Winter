@@ -97,10 +97,10 @@ RCWUBeag6IUoxNSMLghUCgAAAP//
 			)
 			(entities 
 				(entity 
-					(label strength5)
-					(x 193)
+					(label dynamite3)
+					(x 191)
 					(y 160)
-					(sprite strengthrune.ika-sprite)
+					(sprite dynamite.ika-sprite)
 					(speed 100)
 					(direction up)
 					(move_script )

@@ -74,6 +74,14 @@
 			(script Tunnel7_2)
 		)
 		(zone 
+			(label fall1)
+			(script fall1)
+		)
+		(zone 
+			(label fall2)
+			(script fall2)
+		)
+		(zone 
 			(label to21)
 			(script to21)
 		)
@@ -234,7 +242,7 @@ B8XDO3lA6lT/RUs+2IxN+XXgWwopmp9ed6463scLAAD/
 			(entities 
 				(entity 
 					(label g0)
-					(x 592)
+					(x 594)
 					(y 112)
 					(sprite vgap.ika-sprite)
 					(speed 100)
@@ -554,6 +562,20 @@ B8XDO3lA6lT/RUs+2IxN+XXgWwopmp9ed6463scLAAD/
 					(adj_activate_script )
 					(activate_script )
 				)
+				(entity 
+					(label g1)
+					(x 590)
+					(y 112)
+					(sprite vgap.ika-sprite)
+					(speed 100)
+					(direction up)
+					(move_script )
+					(obstructs_entities true)
+					(obstructed_by_entities true)
+					(obstructed_by_map true)
+					(adj_activate_script )
+					(activate_script )
+				)
 			)
 			(zones 
 				(zone 
@@ -660,6 +682,20 @@ B8XDO3lA6lT/RUs+2IxN+XXgWwopmp9ed6463scLAAD/
 					(y 648)
 					(width 16)
 					(height 16)
+				)
+				(zone 
+					(label fall1)
+					(x 377)
+					(y 549)
+					(width 31)
+					(height 34)
+				)
+				(zone 
+					(label fall2)
+					(x 715)
+					(y 436)
+					(width 29)
+					(height 35)
 				)
 			)
 		)

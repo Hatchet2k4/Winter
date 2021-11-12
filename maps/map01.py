@@ -7,6 +7,7 @@ from yeti import Yeti
 from snow import Snow
 
 
+
 def AutoExec():
     system.engine.mapThings.append(Snow(velocity=(0, 0.5)))
     if 'unityrune' not in savedata.__dict__:

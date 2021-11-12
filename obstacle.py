@@ -25,6 +25,22 @@ class _Obstacle(Entity):
     def update(self):
         pass
 
+class _GapObstacle(Entity):
+    def __init__(self, ent, anim = None):
+        self.flagName = ent.name
+        Entity.__init__(self, ent, anim)
+        self.invincible = True
+
+        if self.flagName in savedata.__dict__:
+            self.remove()
+
+    def remove(self):
+        self.x = self.y = -100
+        system.engine.destroyEntity(self)
+
+    def update(self):
+        pass
+
 class IceWall(_Obstacle):
     '''
     Not very exciting.  The entity's type is all the information
@@ -39,7 +55,7 @@ class Crystal(_Obstacle):
     '''
     pass
 
-class Gap(_Obstacle):
+class Gap(_GapObstacle): #inheriting from different class in order to handle gaps differently
     '''A big empty hole. :P'''
     pass
 
