@@ -1,0 +1,237 @@
+(ika-map 
+	(version 1.0)
+	(information 
+		(title )
+		(meta 
+			(entityLayer B1)
+			(music winter.ogg)
+		)
+	)
+	(header 
+		(dimensions 
+			(width 480)
+			(height 240)
+		)
+		(tileset snowy.vsp)
+	)
+	(waypoints 
+	)
+	(zones 
+		(zone 
+			(label Default Zone)
+			(script )
+		)
+		(zone 
+			(label to06)
+			(script to06)
+		)
+		(zone 
+			(label to18)
+			(script to18)
+		)
+		(zone 
+			(label to44)
+			(script to44)
+		)
+		(zone 
+			(label to47)
+			(script to47)
+		)
+	)
+	(layers 
+		(layer 
+			(label B0)
+			(dimensions 
+				(width 30)
+				(height 15)
+			)
+			(position 
+				(x 0)
+				(y 0)
+			)
+			(parallax 
+				(mulx 1)
+				(muly 1)
+				(divx 1)
+				(divy 1)
+			)
+			(wrap 
+				(x false)
+				(y false)
+			)
+			(data 
+				(format zlib)
+				eJx0VVtug0AMNAt8NSxtSqI8kArKV6qqiqL0HD1F73+F
+7kozYrA2HyMvztpjjw2ZzGxOiAlNwhm2BSo8h4R7whXn
+iPOQsEvYJ4zwZ0zADXEfAP2N49zjXImtcOcbXAfgmHBC
+3Ajs4Lsg/7vEkZe1sd6z9BKkX55ZO3MckOcCzhk5JsHR
+9Uxe1nd2fFF6DXLOOR4uzwTOWZ5/YTcJnwlfyHl3c5hF
+8xpc1Jl1NO6seo0CnckG5y00vzle5uiRm7sUxeqsK4mp
+bdnD+IT3Cs2VOwoX42tb77JyBdGeljEZnePlfCdbdrFD
+7q6gXyP5Wlv3PsDXy33qxXlebdnNXAf3UPVVnXpw1q4O
+1jAU9Nd9ZK+c6eB6nkRfvzc6q1pssPX8qXOEZq2t3/MT
+oO9x5n0tcGqPCtWV/IzhPuhs9VtxFL/P6ftU3aPL/6yu
+aOvvC/vjXpfiSuht2T3/W96fH+cLT7hfwB1hO+mnlEf5
+S3d64aIefwJyv0HrfGdryz5o7k58+rt+77oCp+odUANn
+mvvlf0m2/wAAAP//
+			)
+			(obstructions 
+				(format tile)
+				eJxiYBgFQxsAAAAA//8=
+			)
+			(entities 
+			)
+			(zones 
+			)
+		)
+		(layer 
+			(label B1)
+			(dimensions 
+				(width 30)
+				(height 15)
+			)
+			(position 
+				(x 0)
+				(y 0)
+			)
+			(parallax 
+				(mulx 1)
+				(muly 1)
+				(divx 1)
+				(divy 1)
+			)
+			(wrap 
+				(x false)
+				(y false)
+			)
+			(data 
+				(format zlib)
+				eJy8lMkKwkAMhjOC7VW0ggtULa36HF6rZx9BFH3/g2ti
+J5jG1A31g9CZNJM/swIUJP7bgMfEaAO0Flpd/et6fxut
+L/LGKi5EG6NNfL9t6JwdwMnd+qnXJY2eN63dV75UaAdo
+kW9HQjNRYw6oeXRlH8+ZGYo2+UeiHwhtmmfTqJU0p8q3
+N3Rl/aylGao+69O4DpT3kzU3aszSyEtkUOyT3r+kwk9w
+zQ0Ra7Gu8DO5zzWG8lkhZqIta0i97uyF/J8SCi3Js3vz
+Dnp/AjPqXneL52fnKkMr87+KXGvWzYXvG2tu1cZnKjT+
+zdEWhv+TWuT8eM0tzUfkz0OuyPr0PQ/U99vQ2+pqxftK
+dWQ/0tHQ27qC+3eOaP2pBg3v7wUAAP//
+			)
+			(obstructions 
+				(format tile)
+				eJx8j0ESgDAIA7P//7RONRpKWy6EYQkgSegJLErQxLpL
+x1IyAJjtCACXTKeYJdPmll3z3HU6Pcl6dz7yflEXU4Y/
+rt7115hQNwvTAdzyAgAA//8=
+			)
+			(entities 
+				(entity 
+					(label r1)
+					(x 120)
+					(y 99)
+					(sprite razormane.ika-sprite)
+					(speed 100)
+					(direction up)
+					(move_script )
+					(obstructs_entities true)
+					(obstructed_by_entities true)
+					(obstructed_by_map true)
+					(adj_activate_script )
+					(activate_script )
+				)
+			)
+			(zones 
+				(zone 
+					(label to47)
+					(x 400)
+					(y 238)
+					(width 16)
+					(height 2)
+				)
+				(zone 
+					(label to06)
+					(x 80)
+					(y 0)
+					(width 112)
+					(height 16)
+				)
+				(zone 
+					(label to18)
+					(x 354)
+					(y 212)
+					(width 16)
+					(height 16)
+				)
+			)
+		)
+		(layer 
+			(label A0)
+			(dimensions 
+				(width 30)
+				(height 15)
+			)
+			(position 
+				(x 0)
+				(y 0)
+			)
+			(parallax 
+				(mulx 1)
+				(muly 1)
+				(divx 1)
+				(divy 1)
+			)
+			(wrap 
+				(x false)
+				(y false)
+			)
+			(data 
+				(format zlib)
+				eJxiYBgFgwUEkqnPjEJ5coENhfLDGVgBsfUA2OsAxI4D
+YK8bELsPgL30Akx45FigmJFGdrNiEWNmQLiJiQG7+/iQ
+5PC5n52A/SC7WKDmYZMDYUaoHTA1MDYHFKMDkNhWAvZS
+ChihmBNJDGTnbixqAQAAAP//
+			)
+			(obstructions 
+				(format tile)
+				eJxiYBgFQxsAAAAA//8=
+			)
+			(entities 
+			)
+			(zones 
+			)
+		)
+		(layer 
+			(label A1)
+			(dimensions 
+				(width 30)
+				(height 15)
+			)
+			(position 
+				(x 0)
+				(y 0)
+			)
+			(parallax 
+				(mulx 1)
+				(muly 1)
+				(divx 1)
+				(divy 1)
+			)
+			(wrap 
+				(x false)
+				(y false)
+			)
+			(data 
+				(format zlib)
+				eJxiYBgFo2AUjIKhATjxyLEDMQcBNZTYi24uG9Q+dHW4
+3EWu2ziR9MMwNoBNDTuSnVxk2A1zMzF+QFYDA1xI7udE
+U8dKhP3odqHz2XHoE0CynxFqHyMUs2BRDwAAAP//
+			)
+			(obstructions 
+				(format tile)
+				eJxiYBgFQxsAAAAA//8=
+			)
+			(entities 
+			)
+			(zones 
+			)
+		)
+	)
+)
