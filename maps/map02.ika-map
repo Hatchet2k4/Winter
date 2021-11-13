@@ -1,62 +1,62 @@
-(ika-map
+(ika-map 
 	(version 1.0)
-	(information
+	(information 
 		(title )
-		(meta
+		(meta 
 			(entityLayer B1)
-            (music winter.ogg)
-            (mapname Base of mount Durinar)
+			(mapname Base of mount Durinar)
+			(music winter.ogg)
 		)
 	)
-	(header
-		(dimensions
+	(header 
+		(dimensions 
 			(width 800)
 			(height 800)
 		)
 		(tileset snowy.vsp)
 	)
-	(waypoints
+	(waypoints 
 	)
-	(zones
-		(zone
+	(zones 
+		(zone 
 			(label to1)
 			(script to1)
 		)
-		(zone
+		(zone 
+			(label to15)
+			(script to15)
+		)
+		(zone 
 			(label to3)
 			(script to3)
 		)
-		(zone
+		(zone 
 			(label to43)
 			(script to43)
 		)
-		(zone
-			(label to6)
-			(script to6)
-		)
 	)
-	(layers
-		(layer
+	(layers 
+		(layer 
 			(label B0)
-			(dimensions
+			(dimensions 
 				(width 50)
 				(height 50)
 			)
-			(position
+			(position 
 				(x 0)
 				(y 0)
 			)
-			(parallax
+			(parallax 
 				(mulx 1)
 				(muly 1)
 				(divx 1)
 				(divy 1)
 			)
-			(wrap
+			(wrap 
 				(x false)
 				(y false)
 			)
-			(data
+			(data 
 				(format zlib)
 				eJyMml1P3FYQhsf2WopE9qNdaKENitFeJUFRVCl/B27K
 VQJs0pv239dHmVd+/HIMWWm0Xvv4nHnnewa6iGhG6kda
@@ -114,36 +114,36 @@ dcYmxZKiD/7dgDbA/w/R7HnpU4sdfj7lWpt3ux80Kdfa
 M8+PxCEMLb6JQbPbJbvyeMLYzHjscnb702/23LUYRntk
 bS/bEZ/lXM3PCw79nebbAo7/AQAA//8=
 			)
-			(obstructions
+			(obstructions 
 				(format tile)
 				eJzswQENAAAAwqD3T20ON6AAAHgzAAAA//8=
 			)
-			(entities
+			(entities 
 			)
-			(zones
+			(zones 
 			)
 		)
-		(layer
+		(layer 
 			(label B1)
-			(dimensions
+			(dimensions 
 				(width 50)
 				(height 50)
 			)
-			(position
+			(position 
 				(x 0)
 				(y 0)
 			)
-			(parallax
+			(parallax 
 				(mulx 1)
 				(muly 1)
 				(divx 1)
 				(divy 1)
 			)
-			(wrap
+			(wrap 
 				(x false)
 				(y false)
 			)
-			(data
+			(data 
 				(format zlib)
 				eJy8WstuVDEM9aoDFe0g2CAWBVUdHr8AG94sgA1soLTS
 bSt12n5G++NcixyNx2M7TmbaI1m5N8l1/MjDzgxRHpdO
@@ -179,7 +179,7 @@ QucmzE/vf9kzx4PU61y8b1Es/5R8n0OPQdV78Tx8tA48
 WSZU94PXDt8jN5FxL+sS3ctkkTnfcW5oQL6W3xMGWuiB
 ezTPL/8AAAD//w==
 			)
-			(obstructions
+			(obstructions 
 				(format tile)
 				eJzMlVsSwyAIRbn733SbmmiBy8NMplN+apADWEFEDoFM
 wVukFm2TIXPPIgyCVjsLQxEn3us0QnA2eAynEGuaVyk/
@@ -190,8 +190,8 @@ r5/gOYdfLQUNexnSY/JEoX60pz1iYP5SbHL+Oxto4Tev
 kCjEglKimDQsCw84pjdL7Mw5+6h8O2zb7I/oP5EXAAAA
 //8=
 			)
-			(entities
-				(entity
+			(entities 
+				(entity 
 					(label a1)
 					(x 352)
 					(y 352)
@@ -205,7 +205,7 @@ kCjEglKimDQsCw84pjdL7Mw5+6h8O2zb7I/oP5EXAAAA
 					(adj_activate_script )
 					(activate_script )
 				)
-				(entity
+				(entity 
 					(label a2)
 					(x 376)
 					(y 224)
@@ -219,7 +219,7 @@ kCjEglKimDQsCw84pjdL7Mw5+6h8O2zb7I/oP5EXAAAA
 					(adj_activate_script )
 					(activate_script )
 				)
-				(entity
+				(entity 
 					(label a3)
 					(x 472)
 					(y 304)
@@ -233,7 +233,7 @@ kCjEglKimDQsCw84pjdL7Mw5+6h8O2zb7I/oP5EXAAAA
 					(adj_activate_script )
 					(activate_script )
 				)
-				(entity
+				(entity 
 					(label a4)
 					(x 264)
 					(y 160)
@@ -247,7 +247,7 @@ kCjEglKimDQsCw84pjdL7Mw5+6h8O2zb7I/oP5EXAAAA
 					(adj_activate_script )
 					(activate_script )
 				)
-				(entity
+				(entity 
 					(label a5)
 					(x 552)
 					(y 144)
@@ -261,7 +261,7 @@ kCjEglKimDQsCw84pjdL7Mw5+6h8O2zb7I/oP5EXAAAA
 					(adj_activate_script )
 					(activate_script )
 				)
-				(entity
+				(entity 
 					(label a6)
 					(x 440)
 					(y 128)
@@ -275,7 +275,7 @@ kCjEglKimDQsCw84pjdL7Mw5+6h8O2zb7I/oP5EXAAAA
 					(adj_activate_script )
 					(activate_script )
 				)
-				(entity
+				(entity 
 					(label a7)
 					(x 232)
 					(y 64)
@@ -289,7 +289,7 @@ kCjEglKimDQsCw84pjdL7Mw5+6h8O2zb7I/oP5EXAAAA
 					(adj_activate_script )
 					(activate_script )
 				)
-				(entity
+				(entity 
 					(label a8)
 					(x 152)
 					(y 256)
@@ -303,7 +303,7 @@ kCjEglKimDQsCw84pjdL7Mw5+6h8O2zb7I/oP5EXAAAA
 					(adj_activate_script )
 					(activate_script )
 				)
-				(entity
+				(entity 
 					(label a9)
 					(x 192)
 					(y 368)
@@ -317,7 +317,7 @@ kCjEglKimDQsCw84pjdL7Mw5+6h8O2zb7I/oP5EXAAAA
 					(adj_activate_script )
 					(activate_script )
 				)
-				(entity
+				(entity 
 					(label save)
 					(x 177)
 					(y 607)
@@ -332,29 +332,29 @@ kCjEglKimDQsCw84pjdL7Mw5+6h8O2zb7I/oP5EXAAAA
 					(activate_script )
 				)
 			)
-			(zones
-				(zone
+			(zones 
+				(zone 
 					(label to1)
 					(x 784)
 					(y 608)
 					(width 16)
 					(height 104)
 				)
-				(zone
+				(zone 
 					(label to3)
 					(x 0)
 					(y 224)
 					(width 16)
 					(height 176)
 				)
-				(zone
-					(label to6)
+				(zone 
+					(label to15)
 					(x 112)
 					(y 0)
 					(width 160)
 					(height 16)
 				)
-				(zone
+				(zone 
 					(label to43)
 					(x 784)
 					(y 32)
@@ -363,27 +363,27 @@ kCjEglKimDQsCw84pjdL7Mw5+6h8O2zb7I/oP5EXAAAA
 				)
 			)
 		)
-		(layer
+		(layer 
 			(label A1)
-			(dimensions
+			(dimensions 
 				(width 50)
 				(height 50)
 			)
-			(position
+			(position 
 				(x 0)
 				(y 0)
 			)
-			(parallax
+			(parallax 
 				(mulx 1)
 				(muly 1)
 				(divx 1)
 				(divy 1)
 			)
-			(wrap
+			(wrap 
 				(x false)
 				(y false)
 			)
-			(data
+			(data 
 				(format zlib)
 				eJzsWttOAjEQHSLCYkD9DY3hzfutvuiLvuhv+BXw43bC
 TnYY29JuL2wTTnICYZdyzsz0si0jABgJnmnOoAxuNe8S
@@ -405,36 +405,36 @@ aZgkaof/XyRkTAh5hnUhpq8g5P9FZtD5wVjzsW4fsMWS
 84jcf8BcLNr3Lr22HO0TvL7o/AOxS1+ol9w54vUV4wP5
 BwAA//8=
 			)
-			(obstructions
+			(obstructions 
 				(format tile)
 				eJzswQENAAAAwqD3T20ON6AAAHgzAAAA//8=
 			)
-			(entities
+			(entities 
 			)
-			(zones
+			(zones 
 			)
 		)
-		(layer
+		(layer 
 			(label A0)
-			(dimensions
+			(dimensions 
 				(width 50)
 				(height 50)
 			)
-			(position
+			(position 
 				(x 0)
 				(y 0)
 			)
-			(parallax
+			(parallax 
 				(mulx 1)
 				(muly 1)
 				(divx 1)
 				(divy 1)
 			)
-			(wrap
+			(wrap 
 				(x false)
 				(y false)
 			)
-			(data
+			(data 
 				(format zlib)
 				eJzsmc1OwzAMxy0NbQONFYGQeAYeAS7hAgfgAhfQbtzY
 Y3QvTrzWmuclbb62NKI/yWqbduHvOHE+ALCz6XhXAj/s
@@ -454,13 +454,13 @@ aWyQFpcxQhoUNPGfwP4eXPpFPlSwiwP9NpQF9M+dfW1L
 Gij+qK1iVzR5vsB9AIifTxf9n2zp8sWkgfcT7hP3bQi4
 xqh0xj3j6fkDAAD//w==
 			)
-			(obstructions
+			(obstructions 
 				(format tile)
 				eJzswQENAAAAwqD3T20ON6AAAHgzAAAA//8=
 			)
-			(entities
+			(entities 
 			)
-			(zones
+			(zones 
 			)
 		)
 	)

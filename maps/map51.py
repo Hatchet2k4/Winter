@@ -8,12 +8,9 @@ def to12():
     y = system.engine.player.y - offset_from + offset_to
     system.engine.mapSwitch('map12.ika-map', (1 * 16, y))
 
-def to5():
-    system.engine.mapSwitch('map05.ika-map', (6 * 16, 4 * 16))
+def to52():
+    system.engine.mapSwitch('map52.ika-map', (29 * 16, 5 * 16))
 
-#def to27():
-#    system.engine.mapSwitch('map11.ika-map', (23 * 16, 17 * 16))
 
-def heal():
-    system.engine.player.stats.hp = 999
-    system.engine.player.stats.mp = 999
+
+

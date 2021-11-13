@@ -3,7 +3,7 @@ import ika
 from snow import Snow
 
 def AutoExec():
-    system.engine.mapThings.append(Snow(velocity=(0, 0.5)))
+    system.engine.mapThings.append(Snow(3000, velocity=(-1, 1.5)))
 
 def to2():
     offset_from = 16 * 16  # first vertical pos possible
@@ -12,4 +12,4 @@ def to2():
     system.engine.mapSwitch('map02.ika-map', (x, 1 * 16))
     
 def to18():    
-    system.engine.mapSwitch('map18.ika-map', (0, 0))
+    system.engine.mapSwitch('map18.ika-map', (11*16, 73*16))

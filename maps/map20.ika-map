@@ -22,10 +22,6 @@
 			(script )
 		)
 		(zone 
-			(label to06)
-			(script to06)
-		)
-		(zone 
 			(label to18)
 			(script to18)
 		)
@@ -36,6 +32,10 @@
 		(zone 
 			(label to47)
 			(script to47)
+		)
+		(zone 
+			(label to6)
+			(script to6)
 		)
 	)
 	(layers 
@@ -147,14 +147,14 @@ rt7115hQNwvTAdzyAgAA//8=
 					(height 2)
 				)
 				(zone 
-					(label to06)
+					(label to6)
 					(x 80)
 					(y 0)
 					(width 112)
 					(height 16)
 				)
 				(zone 
-					(label to18)
+					(label to6)
 					(x 354)
 					(y 212)
 					(width 16)

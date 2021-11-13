@@ -18,11 +18,11 @@ def to3():
     y = system.engine.player.y - offset_from + offset_to
     system.engine.mapSwitch('map03.ika-map', (98 * 16, y))
 
-def to6():
+def to15():
     offset_from = 7 * 16  # first vertical pos possible
     offset_to = 16 * 16  # first vertical pos possible
     x = system.engine.player.x - offset_from + offset_to
-    system.engine.mapSwitch('map06.ika-map', (x, 38 * 16))
+    system.engine.mapSwitch('map15.ika-map', (x, 43 * 16))
 
 def to43():
     system.engine.mapSwitch('map43.ika-map', (1 * 16, system.engine.player.y))

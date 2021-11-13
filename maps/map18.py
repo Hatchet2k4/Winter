@@ -12,20 +12,11 @@ def AutoExec():
     system.engine.mapThings.append(fader)
     system.engine.mapThings.append(Darkglow())
 
-def to2():
-    offset_from = 16 * 16  # first vertical pos possible
-    offset_to = 7 * 16  # first vertical pos possible
-    x = system.engine.player.x - offset_from + offset_to
-    system.engine.mapSwitch('map02.ika-map', (x, 1 * 16))
-    
-def to18():    
-    system.engine.mapSwitch('map18.ika-map', (0, 0))
-
-def to12():
-    pass
+def to20():
+    system.engine.mapSwitch('map20.ika-map', (22*16, 12*16))
     
 def to15():
-    pass
+    system.engine.mapSwitch('map15.ika-map', (10*16, 6*16))
     
     
 class LayerFader(Thing):

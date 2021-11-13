@@ -18,12 +18,12 @@
 	)
 	(zones 
 		(zone 
-			(label to12a)
-			(script to12a)
-		)
-		(zone 
 			(label to4)
 			(script to4)
+		)
+		(zone 
+			(label to52)
+			(script to52)
 		)
 	)
 	(layers 
@@ -142,7 +142,7 @@ MU72XoVvLAAAAP//
 					(height 16)
 				)
 				(zone 
-					(label to12a)
+					(label to52)
 					(x 96)
 					(y 48)
 					(width 16)
