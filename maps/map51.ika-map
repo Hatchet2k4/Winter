@@ -26,8 +26,8 @@
 			(script to12)
 		)
 		(zone 
-			(label to5)
-			(script to5)
+			(label to52)
+			(script to52)
 		)
 	)
 	(layers 
@@ -244,7 +244,7 @@ UkOF04BbvNWKVzbl5UF9ttjRCt5q2hkfo+7cob0Hxrpq
 			)
 			(zones 
 				(zone 
-					(label to5)
+					(label to52)
 					(x 128)
 					(y 608)
 					(width 16)

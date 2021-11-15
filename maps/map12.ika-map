@@ -26,8 +26,8 @@
 			(script to11)
 		)
 		(zone 
-			(label to12a)
-			(script to12a)
+			(label to51)
+			(script to51)
 		)
 	)
 	(layers 
@@ -109,13 +109,6 @@ YKbQLHIAAAAA//8=
 			(entities 
 			)
 			(zones 
-				(zone 
-					(label to12a)
-					(x 0)
-					(y 96)
-					(width 15)
-					(height 48)
-				)
 			)
 		)
 		(layer 
@@ -175,7 +168,7 @@ mHDzCZPxFoJSyVJoEQ5sJz28B5SXM+3LaGvBPvXEWt2B
 					(height 16)
 				)
 				(zone 
-					(label to12a)
+					(label to51)
 					(x 0)
 					(y 96)
 					(width 16)

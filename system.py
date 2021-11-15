@@ -34,9 +34,11 @@ introMusic = ika.Sound('music/Existing.s3m')
 #        ika.Input.Update()
 
 
+
 sound.fader.kill()
+#ika.Delay(5)
 introMusic.Play()
-introMusic.position = -100
+#ika.Delay(5)
 intro()
 
 

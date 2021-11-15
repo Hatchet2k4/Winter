@@ -5,7 +5,7 @@ import dir
 def to11():
     system.engine.mapSwitch('map11.ika-map', (23 * 16, 17 * 16))
 
-def to12a():
+def to51():
     offset_from = 6 * 16  # first vertical pos possible on current
     offset_to = 7 * 16  # first vertical pos possible on destination
     y = system.engine.player.y - offset_from + offset_to

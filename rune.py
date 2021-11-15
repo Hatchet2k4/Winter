@@ -54,7 +54,7 @@ class UnityRune(_Rune):
 class BindingRune(_Rune):
     element = property(lambda self: 'Binding')
     effect = property(lambda self: 'Magic +2')
-    effect2 = property(lambda self: '')
+    effect2 = property(lambda self: ' ')
     
 class StrengthRune(_Rune):
     def apply(self):
@@ -62,6 +62,7 @@ class StrengthRune(_Rune):
 
     element = property(lambda self: 'Strength')
     effect = property(lambda self: 'Attack +2')
+    effect2 = property(lambda self: ' ')
 
 class GuardRune(_Rune):
     def apply(self):
@@ -69,6 +70,7 @@ class GuardRune(_Rune):
 
     element = property(lambda self: 'Guard')
     effect = property(lambda self: 'Defense +2')
+    effect2 = property(lambda self: ' ')
 
 class PowerRune(_Rune):
     def apply(self):
@@ -76,3 +78,4 @@ class PowerRune(_Rune):
 
     element = property(lambda self: 'Power')
     effect = property(lambda self: 'Magic +2')
+    effect2 = property(lambda self: ' ')
