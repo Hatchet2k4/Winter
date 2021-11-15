@@ -18,20 +18,12 @@
 	)
 	(zones 
 		(zone 
-			(label breakIce)
-			(script breakIce)
-		)
-		(zone 
 			(label manaPool)
 			(script manaPool)
 		)
 		(zone 
 			(label to47)
 			(script to47)
-		)
-		(zone 
-			(label to5)
-			(script to5)
 		)
 	)
 	(layers 
@@ -57,17 +49,18 @@
 			)
 			(data 
 				(format zlib)
-				eJzslksOwyAMRG0MW86T+5+srZRRH26XuIsKqSMoJIw/
-Y4fLza6Dg4ODg4ODv8bzZ+2JuPFL7mFv/td83uMv7BCv
-Ax32yJYq/pm4J2wQv9aq+OM+P2ADc9AKYyAe+dxtjUnD
-fgV/5mMeGvZmof8t8fY0VvJT64J6gPyv7AniH9CbdNAQ
-gyr/pXnZofmA9hSXSn4HnzARmyr+Bp8j+e1ARQ0Gzo3k
-s2I+sSdd7OB2W3tPpFpjHDTfWQeqbweH8tCwPmGHnt/B
-z1iHrbpT3HuyS7bsyn1PZ8v3ZutdgH14l//Ufc4B4/1t
-f5f+pDVpj712AtTeru+ww1dyqu8rNsNWHezKvyf/8n1D
-69zTO9/6AOPn6dms+24rf9in7jiyDzMvrCH971inP+J2
-gL2np3NYF/l+ou8ibc5aoYYjvZ9tGLbW92t8AAAA//8=
-
+				eJzslktuwzAMREl9tjpP7n+y1kUGeJoGSApIQhdeDJRI
+toefIalHRjxu/Ak1zvCUNzyXHd/Lz3PXOmxNe78dsvvC
+OMh1Ev2DnNyxvXHjxn9EPudFjXNzTOiYV/05p/ohOxJz
+UmiwR7bs4h/GPWCD+LW3i1/3hQobmIOyMQbikc/N7ikF
+5zv4nY95KDHfnXb5X4y32bqTn1oX1APk/86eIP4OvUkH
+BTHY5b80Lzv0u0N7istO/gSfMBCbXfwFPlfzO4EdNVjx
+3Wo+K+YDZ9LFCu6MufdUqzXGQb9X1oHqO8GhPBTsD9ih
+51fwM9Y1Zt0p7s3ski2rct/s2/K9xHwXYB9e5T917zlg
+vF+dr9KftCbtsdcOgNpbNYcTvpJTfV+x6THrYFX+0/zz
++4b2eaZ3XvUBxi/tWdd9i5m/xm/dcWUfZl5YQ/rfsE9/
+xJ0Ae0+z77Au/H6iuUibXSvUcLX33YYec31f6xcAAAD/
+/w==
 			)
 			(obstructions 
 				(format tile)
@@ -100,12 +93,13 @@ gL2np3NYF/l+ou8ibc5aoYYjvZ9tGLbW92t8AAAA//8=
 			)
 			(data 
 				(format zlib)
-				eJzsmM0OgjAQhKsYLR68Iwf1gLwWiSd9Jh+WbVgvTaWN
-XZlq9ksmhPIzs+mWhBoTZ8fHFWtDqhOek8J5Hjx/p713
-n3/u2Eaup/pLYTNyKIqiNKQjqwX4n0hn1gXg35GurB7g
-/09YgOc9MIbIgSJUP5oSM5XMk/UJD7C/gqWktZaTpVqL
-xViElFol1mZOhpJ6Yw7090fS/9tz7viVeZVGou4baTDT
-Xo6dkdS+yrt+iP1rdIEMoXfFxpboxxcjAAAA//8=
+				eJxiYCAM2KE0IxSzADEnEfqoBUB28qHZD8JcaOrQ+SDA
+RkCeWPupBTgocAcukEll80bBKBgFgxdIArEUFEsPgP3y
+QKwAxYoDYL8qEKtBsfoA2D+cAMcA2ImtvhoIdwwUGIz1
+9WB002AGc6CYHJA1wPaPgoEFgymvUeIWZiaqOYMugBi/
+UiNvUuKGwZQ28IGBLn+oaT+t4xwEhkq8UhtQw9/JQJzA
+ABnL4cCDqTWugis9EOprqGJxAzazCInRIz3CAAAAAP//
+
 			)
 			(obstructions 
 				(format tile)
@@ -138,22 +132,22 @@ Xo6dkdS+yrt+iP1rdIEMoXfFxpboxxcjAAAA//8=
 			)
 			(data 
 				(format zlib)
-				eJzsl8lOwzAQhh0noWyKihBFaSs2sT1BD9BD6QEOhQtc
-WC5FfTDEmzJWZ5SpsZtxmraX/tKvLHbyjcfjuFWqXD3w
-BNwHD8Gv4DfBc4uqAd5G7gjZEfgd/AEeg78xtgle2+Lt
-O4FsDY6R+4n3v8AJs8aYIjwnlsbYY2xLwVkAP2I2z47Z
-eDKrPdRNAf8Q+yZ4zHBcKVqzHKSsr1ZF3uhZ7iNwS8DP
-wW0WR8ren7Frii1m5y5mG90BdwX8U3RuxUB8rYo5zRxj
-batZZgu55+ALAf/EEwPVGbFjVeTczvEZcxctYZOuWBw5
-e79d05ly55jYNOabADbpksXAc0AxJMjuIKfLjsQ37NsK
-bDuGXP2fC5tNOb5mXoTNY6B6MEr01Iqxq+ZYKpoHowPw
-sSr4i+ZYIl4LexjDqthcZl3Q3Ibmm/Y08irV8Nw3+2Iv
-8F0aai/W8v5bJe19FbY//4B/A/rvl7QP8bi7Jj5Jsjdv
-+Ovnm29vGlD/ZXyqOyl/HE1dF79pHesW8Udr5hvdge8X
-5Id+/zh/AH7w8KUKrX+uR/DTHH5SI9/13X8Gv8zhu66r
-8quu+w2/Xr5rza2SP1Cza85Vl3zvr5tvrznXvDQ953Xw
-+Zrz/RZbJn/evdC9TyrXOF33lr33hMj3v0Aam2+9++b8
-DwAA//8=
+				eJzsl0tPwkAQgJdtER+kQY0aEBXE1y/goByQgx7Qi158
+XDCc4E8Z/6mzYSYd6i6dbQtcnORLn7vf7KsLSqVHFxgD
+PWAAvACvgnJ5owJsoneI7hLwBrwDI+ALcxvjdTL48y1P
+twYC9H7g/U9gAoSIxpxKeE4ujbkH+KwMRB5+U2bKyo5Y
+eyK8L62HoPpqgnL7+G6IR+McYy4GreI+KLN3NTJlZTkH
+wKHAXwcaLI8yqz9i15RbwM5tzgZyDDQF/jOknshhgg6t
+4jGNWC4Th9O0uQO0gXOB/9SRA40juQMV9zlvr3EeAS2k
+iUjcFJcsjyqrPzmnI0t7jesEoTZfe7gpLjCHPTXfB5RD
+yNrbRi8dW4hx32RwJ3Ooq79jwd0dFffxFSOPm+dA88FE
+qGcoFbc3ax9Lg+aCiV01m1/kz9vHkqBxMDnsYA6rcvMw
+64LG1re/aU8jVhkVx32zL3Y969Iw9wItf38j5XlP+e3P
+38CPx/vVlOcDPG6vyU8h2Zv//ev3m29v2WP+p/lp3kn9
+o9KMovy1xLHoIP9wzX4Tt8BdTr/v94/7+8C9wy8N3/nP
+4wF4XOAPC/TbvvtPwPMCv+06qz/ruv/3F+u3rblV+vtq
+fs3Z5iXf+4v2J9ecbVxqjvMi/HzNuX6LLdO/6J7v3icN
+Wztt95a99/iE63+BNDfXeneN+S8AAAD//w==
 			)
 			(obstructions 
 				(format tile)
@@ -295,7 +289,7 @@ fhqed1K4Pa+R41Oc4eeIN09y7Fdo2Z2RDtL7AAAA//8=
 				(zone 
 					(label to47)
 					(x 224)
-					(y 624)
+					(y 625)
 					(width 16)
 					(height 16)
 				)
@@ -330,11 +324,12 @@ fhqed1K4Pa+R41Oc4eeIN09y7Fdo2Z2RDtL7AAAA//8=
 			)
 			(data 
 				(format zlib)
-				eJzslMEKwyAQRIeSVJNDPqi9tJf0kPan2h/vSiPIGouC
-bQKZB4Ogq+7KOgAhhBBCCCH/o1v5/sMGciDbwfXCq/KZ
-T5HJjB1Qvx/d3U1BvMuhr5wDIRr/Jybsz4Nz/eDX6Hc/
-ic6o44Mp3/tW+0V0xcev7KzS3jDB3iEjvgvGUXRT6y3y
-/fCItNfquqeFHO6iB+KaLeL3MGreq4Q3AAAA//8=
+				eJzslMEKwkAMRKeibuuhH6QXveih+lP6kepBv8UstlBS
+K1mIbMF5MBTatJMs6QDEwrUAbqJ7kcf/Ib7PTN6EEEII
+IZ5Umf1nE+iBTIe4Cxfnb55FwVhbw38fo/c8oT72sHLu
+gRBN9080+L8MtubBr9HnvhZt4JODY7n3bfataId3XpWt
+Uncj9N6tDfVV77oXHdTzBex5uMR41uq5mw89HEUnDGcu
+MTyPoO53SuEFAAD//w==
 			)
 			(obstructions 
 				(format tile)

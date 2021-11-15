@@ -18,16 +18,16 @@
 	)
 	(zones 
 		(zone 
-			(label to46)
-			(script to46)
-		)
-		(zone 
 			(label to48)
 			(script to48)
 		)
 		(zone 
 			(label to49)
 			(script to49)
+		)
+		(zone 
+			(label to55)
+			(script to55)
 		)
 	)
 	(layers 
@@ -701,7 +701,7 @@ NUgBYusOvYu7AvQ+fjlNmqXv/kE4sif+j5iL1OgRwYe4
 					(height 128)
 				)
 				(zone 
-					(label to46)
+					(label to55)
 					(x 608)
 					(y 40)
 					(width 16)

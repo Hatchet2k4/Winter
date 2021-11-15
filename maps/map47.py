@@ -1,8 +1,8 @@
 
 import system
 
-def to46():
-    system.engine.mapSwitch('map46.ika-map', (25 * 16, 13.5 * 16))
+def to55():
+    system.engine.mapSwitch('map55.ika-map', (14 * 16, 38 * 16))
     
 def to48():
     offset_from = 81 * 16  # first horizontal pos possible

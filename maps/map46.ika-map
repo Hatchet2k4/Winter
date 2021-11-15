@@ -1,53 +1,57 @@
-(ika-map
+(ika-map 
 	(version 1.0)
-	(information
+	(information 
 		(title )
-		(meta
+		(meta 
 			(entityLayer B1)
-                        (music winter.ogg)
+			(music winter.ogg)
 		)
 	)
-	(header
-		(dimensions
+	(header 
+		(dimensions 
 			(width 480)
 			(height 240)
 		)
 		(tileset snowy.vsp)
 	)
-	(waypoints
+	(waypoints 
 	)
-	(zones
-		(zone
+	(zones 
+		(zone 
+			(label New Zone)
+			(script )
+		)
+		(zone 
 			(label to44)
 			(script to44)
 		)
-		(zone
-			(label to47)
-			(script to47)
+		(zone 
+			(label to49)
+			(script to49)
 		)
 	)
-	(layers
-		(layer
+	(layers 
+		(layer 
 			(label B0)
-			(dimensions
+			(dimensions 
 				(width 30)
 				(height 15)
 			)
-			(position
+			(position 
 				(x 0)
 				(y 0)
 			)
-			(parallax
+			(parallax 
 				(mulx 1)
 				(muly 1)
 				(divx 1)
 				(divy 1)
 			)
-			(wrap
+			(wrap 
 				(x false)
 				(y false)
 			)
-			(data
+			(data 
 				(format zlib)
 				eJx0VNFug0AMu1F4Wu/QyjpBh9RDfWKaprXqvmP//zcL
 ki1Mdn2wrg2XOHYCOYQwGZLhaHg3XAwZOBg6w7fhZpgN
@@ -62,137 +66,138 @@ ebSDnzpb3cdB4r6m16m+J1f/UV+lmSy83OtSXgltWHfP
 P1v258fFqgfcz+BOOKPoKdXx77W/0wqX7kJ03C/wenl2
 kDtaO0pMn+v3LhY41e8KPXCmi15+c5bzDwAA//8=
 			)
-			(obstructions
+			(obstructions 
 				(format tile)
 				eJxiYBgFQxsAAAAA//8=
 			)
-			(entities
+			(entities 
 			)
-			(zones
+			(zones 
 			)
 		)
-		(layer
+		(layer 
 			(label B1)
-			(dimensions
+			(dimensions 
 				(width 30)
 				(height 15)
 			)
-			(position
+			(position 
 				(x 0)
 				(y 0)
 			)
-			(parallax
+			(parallax 
 				(mulx 1)
 				(muly 1)
 				(divx 1)
 				(divy 1)
 			)
-			(wrap
+			(wrap 
 				(x false)
 				(y false)
 			)
-			(data
+			(data 
 				(format zlib)
-				eJzEkt0OwjAIhblq79UL48XUplXf/wlXokRyAqPOTL+E
-bGOUw0+JnhQaYwr+F4jBbyZ3u3W7B7mSeq9B7MPwVaXN
-uQ7O2fKqx+st6vnc7dLtSu+aWZv73HU7GXq6d10nDfgt
-XUH0+dwR4r0ZeTSy91Qcv+TD/XtEc0VNq36doy7URRA3
-qo2aWeVYSwv0cWbJjFqH17s3X80n+/KQOzWyJ0FqzlHg
-l+j+ZOZbazK4kwTPrWk/0lli/ydd2e8MAAD//w==
+				eJzEkj0OwjAMhT0lOzAgBoaoAY4CDMAC9z8KtsDiyYpx
+KCp80lPb1PXzT4keFOpjHbwvJsY+C5m1YW2DXAnuhyB2
+1zgbwFtyLZxvy7Mer7eo5z3rwDrSq2bxlj5nrFXDD3vH
+OqnjXDmxzqwLnKm/fLc08d6MPCq19yT1X1k3J5/dv0c0
+V+vZqh9ziHfPfxXNFbGeGXKMpQb+dmapGTUOr3dvvsgn
++/LQf6pnT4rWnKPAL8H+dOZTewp2J8lcp6b+yOcd8z/5
+6n7vAAAA//8=
 			)
-			(obstructions
+			(obstructions 
 				(format tile)
-				eJyEkEkOACAIA53/f9poFKEocgHTpout/YcKQ2HkJNIR
-nqezn0YTMU1iatkpeVxaMOcBZpka3Qv9j+OAdYAY3TWO
-iR7WK/lAOwAAAP//
+				eJyEj0EOACAIw+j/P200EYGJcjFmsG5m/+GlUWQ4f+Q6
+bCPm85JsEtVLEmcpSRiXFqxpRLV5q/uhbAcC3gFy9NA4
+J2rQ4NkHAAAA//8=
 			)
-			(entities
+			(entities 
 			)
-			(zones
-				(zone
-					(label to47)
-					(x 400)
-					(y 238)
-					(width 16)
-					(height 2)
-				)
-				(zone
+			(zones 
+				(zone 
 					(label to44)
 					(x 0)
 					(y 96)
 					(width 16)
 					(height 80)
 				)
+				(zone 
+					(label to49)
+					(x 353)
+					(y 48)
+					(width 16)
+					(height 16)
+				)
 			)
 		)
-		(layer
+		(layer 
 			(label A0)
-			(dimensions
+			(dimensions 
 				(width 30)
 				(height 15)
 			)
-			(position
+			(position 
 				(x 0)
 				(y 0)
 			)
-			(parallax
+			(parallax 
 				(mulx 1)
 				(muly 1)
 				(divx 1)
 				(divy 1)
 			)
-			(wrap
+			(wrap 
 				(x false)
 				(y false)
 			)
-			(data
+			(data 
 				(format zlib)
 				eJxiYBgFo2AUjIJRgA8w4ZFjgWJGGtnNikWMmQHhJiYG
 7O7jQ5LD535CAGQXC9Q8bHIgzAi1A6YGxuaAYnSwFYpp
 CRihmBPN3t1Y1AIAAAD//w==
 			)
-			(obstructions
+			(obstructions 
 				(format tile)
 				eJxiYBgFQxsAAAAA//8=
 			)
-			(entities
+			(entities 
 			)
-			(zones
+			(zones 
 			)
 		)
-		(layer
+		(layer 
 			(label A1)
-			(dimensions
+			(dimensions 
 				(width 30)
 				(height 15)
 			)
-			(position
+			(position 
 				(x 0)
 				(y 0)
 			)
-			(parallax
+			(parallax 
 				(mulx 1)
 				(muly 1)
 				(divx 1)
 				(divy 1)
 			)
-			(wrap
+			(wrap 
 				(x false)
 				(y false)
 			)
-			(data
+			(data 
 				(format zlib)
 				eJxiYBgFo2AUjIKhATjxyLEDMQcBNZTYi24uG9Q+dHW4
 3EWu2ziR9MMwNoBNDTuSnVxk2A1zMzF+QFYDA1w43E9s
 OKCrQ+ez49AngGQ/IxrGZjcAAAD//w==
 			)
-			(obstructions
+			(obstructions 
 				(format tile)
 				eJxiYBgFQxsAAAAA//8=
 			)
-			(entities
+			(entities 
 			)
-			(zones
+			(zones 
 			)
 		)
 	)
