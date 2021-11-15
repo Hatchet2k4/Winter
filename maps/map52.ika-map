@@ -3,14 +3,14 @@
 	(information 
 		(title )
 		(meta 
-			(entityLayer B1)
+			(entityLayer B2)
 			(music Waterfall.mp3)
 		)
 	)
 	(header 
 		(dimensions 
-			(width 320)
-			(height 640)
+			(width 640)
+			(height 720)
 		)
 		(tileset snowy.vsp)
 	)
