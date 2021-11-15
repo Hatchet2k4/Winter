@@ -9,8 +9,8 @@
 	)
 	(header 
 		(dimensions 
-			(width 560)
-			(height 640)
+			(width 640)
+			(height 240)
 		)
 		(tileset snowy.vsp)
 	)
@@ -18,12 +18,16 @@
 	)
 	(zones 
 		(zone 
+			(label Default Zone)
+			(script )
+		)
+		(zone 
 			(label to39)
 			(script to39)
 		)
 		(zone 
-			(label to42)
-			(script to42)
+			(label to41)
+			(script to41)
 		)
 	)
 	(layers 
@@ -142,18 +146,32 @@ QBJBkUY4GcmH2EIASYARpy0EAQAAAP//
 					(adj_activate_script )
 					(activate_script )
 				)
+				(entity 
+					(label c3)
+					(x 200)
+					(y 167)
+					(sprite carnivore.ika-sprite)
+					(speed 100)
+					(direction up)
+					(move_script )
+					(obstructs_entities true)
+					(obstructed_by_entities true)
+					(obstructed_by_map true)
+					(adj_activate_script )
+					(activate_script )
+				)
 			)
 			(zones 
 				(zone 
-					(label to42)
-					(x 48)
-					(y 624)
-					(width 462)
-					(height 16)
-				)
-				(zone 
 					(label to39)
 					(x 0)
+					(y 128)
+					(width 16)
+					(height 48)
+				)
+				(zone 
+					(label to41)
+					(x 624)
 					(y 128)
 					(width 16)
 					(height 48)

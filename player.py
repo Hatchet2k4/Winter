@@ -643,7 +643,7 @@ class Player(Entity):
                         e.hurt(int((self.stats.att + self.stats.mag) * 1.5) + ika.Random(-3, 3), 300, self.direction)
                 elif isinstance(e, IceWall):
                     # TODO: some sort of nice animation.
-                    setattr(savedata, e.flagName, 'Broken')
+                    setattr(savedata, e.flagName, 'True')
 
                     system.engine.destroyEntity(e)
                     system.engine.things.append(Caption('The ice melted!'))
@@ -834,11 +834,11 @@ class Player(Entity):
                     else:
                         e.hurt(int(self.stats.att + self.stats.mag) + ika.Random(1, int(self.stats.mag)), 300, d)
                 elif isinstance(e, IceWall):
-                    setattr(savedata, e.flagName, 'Broken')                    
+                    setattr(savedata, e.flagName, 'True')                    
                     system.engine.things.append(Caption('The ice melted!'))
                     destroyents.append(e)
                 elif isinstance(e, Crystal):
-                    setattr(savedata, e.flagName, 'Broken')                    
+                    setattr(savedata, e.flagName, 'True')                    
                     system.engine.things.append(Caption('The crystal reacted!'))
                     destroyents.append(e)                    
                 system.engine.addThing(Bolt(self.x+offsetx, self.y+offsety, 

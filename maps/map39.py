@@ -19,8 +19,11 @@ def to40():
     x = system.engine.player.x - offset_from + offset_to
     system.engine.mapSwitch('map40.ika-map', (x, 1 * 16))
     
-def to41():
+def to53():
     offset_from = 34 * 16  # first vertical pos possible
     offset_to = 8 * 16  # first vertical pos possible
     y = system.engine.player.y - offset_from + offset_to
-    system.engine.mapSwitch('map41.ika-map', (1 * 16, y))
+    system.engine.mapSwitch('map53.ika-map', (1 * 16, y))
+    
+    
+    

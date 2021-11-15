@@ -26,8 +26,8 @@
 			(script to40)
 		)
 		(zone 
-			(label to41)
-			(script to41)
+			(label to53)
+			(script to53)
 		)
 	)
 	(layers 
@@ -560,7 +560,7 @@ VG/jrNZu3vfLAwAA//8=
 			)
 			(zones 
 				(zone 
-					(label to41)
+					(label to53)
 					(x 624)
 					(y 544)
 					(width 16)

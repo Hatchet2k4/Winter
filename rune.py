@@ -39,7 +39,7 @@ class WaterRune(_Rune):
 class FireRune(_Rune):
     element = property(lambda self: 'Fire')
     effect = property(lambda self: 'Hearth Rend spell learned. (%s)' % displayControls['rend'])
-    effect2 = property(lambda self: 'Can melt certain ice blocks.')
+    effect2 = property(lambda self: 'Can melt ice blocks.')
 
 class WindRune(_Rune):
     element = property(lambda self: 'Wind')

@@ -18,12 +18,12 @@
 	)
 	(zones 
 		(zone 
-			(label to39)
-			(script to39)
-		)
-		(zone 
 			(label to42)
 			(script to42)
+		)
+		(zone 
+			(label to53)
+			(script to53)
 		)
 	)
 	(layers 
@@ -232,7 +232,7 @@ OT9BDgAAAP//
 					(height 16)
 				)
 				(zone 
-					(label to39)
+					(label to53)
 					(x 0)
 					(y 128)
 					(width 16)

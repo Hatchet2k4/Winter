@@ -118,7 +118,7 @@ class Boulder(_Obstacle):
             if tnt:
                 # TODO: explode animation here
                 setattr(savedata, tnt[0], 'False')
-                setattr(savedata, self.flagName, 'Broken')
+                setattr(savedata, self.flagName, 'True')
                 system.engine.player.stats.tnt-=1
                 system.engine.destroyEntity(self)
                 system.engine.things.append(Caption('Blew the rock apart!'))
