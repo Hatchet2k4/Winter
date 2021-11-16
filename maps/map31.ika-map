@@ -22,6 +22,10 @@
 			(script )
 		)
 		(zone 
+			(label nearEnd)
+			(script nearEnd)
+		)
+		(zone 
 			(label to30)
 			(script to30)
 		)
@@ -106,28 +110,29 @@ Pt0vGTvmQbEtNk5u0ifer3jGsl+zbo7YS86T0/TB+wg5
 			)
 			(data 
 				(format zlib)
-				eJykVttKA0EMnac+FMFFqVAEBfH2HX3WH6gKW4Vq9/8/
-wDk4gfSYZDN6ILSbyc5JJplsSvmNE0N3MHTA5Og1hoQN
-9j9L2EXvMy7omX3dtN+r5H7Z9ZtgTXxYVbls3NeO7cbR
-e5zrKudVnqo8GzbCCdvbGW74ua3yYviuOR/bPsJtYSjH
-ZyLcjPfGua+yc/YqjVOAfbhexU+uu6lx6+e3Kl/t+bPK
-q8Np5RS8Vh1oXi8X23J8nhavnG8hHomX8zEYtoyx/Jwv
-Yt0Z/mlORtQXlkonfun6Qm18NAFWSU6LV+4FuDnH0On6
-WtO6PHtnG/FqeD0N3PdVHkh/1/RRnMCCnrVvU8DLmOtf
-gM69jtXrO8vkvll+zRt9R6x77N2rDPiMGbJ3dJ88fw/B
-uteneP9sjhle3qI67uHN5tTi5Xcn+q/7B+4K359oTe+9
-KLmZRDAYvv0FmTMGj+Ro7qy9GHpi47jQc3kmEhuunZ47
-Fs0pp40zmonmgJz25OjQeMFpxaDnGp5xNKKcev6sHBs9
-12DmkO8v23JvyuZ7MGxltoEeMWK+Gks8WzHm5n6vjsf2
-K3HCXteJxNmTV66zpbM2Fj9GK6c9c7agx+/om/4fPaBz
-3tvHuF7w/jcAAAD//w==
+				eJykVttKBDEM7dM+LIKDssIiKIi379jX1efVVWFWQZ35
+/w+wh20ge0wyrR4IM00zPUmTdpLSbxwZusHQAaOj1+gq
+bLD+SYVd9D3jjMbs66o8LyrXq52/CubEh0WW88J96diu
+HL3HucxymuUhy6NhI5ywvZ7ghp/bLC+G75rzvqwj3Ba6
+dLgnws14L5yfWXbOWqlwCrAO16v4yXU3Fm49fsvyXcZf
+WV4dTiun4LXqQPN6udimw/20eGV/E/FIvJyPzrBl9Gm/
+v4h1Z/inORnRvTBXOvFL1xdq46MIsKjktHjlXICbcwyd
+rq8lzcvY29uIV8O708B9m+WO9DdFz3GuaTyjsfZtDHgZ
+U/cXoHOvY/Xunblal/3+C7/mjf4j1jn2zlUNeI8ZsnZ0
+njx/h2Deu6d4/docM7y8RXXs8Vr5rc2pxcvfjvSO2nrK
+8pz2Z4XPj0DmxJbXnqW6nkSAmDcN9qnYa36gZo/hp+Ro
+KsdWDGul36T2M4g7l3siseHasc6Yxxf1KceFM+qJpoCc
+ttTeUHjBad0Tuq/hHkcjyqnnz8Kx0X0Neg75/7It3021
+tdwZttLbQI8Y0V/1Ke6tGFN9v1fHfXlKnLDXdSJxtuSV
+62zuzPXJj9HKaUufLWjxO/qn/0cP6Jy33s9cL/j+BwAA
+//8=
 			)
 			(obstructions 
 				(format tile)
-				eJyskksSgDAIQ8n9L62jVBI+Xags+nuQlkzNPGARvP5I
-cZ8gIBhCt7y/cqFQhFjKqZwjQx1jEs2ls3JhlZ5VeMZK
-cyQJQanhsdafhR62tUqj38Y7diPr/fgZWkqNYcq03DpG
-J5pbN6k7iuI3faVO6a0xBwAAAP//
+				eJykk0kSgDAIBOn/f1rLhTADlYPmkEgaRpZKxLOIter3
+T8p9w4JUiJrVvnxRKEJV6qHrHlWiRYFBOUhfotMzmNw7
+tfpdQvCUpsfXtGY4SRsly556hzZFplKH0LJADatB0tLx
+JuWVobmLqVDNbWRsXHcU/2nYjFrTP76SAwAA//8=
 			)
 			(entities 
 				(entity 
@@ -174,6 +179,13 @@ J5pbN6k7iuI3faVO6a0xBwAAAP//
 					(width 176)
 					(height 16)
 				)
+				(zone 
+					(label nearEnd)
+					(x 176)
+					(y 260)
+					(width 80)
+					(height 20)
+				)
 			)
 		)
 		(layer 
@@ -198,13 +210,14 @@ J5pbN6k7iuI3faVO6a0xBwAAAP//
 			)
 			(data 
 				(format zlib)
-				eJzUlk0Kg0AMhbOTrqVX6UK7iJv2/jdyBKVDmGRifsR+
-MAgOGRNf8hTgxwtymcqaG/ffynhrfljWYozd0OZH+ZT1
-dTw3E06LbBB0WkTnp9UCwdcrVjy9cszFIygXLda56HGX
-3hz26xnfseTOaU/fr3Q2Ql7fSmd7PW4Q9riztxiu1+u9
-6O/ZWNZTsZc1F9lE+4ek7YFFowh/6GnUyguBn4O6Vk1N
-Z/6FpDnoxVIQfD6h0bTFnf+FOKy1avH6kxQv7dE+oXX2
-8qrjqWd4vO8K38zW9N9ZAQAA//8=
+				eJzUlsEOwjAIhrktno2v4kE94EXP0/d/F7vExgZb+g+K
+mV9Clqyjpf2BlejDkWI5JTtX3l9Af2t8nOxq9F1A45Pc
+kt0d60bS0iIaJkyL0fGhWjD5csWKJ1dyXewGxYJirYse
+W8nN6f1c03cssbe0l+erzc0Ul7fa3N4eNyljrbkXn1au
+l2Oj/2f7ZAdgLKouosnn9kj2BH20bzVtM6VGM7hmroO5
+s75GT6Na7jB910GOudwrkndr7kJaHfR8JUy+PoFoWmPL
+d6EW1r2iePuT5q+NyTyR++zFVfrLPuzpfb/om9Ga/jsv
+AAAA//8=
 			)
 			(obstructions 
 				(format tile)

@@ -5,6 +5,19 @@ from snow import Snow
 def AutoExec():
     system.engine.mapThings.append(Snow(velocity=(0, 0.5)))    
 
+def nearEnd():
+    system.engine.things.append(CabinListener())
+
+class CabinListener(object):
+    def update(self):
+        if 'nearend' not in savedata.__dict__:
+            cabin.scene('nearend') #automatically adds scene to savedata
+            return True
+
+    def draw(self):
+        pass
+
+
 def to30():
     x = system.engine.player.x - 160
     system.engine.mapSwitch('map30.ika-map', (6 * 16 + x, 16))

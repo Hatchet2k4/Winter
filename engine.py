@@ -242,7 +242,7 @@ class Engine(object):
 
             self.camera.center()
         
-        #if self.player:
+        
         automap.map.update()
         if automap.map.maptype == 'cave':
             self.mapThings.append(Darkglow())
@@ -295,7 +295,7 @@ class Engine(object):
                 if controls.loadstate():
                     self.LoadState()
                 
-                if controls.showmap():
+                if controls.showmap() or controls.joy_showmap():
                     self.ShowMap()
 
                 if controls.speedhack():

@@ -214,19 +214,20 @@ def intro():
 
     tint.tint = 200
 
-    narration("""Across the frozen hills of the province of Kuladriat, a simple man was returning home from \
-a long journey. Even dressed in his warmest cloak, he could feel the stinging wind chilling him right down to his bones.""")
-    narration("""Undaunted, he travelled ever-northward. He needed only traverse the final peaks of Mount Durinar.  As he neared his destination, suddenly... """)
+    narration("""Across the frozen hills of the province of Kuladriat, a simple man was returning home from a long journey. Even dressed in his warmest cloak, he could feel the stinging wind chilling him right down to his bones.""")
+    narration("""Undaunted, he travelled ever-northward. He needed only to traverse the treacherous Mount Durinar, his small village resting on the other side, at the foot of the mountain.""")
+    narration("""Though the bridges and roads here had long been abandoned to time, there were still stories told of lost magic, hidden somewhere within those frigid peaks.""")          
+    narration("""Thoughts of a warm fire and full body filled his head as he neared his destination, but suddenly...""")
 
     animate(kid3, (0, 1), delay=20, text="Oh no!!")
 
-    narration("""The howls of a razormane pack startled him, and just as suddenly they gave chase. Even with his sword in hand, he would be no match for a full pack for the wolf-like animals. He was forced to flee.""")
+    narration("""The howls of a razormane pack at the top of a steep hill startled him, and just as abruptly they began to give chase, moving swiftly and easily through the snow. Even with his sword in hand, he would be no match for a full pack of the wolf-like beasts.""")
 
-    narration("""The wild animals led him to the edge of a cliff. Before he could stop himself, his boots lost their grip on the ice, and he tumbled down into a ravine.""")
+    narration("""He was forced to flee, and the pack pursued him right to the edge of a cliff. Before he could stop himself, his boots lost their grip on the ice, and he tumbled down into a ravine.""")
     
     tint.tint = 0
 
-    narration("""They did not follow, the cliff face far too steep to climb back up, and they left him to his fate...""")
+    narration("""They did not follow. The cliff face was far too steep to climb back up, and so they left him to his fate...""")
 
 
 
@@ -241,34 +242,40 @@ If only there were some way to breach it...""")
 
 def nearend():
     
-    tint.tint = 200
-    
-    narration("""\
-As he neared his journey's end, he grew tired, and cold, and hungry.""")
+    tint.tint = 200    
+    narration("""As he neared his journey's end, he grew even more tired, cold, and hungry. And yet, there were still more obstacles before him, ones that even his newfound power could not breach. """)
 
-    narration("""He was willing to do anything to make such neverending \
-misery cease, once and for all.""")
 
-    narration("""\
-He considered... going back from whence he came, then.""")
+    narration("""He considered... perhaps the only way forward, was to go back from whence he came.""")
 
-    narration("""But, if he were to do so, he would then have to face the \
-same trials which had taken such a weary toll on his spirit to begin with.""")
+    narration("""There must have been something he missed. Perhaps if he returned to where he found the runes he carried, there may be some clue.""")
 
     tint.tint = 0
     
     speech(kid1, 'Did he go back?')
     speech(kid2, 'Yeah!')
-    speech(kid3, "No way! He's way too brave!! Yeah!!")
+    speech(kid3, "He must have, he wouldn't have given up!!")
     
-    narration("""\
-In the end, no one knows whether he attempted to return... all that is important \
-is the outcome.""")
+    narration("""He had no choice. He would continue to search the mountain for some way forward. His desire to return home was unwavering... """)
 
-    narration("""But should he have gone back, he would have found the greatest reward \
-of all.  Not peace... and not relief... but courage.  The courage to continue again.""")
+def soulbattle():
+    tint.tint = 200    
+    narration("""As he held the final rune above his head, he knew that he finally had the power to continue. The power to leave these lonely mountains and return home. """)
 
+    narration("""He hoped there would be no further trials awaiting him... yet knew in his heart that these cursed peaks were not done with him yet...""")
 
+    tint.tint = 0
+
+def ending():
+    tint.tint = 0    
+    narration("""And so, he finally, could see the glwoing windows and lit fires of his hometown. He had done it. It had taken all of his effort, but he had conquered the trials this infernal place had left him. """)
+    speech(kid1, 'Yay!')
+    speech(kid2, 'I knew he could do it!')
+    speech(kid3, "Yeah, I wasn't worried at all!")
+    speech(kid2, 'Wait a minute...')
+    narration("""With a renewed sense of vigor and purpose, he descended. Finally, he could go home.""")
+
+   
 
 #------------------------------------------------------------------------------
 # Setup
