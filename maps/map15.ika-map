@@ -319,8 +319,8 @@ grFy7GkXei/r9TD3NCd6v9WkuevsywcAAP//
 		(layer 
 			(label A1)
 			(dimensions 
-				(width 100)
-				(height 100)
+				(width 30)
+				(height 45)
 			)
 			(position 
 				(x 0)
@@ -338,15 +338,13 @@ grFy7GkXei/r9TD3NCd6v9WkuevsywcAAP//
 			)
 			(data 
 				(format zlib)
-				eJzs0csJgEAQRMGJyh+umn9ULuxpApARtgr6/qAjAAAA
-AAAAgNkt1QEkZ3UAAAAAQLG1b6uOILli/LKHb/6i9d0x
-vmEOR3UAyVMdAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AMDnXgAAAP//
+				eJzszskNACAMA8FUxSWu/qsij1TAxwjtSH6vzQAAADSS
+qNtFXQB4VfYVUXtGvwo+DN+KD79pou4WdQHgxgEAAP//
+
 			)
 			(obstructions 
 				(format tile)
-				eJzswQENAAAAwqD3T20ON6AAAAAAAAAAAADg3wAAAP//
-
+				eJxiYBgFo2AUjIJRQD4AAAAA//8=
 			)
 			(entities 
 			)

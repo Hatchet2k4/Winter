@@ -130,20 +130,21 @@ class Engine(object):
         if saveData:
             # evil
             self.resetTime(saveData.seconds,saveData.minutes,saveData.hours)
-            self.mapSwitch(saveData.mapName, None, fade=False)
+            saveData.setFlags() # hack so the save flags can remove obstacles properly
+            self.mapSwitch(saveData.mapName, None, fade=False, newgame=True)
         else:
             self.resetTime()
-            self.mapSwitch(START_MAP, None, fade=False)
+            self.mapSwitch(START_MAP, None, fade=False, newgame=True)
 
         if not self.player:
             self.player = Player()
             if not saveData:
-                self.player.ent.specframe=74 #haaack
+                self.player.ent.specframe=74 #haaack for intro animation
         self.addEntity(self.player)
 
         if saveData:
-            self.player.x, self.player.y, self.player.layer = saveData.pos
-            saveData.setCurrent() # set stats, flags
+            saveData.setCurrent()
+            self.player.x, self.player.y, self.player.layer = saveData.pos            
         else:
             self.player.x, self.player.y = START_POS
             lay = ika.Map.GetMetaData()['entityLayer']
@@ -186,13 +187,13 @@ class Engine(object):
         if result:
             bleh = effects.createBlurImages()
             saveload.SaveGame.clearSaveFlags()
-            self.mapSwitch(result.mapName, result.pos,  fade=False)
+            #self.mapSwitch(result.mapName, result.pos,  fade=False, newgame=True)
             self.init(result)
             self.draw()
             effects.blurFade(50, bleh, effects.createBlurImages())
             self.run()
 
-    def mapSwitch(self, mapName, dest = None, fade = True):
+    def mapSwitch(self, mapName, dest = None, fade = True, newgame=False):
         
         if fade:
             self.draw()
@@ -206,6 +207,9 @@ class Engine(object):
         self.mapThings = []
         self.fields = []
         ika.Map.entities.clear()
+        
+        
+
 
         # drop the extension, convert slashes to dots, and prepend the maps package
         # ie 'blah/map42.ika-map' becomes 'maps.blah.map42'
@@ -214,9 +218,16 @@ class Engine(object):
         ika.Map.Switch(mapName)
         metaData = ika.Map.GetMetaData()
         
+        if self.player:
+            self.killList= self.entities[:]                        
+            self.killList.remove(self.player)            
+            self.clearKillQueue()
+
 
         self.readZones(mapModule)
+        
         self.readEnts(mapModule)
+        
         if self.player:
             self.player.state = self.player.defaultState()
         if dest and self.player:
@@ -400,19 +411,15 @@ class Engine(object):
             for (x, y, w, h, script) in zones:
                 self.addField(Field((x,y,w,h), i, mapModule.__dict__[script]))
 
-    def readEnts(self, mapModule):
+    def readEnts(self, mapModule, clearents=True):
         '''Grabs all entities from the map, and adds them to the engine.'''
 
-        # making a gamble here: assuming all entities except the player are tied to the map
-        if self.player:
-            self.killList= self.entities[:]            
-            
-            self.killList.remove(self.player)            
-            self.clearKillQueue()
+
 
         for ent in ika.Map.entities.itervalues():
             try:
                 self.addEntity(spawnMap[ent.sprite](ent))
+                #print 'Added ' + ent.sprite
             except KeyError:
                 print 'Unknown entity sprite %s.  Ignoring.' % ent.sprite
 
@@ -490,6 +497,7 @@ class Engine(object):
     def SaveState(self):        
         s = SaveGame.currentGame()
         s.save('quicksave')
+        system.engine.things.append(Caption('Quicksaved!'))
         
     def LoadState(self):       
         try:

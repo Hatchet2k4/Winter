@@ -14,9 +14,12 @@ class _Obstacle(Entity):
         self.flagName = ent.name
         Entity.__init__(self, ent, anim)
         self.invincible = True
+        print self.flagName + ' inited'    
 
         if self.flagName in savedata.__dict__:
+            print 'Removed ' + self.flagName
             self.remove()
+            
 
     def remove(self):
         self.x = self.y = -100

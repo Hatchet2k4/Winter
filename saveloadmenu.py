@@ -12,7 +12,7 @@ from xi import gui, layout
 
 import controls
 from snow import Snow
-
+from caption import Caption
 
 
 debug = True
@@ -212,9 +212,12 @@ def saveMenu():
                     f.close()
                 except IOError: #found a slot that doesn't exist
                     s.save('Save %i' % j)
+                    system.engine.things.append(Caption('Game saved.', duration=100))
                     break
         else:
             s.save('Save %i' % i)
+            system.engine.things.append(Caption('Game saved.', duration=100))
 
     xi.effects.fadeOut(50, draw=draw)
+    
 

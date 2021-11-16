@@ -203,7 +203,7 @@ class MenuWindow(Menu):
             #'Load Game',
             'Show Damage: ' + ('OFF', 'ON ')[system.engine.player.stats.damageind],
             'Set Controls',
-            'Exit')
+            'Exit to Title')
         self.autoSize()
         self.Border = self.textCtrl.wnd.iLeft.width
 
@@ -365,7 +365,7 @@ class PauseScreen(object):
 
     def toggleDamage(self):
         system.engine.player.stats.damageind = (1, 0)[system.engine.player.stats.damageind]
-        self.menu.textCtrl.text.setText(['Resume','Show Damage: ' + ('OFF', 'ON ')[system.engine.player.stats.damageind], 'Exit'])
+        self.menu.textCtrl.text.setText(['Resume','Show Damage: ' + ('OFF', 'ON ')[system.engine.player.stats.damageind], 'Set Controls', 'Exit to Title'])
 
     def setControls(self):
         self.hide(usebackground=True)
@@ -375,7 +375,17 @@ class PauseScreen(object):
            
     def exitGame(self):
         # TODO: shiny fade out
+        
+        
         raise EndGameException
+
+class ExitWindow(Menu):
+    def __init__(self):
+        Menu.__init__(self, textctrl=ScrollableTextFrame())
+        self.addText(
+            'Yes',  'No')
+        self.autoSize()
+        self.Border = self.textCtrl.wnd.iLeft.width
 
 _initted = False
 
