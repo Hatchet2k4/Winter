@@ -46,10 +46,7 @@ def breakIceRun():
                 
     ika.Map.entities['icechunks1'].layer = 3
 
-def story04():
-    if 'waterrune' in savedata.__dict__ and 'story_4' not in savedata.__dict__: 
-      cabin.scene('story_4')
-      system.engine.camera.center()
+
       
 
 def spawnpack():
@@ -58,6 +55,8 @@ def spawnpack():
         e = [
         RazorMane(ika.Entity(15* 16, 29 * 16, system.engine.player.layer, 'razormane.ika-sprite')),
         RazorMane(ika.Entity(11* 16, 31 * 16, system.engine.player.layer, 'razormane.ika-sprite')),
+        RazorMane(ika.Entity(14* 16, 7 * 16, system.engine.player.layer, 'razormane.ika-sprite')),
+        RazorMane(ika.Entity(16* 16, 8 * 16, system.engine.player.layer, 'razormane.ika-sprite')),
         RazorMane(ika.Entity(19* 16, 29 * 16, system.engine.player.layer, 'razormane.ika-sprite'))
         ]
         for en in e:

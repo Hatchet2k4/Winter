@@ -2,9 +2,16 @@
 import system
 
 from snow import Snow
+import cabin
+import savedata
 
 def AutoExec():
     system.engine.mapThings.append(Snow(5000, velocity=(-.5, 2)))
+
+def story_water():
+    if 'waterrune' in savedata.__dict__ and 'story_water' not in savedata.__dict__: 
+      cabin.scene('story_water')      
+      system.engine.camera.center()
     
 def to2():
     offset_from = 6 * 16  # first horizontal pos possible

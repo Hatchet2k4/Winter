@@ -18,6 +18,10 @@
 	)
 	(zones 
 		(zone 
+			(label story_fire)
+			(script story_fire)
+		)
+		(zone 
 			(label to10)
 			(script to10)
 		)
@@ -260,8 +264,8 @@ yKGR5rWg8qIU+Mh6FP3rSk8yGZRmtI/ZqSYzaCz3WL3x
 				)
 				(entity 
 					(label r0)
-					(x 122)
-					(y 64)
+					(x 184)
+					(y 164)
 					(sprite razormane.ika-sprite)
 					(speed 100)
 					(direction up)
@@ -287,6 +291,13 @@ yKGR5rWg8qIU+Mh6FP3rSk8yGZRmtI/ZqSYzaCz3WL3x
 					(y 0)
 					(width 176)
 					(height 16)
+				)
+				(zone 
+					(label story_fire)
+					(x 31)
+					(y 39)
+					(width 191)
+					(height 12)
 				)
 			)
 		)

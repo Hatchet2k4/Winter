@@ -4,7 +4,7 @@
 		(title )
 		(meta 
 			(entityLayer B1)
-                        (music winter.ogg)
+			(music winter.ogg)
 		)
 	)
 	(header 
@@ -17,6 +17,10 @@
 	(waypoints 
 	)
 	(zones 
+		(zone 
+			(label rune_of_water)
+			(script story_water)
+		)
 		(zone 
 			(label to2)
 			(script to2)
@@ -370,23 +374,9 @@ VAJS4y6byAnuWqhXOvJO4Iv2AQAA//8=
 					(activate_script )
 				)
 				(entity 
-					(label a16)
-					(x 250)
-					(y 110)
-					(sprite anklebiter.ika-sprite)
-					(speed 100)
-					(direction up)
-					(move_script )
-					(obstructs_entities true)
-					(obstructed_by_entities true)
-					(obstructed_by_map true)
-					(adj_activate_script )
-					(activate_script )
-				)
-				(entity 
 					(label a20)
-					(x 160)
-					(y 144)
+					(x 748)
+					(y 128)
 					(sprite anklebiter.ika-sprite)
 					(speed 100)
 					(direction up)
@@ -426,6 +416,13 @@ VAJS4y6byAnuWqhXOvJO4Iv2AQAA//8=
 					(y 96)
 					(width 16)
 					(height 176)
+				)
+				(zone 
+					(label rune_of_water)
+					(x 100)
+					(y 57)
+					(width 185)
+					(height 15)
 				)
 			)
 		)
