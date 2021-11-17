@@ -283,7 +283,7 @@ Finally, he could go home.""")
 def story_4():
     tint.tint = 200    
     narration("""Somehow, he had managed to survive the return of the razormane pack. There was something magical about this place that seemed to make him stronger with every battle he fought. """)
-    narration("""He looked at the magical rune he now held, that seemed surrounded by chilled vapors, and yet also glowed with a life giving power. Perhaps, he thought, these runes were the key to escaping these mountains...""")
+    narration("""He looked at the magical rune he held, surrounded by wisps of vapor, and glowing with life giving power. Perhaps, he thought, this rune was one of the keys to escaping these mountains...""")
     tint.tint = 0    
 #------------------------------------------------------------------------------
 # Setup

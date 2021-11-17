@@ -6,7 +6,7 @@ from thing import Thing
 from yeti import Yeti
 from soulreaver import SoulReaver
 from razormane import RazorMane
-
+from rune import WaterRune
 from snow import Snow
 import cabin
 
@@ -49,11 +49,26 @@ def breakIceRun():
 def story04():
     if 'waterrune' in savedata.__dict__ and 'story_4' not in savedata.__dict__: 
       cabin.scene('story_4')
-      engine.camera.center()
+      system.engine.camera.center()
+      
+
+def spawnpack():
+    if 'waterrune' not in savedata.__dict__ and 'pack' not in savedata.__dict__:      
+        savedata.pack = 'True' 
+        e = [
+        RazorMane(ika.Entity(15* 16, 29 * 16, system.engine.player.layer, 'razormane.ika-sprite')),
+        RazorMane(ika.Entity(11* 16, 31 * 16, system.engine.player.layer, 'razormane.ika-sprite')),
+        RazorMane(ika.Entity(19* 16, 29 * 16, system.engine.player.layer, 'razormane.ika-sprite'))
+        ]
+        for en in e:
+            system.engine.addEntity(en)                
+        system.engine.mapThings.append(DeathListener(e))
+        sound.playMusic("music/competative.xm")    
+        sound.razorManeStrike.Play()
+        
 
 
 class DeathListener(Thing): #for initial wolves battle
-
     def __init__(self, e=None):
         self.enemies = e
 
@@ -64,6 +79,9 @@ class DeathListener(Thing): #for initial wolves battle
                 done = False
         if done: #all are dead
             sound.playMusic("music/wind.ogg")
+            e = ika.Entity(245, 262, 4, 'waterrune.ika-sprite')
+            e.name = 'waterrune'
+            system.engine.addEntity(WaterRune(e))                                    
             return True
 
     def draw(self):
@@ -91,19 +109,7 @@ class RuneListener(object):
             system.engine.addEntity(y)
             system.engine.mapThings.append(DeathListener2(y))
             return True
-        elif 'waterrune' in savedata.__dict__ and 'nearend' not in savedata.__dict__:            
-            e = [
-            RazorMane(ika.Entity(15* 16, 29 * 16, system.engine.player.layer, 'razormane.ika-sprite')),
-            RazorMane(ika.Entity(11* 16, 31 * 16, system.engine.player.layer, 'razormane.ika-sprite')),
-            RazorMane(ika.Entity(19* 16, 29 * 16, system.engine.player.layer, 'razormane.ika-sprite'))
-            ]
-            for en in e:
-                system.engine.addEntity(en)                
-            system.engine.mapThings.append(DeathListener(e))
-            sound.playMusic("music/competative.xm")    
-            sound.razorManeStrike.Play()
-            
-            return True
+
 
     def draw(self):
         pass

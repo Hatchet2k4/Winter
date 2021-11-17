@@ -26,6 +26,10 @@
 			(script story04)
 		)
 		(zone 
+			(label spawnpack)
+			(script spawnpack)
+		)
+		(zone 
 			(label to3)
 			(script to3)
 		)
@@ -256,20 +260,6 @@ fH92PhXM/uZ8MYSGFa2N/Ob6BCZODwKagO6ferWFuw3F
 					(adj_activate_script )
 					(activate_script )
 				)
-				(entity 
-					(label waterrune)
-					(x 245)
-					(y 262)
-					(sprite waterrune.ika-sprite)
-					(speed 100)
-					(direction up)
-					(move_script )
-					(obstructs_entities true)
-					(obstructed_by_entities true)
-					(obstructed_by_map true)
-					(adj_activate_script )
-					(activate_script )
-				)
 			)
 			(zones 
 				(zone 
@@ -299,6 +289,13 @@ fH92PhXM/uZ8MYSGFa2N/Ob6BCZODwKagO6ferWFuw3F
 					(y 594)
 					(width 117)
 					(height 10)
+				)
+				(zone 
+					(label spawnpack)
+					(x 80)
+					(y 340)
+					(width 338)
+					(height 27)
 				)
 			)
 		)

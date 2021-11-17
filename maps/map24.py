@@ -7,7 +7,6 @@ from thing import Thing
 from rune import CowardRune
 import sound
 from soulreaver import SoulReaver
-from rune import CowardRune
 from obstacle import Crystal
 
 def AutoExec():    
