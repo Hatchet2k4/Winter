@@ -150,12 +150,12 @@ def scene(name):
     kid2 = ika.Map.entities['kid2']
     kid3 = ika.Map.entities['kid3']
 
-    xi.effects.fadeIn(100)
+    xi.effects.fadeIn(50)
 
     _scenes[name]()
     setattr(savedata, name, 'True')
 
-    xi.effects.fadeOut(100)
+    xi.effects.fadeOut(50)
 
     grandpa = kid1 = kid2 = kid3 = None
 
@@ -211,66 +211,59 @@ def intro():
     animate(kid2, (0, 1), delay=20, text='Please tell us!')
     speech(grandpa, 'Oh all right.  Ahem.')
     animate(kid3, (0, 1), delay=20, text="I'm a little scared...")
-
     tint.tint = 200
-
     narration("""Across the frozen hills of the province of Kuladriat, a simple man was returning home from a long journey. Even dressed in his warmest cloak, he could feel the stinging wind chilling him right down to his bones.""")
-    narration("""Undaunted, he travelled ever-northward. He needed only to traverse the treacherous Mount Durinar. He knew that his little village he called home awaited him on the other side.""")
+    narration("""Undaunted, he travelled ever-northward, the wintery air freezing in his throat. He needed only to traverse the treacherous Mount Durinar to complete his journey, his small village awaiting him on the other side.""")
     narration("""Though the bridges and roads built upon the mountain's cliffs had long since been abandoned to time, there were still stories told of lost magic, hidden somewhere within those frigid peaks.""")          
     narration("""As he climbed, the thoughts of enjoying a warm fire and hearty meal filled his head. But he was shocked out of his daydreams when suddenly...""")
-
     animate(kid3, (0, 1), delay=20, text="Oh no!!")
-
     narration("""The howls of a razormane pack at the top of a steep hill startled him, and just as abruptly they began to give chase, moving swiftly and easily through the snow.""")
-
-    narration("""The cold air felt sharp in his throat as he ran. Even with his sword in hand, he knew he would be no match against the ravenous beasts.""")
-
-    narration("""He was forced to flee, and the pack pursued him right to the edge of a cliff. Before he could stop himself, his boots lost their grip on the ice, and he tumbled down into a ravine.""")
-    
+    narration("""His breaths came in chilled, raspy gasps as he ran. Even with his sword in hand, he knew he would be no match against the ravenous beasts.""")
+    narration("""Before long, the pack pursued him right to the edge of a cliff. Pushed up to the endge, he turned to face his predators, but his boots lost their grip on the ice and he slipped.""")
+    narration("""With an echoing scream, he fell, the sounds of stones crashing around him as he tumbled down into a ravine.""")    
     tint.tint = 0
+    narration("""The Razormanes did not follow. The cliff face was far too steep to climb back up, and so they seemingly left him to his fate...""")
 
-    narration("""They did not follow. The cliff face was far too steep to climb back up, and so they left him to his fate...""")
-
-
-
-def impasse():
-    narration("""\
-The stone walls seemed to draw in closer, choking the very breath \
-from him; the way was sealed.  However, as despair welled within \
-him, a glint of hope shone through as light through the gelid rock.  \
-If only there were some way to breach it...""")
-
-
-
-def nearend():
-    
+def story_water():
     tint.tint = 200    
-    narration("""As he neared his journey's end, he grew even more tired, cold, and hungry. And yet, there were still more obstacles before him, ones that even his newfound power could not breach. """)
-
-
-    narration("""He considered... perhaps the only way forward, was to go back from whence he came.""")
-
-    narration("""There must have been something he missed. Perhaps if he returned to where he found the runes he carried, there may be some clue.""")
-
-    tint.tint = 0
+    narration("""Somehow, he had managed to survive the return of the Razormane pack. It seemed there was something magical about this place that had the effect of make him stronger with every battle he fought. """)    
+    narration("""He looked down at the magical rune he now held, surrounded by wisps of vapor, and glowing with life giving power.""")
+    narration("""Perhaps, he thought, this rune was one of the keys to finding his way through the labyrinth of these mountains...""")
+    tint.tint = 0    
     
+    
+def story_fire():
+    tint.tint = 200    
+    narration("""The battle with the Yeti was fierce, but again the man prevailed. And for his trouble, he had discovered another rune.""")
+    narration("""Surely, this would allow him to open up new paths to explore. """)
+    tint.tint = 0    
+
+def story_wind():
+    tint.tint = 200    
+    narration("""At last, he had found another rune, and as it glowed in his hands, he felt lighter than air.""")
+    narration("""With both physical and emotional weight lifting from his shoulders, he felt like now there was nowhere he could not reach.""")
+        
+
+def nearend():    
+    tint.tint = 200    
+    narration("""As he neared his journey's end, he once again began to grow tired, cold, and hungry. And yet, there were still more obstacles before him, ones that even his newfound powers could not breach.""")
+    narration("""He considered... perhaps the only way forward, was to go back from whence he came.""")
+    narration("""There must have been something he missed. Perhaps if he returned to where he found the runes he carried, there may be some additional clues.""")
+    tint.tint = 0    
     speech(kid1, 'Did he go back?')
     speech(kid2, 'Yeah!')
-    speech(kid3, "He must have, he wouldn't have given up!!")
-    
-    narration("""He had no choice. He would continue to search the mountain for some way forward. His desire to return home was unwavering... """)
+    speech(kid3, "He must have, he wouldn't have given up!!")    
+    narration("""He had no choice. He would continue to search the mountains for some way forward. His desire to return home was unwavering... """)
 
 def forebattle():
     tint.tint = 200    
-    narration("""As he held the final rune above his head, he knew that he finally had the power to continue. The power to leave these lonely mountains and return home. """)
-
-    narration("""He hoped there would be no further trials awaiting him... yet knew in his heart that these cursed peaks were not done with him yet...""")
-
+    narration("""As he held what must be the final rune above his head, he somehow knew that he finally had the power to continue. The power to leave these lonely mountains and return home. """)
+    narration("""He hoped there would be no further trials awaiting him... yet in his heart he believed that these cursed peaks were not quite done with him yet...""")
     tint.tint = 0
 
 def epilogue():
     tint.tint = 0    
-    narration("""And so, he finally, could see the glwoing windows and lit fires of his hometown. He had done it. It had taken all of his effort, but he had conquered the trials this infernal place had left him. """)
+    narration("""And so, finally, he could see the glowing windows and lit fires of his hometown. He had done it. It had taken all of his effort, but he had conquered the trials of infernal place. """)
     speech(kid1, 'Yay!')
     speech(kid2, 'I knew he could do it!')
     speech(kid3, "Yeah, I wasn't worried at all!")
@@ -280,19 +273,16 @@ def epilogue():
 Finally, he could go home.""")
 
    
-def story_4():
-    tint.tint = 200    
-    narration("""Somehow, he had managed to survive the return of the razormane pack. There was something magical about this place that seemed to make him stronger with every battle he fought. """)
-    narration("""He looked at the magical rune he held, surrounded by wisps of vapor, and glowing with life giving power. Perhaps, he thought, this rune was one of the keys to escaping these mountains...""")
-    tint.tint = 0    
+
+    
 #------------------------------------------------------------------------------
 # Setup
 #------------------------------------------------------------------------------
 
 addScene(intro)
-addScene(story_4)
-#addScene(rune_of_fire)
-#addScene(rune_of_wind)
+addScene(story_water)
+addScene(story_fire)
+addScene(story_wind)
 #addScene(impasse)
 addScene(nearend)
 addScene(forebattle)

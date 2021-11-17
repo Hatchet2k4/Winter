@@ -106,20 +106,23 @@ class RazorMane(Enemy):
     def hurtState(self, recoilSpeed, recoilDir):
         if self.stats.hp > 0:
             sound.razorManeHurt.Play()
-        if self.stats.hp < self.stats.maxhp / 2:
-            self.mood = self.fleeMood
+        #if self.stats.hp < self.stats.maxhp / 2:
+        #    self.mood = self.fleeMood
         return super(RazorMane, self).hurtState(recoilSpeed, recoilDir)
 
     def die(self, *args):
         # When one dies, the others scatter
 
         ents = [system.engine.entFromEnt[x] for x in
-            ika.EntitiesAt(self.x - 50, self.y - 50, 100, 100, self.layer)
+            ika.EntitiesAt(self.x - 60, self.y - 60, 120, 120, self.layer)
             if x in system.engine.entFromEnt]
         allies = filter(lambda e: isinstance(e, RazorMane) and e.stats.hp > 0, ents)
 
         for a in allies:
-            a.mood = a.fleeMood
+            if ika.Random(0, 2) > 0:
+                a.mood = a.fleeMood
+            else:
+                a.mood = a.attackMood #50% chance of more random aggression!
             a.state = a.idleState()
 
         super(RazorMane, self).die(*args)
@@ -133,10 +136,10 @@ class RazorMane(Enemy):
         return math.hypot(p.x - self.x - 10, p.y - self.y - 7)
 
     def attackMood(self):
-        for q in range(5):
+        for q in range(ika.Random(1, 5)):
             d = self.playerDir()
             dist = self.playerDist()
-            if dist < 40:
+            if dist <= 48:
                 yield self.attackState(d)
                 yield self.idleState(20)
             else:
@@ -150,25 +153,25 @@ class RazorMane(Enemy):
             d = self.playerDir()
             dist = self.playerDist()
 
-            if dist - DIST > 60:
+            if dist - DIST > 48:
                 # get closer
                 n = dist - DIST - 1
                 yield self.walkState(d, ika.Random(int(n / 2), n))
 
-                yield self.idleState(60)
+                yield self.idleState(40)
             elif dist < DIST:
                 # fall back
 
                 yield self.walkState(dir.invert[d], min(80, DIST - dist))
                 self.direction = d
-                yield self.idleState(60)
+                yield self.idleState(40)
             else:
                 self.mood = self.attackMood
                 yield self.idleState(1)
 
     def fleeMood(self):
-        MIN_DIST = 150
-        for q in range(5):
+        MIN_DIST = 96
+        for q in range(4):
             d = self.playerDir()
             dist = self.playerDist()
 
@@ -188,7 +191,7 @@ class RazorMane(Enemy):
 
             yield self.idleState()
 
-            if dist < 150:
+            if dist < 192:
                 self.mood = self.stalkMood
                 yield self.idleState()
                 break
