@@ -4,7 +4,7 @@
 		(title )
 		(meta 
 			(entityLayer B2)
-                        (music winter.ogg)
+			(music winter.ogg)
 		)
 	)
 	(header 
@@ -18,8 +18,8 @@
 	)
 	(zones 
 		(zone 
-			(label to2)
-			(script to2)
+			(label to20)
+			(script to20)
 		)
 		(zone 
 			(label to7)
@@ -394,7 +394,7 @@ vUB33IpwnDg+AAAA//8=
 					(height 64)
 				)
 				(zone 
-					(label to2)
+					(label to20)
 					(x 256)
 					(y 624)
 					(width 160)

@@ -3,8 +3,7 @@
 	(information 
 		(title )
 		(meta 
-			(entityLayer B1)
-			(mapname Base of mount Durinar)
+			(entityLayer B1)			
 			(music winter.ogg)
 		)
 	)

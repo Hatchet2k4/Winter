@@ -16,7 +16,7 @@ def to20():
     system.engine.mapSwitch('map20.ika-map', (22*16, 12*16))
     
 def to15():
-    system.engine.mapSwitch('map15.ika-map', (10*16, 6*16))
+    system.engine.mapSwitch('map15.ika-map', (10*16, 6*16+8))
     
     
 class LayerFader(Thing):

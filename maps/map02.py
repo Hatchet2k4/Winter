@@ -20,7 +20,7 @@ def to3():
 
 def to15():
     offset_from = 7 * 16  # first vertical pos possible
-    offset_to = 16 * 16  # first vertical pos possible
+    offset_to = 7 * 16  # first vertical pos possible
     x = system.engine.player.x - offset_from + offset_to
     system.engine.mapSwitch('map15.ika-map', (x, 43 * 16))
 

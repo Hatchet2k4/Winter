@@ -3,6 +3,8 @@
 	(information 
 		(title )
 		(meta 
+			(entityLayer B2)			
+			(music winter.ogg)
 		)
 	)
 	(header 

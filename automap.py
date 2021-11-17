@@ -6,9 +6,9 @@ import controls
 
 #automap data for all maps because I'm lazy, in (x, y, w, h, maptype) notation
 automapdata = {
-'map01.ika-map' : (10, 32, 3, 2, 'snow', 'South Valley'),
-'map02.ika-map' : (7, 30, 3, 3, 'snow', 'Mount Durinar Base Camp'),
-'map03.ika-map' : (2, 30, 5, 2, 'snow', 'West Valley'),
+'map01.ika-map' : (10, 32, 3, 2, 'snow', 'Southern Ravine'),
+'map02.ika-map' : (7, 30, 3, 3, 'snow', 'Mount Durinar Base'),
+'map03.ika-map' : (2, 30, 5, 2, 'snow', 'Western Ravine'),
 'map04.ika-map' : (2, 27, 2, 3, 'snow', 'Durinar Cairn Stones'),
 'map05.ika-map' : (2, 26, 1, 1, 'cave', 'Cairn Cave'),
 'map06.ika-map' : (8, 18, 3, 3, 'snow', 'Durinar Ascent'),
@@ -48,19 +48,19 @@ automapdata = {
 'map40.ika-map' : (1, 12, 2, 2, 'snow', 'Western Hill'),
 'map41.ika-map' : (5, 11, 2, 3, 'snow', 'Durinar Forest'),
 'map42.ika-map' : (5, 14, 2, 2, 'snow', 'Upper Durinar River'),
-'map43.ika-map' : (10, 30, 3, 2, 'snow', ''),
-'map44.ika-map' : (13, 29, 3, 3, 'snow', ''),
-'map45.ika-map' : (14, 32, 2, 2, 'snow', ''),
-'map46.ika-map' : (16, 30, 1, 1, 'snow', ''), 
-'map47.ika-map' : (18, 28, 5, 2, 'cave', ''), 
-'map48.ika-map' : (22, 26, 1, 2, 'cave', ''), 
-'map49.ika-map' : (16, 28, 2, 2, 'cave', ''), 
+'map43.ika-map' : (10, 30, 3, 2, 'snow', 'Durinar Creek'),
+'map44.ika-map' : (13, 29, 3, 3, 'snow', 'Ice Floats Maze'),
+'map45.ika-map' : (14, 32, 2, 2, 'snow', 'Damaged Bridge'),
+'map46.ika-map' : (16, 30, 1, 1, 'snow', 'Hidden Den'), 
+'map47.ika-map' : (18, 28, 5, 2, 'cave', 'Carnivore Den'), 
+'map48.ika-map' : (22, 26, 1, 2, 'cave', 'Nesting Area'), 
+'map49.ika-map' : (16, 28, 2, 2, 'cave', 'Den Entrance'), 
 'map50.ika-map' : (18, 9, 2, 1, 'cave', 'Northeast Cave'), 
-'map51.ika-map' : (3, 20, 1, 3, 'cave', 'Misty Cave'), 
-'map52.ika-map' : (2, 23, 2, 3, 'cave', 'Misty Cave'), 
-'map53.ika-map' : (3, 11, 2, 1, 'snow', ''), 
+'map51.ika-map' : (3, 20, 1, 3, 'cave', 'Upper Misty Cave'), 
+'map52.ika-map' : (2, 23, 2, 3, 'cave', 'Lower Misty Cave'), 
+'map53.ika-map' : (3, 11, 2, 1, 'snow', 'Land Bridge'), 
 'map54.ika-map' : (13, 32, 1, 1, 'cave', 'Dragonpup Nest'), 
-'map55.ika-map' : (20, 25, 2, 3, 'snow', 'Durinar Fissure'), 
+'map55.ika-map' : (20, 25, 2, 3, 'snow', 'Durinar Island'), 
 } 
 
 mapnames = { #all the maps that have save points. Could have used metadata, but this was more convenient.

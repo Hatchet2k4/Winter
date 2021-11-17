@@ -18,20 +18,8 @@
 	)
 	(zones 
 		(zone 
-			(label Default Zone)
-			(script )
-		)
-		(zone 
 			(label to18)
 			(script to18)
-		)
-		(zone 
-			(label to44)
-			(script to44)
-		)
-		(zone 
-			(label to47)
-			(script to47)
 		)
 		(zone 
 			(label to6)
@@ -140,13 +128,6 @@ rt7115hQNwvTAdzyAgAA//8=
 			)
 			(zones 
 				(zone 
-					(label to47)
-					(x 400)
-					(y 238)
-					(width 16)
-					(height 2)
-				)
-				(zone 
 					(label to6)
 					(x 80)
 					(y 0)
@@ -154,7 +135,7 @@ rt7115hQNwvTAdzyAgAA//8=
 					(height 16)
 				)
 				(zone 
-					(label to6)
+					(label to18)
 					(x 354)
 					(y 212)
 					(width 16)

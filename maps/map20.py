@@ -4,7 +4,6 @@ from snow import Snow
 from thing import Thing
 
 
-
 def to18():
     system.engine.mapSwitch('map18.ika-map', (32*16, 4*16))
     
