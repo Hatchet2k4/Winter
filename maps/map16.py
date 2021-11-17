@@ -7,6 +7,7 @@ from yeti import Yeti
 from soulreaver import SoulReaver
 from thing import Thing
 from rune import WindRune
+import cabin
 
 def AutoExec():
     system.engine.background = ika.Image('gfx/mountains.png')
@@ -20,7 +21,11 @@ def AutoExec():
 
     if 'windguard' not in savedata.__dict__ and 'nearend' in savedata.__dict__:
         system.engine.things.append(RuneListener())
-
+        
+def story_wind():
+    if 'windrune' in savedata.__dict__ and 'story_wind' not in savedata.__dict__: 
+      cabin.scene('story_wind')      
+      system.engine.camera.center()
 
 def bridge_break():
     if 'bridge_broken' not in savedata.__dict__:

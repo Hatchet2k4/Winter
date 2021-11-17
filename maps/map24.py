@@ -8,9 +8,17 @@ from rune import CowardRune
 import sound
 from soulreaver import SoulReaver
 from obstacle import Crystal
+import cabin
+
 
 def AutoExec():    
     pass
+
+
+def forebattle():
+    if 'unityrune' in savedata.__dict__ and 'forebattle' not in savedata.__dict__: 
+      cabin.scene('forebattle')      
+      system.engine.camera.center()
 
         
 def to23():

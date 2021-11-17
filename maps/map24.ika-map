@@ -18,6 +18,10 @@
 	)
 	(zones 
 		(zone 
+			(label forebattle)
+			(script forebattle)
+		)
+		(zone 
 			(label kaboom)
 			(script kaboom)
 		)
@@ -199,6 +203,13 @@ nBz/H+TM7aG7/v/21N8YLwAAAP//
 					(y 141)
 					(width 55)
 					(height 34)
+				)
+				(zone 
+					(label forebattle)
+					(x 151)
+					(y 303)
+					(width 21)
+					(height 53)
 				)
 			)
 		)

@@ -26,6 +26,10 @@
 			(script manaPool)
 		)
 		(zone 
+			(label story_wind)
+			(script )
+		)
+		(zone 
 			(label to13)
 			(script to13)
 		)
@@ -301,6 +305,13 @@ d8LnS5H02/YHztdBxTLOPi+haCZcTCD0Q65oFwAAAP//
 					(width 42)
 					(height 31)
 				)
+				(zone 
+					(label story_wind)
+					(x 286)
+					(y 130)
+					(width 72)
+					(height 13)
+				)
 			)
 		)
 		(layer 
@@ -454,8 +465,9 @@ gyjM/uaUxGBYccWgmBCzOK8no/o8iPtNUlsOKXKAOsvl
 			)
 			(data 
 				(format zlib)
-				eJzswwEJADAMA7D593O4gAu7gQooLIHMAAAAAADQ5oRN
-btjkhezyAQAA//8=
+				eJzszkENgEAMAMGefz0kCMAD8ACsUAH9XwMzyf43AgAA
+YJ59RBzZOWaf1K78urOn6R8A8F1LUSdrUSdbEf/yAgAA
+//8=
 			)
 			(obstructions 
 				(format tile)
