@@ -1,7 +1,7 @@
 
 import system
 import savedata
-import cabin
+
 from snow import Snow
 
 def AutoExec():

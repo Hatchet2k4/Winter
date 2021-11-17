@@ -140,6 +140,8 @@ class Engine(object):
             self.player = Player()
             if not saveData:
                 self.player.ent.specframe=74 #haaack for intro animation
+                self.player.stop()
+                self.player._state = lambda: None # keep the player from moving
         self.addEntity(self.player)
 
         if saveData:
@@ -497,7 +499,7 @@ class Engine(object):
     def SaveState(self):        
         s = SaveGame.currentGame()
         s.save('quicksave')
-        system.engine.things.append(Caption('Quicksaved!'))
+        self.things.append(Caption('Quicksaved!'))
         
     def LoadState(self):       
         try:

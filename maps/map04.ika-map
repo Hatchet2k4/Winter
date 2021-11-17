@@ -22,6 +22,10 @@
 			(script breakIce)
 		)
 		(zone 
+			(label rune_of_water)
+			(script story04)
+		)
+		(zone 
 			(label to3)
 			(script to3)
 		)
@@ -288,6 +292,13 @@ fH92PhXM/uZ8MYSGFa2N/Ob6BCZODwKagO6ferWFuw3F
 					(y 520)
 					(width 144)
 					(height 8)
+				)
+				(zone 
+					(label rune_of_water)
+					(x 191)
+					(y 594)
+					(width 117)
+					(height 10)
 				)
 			)
 		)

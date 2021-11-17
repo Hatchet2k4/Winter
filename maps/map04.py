@@ -8,6 +8,7 @@ from soulreaver import SoulReaver
 from razormane import RazorMane
 
 from snow import Snow
+import cabin
 
 def AutoExec():
     system.engine.mapThings.append(Snow(6000, velocity=(-.2, 3)))
@@ -41,11 +42,14 @@ def breakIceRun():
     for x in range(13, 18):
         for y in range(33,37):
             ika.Map.SetTile(x, y, 3, 0)
-            if x in (13, 17) and y > 33: ika.Map.SetObs(x, y, 3, 1)
+            if x in (13, 17) and y > 33: ika.Map.SetObs(x, y, 4, 1)
                 
-    ika.Map.entities['icechunks1'].layer = 2
+    ika.Map.entities['icechunks1'].layer = 3
 
-
+def story04():
+    if 'waterrune' in savedata.__dict__ and 'story_4' not in savedata.__dict__: 
+      cabin.scene('story_4')
+      engine.camera.center()
 
 
 class DeathListener(Thing): #for initial wolves battle
