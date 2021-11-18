@@ -144,6 +144,7 @@ def scene(name):
     for e in system.engine.entities:
         e.x, e.y = -100, -100
 
+
     ika.Map.Switch('maps/cabinmap.ika-map')
     grandpa = ika.Map.entities['grandpa']
     kid1 = ika.Map.entities['kid1']
@@ -164,6 +165,8 @@ def scene(name):
         ika.Map.Switch('maps/' + system.engine.mapName)
         for e, pos in zip(system.engine.entities, savedPos):
             e.x, e.y = pos
+            system.engine.readEnts()
+            
 
 # name : function pairs
 def addScene(function):

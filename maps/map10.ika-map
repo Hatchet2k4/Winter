@@ -22,6 +22,10 @@
 			(script fightBoss)
 		)
 		(zone 
+			(label manaPool)
+			(script manaPool)
+		)
+		(zone 
 			(label to9)
 			(script to9)
 		)
@@ -49,29 +53,28 @@
 			)
 			(data 
 				(format zlib)
-				eJyMlsFSHDEMRD2255SNDxAqm2xSC3+Rr2EvcMoSIFyW
-v49dUde+aYZKDl32eGy1JEuyLlNKc0fuqB2tY4qxYr3E
-vjn+NeyvWJ8gr8T3hLnkfen4+h+47LiKUVwl1v51LsOW
-OebXHfsYG/ZI7xLrQ7/dip67OPu540Pge4wXsV/czWTL
-J+P8BmvSQ99Dv5vYJ9zA77oL2rUPftpdbL/WNWptxrd0
-ruBrWM/QWSB3S29jQd+yX/wf0zLesnHTJ4yzjL378HnB
-2Wx8Wp/SW5/TrpKW+rjdso32SKcadyrd7jsOAHOF+jP+
-mFdzWvqbd8V5Cd6x967jNrjvYz7kjVwZcftenkjOVVrG
-q2yXfOrP9cHzM/gzZA1Oj2OBebWDD1s6x/AmLeNI/7Xe
-wk75iZyME+a1/Npi34TzimHmUYXNWvfaI07FtmKOXPRr
-XcGwaRtjNd5t+GvMv8GHrAnSlXwe/4P7qeMZ+zYYyduC
-d5+Wcc9cYh2hzfR3Cb5j4JTOsVNXeJnXOS3zxfPGaw3t
-HeNrx0PHr9BBfHM652rFGa+VXh8aZLeQOWQ/hl9PMcrH
-r/FPfINLMfQpIF9yZH1lXdD9HcEhHMNW+Tkb79CZOUd/
-rtX6FnKeg+t3xwv8+Yj/XsuYK7rL67SMV+85PF/FcwKP
-fHqCHJ5XzF6kc57xHr0G0N+U8wK+p7SME76jzeRtYfN7
-NZucfPcy7u5hhYNvn+c545l3yv5LOel9CeOYeVtNvmz6
-Mf0F3x6+C2v1iO+ucnS2fy0t6whzTuPg5ZvktY02kZN3
-TT3X+txqcqRbAa/nrOyhz72X1j7eXTM+jw/eu/eL1NFj
-hX1JSevvkvuAYK+knlZx7HuLyWVOcC7fMCf5pnt8rr2F
-5PP6TD08vzxvWcP5tt0G1Nd4z8e+lHDZ7ldyTeBRrzbG
-A+z1vlLn+O56H+7vI/XOwXEXfOrVDjGXvQN/AAAA//8=
-
+				eJyMls1yFDEMhD2258TiAyHFwkJt8hY8DbnAifySy+bt
+savUtZ87k4KDyh7bo5ZkteSLlNLaJXepXVqXJcaK9RLn
+1thrOF+xvkBfie8Fc+n73OXLf8hFl8sYhVVi7V//Zfiy
+xvyqyzHGhjOyu8T6sO+wYech/v3U5V3Itxg/xHlhN9Ot
+mIz/d1iTHfoe9l3HOck14q67oF/HwKffxc5rXaPWVnzL
+5gq8hvUMmyXEbul1Luhb/gv/fZrzLRs2Y8I8yzh7jJgX
+/JsNT+tLeh1z+lXSbI/7Ld/oj2yqcaeybax9X8575Art
+Z/6RV2ua48274rwEru57YErkz+DKyNu3eCI9l2nOV/ku
+/bSf63UDV5iexxLy6oAYtnTO4V2a80j7Wpc9AzMbJvOE
+vFZcW5yTv+Occpg80t1x32uPMJXbyjliMa51Q4ZP+xir
+4e4jXmP+FTFkTZCtxPP8H9iPXZ5wboeRuC1wj2nOe3KJ
+dYQ+M94l8G5DTumcO3UDl7zOaeaL88ZrDf0d40uXuy73
+YYPw1nTmasU/Xiu9PjTobqFz6H6IuJ5iVIxfYk94A0s5
+9DFEseTI+sq6oPu7BYbkNnxVnLPhDpvJOcZzq9a30PMU
+WH+6PCOeD9j3Wkau6C6v0pyv/uZwvgrnBBzF9JRm/jMP
+9oEtnvEevQYw3tTzDLzHNOcJ+2gzfXv4/FbNJib7Xsbd
+3W1gsPc5z5nPvFO+v8RJf5cwj8nbavrlk2o8ew/7wlY9
+Yt8VR1fba2muI+ScxoHLnuS1jT4Rk3dNO72naZ96ZFsB
+rnNW/jDm/pbWOd5dMzzPD967vxdpo+cK3yUlbfcljwGF
+byW9aZXHfraYXnKCc8WGnGRP9/zc6oXE8/pMO5xfzlvW
+cPa2HyF61/ibj+9Siuv2uBJrAc6QXzHewF9/V+o/9l1/
+h3t/pN05MH4G3u+Y38Rc/g75CwAA//8=
 			)
 			(obstructions 
 				(format tile)
@@ -104,23 +107,23 @@ A+z1vlLn+O56H+7vI/XOwXEXfOrVDjGXvQN/AAAA//8=
 			)
 			(data 
 				(format zlib)
-				eJzMVk1PAkEMnRMxhpNGo4GgEgV/h1f14glFkkUvyi/j
-Q0D4hU7jvPi2trMbvPiSZmdmO/PabtvZEMqYhHqoq/cf
-4Nl67sjZH7hOnfWrKB06u+dIJ3N2N+kMojwaezxu8Itu
-k9Y4LpdR+qQH6RtnTWiPxw2dRpS9JIJbpffujD1AZ0nc
-DYczd95N5l1VbjO3h6coQ3rW8Y1js0/jhnrmOIFxlNca
-nBrHNG66WmUUxLkr2jQ+CD/xysVN3nk+olas+pIavCA9
-5tVAnhxl7GB8qn0yn0aZpfkiyofaY+UScrBFay1Dr5vO
-3yYOjLeJZ5n0pun5kkQg9Yu+pME9sB3KcYJP8GMZfvs0
-I50RrQ8Nrrso92ncJ3uE85rsh08C3UcA2CI+6nrwgByT
-ePQUp/aLgdpGTGX+pnSeM/uZG9+b84N9ZI4cvLo/yeyR
-XJ3SHLaMlJ72LccHWLmF+ysX38LhKkL9PsN3GWDVn8dt
-+baOsqI5crfqPlgYa7q34dvqnFkbfLBjbHDz/TUN1SiC
-HdO5snETvv2YGboC9DyO8S7/iXNnfeOsP9B45egw2Cex
-b22czXYj5tqXQSjXrXV+DhLH3H+IhhfLOj4zpEcixjoW
-Fg7VHHt0bln7uYetjffwX8eM+xW/q+rJGuCsk4dSf1a/
-rtMzNDiHrTrHvYGat+5FQe7bWnnm1U7VvQF8AQAA//8=
-
+				eJzMVk1PAjEQ7YkYw0mj0UBQiYK/g6t68YQgyaIX5Zct
+IKzyC+0kfeExTLsNXnzJZPsx7ZuZTqfr3C5mLg+5ev8B
+MVuvI3L1B67LyPidlw7t3YtIJ7F3N+gMvbwYa2Lc4Bfd
+Jo1xXG699EkP0jf2mtGaGDd0Gl6OgggelN5npB0DdFbE
+3YhwpvYbJObqcpu5U/imdo5vHJtjajfUN4VR+I4zdC2c
+U7sZ1dpHEb7TA3nb1D5x23il4oa5H2MOd8W6X3IHb0iP
+eTWQJ2cJOxg48wH1Sy/z0F96+VJrrFxCDrZorGXodcP+
+m8CB9ibwrIJeGb5vQQRyf1GXNLgGtt1unOAT/Fi5fZ/m
+pDOhcSsvH708hXaf7BHOe7IfPgl0HQFgi/g4ovFUXiKP
+JB49xan9Ysj+Y7eNqfQ/lM5rYj1z47w5P9hH5khB/Hw3
+xi8SayRXS+rDlonS076l+AArt/B+peJbRLgKl19j+C0D
+rPsX47Z8q7ysqY/crXsPlsaYrm04W50zlcEHO6YGN79f
+patH4eyYLpSNUmfFj7mhK0DN4xgf8p+4iIxbdV7wTO11
+RIfBPol9lbE3242Ya1+GbvfeWvunIHFM/YdoxGKZ4zND
+aiRirGNh4VT1sUbnlrWea1hlzMN/HTOuVzxXV5M1wJmT
+h3L/rHqdUzM0OIete453o+5/LXW2Vp7F7k7duwH8AgAA
+//8=
 			)
 			(obstructions 
 				(format tile)
@@ -186,10 +189,10 @@ rtMzNDiHrTrHvYGat+5FQe7bWnnm1U7VvQF8AQAA//8=
 			)
 			(data 
 				(format zlib)
-				eJxiYBgFo2AUoAMfIPalgjlRVDCDFJAJpbPQxKXoYDe6
-nSMNKAGxBh55VSBWA2J1KtsLsnMtDrn1VLRHDQmD7AyE
-intT0Q5iQDgJatNp5oqBBWkDbM9wDdeBBqTGqwoeOWrV
-YeTYPQpGASVAYoDslRsAOzMJK6GbPQAAAAD//w==
+				eJxiYBgFo2AUoAMfIPYdaEdQEUgNtANGAFACYg088qpA
+rAbE6lS2F2TnWhxy66lojxoSBtkZCBX3pqIdxIBwEtSm
+08wVAwvSBtie4RquAw1IjVcVPHK0rsPw2T0KRgElQGKA
+7JUbADszB5E9AAAAAP//
 			)
 			(obstructions 
 				(format tile)
@@ -215,6 +218,13 @@ LdxZTXtKVVwG0IU9be7fi/X7bx1eAAAA//8=
 					(width 36)
 					(height 16)
 				)
+				(zone 
+					(label manaPool)
+					(x 71)
+					(y 128)
+					(width 37)
+					(height 32)
+				)
 			)
 		)
 		(layer 
@@ -239,11 +249,12 @@ LdxZTXtKVVwG0IU9be7fi/X7bx1eAAAA//8=
 			)
 			(data 
 				(format zlib)
-				eJzslTsSgCAMRNPpiSzUIjba6/3vIhRpHDUBFvwMbyYV
-nwVmNxBVYlldbYU1e1eDcW4TsG+njLOrCazpGZXx2dUS
-uGcJ/D3bpw/xAJpP0OsEzSfodZ6QrCFhsmUNzVuzVppU
-r8aS4tUjFu8i/y/RY9K9i8yV6Fm8K3MRWPTER7lydfWO
-SB+dwZSvP91lL2d/yv1mVv7QeyrfZQcAAP//
+				eJzslbESgjAQRC+VfpEFUsRGevx4tQB/xUtxDZN4F3IX
+wMmb2SohC5ndA6CxlhH1qOzZoa7CvaeMcy/MukfdlD0D
+PbN+Rw2ZZ9YgfOd565eI8HQAL9Tb2ZyfysmEfjPqk/Dl
+8sXB5UT7uUBO1zTxIOuaNnvtWm1Ks7qWkqwukWRX8/9F
+fh747Gr2ivwk2aW9Gkj8KEdWvUrdo2aOYniwm0+/umc5
+n6zvTMo/zJ7GcfkCAAD//w==
 			)
 			(obstructions 
 				(format tile)

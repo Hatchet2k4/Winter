@@ -19,6 +19,10 @@ def AutoExec():
 def to9():
     system.engine.mapSwitch('map09.ika-map', (system.engine.player.x, 1 * 16))
 
+def manaPool():
+    if 'firerune' in savedata.__dict__ and ('nearend' not in savedata.__dict__ or 'fireguard' in savedata.__dict__):
+        system.engine.player.stats.mp += 1        
+
 def AddIce():
     x=48
     y=416
@@ -64,7 +68,7 @@ class DeathListener(Thing):
     def update(self):
         if self.yeti.stats.hp == 0:
             sound.playMusic("music/winter.ogg")            
-            e = ika.Entity(71, 132, 2, 'firerune.ika-sprite')
+            e = ika.Entity(5*16, 8*16, 2, 'firerune.ika-sprite')
             e.name = 'firerune'
             system.engine.addEntity(FireRune(e)) 
             return True

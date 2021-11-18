@@ -18,6 +18,10 @@
 	)
 	(zones 
 		(zone 
+			(label )
+			(script )
+		)
+		(zone 
 			(label rune_of_water)
 			(script story_water)
 		)
@@ -416,13 +420,6 @@ VAJS4y6byAnuWqhXOvJO4Iv2AQAA//8=
 					(y 96)
 					(width 16)
 					(height 176)
-				)
-				(zone 
-					(label rune_of_water)
-					(x 100)
-					(y 57)
-					(width 185)
-					(height 15)
 				)
 			)
 		)

@@ -20,7 +20,10 @@ def AutoExec():
         breakIceRun()
     sound.playMusic("music/wind.ogg")
 
-        
+
+def manaPool():
+    if 'waterrune' in savedata.__dict__ and ('nearend' not in savedata.__dict__ or 'waterguard' in savedata.__dict__):
+        system.engine.player.stats.mp += 1        
 
 def to3():
     offset_from = 11 * 16  # first horizontal pos possible
@@ -78,7 +81,7 @@ class DeathListener(Thing): #for initial wolves battle
                 done = False
         if done: #all are dead
             sound.playMusic("music/wind.ogg")
-            e = ika.Entity(245, 262, 4, 'waterrune.ika-sprite')
+            e = ika.Entity(15*16, 16*16, 4, 'waterrune.ika-sprite')
             e.name = 'waterrune'
             system.engine.addEntity(WaterRune(e))                                    
             return True

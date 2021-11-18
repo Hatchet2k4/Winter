@@ -413,11 +413,8 @@ class Engine(object):
             for (x, y, w, h, script) in zones:
                 self.addField(Field((x,y,w,h), i, mapModule.__dict__[script]))
 
-    def readEnts(self, mapModule, clearents=True):
+    def readEnts(self, mapModule=None, clearents=True):
         '''Grabs all entities from the map, and adds them to the engine.'''
-
-
-
         for ent in ika.Map.entities.itervalues():
             try:
                 self.addEntity(spawnMap[ent.sprite](ent))
