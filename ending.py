@@ -5,126 +5,74 @@ from snow import Snow
 import system
 
 _text = '''\
-Winter
+*** Winter Remastered Credits ***
 
 
-*****
+* Code, Maps, Scripting *
+
+Francis Brazeau 
 
 
-Remaster Additional Code Francis Brazeau 
+* Additional Artwork *
 
-Original Management, Main program
--
+Corey Annis
+Daniel Harris (aka Hyptosis)
+
+
+* Additional Music *
+
+'Boss' by Troupe Gammage
+
+
+* Playtesting *
+
+Adam Boudreau
+Alex Hartshorn
+Carlos Petersen
+
+
+*** Original Credits ***
+
+
+* Management, Main program *
+
 Andy Friesen
 
-Artwork
--
+
+* Artwork *
+
 Corey Annis
 
 
-Maps
--
+* Maps *
+
 Corey Annis
 Francis Brazeau
 Andy Friesen
 Troy Potts
 
 
-Music
--
+* Music *
+
 'Existing' by Mick Rippon
 'Winter' by David Churchill (aka infey)
 'Competative' by Disturbed
-'Boss' by Troupe
 'Resurrection' (Author unknown)
 'xerxes vs solo' (Author unknown)
 'Lampoons Haunting' (Author Unknown)
 
 
-Script
--
+* Script *
+
 Ian Bollinger (aka Ear)
 
 
 Additionally, everybody on the team had a
 hand in the concept and layout of the
-game.  You guys rock!
+game.  
 
 
-
-
-***
-
-
-
-
-hm.... need to fill this up with some other
-junk, just so that the music gets a chance
-to play all the way through.
-(Mick Rippon is awesome)
-
-It's fairly safe to expect an early '04
-rerelease of Winter with extra polish,
-as well as more spells, skills, and general
-coolness to be found.  There may or may
-not be a second chapter to the story as
-well.  Time will tell.
-
-Speaking of which, there actually *is*
-a story, but we didn't get time to tell
-it properly.  The '04 release will remedy
-this, at the very least.
-
-
-
-Goddammit.
-
-
-
-Going to need to put WAY more crap in
-here if I'm going to meet the quota
-I set forth for myself.  May as well rant
-about Winter.
-
-For those wondering, the snowfield is
-implemented in C++.  It directly does things
-by accessing OpenGL.  I'm quite shocked
-(and pleased!) that it works as well as it
-obviously does.  You can be sure I'll be doing
-more experimenting with this particular
-nuance of ika later on.
-
-There are a grand total of 48 maps in the
-game, but the original plan called for over
-80.  A few ikaMap scripts were adapted
-specifically for creating these maps.  I
-was so sure we wouldn't get them all done
-on time.  Thrasher, corey and Hatchet
-deserve a big pat on the back for that feat
-alone. (me and Ear just tweaked things
-here and there)
-
-All the AI is implemented using Python
-coroutines, which allowed us to do some
-funky things that would have been
-extremely difficult otherwise.  While
-it was still quite time consuming to
-implement, I'm very pleased with the
-results. :)
-
-Okay, I think that's about enough.  If
-it's *still* not enough crap to let the
-song play through once, then you'll have
-to take the time to play it in your mod
-player of choice. (it sounds okay in
-WinAmp, though it's quieter than it
-ought to be)
-
-Merry Christmas, all!
-
-- andy -
-
-***
+*** Enemy Stats ***
 
 
 
@@ -152,13 +100,39 @@ Merry Christmas, all!
 
 
 
-The curious shall be rewarded!
 
-There is at least one optional,
-secret spell in the game.  Thrasher
-went to great lengths to make it
-obscenely difficult to obtain!
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The End
 '''.split('\n')
 
 def credits():
@@ -168,7 +142,7 @@ def credits():
     sound.fader.reset(m)
 
     bg = ika.Image('gfx/mountains2.png')
-    snow = Snow(velocity=(0, 1))
+    snow = Snow(velocity=(0.5, 0.75))
     y = -ika.Video.yres
     font = ika.Font('system.fnt')
     
@@ -178,25 +152,29 @@ def credits():
             self.name=name
             self.x=x
             self.y=y
-            self.h=int(h/2)
-            #self.stat=stat
+            self.h=int(h/2) #display line at midpoint of image height
+            self.displayname=name.capitalize()
+            self.num=str(system.engine.player.stats[self.name])
+            
         def draw(self, offset):
             self.ent.Draw(self.x, self.y-offset)
-            num= str(system.engine.player.stats[self.name])
-            font.Print(100, self.y-offset+self.h, num)
+            
+            font.Print(140, self.y-offset+self.h, self.displayname)            
+            font.Print(210, self.y-offset+self.h, self.num)
     
     
     entlist=[]
     
     startx=80
-    starty=0
+    starty=690
     #hack because the full sprite dimensions aren't directly accessible 
-    heights = [16]*3 + [32]*3 + [96]*4
+    heights = [16]*3 + [32]*3 + [86]*4
     halfwidths=[8]*3 + [16]*3 + [48]*4
+    offseth =[0]*3 + [0]*3 + [16]*3 +[15] #compensate for hotspot
     
     for i, entname in enumerate(['anklebiter', 'carnivore', 'devourer', 'razormane', 'dragonpup','hellhound', 'yeti', 'gorilla','soulreaver','serpent']):
-        e=ika.Entity(-100,-100, 2, entname+'.ika-sprite')                
-        entlist.append(CreditEnt(e, entname, startx-halfwidths[i], starty, heights[i]))
+        e=ika.Entity(-100,-100, 2, entname+'.ika-sprite') #put it off screen!               
+        entlist.append(CreditEnt(e, entname, startx-halfwidths[i], starty-offseth[i], heights[i]))
         starty+=heights[i]+10
             
     
@@ -209,7 +187,7 @@ def credits():
         adjust = int(y) % font.height
         length = (ika.Video.yres / font.height) + 1
 
-        print firstLine
+        #print firstLine
 
         Y = -adjust
         while Y < ika.Video.yres and firstLine < len(_text):
@@ -231,16 +209,14 @@ def credits():
             (ika.Video.xres, ika.Video.yres, ika.RGB(0, 0, 0)),
             (0, ika.Video.yres, ika.RGB(0, 0, 0, 0)),
             (ika.Video.xres, ika.Video.yres - 60, ika.RGB(0, 0, 0, 0)))
-        
-        
-        
+  
         snow.draw()
         
 
     now = ika.GetTime()
     while True:
         t = ika.GetTime()
-        delta = (t - now) / 10.0
+        delta = (t - now) / 2.0
         y += delta
         now = t
         snow.update()

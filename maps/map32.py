@@ -142,5 +142,5 @@ def to31():
     pass
 
 def to33():
-    system.engine.mapSwitch('map33.ika-map', (10 * 16, 40 * 16))
+    system.engine.mapSwitch('map33.ika-map', (10 * 16+1, 40 * 16))
 
