@@ -419,7 +419,7 @@ class Player(Entity):
             yield None
             
             
-    def cutsceneState(self):
+    def cutsceneWalkState(self):
         oldDir = self.direction
         self.anim = 'walk'
         while True:            
@@ -430,6 +430,12 @@ class Player(Entity):
                 self.anim = 'walk'
                 self.direction = d
                 oldDir = d
+            yield None   
+
+    def cutsceneStandState(self):
+
+        self.anim = 'stand'
+        while True:            
             yield None            
 
     def slashState(self):

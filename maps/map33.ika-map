@@ -3,6 +3,8 @@
 	(information 
 		(title )
 		(meta 
+			(entityLayer B2)
+			(music Existing.s3m)
 		)
 	)
 	(header 
@@ -60,7 +62,7 @@ BXP7AwAA//8=
 			)
 		)
 		(layer 
-			(label B2)
+			(label B1)
 			(dimensions 
 				(width 25)
 				(height 40)
@@ -103,7 +105,7 @@ kcwG/UaEA3zsy1LfM4f5jj3Sitmzyn3uhfdvttcm76Uj
 			)
 		)
 		(layer 
-			(label B3)
+			(label B2)
 			(dimensions 
 				(width 25)
 				(height 40)

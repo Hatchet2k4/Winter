@@ -8,16 +8,14 @@ _text = '''\
 Winter
 
 
-
 *****
 
 
+Remaster Additional Code Francis Brazeau 
 
-Management,
-Main program
+Original Management, Main program
 -
 Andy Friesen
-
 
 Artwork
 -
@@ -27,9 +25,9 @@ Corey Annis
 Maps
 -
 Corey Annis
-Francis Brazeau (aka Hatchet)
+Francis Brazeau
 Andy Friesen
-Troy Potts (aka Thrasher)
+Troy Potts
 
 
 Music
@@ -169,7 +167,7 @@ def credits():
     sound.fader.kill()
     sound.fader.reset(m)
 
-    bg = ika.Image('gfx/mountains.png')
+    bg = ika.Image('gfx/mountains2.png')
     snow = Snow(velocity=(0, 1))
     y = -ika.Video.yres
     font = ika.Font('system.fnt')
