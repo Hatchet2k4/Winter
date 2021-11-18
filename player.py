@@ -243,11 +243,14 @@ class Player(Entity):
         self.state = self.standState()
         self.stats = initialStats.clone()
         self.mptimer = 0
+        self.scened = 0
 
     def giveXP(self, amount):
         self.stats.exp += amount * 3 #hack to give more exp because I'm lazy and hate grinding
         if self.stats.exp >= self.stats.next:
             self.levelUp()    
+
+    
 
     def levelUp(self):
 
@@ -414,6 +417,20 @@ class Player(Entity):
                 self.direction = d
                 oldDir = d
             yield None
+            
+            
+    def cutsceneState(self):
+        oldDir = self.direction
+        self.anim = 'walk'
+        while True:            
+            self.move(self.direction)
+
+            # handle animation and junk
+            if self.direction != oldDir:
+                self.anim = 'walk'
+                self.direction = d
+                oldDir = d
+            yield None            
 
     def slashState(self):
         self.stop()

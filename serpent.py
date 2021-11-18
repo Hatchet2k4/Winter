@@ -184,7 +184,7 @@ class Serpent(Enemy):
         sound.serpentRoar.Play()
 
         for wait in range(200):
-            n = self._animator.curFrame - 12 # Yet another gay hack.
+            n = self._animator.curFrame - 12 # Yet another hack.
             ika.Map.xwin += ika.Random(-n, n + 1)
             ika.Map.ywin += ika.Random(-n, n + 1)
             yield None
