@@ -20,6 +20,9 @@ def forebattle():
       cabin.scene('forebattle')      
       system.engine.camera.center()
 
+def manaPool():
+    if 'unityrune' in savedata.__dict__ or 'penultimatebattle' not in savedata.__dict__:
+        system.engine.player.stats.mp += 1        
         
 def to23():
     system.engine.mapSwitch('map23.ika-map', (5 * 16, 5 * 16))

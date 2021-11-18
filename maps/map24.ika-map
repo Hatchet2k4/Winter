@@ -26,6 +26,10 @@
 			(script kaboom)
 		)
 		(zone 
+			(label manaPool)
+			(script manaPool)
+		)
+		(zone 
 			(label to23)
 			(script to23)
 		)
@@ -211,6 +215,13 @@ nBz/H+TM7aG7/v/21N8YLwAAAP//
 					(width 21)
 					(height 53)
 				)
+				(zone 
+					(label manaPool)
+					(x 313)
+					(y 210)
+					(width 30)
+					(height 29)
+				)
 			)
 		)
 		(layer 
@@ -235,21 +246,21 @@ nBz/H+TM7aG7/v/21N8YLwAAAP//
 			)
 			(data 
 				(format zlib)
-				eJzsWc1qwzAMjt9hp572/uex8+g7DJpDGZQNyp5hfzaL
-wTiS80mR7WXNByJpnEj6KkeWlWHYsWPHreLs5aQY2you
-Xl4VY1XghmGsbOLq5V0xVgPOkK/l3ER0hXu+vHxPEs+L
-zxnytZybJV2BZ+A1FiRwz3mfk3ELWM5NTlfqMyIn5rn/
-ipfpeOnqRTu8Tcer8vkwFz6NfFGjwZoSEex8JL9b1Asz
-GwTfPA6UX4ieHDnfFvXCzAbAl/IL0ZMj19uiXshtUDUD
-4tfsmiK+XQDwhdQs8I1rV+98xcVXHIeN8LXKV2h8e89n
-JL5IvtLw/avrkUW+ouZzj/UIyc8INPHtsR5x8ZW+Z1vJ
-z63zlZTvsyuPP3h5FOizyldovZHuKy3w5OUI3svt2WvW
-V1yMm/RzHM/Xut6IerkY1+7nlHoUNfJz1MvFuHY/x7ky
-36W6QLMfjLol77FFv32p/6TZD0p6sxLOa/vtSK8t92Up
-X2l6lSjnNf12tK8o+f/X9Cqlc1sCiV/jwPtyl6z/VD9X
-ihqcNTGgOAc5uF99FlwpW1RvHwX17UDrR+R872y5crYW
-v+Uk4L6RWPmRX7PgS9mK8Y7fstLzVGr4U4sjaguVLeNW
-eG4ZPwAAAP//
+				eJzsWUtqxDAMte/QVVe9/7p0XXqH0mSRDgwtDD1DfzaN
+wThSLCmSgzt5IJKJY0lv5Mi27NyBAweuFVOQQdDWK85B
+3gRtJvDOjcYmLkE+BG0W8Ip8NccmRVd85zvIzyzpfrWf
+Il/NsbmmK/KMvMYVidxL3lPWrgHNsYnpyn2myID0+684
+zdfzrl60w/t8vQj7x7HwpeSLGA3mlIRo5zP7zc3JL8HX
+Ifrr6X0WNgC+ZRwgvyh6SpR8uTl5CjZeg5wYfBc2CHwh
+vyh6SpR6W6wXShvQmoHi1+KZIL67gMCXpKbCN81de+cr
+LL7sOHTCVytfUeO793imxJeSryR8W+xfJfORRr6CxnOL
+/SslLpb5Ko/vHvMRFl/ud9ZLfm6dr7h8nytrqfsgDwx9
+WvmKut7I95UaeAzyRHwX27Nbrq+wGDep53icr/Z6I+nF
+Ymxdz1mrUVjk56QXi7F1Pcf7db61dYFkP5h0c75jjXp7
+rf4k2Q9yarMczlvr7ZRaW+lLLV9JapVUzlvq7dS6Iuf/
+31Kr5I5tDjh+jQ735Sab/6F6LhcWnCUxgDhHufV/+jS4
+Qrag2j4V0NmB1I/E+c7rcsVsVc9yMmBnJFp+lM80+EK2
+UrzTWVZ+n4uFP1Ycqbao0jOuhWfP+AUAAP//
 			)
 			(obstructions 
 				(format tile)
