@@ -4,7 +4,7 @@
 		(title )
 		(meta 
 			(entityLayer B2)
-                        (music winter.ogg)
+			(music winter.ogg)
 		)
 	)
 	(header 
@@ -41,13 +41,14 @@
 			)
 			(data 
 				(format zlib)
-				eJy0kckKwkAMhqfvf+v00PbgAi7gAi5gK9gKVR+iL+Bz
-GCGBn5+4HPTwkWmm8yWZ6UMI/Z/ZJCFshUpohFbXzE7Y
-J995WvBVjrPVPc+JHuOuNOBE6jd9HqAXm8981QufOW3v
-CL6T5muKuG4hh3Vr5Qa+TtZRSIVcI/Mpf6b+UnVm8E8J
-56KTL+B/9HVULzo+zvM8Xn9WM9e6z++BMBRGFMfk5Puz
-mUqqOxGmwoziXPcz7cHrz+bAu18IS2FFcU39oe/ivFep
-tb13j07tK/nsnN0fzl7A2QzyEWqg75c8AAAA//8=
+				eJy0kcsKwkAMRaf/v+t0UbvwAT7AB/iAtoKtUPUj+gN+
+hxESuFxidePikGlm5iSZ9iGE/s/skxAOQiU0Qqtr5iic
+kt88Lfgqx9nqnudEj/FUGnAi9UCfJfRi85mv+uAzp+2d
+wXfRfE0R1y3ksG6tPMDXyToKqZBrZL7lr9Rfqs4MzhRw
+Lzr5EZxHX0f1ouPjPM/j9Wc1c637/h4LE2FKcUZOfj+b
+qaC6c2EhLCmudD/THrz+bA58+7WwEbYUd9Qf+m7O/yq0
+tvffo1P7Tj67Z++Hs4/gbgb5CDXQx5Rwrhw45/ECAAD/
+/w==
 			)
 			(obstructions 
 				(format tile)

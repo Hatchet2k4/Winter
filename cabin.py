@@ -8,6 +8,7 @@ from xi.misc import WrapText
 from xi.scrolltext import ScrollableTextFrame
 import xi.effects
 import sound
+import dir
 
 #------------------------------------------------------------------------------
 
@@ -138,7 +139,7 @@ _scenes = {}
 
 # TODO: transitions
 def scene(name):
-    global grandpa, kid1, kid2, kid3
+    global grandpa, kid1, kid2, kid3, pl
     savedPos = [(e.x, e.y) for e in system.engine.entities]
     # hide 'em all
     for e in system.engine.entities:
@@ -150,6 +151,7 @@ def scene(name):
     kid1 = ika.Map.entities['kid1']
     kid2 = ika.Map.entities['kid2']
     kid3 = ika.Map.entities['kid3']
+    pl = system.engine.player
 
     xi.effects.fadeIn(50)
 
@@ -274,9 +276,32 @@ def epilogue():
     narration("""With a renewed sense of vigor and purpose, he descended. 
     
 Finally, he could go home.""")
-
+    wait(100)
+    sound.step.Play()
+    wait(10)
+    pl.ent.x=7*16-8
+    pl.ent.y=16*16    
+    pl.direction=dir.UP
+    pl.state = pl.cutsceneWalkState() 
+    for i in range(56):        
+        ika.ProcessEntities()
+        pl.update()
+        draw()
+        ika.Video.ShowPage()
+        wait(1)
+    pl.stop()         
+    pl.direction=dir.RIGHT
+    pl.ent.specframe=18
+    pl.state = pl.cutsceneStandState()
+    pl.update()    
+    ika.ProcessEntities()
+    draw()
+    ika.Video.ShowPage()    
+    speech((pl.ent.x, pl.ent.y-64), "I made it!")
    
-
+    speech(kid2, 'Daddy!')
+    speech(grandpa, "Welcome home, son!")
+    speech((pl.ent.x, pl.ent.y-80), "You wouldn't believe what I had to go through to get back...")
     
 #------------------------------------------------------------------------------
 # Setup

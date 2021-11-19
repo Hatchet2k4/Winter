@@ -75,6 +75,8 @@ razorManeStrike = RepeatableSound('sfx/RazormaneStrike.wav')
 razorManeHurt = RepeatableSound('sfx/RazormaneHurt.wav')
 razorManeDie = RepeatableSound('sfx/RazormaneDie.wav')
 
+step = RepeatableSound('sfx/step.wav')
+
 # other effects?
 
 # music:
