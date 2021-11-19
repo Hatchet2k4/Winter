@@ -280,7 +280,7 @@ class Engine(object):
     def run(self):
         try:
             skipCount = 0
-            ika.Input.Update()
+            controls.UnpressAllKeys()
             self.nextFrameTime = ika.GetTime() + self.ticksPerFrame
             while True:
                 t = ika.GetTime()
