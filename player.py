@@ -246,16 +246,12 @@ class Player(Entity):
         self.scened = 0
 
     def giveXP(self, amount):
-        self.stats.exp += amount * 3 #hack to give more exp because I'm lazy and hate grinding
+        self.stats.exp += int(amount * 2) #hack to give more exp because I'm lazy and hate grinding
         if self.stats.exp >= self.stats.next:
-            self.levelUp()    
-
-    
+            self.levelUp()        
 
     def levelUp(self):
-
-        sound.achievement.Play()
-        
+        sound.achievement.Play()        
 
         while self.stats.exp >= self.stats.next:
             lev5 = int(self.stats.level / 5)
@@ -312,8 +308,6 @@ class Player(Entity):
                 line2= 'Attack again a moment after a slash.'                                        
             system.engine.things.append(Caption(line1, y=starty+40 + 10*i, duration=d))
             system.engine.things.append(Caption(line2, y=starty+50 + 10*i, duration=d))
-            
-        
 
     def calcSpells(self):
         '''
@@ -326,7 +320,6 @@ class Player(Entity):
         self.stats.gale = 'windrune' in savedata.__dict__
         self.stats.bolt = 'unityrune' in savedata.__dict__
 
-
     def regenMP(self):
         if self.stats.mp < self.stats.maxmp:
             self.mptimer+=1
@@ -334,18 +327,15 @@ class Player(Entity):
                 self.mptimer = 0
                 self.stats.mp+=1 + int(self.stats.mag / 10)
                 
-
     def defaultState(self):
         return self.standState()
 
     def standState(self):
         self.stop()
         self.anim = 'stand'
-        
-        
+            
         while True:
-            self.regenMP()
-        
+            self.regenMP()        
             if controls.attack() or controls.joy_attack():
                 self.state = self.slashState()
             elif controls.rend() or controls.joy_rend():
@@ -368,10 +358,8 @@ class Player(Entity):
     def walkState(self):
         oldDir = self.direction
         self.anim = 'walk'
-
         while True:
-            self.regenMP()
-                
+            self.regenMP()                
             if controls.attack() or controls.joy_attack():
                 self.state = self.slashState()
             elif controls.rend() or controls.joy_rend():
@@ -385,8 +373,7 @@ class Player(Entity):
                 yield None
             elif controls.bolt() or controls.joy_bolt():
                 self.state = self.boltState()
-                yield None
-                
+                yield None                
             elif controls.left() or controls.joy_left():
                 if controls.up()  or controls.joy_up():
                     d = dir.UPLEFT
@@ -416,8 +403,7 @@ class Player(Entity):
                 self.anim = 'walk'
                 self.direction = d
                 oldDir = d
-            yield None
-            
+            yield None           
             
     def cutsceneWalkState(self):
         oldDir = self.direction
@@ -468,7 +454,7 @@ class Player(Entity):
                 elif (controls.left() or controls.joy_left()) and self.direction in [dir.RIGHT, dir.UPRIGHT, dir.DOWNRIGHT]:  backthrust = True
                 elif (controls.right() or controls.joy_right()) and self.direction in [dir.LEFT, dir.UPLEFT, dir.DOWNLEFT]:  backthrust = True
 
-            if controls.attack() and self.stats.level >= SLASH_LEVEL: 
+            if controls.attack() or controls.joy_attack() and self.stats.level >= SLASH_LEVEL: 
                 backslash = True
 
             yield None
@@ -752,14 +738,10 @@ class Player(Entity):
 
         self.stop()
 
-        # stall
-        #for i in range(8):
-        #    yield None
+
 
     def healingRainState(self):
-
         self.stop()
-
         self.anim = 'magic'
 
         if self.stats.mp < 20 or not self.stats.heal:
@@ -791,7 +773,7 @@ class Player(Entity):
             system.engine.addThing(DamageCaption(str(amount), x, y, 40, 0, 240, 60))
             
             
-        ents = self.detectCollision((-16, -16, 32, 32, self.layer))
+        ents = self.detectCollision((-20, -20, 36, 36, self.layer))
 
         for e in ents:
             if isinstance(e, IceChunks):

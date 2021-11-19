@@ -7,5 +7,5 @@ def to44():
     y = system.engine.player.y - offset_from + offset_to
     system.engine.mapSwitch('map44.ika-map', (63 * 16, y))
 
-def to47():
-    system.engine.mapSwitch('map47.ika-map', (38 * 16, 3.5 * 16))
+def to49():
+    system.engine.mapSwitch('map49.ika-map', (14 * 16, 22 * 16))

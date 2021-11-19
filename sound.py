@@ -3,6 +3,7 @@ import ika
 from thing import Thing
 import system
 
+
 class NullSound(object):
     def __init__(self):
         self.position = 0

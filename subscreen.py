@@ -19,9 +19,6 @@ import controls
 import automap
 
 
-
-
-
 class Window(ImageWindow):
     '''
     Specialized xi window.  The only real differences are that it pulls
@@ -53,7 +50,6 @@ class SubScreenWindow(gui.Frame):
 
     def update(self):
         stats = system.engine.player.stats
-
         self.layout.setChildren(self.createContents())
         self.layout.layout()
         self.autoSize()
@@ -69,9 +65,7 @@ class StatWindow(SubScreenWindow):
             gui.StaticText(text='HP'), gui.StaticText(text=' %03i/%03i' % (stats.hp, stats.maxhp)),
             # hp bar
             gui.StaticText(text='MP'), gui.StaticText(text=' %03i/%03i' % (stats.mp, stats.maxmp)),
-            # mp bar
-            
-            
+            # mp bar  
             )
 
 
@@ -219,6 +213,18 @@ class TimerWindow(SubScreenWindow):
 
         return (gui.StaticText(text=txt),)
 
+class MapnameWindow(SubScreenWindow):
+    def __init__(self):
+        SubScreenWindow.__init__(self)
+
+    def createLayout(self):
+        return layout.VerticalBoxLayout()
+
+    def createContents(self):
+        txt = [automap.automapdata[system.engine.mapName][5]]
+
+        return (gui.StaticText(text=txt),)
+
 ###main pause screen class        
 class PauseScreen(object):
     def __init__(self):
@@ -230,8 +236,9 @@ class PauseScreen(object):
         self.menu = MenuWindow()
         #self.inv = InvWindow()
         self.timer = TimerWindow()
+        self.mapname = MapnameWindow()
         
-        self.allWindows = [self.statWnd, self.attribWnd, self.magWnd, self.menu, self.timer]
+        self.allWindows = [self.statWnd, self.attribWnd, self.magWnd, self.menu, self.timer, self.mapname]
         for w in self.allWindows:
             w.setBorder(15)
         
@@ -242,9 +249,8 @@ class PauseScreen(object):
         self.magWnd.update()
         #self.inv.update()
         self.timer.update()
-        
+        self.mapname.update()
 
-        
         self.statWnd.dockTop().dockLeft()
         self.attribWnd.Position = (self.statWnd.Left, self.statWnd.Bottom + self.statWnd.Border * 2) # eek
         #self.timer.Position = (self.attribWnd.Left, self.attribWnd.Bottom + self.attribWnd.Border * 2)
@@ -261,7 +267,8 @@ class PauseScreen(object):
         #self.inv.Position = (self.inv.Left, self.menu.Bottom + self.menu.Border * 2 )
         #self.magWnd.Position = (self.magWnd.Left, self.inv.Bottom + self.inv.Border * 2)
         self.magWnd.Position = (self.magWnd.Left, self.menu.Bottom + self.menu.Border * 2)
-        
+        #self.mapname.Position = (dockBottom().dockRight()
+        self.mapname.dockRight().dockBottom()
         
         
 
@@ -284,7 +291,7 @@ class PauseScreen(object):
         t.addChild(self.menu, startRect=(ika.Video.xres, self.menu.Top), time=TIME - 5)
         #t.addChild(self.inv, startRect=(ika.Video.xres, self.inv.Top), time=TIME - 5)
         t.addChild(self.timer, startRect=(-self.timer.Right, self.timer.Top), time=TIME - 5)
-
+        t.addChild(self.mapname, startRect=(ika.Video.xres, self.mapname.Top), time=TIME - 5)
         for i in range(TIME):
             t.update(1)
             o = i * 128 / TIME # tint intensity for this frame
@@ -312,6 +319,7 @@ class PauseScreen(object):
         t.addChild(self.menu, endRect=(ika.Video.xres, self.menu.Top), time=TIME - 5)
         #t.addChild(self.inv, endRect=(ika.Video.xres, self.inv.Top), time=TIME - 5)
         t.addChild(self.timer, endRect=(-self.timer.Right, self.timer.Top), time=TIME - 5)
+        t.addChild(self.mapname, endRect=(ika.Video.xres, self.mapname.Top), time=TIME - 5)
         
         for i in range(TIME - 1, -1, -1):
             t.update(1)
@@ -337,6 +345,7 @@ class PauseScreen(object):
         self.menu.draw()
         #self.inv.draw()
         self.timer.draw()
+        self.mapname.draw()
         
 
     def run(self):

@@ -291,13 +291,13 @@ Finally, he could go home.""")
         wait(1)
     pl.stop()         
     pl.direction=dir.RIGHT
-    pl.ent.specframe=18
-    pl.state = pl.cutsceneStandState()
-    pl.update()    
+    
+    pl._state = lambda: None
+    pl.ent.specframe=20
     ika.ProcessEntities()
     draw()
     ika.Video.ShowPage()    
-    speech((pl.ent.x, pl.ent.y-64), "I made it!")
+    speech((pl.ent.x, pl.ent.y-80), "I made it!")
    
     speech(kid2, 'Daddy!')
     speech(grandpa, "Welcome home, son!")

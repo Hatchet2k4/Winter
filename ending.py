@@ -3,6 +3,8 @@ import ika
 import sound
 from snow import Snow
 import system
+import xi
+from gameover import EndGameException
 
 _text = '''\
 *** Winter Remastered Credits ***
@@ -29,6 +31,10 @@ Daniel Harris (aka Hyptosis)
 Adam Boudreau
 Alex Hartshorn
 Carlos Petersen
+
+Additional Sound Effects
+SoundBible.com
+Freesound.org
 
 
 *** Original Credits ***
@@ -68,8 +74,7 @@ Ian Bollinger
 
 
 Additionally, everybody on the team had a
-hand in the concept and layout of the
-game.  
+hand in the concept and layout of the game.
 
 
 *** Enemy Stats ***
@@ -132,10 +137,33 @@ game.
 
 
 
-The End
+Thank you so much for playing! Winter was 
+originally made for a game competition all
+the way back in 2003. It was great for a 
+game made in a few weeks, but it always felt
+a bit unfinished. 
+
+
+I was only a part of a much larger team 
+then, but have always had a soft spot for 
+this game. I resurrected the project to go 
+back and add in some quality of life features, 
+and give the game some proper closure. I hope
+you enjoyed what I managed to come up with.
+
+
+Please look forward to my future projects at
+hatchet2k4.itch.io. 
+
+
+Thank you for your support!
+
 '''.split('\n')
 
+
 def credits():
+
+
     m = sound.music.get('music/Existing.s3m', ika.Sound('music/Existing.s3m'))
     m.loop = True
     sound.fader.kill()
@@ -146,6 +174,7 @@ def credits():
     y = -ika.Video.yres
     font = ika.Font('system.fnt')
     
+
     class CreditEnt(object):
         def __init__(self, e, name, x, y, h):
             self.ent=e
@@ -161,23 +190,7 @@ def credits():
             
             font.Print(140, self.y-offset+self.h, self.displayname)            
             font.Print(210, self.y-offset+self.h, self.num)
-    
-    
-    entlist=[]
-    
-    startx=80
-    starty=690
-    #hack because the full sprite dimensions aren't directly accessible 
-    heights = [16]*3 + [32]*3 + [86]*4
-    halfwidths=[8]*3 + [16]*3 + [48]*4
-    offseth =[0]*3 + [0]*3 + [16]*3 +[15] #compensate for hotspot
-    
-    for i, entname in enumerate(['anklebiter', 'carnivore', 'devourer', 'razormane', 'dragonpup','hellhound', 'yeti', 'gorilla','soulreaver','serpent']):
-        e=ika.Entity(-100,-100, 2, entname+'.ika-sprite') #put it off screen!               
-        entlist.append(CreditEnt(e, entname, startx-halfwidths[i], starty-offseth[i], heights[i]))
-        starty+=heights[i]+10
-            
-    
+
 
     def draw():
         ika.Video.Blit(bg, 0, 0, ika.Opaque)
@@ -211,18 +224,48 @@ def credits():
             (ika.Video.xres, ika.Video.yres - 60, ika.RGB(0, 0, 0, 0)))
   
         snow.draw()
-        
+
+            
+    
+    entlist=[]
+
+    startx=80
+    starty=0
+    for i, txt in enumerate(_text):
+        if '*** Enemy Stats ***' in txt:
+            starty=i*10+30
+            break
+    
+    #hack because the full sprite dimensions aren't directly accessible 
+    heights = [16]*3 + [32]*3 + [72]*3 + [112]
+    halfwidths=[8]*3 + [16]*3 + [48]*4
+    offseth =[0]*3 + [0]*3 + [16]*3 +[15] #compensate for hotspot
+    
+    for i, entname in enumerate(['anklebiter', 'carnivore', 'devourer', 'razormane', 'dragonpup','hellhound', 'yeti', 'gorilla','soulreaver','serpent']):
+        e=ika.Entity(-100,-100, 2, entname+'.ika-sprite') #put it off screen!               
+        entlist.append(CreditEnt(e, entname, startx-halfwidths[i], starty-offseth[i], heights[i]))
+        starty+=heights[i]+10
+            
+    maxy=len(_text)*10
+
+    draw()
+    xi.effects.fadeIn(50)
 
     now = ika.GetTime()
     while True:
         t = ika.GetTime()
-        delta = (t - now) / 2.0
+        delta = (t - now) / 5.0
         y += delta
         now = t
         snow.update()
-
         draw()
         ika.Video.ShowPage()
         ika.Input.Update()
+        if y > maxy:
+            break
+    
+    system.killmusic=False #keep music playing after returning to menu
+    
+    raise EndGameException
         
         

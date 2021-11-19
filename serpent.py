@@ -70,7 +70,7 @@ class Serpent(Enemy):
 
     def die(self, *args):
         #xi.effects.fadeOut(200, draw=system.engine.draw)
-        #ending.credits()
+        
 
         #destroy all remaining enemies!
         #for some reason this causes a potential crash.. will just need to kill the enemies too!
@@ -81,6 +81,7 @@ class Serpent(Enemy):
     
         sound.serpentDie.Play()        
         super(Serpent, self).die(*args)
+
           
         
         
@@ -214,11 +215,6 @@ class Serpent(Enemy):
 
 
 
-        #while not self._animator.kill:
-        #    n = self._animator.curFrame - 12
-        #    ika.Map.xwin += ika.Random(-n, n + 1)
-        #    ika.Map.ywin += ika.Random(-n, n + 1)
-        #    yield None
 
 
 flyAnim = animator.makeAnim(range(10), 10)  

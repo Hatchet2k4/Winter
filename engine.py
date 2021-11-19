@@ -280,6 +280,7 @@ class Engine(object):
     def run(self):
         try:
             skipCount = 0
+            ika.Input.Update()
             self.nextFrameTime = ika.GetTime() + self.ticksPerFrame
             while True:
                 t = ika.GetTime()
@@ -334,6 +335,7 @@ class Engine(object):
         except EndGameException: #must be last
             self.killList = self.entities[:]
             self.clearKillQueue()            
+
 
     def draw(self):
         if self.background:
@@ -421,6 +423,21 @@ class Engine(object):
                 #print 'Added ' + ent.sprite
             except KeyError:
                 print 'Unknown entity sprite %s.  Ignoring.' % ent.sprite
+
+    def clearKillQueueCabin(self):
+        self.killList= self.entities[:]                        
+        if self.player:
+            self.killList.remove(self.player) 
+                    
+        for ent in self.killList:
+            ent.ent.x, ent.ent.y = -100,0
+            ent.ent.Stop()
+            del self.entFromEnt[ent.ent]
+            ika.Map.entities.pop(ent, None)
+            ent.destroy()
+            self.entities.remove(ent)
+
+        self.killList = []        
 
     def clearKillQueue(self):
         # it's a bad idea to tweak the entity list in the middle of an iteration,

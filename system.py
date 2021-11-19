@@ -36,12 +36,9 @@ introMusic.Play()
 #ika.Delay(5)
 intro()
 
-
     
 while True:        
-        #sound.fader.kill()
-        #introMusic.position = 0
-        #introMusic.Play()
+        killmusic=True
         if saveload.quicksave:
             result = 3
         else: 
@@ -50,29 +47,31 @@ while True:
         
         if result == 0: #New Game
             introMusic.Pause()
-            engine.beginNewGame()
             sound.fader.kill()
-            introMusic.Play()
+            engine.beginNewGame()
+            if killmusic:
+                sound.fader.kill()
+                introMusic.Play()
+                            
         elif result == 1: #Load
             introMusic.Pause()
-            engine.loadGame()
             sound.fader.kill()
-            introMusic.Play()
+            engine.loadGame()            
+            if killmusic:
+                sound.fader.kill()
+                introMusic.Play()   
         elif result == 2: #Exit
             break
         elif result == 3: #quicksave
             introMusic.Pause()
+            sound.fader.kill()
             s=saveload.quicksave
             saveload.quicksave=None #reset it to None so that if player dies or exits, doesn't autoload the quicksave                
             engine.loadGame(s)       
-            sound.fader.kill()
-            introMusic.Play()            
+            if killmusic:
+                sound.fader.kill()
+                introMusic.Play()          
         else:
             assert False, 'Wacky intro menu result %i! :o' % result
-
-
-
-
-
 
 ika.Exit()
