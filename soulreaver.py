@@ -10,9 +10,7 @@ import sound
 import math
 import dir
 
-
 class SoulReaver(Yeti):
-
     def __init__(self, *args):
         super(SoulReaver, self).__init__(*args)
         self.speed = 120
