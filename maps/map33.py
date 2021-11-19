@@ -7,13 +7,13 @@ import sound
 from caption import Caption
 import xi
 import ending
-
+import cabin
 
 class RunEnding(Thing):
     def update(self):
         engine = system.engine
         p = engine.player
-        p.direction=dir.UP            
+        p.direction=dir.UP
         p.state = p.cutsceneWalkState() 
         engine.draw()
         ika.Video.ShowPage()
@@ -31,9 +31,9 @@ class RunEnding(Thing):
         p.update()
 
         y=float(ika.Map.ywin)
-        for i in range(500):
-            if y>20: 
-                y-=0.2
+        for i in range(550):
+            if y>100: 
+                y-=0.25
             ika.Map.ywin=int(y)
             ika.ProcessEntities()
             p.update()
@@ -43,6 +43,7 @@ class RunEnding(Thing):
         
         engine.synchTime()
         xi.effects.fadeOut(200, draw=system.engine.draw)
+        cabin.scene('epilogue')
         ending.credits()
     
 

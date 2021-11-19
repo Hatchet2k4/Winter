@@ -64,7 +64,7 @@ Troy Potts
 
 * Script *
 
-Ian Bollinger (aka Ear)
+Ian Bollinger
 
 
 Additionally, everybody on the team had a
