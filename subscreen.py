@@ -82,37 +82,50 @@ class MagicWindow(SubScreenWindow):
         p = system.engine.player.stats
         if p.heal:
             txt.append('Healing Rain')      
-            txt.append('')            
+            txt.append('')                  
         if p.rend:            
             txt.append('Hearth Rend')
-            txt.append('')
+            txt.append('')        
         if p.gale:            
             txt.append('Crushing Gale')        
             txt.append('')
         if p.bolt:
             txt.append('Bolt Storm')
             txt.append('')
-
         return (gui.StaticText(text=txt),)
 
     def draw(self):
         SubScreenWindow.draw(self)
         p = system.engine.player.stats
-        x=self.Left+72
+        
         y=self.Top+22
+        w=self.width
+        
         if p.heal:
-            x = 300 - gui.default_font.StringWidth(displayControls['heal'])
+            x=self.Left
             gui.default_font.Print(x, y, displayControls['heal'])
+            if (displayControls['joy_heal'] != 'None'):
+                x = self.Left+w - gui.default_font.StringWidth(displayControls['joy_heal'])
+                gui.default_font.Print(x, y, displayControls['joy_heal'])
         if p.rend:
-            x = 300 - gui.default_font.StringWidth(displayControls['rend'])
-            gui.default_font.Print(x, y+20, displayControls['rend'])
+            x=self.Left
+            gui.default_font.Print(x, y+20, displayControls['rend'])    
+            if (displayControls['joy_rend'] != 'None'):
+                x = self.Left+w - gui.default_font.StringWidth(displayControls['joy_rend'])
+                gui.default_font.Print(x, y+20, displayControls['joy_rend'])      
         if p.gale:
-            x = 300 - gui.default_font.StringWidth(displayControls['gale'])
+            x=self.Left
             gui.default_font.Print(x, y+40, displayControls['gale'])
+            if (displayControls['joy_gale'] != 'None'):
+                x = self.Left+w - gui.default_font.StringWidth(displayControls['joy_gale'])
+                gui.default_font.Print(x, y+40, displayControls['joy_gale'])
         if p.bolt:
-            x = 300 - gui.default_font.StringWidth(displayControls['bolt'])
+            x=self.Left
             gui.default_font.Print(x, y+60, displayControls['bolt'])
-
+            if (displayControls['joy_bolt'] != 'None'):
+                x = self.Left+w - gui.default_font.StringWidth(displayControls['joy_bolt'])
+                gui.default_font.Print(x, y+60, displayControls['joy_bolt'])
+                
 class AttribWindow(SubScreenWindow):
     def __init__(self):
         SubScreenWindow.__init__(self)
@@ -261,7 +274,7 @@ class PauseScreen(object):
         self.menu.dockRight().dockTop()
         #self.inv.width = w #same width as menu width at present
         #s1elf.inv.dockRight()
-        self.magWnd.width = w
+        self.magWnd.width = 130
         self.magWnd.dockRight()        
         
         #self.inv.Position = (self.inv.Left, self.menu.Bottom + self.menu.Border * 2 )
