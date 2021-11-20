@@ -247,7 +247,7 @@ class Player(Entity):
         self.scened = 0
 
     def giveXP(self, amount):
-        self.stats.exp += int(amount * 5) #hack to give more exp because I'm lazy and hate grinding
+        self.stats.exp += int(amount * 2) #hack to give more exp because I'm lazy and hate grinding
         if self.stats.exp >= self.stats.next:
             self.levelUp()        
 

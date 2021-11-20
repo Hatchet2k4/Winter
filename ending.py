@@ -32,14 +32,16 @@ Adam Boudreau
 Alex Hartshorn
 Carlos Petersen
 
-Additional Sound Effects
+
+* Additional Sound Effects *
 SoundBible.com
 Freesound.org
-
 
 * Special Thanks *
 Jeff Brooks
 DoctorGamester
+Troy Potts (aka Thrasher)
+
 
 *** Original Credits ***
 
@@ -59,7 +61,7 @@ Corey Annis
 Corey Annis
 Francis Brazeau
 Andy Friesen
-Troy Potts
+Troy Potts (aka Thrasher)
 
 
 * Music *
