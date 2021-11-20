@@ -6,7 +6,7 @@ import system
 import xi
 from gameover import EndGameException
 
-_text = '''\
+_basetext = '''\
 *** Winter Remastered Credits ***
 
 
@@ -36,6 +36,10 @@ Additional Sound Effects
 SoundBible.com
 Freesound.org
 
+
+* Special Thanks *
+Jeff Brooks
+DoctorGamester
 
 *** Original Credits ***
 
@@ -158,11 +162,15 @@ hatchet2k4.itch.io.
 
 Thank you for your support!
 
-'''.split('\n')
 
+
+
+'''
+
+_text = []
 
 def credits():
-
+    
 
     m = sound.music.get('music/Existing.s3m', ika.Sound('music/Existing.s3m'))
     m.loop = True
@@ -174,7 +182,10 @@ def credits():
     y = -ika.Video.yres
     font = ika.Font('system.fnt')
     
+    totaltxt = _basetext + """Total Time: """+system.engine.time
 
+    
+    _text=totaltxt.split('\n')
     class CreditEnt(object):
         def __init__(self, e, name, x, y, h):
             self.ent=e
@@ -200,15 +211,12 @@ def credits():
         adjust = int(y) % font.height
         length = (ika.Video.yres / font.height) + 1
 
-        #print firstLine
-
         Y = -adjust
         while Y < ika.Video.yres and firstLine < len(_text):
             if firstLine >= 0:
                 font.CenterPrint(160, Y, _text[firstLine])
             Y += font.height
             firstLine += 1
-
         
         for en in entlist:
             en.draw(int(y))
