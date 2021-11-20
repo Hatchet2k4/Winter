@@ -9,13 +9,14 @@ import savedata
 
 from gameover import GameOverException
 from statset import StatSet
-from caption import Caption, DamageCaption
+from caption import Caption, DamageCaption, BGRect
 
 from entity import Entity
 from enemy import Enemy
 from obstacle import IceWall, IceChunks, Gap, _Obstacle, Crystal
 from effects import Nova, Bolt
 from serpent import Serpent
+from xi import gui
 
 PLAYER_SPRITE = 'protagonist.ika-sprite'
 SLASH_LEVEL = 3
@@ -246,7 +247,7 @@ class Player(Entity):
         self.scened = 0
 
     def giveXP(self, amount):
-        self.stats.exp += int(amount * 2) #hack to give more exp because I'm lazy and hate grinding
+        self.stats.exp += int(amount * 5) #hack to give more exp because I'm lazy and hate grinding
         if self.stats.exp >= self.stats.next:
             self.levelUp()        
 
@@ -283,20 +284,37 @@ class Player(Entity):
             self.stats.exp -= self.stats.next
             self.stats.next = self.stats.level * (self.stats.level + 1) * 5
 
-        d = 400
-        starty=135
+        d = 300
+        starty=165
 
-        system.engine.things.append(Caption('Level %i!' % self.stats.level, y=starty, duration=d))
-        system.engine.things.append(Caption('HP +%i' % hpup, y=starty+10, duration=d))
-        system.engine.things.append(Caption('MP +%i' % mpup, y=starty+20, duration=d))
+        shade=100
+        red=250
+        green=250
+        blue=250
+        appendlist=[]        
+        
+        appendlist.append(Caption('Level %i!' % self.stats.level, y=starty, duration=d, r=red,g=green,b=blue))
+        appendlist.append(Caption('HP +%i' % hpup, y=starty+10, duration=d,  r=red,g=green,b=blue))
+        appendlist.append(Caption('MP +%i' % mpup, y=starty+20, duration=d,  r=red,g=green,b=blue))
         i=0
+        numlines=3
+        bgw = gui.default_font.StringWidth('Level %i!' % self.stats.level)              
         for s in statlist:
             if statsup[s]:
-                system.engine.things.append(Caption(statnames[s] +' +%i' % statsup[s], y=starty+30 + 10*i, duration=d))
-                i+=1
-                
-        if self.stats.level in [SLASH_LEVEL, BACK_LEVEL, THRUST_LEVEL]:
-            line1=line2=''
+                appendlist.append(Caption(statnames[s] +' +%i' % statsup[s], y=starty+30 + 10*i, duration=d, r=red,g=green,b=blue))
+                bgw = max(gui.default_font.StringWidth(statnames[s] +' +%i' % statsup[s]), bgw)
+                numlines+=1
+
+        bgw+=2
+        bgh = (numlines)*10
+        bgx = 160-(bgw/2)
+        bgy = starty-2                
+        appendlist = [BGRect(bgx,bgy,bgw,bgh, duration=d)]+appendlist
+        system.engine.things += appendlist                        
+        
+        appendlist = []        
+        line1=line2=''        
+        if self.stats.level in [SLASH_LEVEL, BACK_LEVEL, THRUST_LEVEL]:      
             if self.stats.level == SLASH_LEVEL: 
                 line1= 'Slash skill learned!'
                 line2= 'Press attack twice to combo.'
@@ -306,8 +324,16 @@ class Player(Entity):
             elif self.stats.level == THRUST_LEVEL: 
                 line1= 'Thrust skill learned!'
                 line2= 'Attack again a moment after a slash.'                                        
-            system.engine.things.append(Caption(line1, y=starty+40 + 10*i, duration=d))
-            system.engine.things.append(Caption(line2, y=starty+50 + 10*i, duration=d))
+            appendlist.append(Caption(line1, y=starty, duration=d, delay=d+150, r=red,g=green,b=blue))
+            appendlist.append(Caption(line2, y=starty+10, duration=d, delay=d+150, r=red,g=green,b=blue))            
+            
+            bgw = gui.default_font.StringWidth(line2) + 2
+            bgh = 21
+            bgx = 160-(bgw/2)
+            bgy = starty-2                
+            appendlist = [BGRect(bgx,bgy,bgw,bgh, delay=d+150, duration=d)]+appendlist
+            system.engine.things += appendlist    
+
 
     def calcSpells(self):
         '''
