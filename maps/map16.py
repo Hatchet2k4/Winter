@@ -23,9 +23,9 @@ def AutoExec():
         system.engine.things.append(RuneListener())
         
 def story_wind():
-    if 'windrune' in savedata.__dict__ and 'story_wind' not in savedata.__dict__: 
-      cabin.scene('story_wind')      
-      system.engine.camera.center()
+    system.engine.clearKillQueueCabin()  
+    cabin.scene('story_wind')      
+    system.engine.camera.center()
 
 def bridge_break():
     if 'bridge_broken' not in savedata.__dict__:
@@ -102,12 +102,18 @@ def manaPool():
         system.engine.player.stats.mp += 1
 
 def to13():
+    if 'windrune' in savedata.__dict__ and 'story_wind' not in savedata.__dict__: 
+        story_wind()
     system.engine.mapSwitch('map13.ika-map', (78 * 16, system.engine.player.y))
 
 def to17():
+    if 'windrune' in savedata.__dict__ and 'story_wind' not in savedata.__dict__: 
+        story_wind()
     system.engine.mapSwitch('map17.ika-map', (1 * 16, system.engine.player.y))
 
 def to19():
+    if 'windrune' in savedata.__dict__ and 'story_wind' not in savedata.__dict__: 
+        story_wind()
     offset_from = 4 * 16  # first vertical pos possible
     offset_to = 44 * 16  # first vertical pos possible
     y = system.engine.player.y - offset_from + offset_to

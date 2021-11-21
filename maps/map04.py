@@ -26,6 +26,11 @@ def manaPool():
         system.engine.player.stats.mp += 1        
 
 def to3():
+    if 'waterrune' in savedata.__dict__ and 'story_water' not in savedata.__dict__: 
+      system.engine.clearKillQueueCabin()
+      cabin.scene('story_water')      
+      system.engine.camera.center()
+
     offset_from = 11 * 16  # first horizontal pos possible
     offset_to = 8 * 16  # first horizontal pos possible
     x = system.engine.player.x - offset_from + offset_to

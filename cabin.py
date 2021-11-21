@@ -233,36 +233,36 @@ def story_water():
     tint.tint = 200    
     narration("""Somehow, he had managed to survive the return of the Razormane pack. It seemed there was something magical about this place that had the effect of make him stronger with every battle he fought. """)    
     narration("""He looked down at the magical rune he now held, surrounded by wisps of vapor, and glowing with life giving power.""")
-    narration("""Perhaps, he thought, this rune was one of the keys to finding his way through the labyrinth of these mountains...""")
+    narration("""Perhaps, he thought, this rune was one of the keys to finding his way through the labyrinth of these mountains.""")
     tint.tint = 0    
     
     
 def story_fire():
     tint.tint = 200    
     narration("""The battle with the Yeti was fierce, but again the man prevailed. And for his trouble, he had discovered another rune.""")
-    narration("""Surely, this would allow him to open up new paths to explore. """)
+    narration("""He could feel his sword's blade glowing with searing heat. Surely, this would allow him to open up new paths to explore. """)
     tint.tint = 0    
 
 def story_wind():
-    tint.tint = 200    
-    narration("""At last, he had found another rune, and as it glowed in his hands, he felt lighter than air.""")
-    narration("""With both physical and emotional weight lifting from his shoulders, he felt like now there was nowhere he could not reach.""")
+    tint.tint = 200        
+    narration("""With another victory, he could feel both a physical and emotional weight lifting from his shoulders. He almost felt lighter than air.""") 
+    narration("""His resolve growing, he believed that now there was nowhere he could not reach.""")
         
 
 def nearend():    
     tint.tint = 200    
     narration("""As he neared his journey's end, he once again began to grow tired, cold, and hungry. And yet, there were still more obstacles before him, ones that even his newfound powers could not breach.""")
     narration("""He considered... perhaps the only way forward, was to go back from whence he came.""")
-    narration("""There must have been something he missed. Perhaps if he returned to where he found the runes he carried, there may be some additional clues.""")
+    narration("""There must have been something he missed. Perhaps if he returned to where he found the runes he carried, there may be some clue he overlooked.""")
     tint.tint = 0    
     speech(kid1, 'Did he go back?')
     speech(kid2, 'Yeah!')
     speech(kid3, "He must have, he wouldn't have given up!!")    
-    narration("""He had no choice. He would continue to search the mountains for some way forward. His desire to return home was unwavering... """)
+    narration("""He had no choice. He would continue to search for some way forward. His desire to return home was unwavering... """)
 
 def forebattle():
     tint.tint = 200    
-    narration("""As he held what must be the final rune above his head, he somehow knew that he finally had the power to continue. The power to leave these lonely mountains and return home. """)
+    narration("""As he felt the power of this last rune he had acquired, he knew that at last he had what he needed to continue. Finally, he could leave these lonely mountains and return home. """)
     narration("""He hoped there would be no further trials awaiting him... yet in his heart he believed that these cursed peaks were not quite done with him yet...""")
     tint.tint = 0
 

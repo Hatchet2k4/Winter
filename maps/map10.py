@@ -17,6 +17,10 @@ def AutoExec():
         AddIce()
 
 def to9():
+    if 'firerune' in savedata.__dict__ and 'story_fire' not in savedata.__dict__: 
+        system.engine.clearKillQueueCabin()
+        cabin.scene('story_fire')      
+        system.engine.camera.center()
     system.engine.mapSwitch('map09.ika-map', (system.engine.player.x, 1 * 16))
 
 def manaPool():

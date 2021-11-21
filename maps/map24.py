@@ -16,15 +16,21 @@ def AutoExec():
 
 
 def forebattle():
-    if 'unityrune' in savedata.__dict__ and 'forebattle' not in savedata.__dict__: 
-      cabin.scene('forebattle')      
-      system.engine.camera.center()
-
+    #if 'unityrune' in savedata.__dict__ and 'forebattle' not in savedata.__dict__: 
+    #    system.engine.clearKillQueueCabin()
+    #    cabin.scene('forebattle')      
+    #    system.engine.camera.center()
+    pass
+    
 def manaPool():
     if 'unityrune' in savedata.__dict__ or 'penultimatebattle' not in savedata.__dict__:
         system.engine.player.stats.mp += 1        
         
 def to23():
+    if 'unityrune' in savedata.__dict__ and 'forebattle' not in savedata.__dict__: 
+        system.engine.clearKillQueueCabin()
+        cabin.scene('forebattle')      
+        system.engine.camera.center()
     system.engine.mapSwitch('map23.ika-map', (5 * 16, 5 * 16))
     
 def to50():
