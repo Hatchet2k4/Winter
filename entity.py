@@ -5,6 +5,7 @@ import dir
 import system
 from statset import StatSet
 from caption import DamageCaption, Caption
+from xi import gui
 
 def _temp():
     yield None
@@ -67,8 +68,8 @@ class Entity(object):
             
         #if damage display option on
         if system.engine.player.stats.damageind:
-            x=self.ent.x # + self.ent.hotwidth/2
-            y=self.ent.y #+ self.ent.hotheight/2
+            x=self.ent.x + self.ent.hotwidth/2 - gui.default_font.StringWidth(str(amount))/2
+            y=self.ent.y 
             system.engine.addThing(DamageCaption(str(amount), x, y, 40, 250, 0, 0))        
         
         

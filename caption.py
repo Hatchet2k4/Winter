@@ -82,7 +82,9 @@ class DamageCaption(Caption):
         ika.Video.TintBlit(self.img, self.x  - ika.Map.xwin, self.y - ika.Map.ywin, ika.RGB(self.r, self.g, self.b, o))
 
 class BGRect(Thing):
-    def __init__(self, x=0, y=0, w=0, h=0, duration=200, delay=0, r=60, g=60, b=60, a=200):
+    IMG = ika.Image('gfx/blankimg.png')
+
+    def __init__(self, x=0, y=0, w=0, h=0, duration=200, delay=0, r=75, g=75, b=75, r2=150,g2=150,b2=150, a=200):
 
         self.x=x
         self.y=y
@@ -92,7 +94,12 @@ class BGRect(Thing):
         self.delay=delay
         self.r=r
         self.g=g
-        self.b=b    
+        self.b=b
+
+        self.r2=r2
+        self.g2=g2
+        self.b2=b2
+        
         self.maxa=a #max alpha
         
         self.duration=duration        
@@ -122,6 +129,25 @@ class BGRect(Thing):
     def draw(self):
         o = min(255, self.opacity)
         #ika.Video.TintBlit(self.img, self.x  - ika.Map.xwin, self.y - ika.Map.ywin, ika.RGB(self.r, self.g, self.b, o))
-        ika.Video.DrawRect(self.x, self.y, self.x+self.w, self.y+self.h, ika.RGB(self.r, self.g, self.b, o), 1)
+        #ika.Video.DrawRect(self.x, self.y, self.x+self.w, self.y+self.h, ika.RGB(self.r2, self.g2, self.b2, o), 0)
         #ika.Video.DrawRect(int x1, int y1, int x2, int y2, int color[, int filled, int blendMode])
+        #ika.Video.DrawTriangle(
+        #    (self.x, self.y, ika.RGB(self.r, self.g, self.b, o)),
+        #    (self.x+self.w, self.y, ika.RGB(self.r, self.g, self.b, o)),
+        #    (self.x, self.y+self.h/2, ika.RGB(self.r2, self.g2, self.b2, o)))
 
+        #ika.Video.DrawTriangle(
+        #    (self.x+self.w, self.y+self.h/2, ika.RGB(self.r, self.g, self.b, o)),
+        #    (self.x, self.y+self.h/2, ika.RGB(self.r, self.g, self.b, o)),
+        #    (self.x+self.w, self.y, ika.RGB(self.r2, self.g2, self.b2, o)))
+        ika.Video.TintDistortBlit(self.IMG, 
+        (self.x, self.y, ika.RGB(self.r, self.g, self.b, o)), 
+        (self.x+self.w, self.y, ika.RGB(self.r, self.g, self.b, o)), 
+        (self.x+self.w, self.y+self.h/2, ika.RGB(self.r2, self.g2, self.b2, o)), 
+        (self.x, self.y+self.h/2, ika.RGB(self.r2, self.g2, self.b2, o)))
+
+        ika.Video.TintDistortBlit(self.IMG, 
+        (self.x, self.y+self.h/2, ika.RGB(self.r2, self.g2, self.b2, o)),
+        (self.x+self.w, self.y+self.h/2, ika.RGB(self.r2, self.g2, self.b2, o)), 
+        (self.x+self.w, self.y+self.h, ika.RGB(self.r, self.g, self.b, o)),         
+        (self.x, self.y+self.h, ika.RGB(self.r, self.g, self.b, o)))

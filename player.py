@@ -305,10 +305,10 @@ class Player(Entity):
                 bgw = max(gui.default_font.StringWidth(statnames[s] +' +%i' % statsup[s]), bgw)
                 numlines+=1
 
-        bgw+=2
-        bgh = (numlines)*10
+        bgw+=8
+        bgh = (numlines)*10 + 6
         bgx = 160-(bgw/2)
-        bgy = starty-2                
+        bgy = starty-4                
         appendlist = [BGRect(bgx,bgy,bgw,bgh, duration=d)]+appendlist
         system.engine.things += appendlist                        
         
@@ -327,10 +327,10 @@ class Player(Entity):
             appendlist.append(Caption(line1, y=starty, duration=d, delay=d+150, r=red,g=green,b=blue))
             appendlist.append(Caption(line2, y=starty+10, duration=d, delay=d+150, r=red,g=green,b=blue))            
             
-            bgw = gui.default_font.StringWidth(line2) + 2
-            bgh = 21
+            bgw = gui.default_font.StringWidth(line2) + 8
+            bgh = 21 + 4
             bgx = 160-(bgw/2)
-            bgy = starty-2                
+            #bgy = starty-2                
             appendlist = [BGRect(bgx,bgy,bgw,bgh, delay=d+150, duration=d)]+appendlist
             system.engine.things += appendlist    
 
@@ -794,7 +794,7 @@ class Player(Entity):
         self.stats.hp += min(20, amount) 
                
         if self.stats.damageind:
-            x=self.ent.x 
+            x=self.ent.x + self.ent.hotwidth/2 - gui.default_font.StringWidth(str(amount))/2
             y=self.ent.y 
             system.engine.addThing(DamageCaption(str(amount), x, y, 40, 0, 240, 60))
             
