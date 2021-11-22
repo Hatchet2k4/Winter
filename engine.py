@@ -130,7 +130,7 @@ class Engine(object):
         if saveData:
             # evil
             self.resetTime(saveData.seconds,saveData.minutes,saveData.hours)
-            saveData.setFlags() # hack so the save flags can remove obstacles properly
+            saveData.setFlags() # hack so the saved flags can remove obstacles properly
             self.mapSwitch(saveData.mapName, None, fade=False, newgame=True)
         else:
             self.resetTime()
@@ -288,6 +288,8 @@ class Engine(object):
                 # if we're ahead, delay
                 if t < self.nextFrameTime:
                     ika.Delay(int(self.nextFrameTime - t))
+
+                automap.map.update()
 
                 if controls.cancel() or controls.ui_cancel() or controls.joy_cancel():
                     self.pause()

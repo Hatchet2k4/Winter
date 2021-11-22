@@ -23,6 +23,12 @@ class _Rune(Entity):
             system.engine.destroyEntity(self)
             if self.element in ['Strength', 'Guard', 'Power']:
                 system.engine.addThing(Caption('%s Rune collected!' % self.element, y=160, duration=400))
+                if self.element=='Strength':
+                    system.engine.player.stats.strengthrunes+=1           
+                if self.element=='Power':
+                    system.engine.player.stats.powerrunes+=1           
+                if self.element=='Guard':
+                    system.engine.player.stats.guardrunes+=1           
             else:
                 system.engine.addThing(Caption('You got the %s Rune!' % self.element, y=160, duration=400))
             system.engine.addThing(Caption('%s' % self.effect, y=170, duration=400))

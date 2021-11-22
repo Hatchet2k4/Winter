@@ -5,6 +5,7 @@ from snow import Snow
 import system
 import xi
 from gameover import EndGameException
+import automap
 
 _basetext = '''\
 *** Winter Remastered Credits ***
@@ -36,6 +37,7 @@ Carlos Petersen
 * Additional Sound Effects *
 SoundBible.com
 Freesound.org
+
 
 * Special Thanks *
 Jeff Brooks
@@ -150,19 +152,16 @@ game made in a few weeks, but it always felt
 a bit unfinished. 
 
 
-I was only a part of a much larger team 
-then, but have always had a soft spot for 
-this game. I resurrected the project to go 
-back and add in some quality of life features, 
-and give the game some proper closure. I hope
-you enjoyed what I managed to come up with.
+I have always had a soft spot for this game. And
+so I resurrected the project to go back and add 
+in some quality of life features, missing content,
+and try to give the game some proper closure. I 
+hope you enjoy the final product!
 
 
 Please look forward to my future projects at
-hatchet2k4.itch.io. 
-
-
-Thank you for your support!
+hatchet2k4.itch.io. Hopefully you won't have
+to wait long for more!
 
 
 
@@ -171,9 +170,7 @@ Thank you for your support!
 
 _text = []
 
-def credits():
-    
-
+def credits():    
     m = sound.music.get('music/Existing.s3m', ika.Sound('music/Existing.s3m'))
     m.loop = True
     sound.fader.kill()
@@ -183,8 +180,21 @@ def credits():
     snow = Snow(velocity=(0.5, 0.75))
     y = -ika.Video.yres
     font = ika.Font('system.fnt')
+    totalitems=20
+    s = system.engine.player.stats
+    collecteditems = s.totaltnt + s.powerrunes + s.strengthrunes + s.guardrunes
+    itempercent = str(int(collecteditems * 100/totalitems)) + '%'
+    mappercent = str(automap.map.getMapPct()) + '%'
+    totaltxt = _basetext + """ *** Final Stats ***
     
-    totaltxt = _basetext + """Total Time: """+system.engine.time
+    
+Total Time Played:     """ + system.engine.time+"""    
+Item Collection Rate:  """ + itempercent + """
+Map Completion Rate:   """ + mappercent + """
+
+
+"""
+
 
     
     _text=totaltxt.split('\n')
@@ -202,7 +212,7 @@ def credits():
             self.ent.Draw(self.x, self.y-offset)
             
             font.Print(140, self.y-offset+self.h, self.displayname)            
-            font.Print(210, self.y-offset+self.h, self.num)
+            font.Print(230, self.y-offset+self.h, self.num)
 
 
     def draw():

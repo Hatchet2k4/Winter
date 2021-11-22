@@ -405,6 +405,20 @@ VAJS4y6byAnuWqhXOvJO4Iv2AQAA//8=
 					(adj_activate_script )
 					(activate_script )
 				)
+				(entity 
+					(label strength03)
+					(x 224)
+					(y 315)
+					(sprite strengthrune.ika-sprite)
+					(speed 100)
+					(direction up)
+					(move_script )
+					(obstructs_entities true)
+					(obstructed_by_entities true)
+					(obstructed_by_map true)
+					(adj_activate_script )
+					(activate_script )
+				)
 			)
 			(zones 
 				(zone 

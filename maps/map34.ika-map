@@ -613,6 +613,20 @@ nZ43f0FLYZad3HYpeoe+5m0csrI7qb9fLwAAAP//
 					(adj_activate_script )
 					(activate_script )
 				)
+				(entity 
+					(label boulder34)
+					(x 660)
+					(y 236)
+					(sprite boulder.ika-sprite)
+					(speed 100)
+					(direction up)
+					(move_script )
+					(obstructs_entities true)
+					(obstructed_by_entities true)
+					(obstructed_by_map true)
+					(adj_activate_script )
+					(activate_script )
+				)
 			)
 			(zones 
 				(zone 

@@ -229,10 +229,10 @@ vQeCF5ET1CubKCi7VxoAAAD//w==
 			)
 			(entities 
 				(entity 
-					(label strength0)
+					(label guard45)
 					(x 195)
 					(y 281)
-					(sprite strengthrune.ika-sprite)
+					(sprite guardrune.ika-sprite)
 					(speed 100)
 					(direction up)
 					(move_script )

@@ -23,6 +23,7 @@ class SaveGame(object):
         self.hours=0
         self.fname = fileName
         self.visible = [0]*(map.mapwidth*map.mapheight)
+        self.visited = [0]*(map.mapwidth*map.mapheight)
 
         self.pos = (0, 0, 0)
         if fileName:
@@ -30,17 +31,19 @@ class SaveGame(object):
 
     def getStats(self):
         self.stats = system.engine.player.stats.clone()
-        self.visible = map.visible[:]
+        self.visible = map.visiblerooms[:]
+        self.visited = map.visitedrooms[:]
 		
+    def setStats(self):
+        system.engine.player.stats = self.stats.clone()
+        map.visiblerooms = self.visible[:]
+        map.visitedrooms = self.visited[:]
+        
     def getFlags(self):
         self.flags = {}
         for k, v in savedata.__dict__.iteritems():
             if isinstance(v, (int, str, list, tuple)):
                 self.flags[k] = v
-
-    def setStats(self):
-        system.engine.player.stats = self.stats.clone()
-        map.visible = self.visible[:]
 
     def setFlags(self):
         self.clearSaveFlags()
@@ -66,8 +69,9 @@ class SaveGame(object):
         s.seconds = system.engine.seconds
         s.minutes = system.engine.minutes
         s.hours = system.engine.hours
-        s.visible = map.visible
-		
+        s.visible = map.visiblerooms        	
+        s.visited = map.visitedrooms 
+        
         p = system.engine.player
         s.pos = (p.x, p.y, p.layer)
         return s
@@ -88,8 +92,6 @@ class SaveGame(object):
         s = ''
         for k in StatSet.STAT_NAMES:
             s += '%s=%i\n' % (k, self.stats[k])
-
-
 
 
         s += 'FLAGS\n'

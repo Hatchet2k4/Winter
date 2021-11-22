@@ -57,7 +57,7 @@ class Serpent(Enemy):
             (Brain.Attack(1), self.watchMood)
             )
 
-        self.stats.maxhp = 800
+        self.stats.maxhp = 900
         self.stats.hp = self.stats.maxhp
         self.stats.att = 40
         self.stats.exp = 0

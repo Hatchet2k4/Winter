@@ -225,6 +225,10 @@ initialStats = StatSet(
     next=10,
     damageind=1,
     tnt=0,    
+    guardrunes=0,
+    strengthrunes=0,
+    powerrunes=0,
+    totaltnt=0,
     #kill stats
     anklebiter=0,    
     devourer=0,   

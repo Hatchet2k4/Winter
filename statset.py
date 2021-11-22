@@ -11,6 +11,11 @@ class StatSet(object):
         'rend', 'heal', 'gale', 'bolt',
         'damageind', #toggle for damage numbers. Hack!
         'tnt',
+        'guardrunes',
+        'strengthrunes',
+        'powerrunes',
+        'totaltnt',
+        
         #how many of each enemy type killed
         'anklebiter', 
         'devourer', 
