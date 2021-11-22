@@ -6,7 +6,7 @@
 import savedata
 import system
 from statset import StatSet
-
+import base64
 
 quicksave=None
 
@@ -92,8 +92,6 @@ class SaveGame(object):
         s = ''
         for k in StatSet.STAT_NAMES:
             s += '%s=%i\n' % (k, self.stats[k])
-
-
         s += 'FLAGS\n'
         s += 'MAPNAME=\'%s\'\n' % self.mapName        
         s += 'POS=\'%s\'\n' % ','.join([str(x) for x in self.pos])
@@ -101,7 +99,8 @@ class SaveGame(object):
         s += 'SECONDS=\'%s\'\n' % str(self.seconds)
         s += 'MINUTES=\'%s\'\n' % str(self.minutes)
         s += 'HOURS=\'%s\'\n' % str(self.hours)
-        s += 'MAPDATA=\'%s\'\n' % ','.join([str(x) for x in map.visible])        
+        s += 'MAPDATA=\'%s\'\n' % ','.join([str(x) for x in map.visiblerooms])        
+        s += 'MAPDATA2=\'%s\'\n' % ','.join([str(x) for x in map.visitedrooms])        
         for var, val in savedata.__dict__.iteritems():
             if not var.startswith('_'):
                 if isinstance(val, (int, str)):
@@ -137,7 +136,6 @@ class SaveGame(object):
         # Read stats
         while True:
             s = lines.pop(0)
-
             if s == 'FLAGS':    break
             
             p = s.find('=')
@@ -157,10 +155,12 @@ class SaveGame(object):
             elif k == 'HOURS': self.hours=int(v)
             elif k == 'POS':
                 self.pos = tuple([int(x) for x in v.split(',')])
-            elif k == 'MAPDATA':                 
-                #map.visible = [int(x) for x in v.split(',')]      
+            elif k == 'MAPDATA':                             
 				self.visible = [int(x) for x in v.split(',')]      
-            else:               self.flags[k] = v
+            elif k == 'MAPDATA2':                                 
+				self.visited = [int(x) for x in v.split(',')]                      
+            else:               
+                self.flags[k] = v
 
         #read map data
         #s = lines.pop(0)

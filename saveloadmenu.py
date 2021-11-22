@@ -88,7 +88,9 @@ class SaveLoadMenu(object):
         if saving:
             boxes.append(gui.TextFrame(text='Create New'))
         elif not boxes:
-            boxes.append(gui.TextFrame(text='No Saves'))
+            b = gui.TextFrame(text='No Saves')
+            
+            boxes.append(b)
 
         self.layout = layout.VerticalBoxLayout(pad=16, *boxes)
         self.layout.layout()
@@ -96,6 +98,8 @@ class SaveLoadMenu(object):
         self.cursorPos = 0
         self.oldY = 0 # current offset
         self.curY = 0 # offset we should be at
+        self.offset=-14
+        
         if boxes:
             self.wndHeight = self.layout.children[0].Height + 16
         else:
@@ -106,7 +110,7 @@ class SaveLoadMenu(object):
     def draw(self):
         self.layout.Y = (ika.Video.yres - self.wndHeight) / 2 - self.oldY + 16
         self.layout.draw()
-        self.cursor.draw(100, ika.Video.yres / 2 - 14) # cursor doesn't move, everything else does
+        self.cursor.draw(100, ika.Video.yres / 2 + self.offset) # cursor doesn't move, everything else does
         #self.cursor.draw(100, 3) # cursor doesn't move, everything else does
 
     def update(self):
@@ -153,14 +157,14 @@ def readSaves():
 def loadMenu(fadeOut=True):
     title = gui.TextFrame(text='Load Game')
     title.Position = (12, 12)
-    saves = readSaves()
+    saves = readSaves()    
     m = SaveLoadMenu(saves, saving=False)
-    
+    if len(saves)==0:
+        m.offset = 6 #hack to position cursor properly when no saves exist
     bg = ika.Image('gfx/mountains.png')
     
     def draw():
-        #ika.Video.ClearScreen() # fix this
-        ika.Video.TintBlit(bg, 0,0, ika.RGB(128, 128, 128, 255)) #fixed it!
+        ika.Video.TintBlit(bg, 0,0, ika.RGB(128, 128, 128, 255))
         m.draw()        
         title.draw()
 
@@ -186,7 +190,9 @@ def saveMenu():
     title = gui.TextFrame(text='Save Game')
     title.Position = (16, 16)
     saves = readSaves()
-    m = SaveLoadMenu(saves, saving=True)    
+    m = SaveLoadMenu(saves, saving=True)        
+    if len(saves)==0:
+        m.offset = 6 #hack to position cursor properly when no saves exist
     bg = ika.Image('gfx/mountains.png')
     
     def draw():
@@ -210,7 +216,7 @@ def saveMenu():
                 try: 
                     f=file('Save %i' % j, 'rt')
                     f.close()
-                except IOError: #found a slot that doesn't exist
+                except IOError: #found a slot that doesn't exist. Bad hack!
                     s.save('Save %i' % j)
                     system.engine.things.append(Caption('Game saved.', duration=100))
                     break
