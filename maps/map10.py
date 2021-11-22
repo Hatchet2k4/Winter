@@ -7,7 +7,7 @@ from rune import FireRune
 from obstacle import IceWall
 import savedata
 import sound
-
+import cabin
 
 
 def AutoExec():                 
