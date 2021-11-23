@@ -6,11 +6,94 @@
 import savedata
 import system
 from statset import StatSet
-import base64
+import ika
 
 quicksave=None
 
 from automap import map
+
+
+#import sys
+
+def base64encode(s):
+  i = 0
+  base64 = ending = ''
+  base64chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+  
+  # Add padding if string is not dividable by 3
+  pad = 3 - (len(s) % 3)
+  if pad != 3:
+    s += "A" * pad
+    ending += '=' * pad
+  
+  # Iterate though the whole input string
+  while i < len(s):
+    b = 0
+
+    # Take 3 characters at a time, convert them to 4 base64 chars
+    for j in range(0,3,1):
+      
+      # get ASCII code of the next character in line
+      n = ord(s[i])
+      i += 1
+  
+      # Concatenate the three characters together 
+      b += n << 8 * (2-j)
+    
+    # Convert the 3 chars to four Base64 chars
+    base64 += base64chars[ (b >> 18) & 63 ]
+    base64 += base64chars[ (b >> 12) & 63 ]
+    base64 += base64chars[ (b >> 6) & 63 ]
+    base64 += base64chars[ b & 63 ]
+
+  # Add the actual padding to the end
+  if pad != 3:
+    base64 = base64[:-pad]
+    base64 += ending
+  
+  # Print the Base64 encoded result
+  #print (base64)
+  return base64
+  
+
+
+def base64decode(s):
+  i = 0
+  base64 = decoded = ''
+  base64chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+  
+  # Replace padding with "A" characters so the decoder can process the string, and save the padding length for later
+  if s[-2:] == '==':
+    s = s[0:-2] + "AA"
+    padd = 2
+  elif s[-1:] == '=':
+    s = s[0:-1] + "A"
+    padd = 1
+  else:
+    padd = 0
+  
+  # Take 4 characters at a time 
+  while i < len(s):
+    d = 0
+    for j in range(0,4,1):
+      
+      d += base64chars.index( s[i] ) << (18 - j * 6)
+      i += 1
+    
+    # Convert the 4 chars back to ASCII
+    decoded += chr( (d >> 16 ) & 255 )
+    decoded += chr( (d >> 8 ) & 255 )
+    decoded += chr( d & 255 )
+  
+  # Remove padding
+  decoded = decoded[0:len( decoded ) - padd]
+  
+  # Print the Base64 encoded result
+  return decoded
+  #print (decoded)
+
+
+#base64encode(sys.argv[1])
 
 class SaveGame(object):
     def __init__(self, fileName = None):
@@ -83,7 +166,9 @@ class SaveGame(object):
         self.setFlags()
 
     def save(self, fileName):
-        file(fileName, 'wt').write(str(self))
+        encoded = base64encode(str(self))
+        file(fileName, 'wt').write(encoded)                
+        #file(fileName, 'wt').write(str(self))
 
     def load(self, fileName):
         self.read(file(fileName, 'rt'))
@@ -91,32 +176,40 @@ class SaveGame(object):
     def __str__(self):
         s = ''
         for k in StatSet.STAT_NAMES:
-            s += '%s=%i\n' % (k, self.stats[k])
-        s += 'FLAGS\n'
-        s += 'MAPNAME=\'%s\'\n' % self.mapName        
-        s += 'POS=\'%s\'\n' % ','.join([str(x) for x in self.pos])
-        s += 'TIME=\'%s\'\n' % self.time
-        s += 'SECONDS=\'%s\'\n' % str(self.seconds)
-        s += 'MINUTES=\'%s\'\n' % str(self.minutes)
-        s += 'HOURS=\'%s\'\n' % str(self.hours)
-        s += 'MAPDATA=\'%s\'\n' % ','.join([str(x) for x in map.visiblerooms])        
-        s += 'MAPDATA2=\'%s\'\n' % ','.join([str(x) for x in map.visitedrooms])        
+            s += '%s=%i|' % (k, self.stats[k])
+        s += 'FLAGS|'
+        s += 'MAPNAME=\'%s\'|' % self.mapName        
+        s += 'POS=\'%s\'|' % ','.join([str(x) for x in self.pos])
+        s += 'TIME=\'%s\'|' % self.time
+        s += 'SECONDS=\'%s\'|' % str(self.seconds)
+        s += 'MINUTES=\'%s\'|' % str(self.minutes)
+        s += 'HOURS=\'%s\'|' % str(self.hours)
+        s += 'MAPDATA=\'%s\'|' % ','.join([str(x) for x in map.visiblerooms])        
+        s += 'MAPDATA2=\'%s\'|' % ','.join([str(x) for x in map.visitedrooms])        
         for var, val in savedata.__dict__.iteritems():
             if not var.startswith('_'):
                 if isinstance(val, (int, str)):
-                    s += '%s=%r\n' % (var, val)
+                    s += '%s=%r|' % (var, val)
 
                 elif isinstance(val, (list, tuple)):
-                    s += '%s=LIST\n' % var
+                    s += '%s=LIST|' % var
                     for el in val:
-                        s += '  %s\n' % `el`
-                    s += 'END\n'
+                        s += '  %s|' % `el`
+                    s += 'END|'
 
         
         return s
 
     def read(self, f):
-        lines = [x.strip() for x in f.readlines()]
+        encoded = f.read()
+        decoded = base64decode(encoded)
+        #ika.Log(decoded)
+        
+        lines = decoded.split('|')
+        lines = lines[:-1] #last line is empty, discard
+        #ika.Log(str(lines))
+        #lines = [x.strip() for x in lines]
+        #lines = [x.strip() for x in f.readlines()]
 
         def parse(v):
             v = v.strip()
