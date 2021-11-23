@@ -293,8 +293,8 @@ class Player(Entity):
 
         shade=100
         red=250
-        green=250
-        blue=250
+        green=200
+        blue=30
         appendlist=[]        
         
         appendlist.append(Caption('Level %i!' % self.stats.level, y=starty, duration=d, r=red,g=green,b=blue))
@@ -305,15 +305,16 @@ class Player(Entity):
         bgw = gui.default_font.StringWidth('Level %i!' % self.stats.level)              
         for s in statlist:
             if statsup[s]:
-                appendlist.append(Caption(statnames[s] +' +%i' % statsup[s], y=starty+30 + 10*i, duration=d, r=red,g=green,b=blue))
+                #appendlist.append(Caption(statnames[s] +' +%i' % statsup[s], y=starty+30 + 10*i, duration=d, r=red,g=green,b=blue))
                 bgw = max(gui.default_font.StringWidth(statnames[s] +' +%i' % statsup[s]), bgw)
                 numlines+=1
+                i+=1
 
         bgw+=8
         bgh = (numlines)*10 + 6
         bgx = 160-(bgw/2)
         bgy = starty-4                
-        appendlist = [BGRect(bgx,bgy,bgw,bgh, duration=d)]+appendlist
+        #appendlist = [BGRect(bgx,bgy,bgw,bgh, duration=d)]+appendlist
         system.engine.things += appendlist                        
         
         appendlist = []        
