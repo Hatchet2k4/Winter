@@ -38,7 +38,7 @@ class SaveGameFrame(gui.Frame):
             
             if debug: 
                 c += [   layout.HorizontalBoxLayout(
-                    gui.StaticText(text=self.save.fname)) ] 
+                    gui.StaticText(text=self.save.fname[6:])) ]  #using [6:] to remove saves/ from the text
             
             
             c += [
@@ -142,13 +142,13 @@ def readSaves():
     saves = []
     
     try:
-        saves.append(SaveGame('quicksave')) #if a quicksave exists, why not!           
+        saves.append(SaveGame('saves/quicksave')) #if a quicksave exists, why not!           
     except IOError: 
         pass #no file here
     
-    for i in range(100): #support 100 saves?! :o
+    for i in range(1, 100): #support 100 saves?! :o
         try:
-            saves.append(SaveGame('Save %i' % i))            
+            saves.append(SaveGame('saves/Save %i' % i))            
         except IOError: 
             pass #no file here, skip to the next one
             
@@ -212,12 +212,12 @@ def saveMenu():
     if i is not Cancel:
         s = SaveGame.currentGame()
         if i is New:
-            for j in range(100):
+            for j in range(1, 100):
                 try: 
-                    f=file('Save %i' % j, 'rt')
+                    f=file('saves/Save %i' % j, 'rt')
                     f.close()
                 except IOError: #found a slot that doesn't exist. Bad hack!
-                    s.save('Save %i' % j)
+                    s.save('saves/Save %i' % j)
                     system.engine.things.append(Caption('Game saved.', duration=100))
                     break
         else:

@@ -203,13 +203,8 @@ class SaveGame(object):
     def read(self, f):
         encoded = f.read()
         decoded = base64decode(encoded)
-        #ika.Log(decoded)
-        
         lines = decoded.split('|')
         lines = lines[:-1] #last line is empty, discard
-        #ika.Log(str(lines))
-        #lines = [x.strip() for x in lines]
-        #lines = [x.strip() for x in f.readlines()]
 
         def parse(v):
             v = v.strip()

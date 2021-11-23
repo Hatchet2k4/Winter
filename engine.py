@@ -514,12 +514,12 @@ class Engine(object):
         
     def SaveState(self):        
         s = SaveGame.currentGame()
-        s.save('quicksave')
+        s.save('saves/quicksave')
         self.things.append(Caption('Quicksaved!'))
         
     def LoadState(self):       
         try:
-            s = SaveGame('quicksave')                        
+            s = SaveGame('saves/quicksave')                        
             raise LoadStateException(s)
         except IOError: #no file here            
             sound.menuBuzz.Play()
