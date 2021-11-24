@@ -2,6 +2,7 @@ from entity import Entity
 from caption import Caption
 import system
 import savedata
+import automap
 
 
 class Dynamite(Entity):
@@ -22,3 +23,4 @@ class Dynamite(Entity):
             system.engine.player.stats.totaltnt+=1
             system.engine.destroyEntity(self)
             system.engine.addCaptions(Caption('Got a stick of dynamite!'))
+            automap.map.SetCollected('TNT')

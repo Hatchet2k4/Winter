@@ -107,6 +107,7 @@ class SaveGame(object):
         self.fname = fileName
         self.visible = [0]*(map.mapwidth*map.mapheight)
         self.visited = [0]*(map.mapwidth*map.mapheight)
+        self.collected = [0]*(map.mapwidth*map.mapheight)
 
         self.pos = (0, 0, 0)
         if fileName:
@@ -116,11 +117,13 @@ class SaveGame(object):
         self.stats = system.engine.player.stats.clone()
         self.visible = map.visiblerooms[:]
         self.visited = map.visitedrooms[:]
-		
+        self.collected = map.collected[:]
+        
     def setStats(self):
         system.engine.player.stats = self.stats.clone()
         map.visiblerooms = self.visible[:]
         map.visitedrooms = self.visited[:]
+        map.collected = self.collected[:]
         
     def getFlags(self):
         self.flags = {}
@@ -154,6 +157,7 @@ class SaveGame(object):
         s.hours = system.engine.hours
         s.visible = map.visiblerooms        	
         s.visited = map.visitedrooms 
+        s.collected = map.collected
         
         p = system.engine.player
         s.pos = (p.x, p.y, p.layer)
@@ -185,7 +189,8 @@ class SaveGame(object):
         s += 'MINUTES=\'%s\'|' % str(self.minutes)
         s += 'HOURS=\'%s\'|' % str(self.hours)
         s += 'MAPDATA=\'%s\'|' % ','.join([str(x) for x in map.visiblerooms])        
-        s += 'MAPDATA2=\'%s\'|' % ','.join([str(x) for x in map.visitedrooms])        
+        s += 'MAPDATA2=\'%s\'|' % ','.join([str(x) for x in map.visitedrooms])      
+        s += 'MAPDATA3=\'%s\'|' % ','.join([str(x) for x in map.collected])      
         for var, val in savedata.__dict__.iteritems():
             if not var.startswith('_'):
                 if isinstance(val, (int, str)):
@@ -247,6 +252,8 @@ class SaveGame(object):
 				self.visible = [int(x) for x in v.split(',')]      
             elif k == 'MAPDATA2':                                 
 				self.visited = [int(x) for x in v.split(',')]                      
+            elif k == 'MAPDATA2':                                 
+				self.collected = [int(x) for x in v.split(',')]                  
             else:               
                 self.flags[k] = v
 

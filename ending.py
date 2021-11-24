@@ -180,10 +180,12 @@ def credits():
     snow = Snow(velocity=(0.5, 0.75))
     y = -ika.Video.yres
     font = ika.Font('system.fnt')
-    totalitems=20
+    totalitems=25 #total collectable items - tnt, + all types of runes 
+    #currently 5 strength and power, 6 guard runes
     s = system.engine.player.stats
-    collecteditems = s.totaltnt + s.powerrunes + s.strengthrunes + s.guardrunes
-    itempercent = str(int(collecteditems * 100/totalitems)) + '%'
+    
+    collecteditems = s.totaltnt + s.powerrunes + s.strengthrunes + s.guardrunes + 4 #hack - assume that all 4 main runes are collected :P
+    itempercent = str(round(collecteditems * 100/totalitems, 1)) + '%'
     mappercent = str(automap.map.getMapPct()) + '%'
     totaltxt = _basetext + """ *** Final Stats ***
     

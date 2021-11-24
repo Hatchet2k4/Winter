@@ -5,6 +5,7 @@ Given the proper skill or item, the player can cross these.
 import ika
 import savedata
 import system
+import automap
 
 from entity import Entity
 from caption import Caption
@@ -17,7 +18,7 @@ class _Obstacle(Entity):
         print self.flagName + ' inited'    
 
         if self.flagName in savedata.__dict__:
-            print 'Removed ' + self.flagName
+            #print 'Removed ' + self.flagName
             self.remove()
             
 
@@ -123,8 +124,46 @@ class Boulder(_Obstacle):
                 setattr(savedata, tnt[0], 'False')
                 setattr(savedata, self.flagName, 'True')
                 system.engine.player.stats.tnt-=1
+                
+                e = ika.Entity(self.x-8, self.y, self.ent.layer+1, 'explosion.ika-sprite')
+                system.engine.addEntity(Explosion(e))
+                
                 system.engine.destroyEntity(self)
                 system.engine.addCaptions(Caption('Blew the rock apart!'))
+                automap.map.SetCollected('Boulder')
 
         else:
             self.isTouching = False
+
+class Explosion(Entity):
+    _anim = {
+    'default': ((
+        ((0, 300),),
+        ((1, 300),),
+        ((2, 300),),
+        ((3, 300),),
+        ((4, 300),),
+        ((5, 300),),
+                
+        ),
+        False
+    )
+    }
+
+    
+    def __init__(self, ent):
+        Entity.__init__(self, ent, self._anim)
+        self.anim = 'default'
+        self.invincible = True
+        self.state = self.boomState()
+        self.duration=42
+        self.timer=0
+        
+    def boomState(self):   
+        while self.timer<self.duration:
+            frame=int(self.timer/(self.duration/6))        
+            self.ent.specframe=frame       
+            self.timer+=1
+            yield None
+        self.die()
+        yield None
