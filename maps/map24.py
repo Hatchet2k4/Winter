@@ -4,7 +4,7 @@ import ika
 import savedata
 
 from thing import Thing
-from rune import CowardRune
+from rune import UnityRune
 import sound
 from soulreaver import SoulReaver
 from obstacle import Crystal
