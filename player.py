@@ -262,7 +262,7 @@ class Player(Entity):
             lev5 = int(self.stats.level / 5)
             
             #every 5 levels, increase potential hp gain
-            hpup = ika.Random(2, 5 + lev5) + (lev5*2)
+            hpup = ika.Random(2, 4 + lev5) + (lev5*2)
             mpup = ika.Random(1, 4 + lev5) + lev5
             
             self.stats.maxhp += hpup
@@ -273,10 +273,11 @@ class Player(Entity):
             statsup = {'att':0, 'mag':0, 'pres':0}
             statnames = {'att':'Attack', 'mag':'Magic', 'pres':'Defense'}
             
-            statpoints = 1 + + lev5 #every 5 levels, gain another stat point           
+            statpoints = 1 
+            if lev5>0: statpoints+=ika.Random(0, lev5+1) #every 5 levels, potentially gain another stat point           
             
             for n in range(statpoints):
-                #random chance of any stat increase. mres not included because it's useless :P
+                #random chance of any stat increase. 
                 s = statlist[ika.Random(0,len(statlist))] 
                 self.stats[s]+= 1
                 statsup[s]+=1
@@ -305,7 +306,7 @@ class Player(Entity):
         bgw = gui.default_font.StringWidth('Level %i!' % self.stats.level)              
         for s in statlist:
             if statsup[s]:
-                #appendlist.append(Caption(statnames[s] +' +%i' % statsup[s], y=starty+30 + 10*i, duration=d, r=red,g=green,b=blue))
+                appendlist.append(Caption(statnames[s] +' +%i' % statsup[s], y=starty+30 + (10*i), duration=d, r=red,g=green,b=blue))
                 bgw = max(gui.default_font.StringWidth(statnames[s] +' +%i' % statsup[s]), bgw)
                 numlines+=1
                 i+=1
@@ -336,7 +337,7 @@ class Player(Entity):
             bgh = 21 + 4
             bgx = 160-(bgw/2)
             #bgy = starty-2                
-            appendlist = [BGRect(bgx,bgy,bgw,bgh, delay=d+150, duration=d)]+appendlist
+            #appendlist = [BGRect(bgx,bgy,bgw,bgh, delay=d+150, duration=d)]+appendlist
             system.engine.things += appendlist    
 
 

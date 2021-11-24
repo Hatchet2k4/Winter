@@ -98,9 +98,9 @@ class RazorMane(Enemy):
 
         self.mood = self.passiveMood
         self.speed = 150
-        self.stats.maxhp = self.stats.hp = 60
-        self.stats.att = 15
-        self.stats.exp = 13        
+        self.stats.maxhp = self.stats.hp = 50
+        self.stats.att = 12
+        self.stats.exp = 4        
         self.name='razormane'
 
     def hurtState(self, recoilSpeed, recoilDir):
@@ -136,14 +136,22 @@ class RazorMane(Enemy):
         return math.hypot(p.x - self.x - 10, p.y - self.y - 7)
 
     def attackMood(self):
-        for q in range(ika.Random(1, 5)):
+        for q in range(ika.Random(3, 6)):
             d = self.playerDir()
             dist = self.playerDist()
             if dist <= 48:
                 yield self.attackState(d)
                 yield self.idleState(20)
             else:
-                yield self.walkState(d, min(30, dist))
+                r= ika.Random(0,8)
+                if r>=6:                     
+                    yield self.walkState(dir.rotateCounterCW[d], min(30, dist))                    
+                elif r>=4:
+                    yield self.walkState(dir.rotateCW[d], min(30, dist))                        
+                else:                       
+                    yield self.walkState(d, min(30, dist))
+
+
 
     def stalkMood(self):
         DIST = 0
@@ -152,19 +160,24 @@ class RazorMane(Enemy):
         while True:
             d = self.playerDir()
             dist = self.playerDist()
+            self.direction=d
 
             if dist - DIST > 48:
                 # get closer
                 n = int(dist - DIST - 1)
+                r= ika.Random(0,8)
+                if r>=6:                                        
+                    yield self.walkState(dir.rotateCounterCW45[d], ika.Random(int(n / 2), n))                    
+                elif r>=4:                    
+                    yield self.walkState(dir.rotateCW45[d], ika.Random(int(n / 2), n))                                                        
                 yield self.walkState(d, ika.Random(int(n / 2), n))
 
-                yield self.idleState(40)
+                yield self.idleState(30)
             elif dist < DIST:
                 # fall back
-
                 yield self.walkState(dir.invert[d], min(80, DIST - dist))
-                self.direction = d
-                yield self.idleState(40)
+                self.direction = dir.invert[d]
+                yield self.idleState(30)
             else:
                 self.mood = self.attackMood
                 yield self.idleState(1)

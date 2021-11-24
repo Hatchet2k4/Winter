@@ -39,8 +39,7 @@ class SaveGameFrame(gui.Frame):
             if debug: 
                 c += [   layout.HorizontalBoxLayout(
                     gui.StaticText(text=self.save.fname[6:])) ]  #using [6:] to remove saves/ from the text
-            
-            
+                        
             c += [
                         
                 layout.HorizontalBoxLayout(

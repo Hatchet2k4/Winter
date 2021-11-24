@@ -133,11 +133,17 @@ class AnkleBiter(Enemy):
         for q in range(5):
             d = dir.fromDelta(p.x - self.x, p.y - self.y)
             dist = math.hypot(p.x - self.x, p.y - self.y)
-            if dist < 40:
+            if dist <= 32: #attack range!
                 yield self.attackState(d)
                 yield self.idleState(20)
-            else:
-                yield self.walkState(d, min(30, dist))
+            else: #attempt to move closer
+                r= ika.Random(0,8)
+                if r>=6:                     
+                    yield self.walkState(dir.rotateCounterCW[d], min(30, dist))                    
+                elif r>=4:
+                    yield self.walkState(dir.rotateCW[d], min(30, dist))                        
+                else:
+                    yield self.walkState(d, min(30, dist))
 
     def fleeMood(self):
         MIN_DIST = 150
@@ -162,7 +168,7 @@ class AnkleBiter(Enemy):
 
             yield self.idleState()
 
-            if dist < 150:
+            if dist <= 160:
                 #sound.anklebiterStrike.Play()
                 self.mood = self.attackMood
                 yield self.idleState()
@@ -177,10 +183,13 @@ class AnkleBiter(Enemy):
         ox, oy = self.x, self.y
         self.move(dir, dist)
         self.anim = 'walk'
+        
+        
         while self.moving:
             yield None
             if (ox, oy) == (self.x, self.y):
-                break
+                break        
+        
         self.stop()
 
     def deathState(self, *args, **kwargs):

@@ -40,6 +40,51 @@ invert = [
     NOTHING
     ]
 
+
+rotateCounterCW = [ #rotate 90 degrees left
+DOWN,
+UP,
+LEFT,
+RIGHT,
+DOWNLEFT,
+UPLEFT,
+DOWNRIGHT,
+UPRIGHT
+]
+
+rotateCounterCW45 = [ #rotate 45 degrees left
+DOWNLEFT,
+UPRIGHT,
+UPLEFT,
+DOWNRIGHT,
+LEFT,
+UP,
+DOWN,
+RIGHT
+]
+
+rotateCW = [ #rotate 90 degrees right
+UP,
+DOWN,
+RIGHT,
+LEFT,
+UPRIGHT,
+DOWNRIGHT,
+UPLEFT,
+DOWNLEFT
+]
+
+rotateCW45 = [ #rotate 45 degrees right
+UPLEFT,
+DOWNRIGHT,
+UPRIGHT,
+DOWNLEFT,
+UP,
+RIGHT,
+LEFT,
+DOWN
+]
+
 invertX = [
     RIGHT,
     LEFT,

@@ -49,3 +49,7 @@ class Passive(Mood):
 
 class Regroup(Mood):
     pass
+
+class Unblock(Mood):
+    pass
+    

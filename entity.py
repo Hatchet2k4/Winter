@@ -153,8 +153,17 @@ class Entity(object):
         self.direction = d
         self.ent.MoveTo(int(self.ent.x + dist * dx), int(self.ent.y + dist * dy))
 
-    def getObs(self, d): 
-        pass
+    def getObs(self, d): #hack hack hack
+        dlist = [ dir.delta[d], dir.delta[dir.rotateCounterCW45[d]], dir.delta[dir.rotateCW45[d]] ]
+        for dd in dlist:
+            dx, dy = dd
+            cx = self.x + self.ent.hotwidth/2
+            cy = self.y + self.ent.hotheight/2        
+            dist = (self.ent.hotwidth + self.ent.hotheight) / 2 +8
+                            
+            if(ika.Map.GetObs(int(cx + dist*dx),int(cx + dist*dy),self.ent.layer)):
+                return True
+        return False
 
     def isMoving(self):     return self.ent.IsMoving()
     def stop(self):         self.ent.Stop()
