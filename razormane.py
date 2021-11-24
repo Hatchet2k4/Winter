@@ -100,7 +100,7 @@ class RazorMane(Enemy):
         self.speed = 150
         self.stats.maxhp = self.stats.hp = 50
         self.stats.att = 12
-        self.stats.exp = 4        
+        self.stats.exp = 5      
         self.name='razormane'
 
     def hurtState(self, recoilSpeed, recoilDir):

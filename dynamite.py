@@ -21,4 +21,4 @@ class Dynamite(Entity):
             system.engine.player.stats.tnt+=1
             system.engine.player.stats.totaltnt+=1
             system.engine.destroyEntity(self)
-            system.engine.things.append(Caption('Got a stick of dynamite!'))
+            system.engine.addCaptions(Caption('Got a stick of dynamite!'))

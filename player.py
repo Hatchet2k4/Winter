@@ -316,7 +316,7 @@ class Player(Entity):
         bgx = 160-(bgw/2)
         bgy = starty-4                
         #appendlist = [BGRect(bgx,bgy,bgw,bgh, duration=d)]+appendlist
-        system.engine.things += appendlist                        
+        system.engine.addCaptions(appendlist)                        
         
         appendlist = []        
         line1=line2=''        
@@ -330,15 +330,15 @@ class Player(Entity):
             elif self.stats.level == THRUST_LEVEL: 
                 line1= 'Thrust skill learned!'
                 line2= 'Attack again a moment after a slash.'                                        
-            appendlist.append(Caption(line1, y=starty, duration=d, delay=d+150, r=red,g=green,b=blue))
-            appendlist.append(Caption(line2, y=starty+10, duration=d, delay=d+150, r=red,g=green,b=blue))            
+            appendlist.append(Caption(line1, y=starty, duration=d, r=red,g=green,b=blue))
+            appendlist.append(Caption(line2, y=starty+10, duration=d, r=red,g=green,b=blue))            
             
             bgw = gui.default_font.StringWidth(line2) + 8
             bgh = 21 + 4
             bgx = 160-(bgw/2)
             #bgy = starty-2                
             #appendlist = [BGRect(bgx,bgy,bgw,bgh, delay=d+150, duration=d)]+appendlist
-            system.engine.things += appendlist    
+            system.engine.addCaptions(appendlist)    
 
 
     def calcSpells(self):
@@ -810,7 +810,7 @@ class Player(Entity):
         for e in ents:
             if isinstance(e, IceChunks):
                 e.freeze()
-                system.engine.things.append(Caption('The water froze over!'))
+                system.engine.addCaptions(Caption('The water froze over!'))
                 system.engine.destroyEntity(e)
                 break
 
@@ -872,11 +872,11 @@ class Player(Entity):
                         e.hurt(int(self.stats.att + self.stats.mag) + ika.Random(1, int(self.stats.mag)), 300, d)
                 elif isinstance(e, IceWall):
                     setattr(savedata, e.flagName, 'True')                    
-                    system.engine.things.append(Caption('The ice melted!'))
+                    system.engine.addCaptions(Caption('The ice melted!'))
                     destroyents.append(e)
                 elif isinstance(e, Crystal):
                     setattr(savedata, e.flagName, 'True')                    
-                    system.engine.things.append(Caption('The crystal reacted!'))
+                    system.engine.addCaptions(Caption('The crystal reacted!'))
                     destroyents.append(e)                    
                 system.engine.addThing(Bolt(self.x+offsetx, self.y+offsety, 
                                             e.x+(e.ent.hotwidth/2), e.y+(e.ent.hotheight/2), ika.RGB(240,40,128) ))

@@ -217,11 +217,11 @@ def saveMenu():
                     f.close()
                 except IOError: #found a slot that doesn't exist. Bad hack!
                     s.save('saves/Save %i' % j)
-                    system.engine.things.append(Caption('Game saved.', duration=100))
+                    system.engine.addCaptions(Caption('Game saved.', duration=100))
                     break
         else:
             s.save('Save %i' % i)
-            system.engine.things.append(Caption('Game saved.', duration=100))
+            system.engine.addCaptions(Caption('Game saved.', duration=100))
 
     xi.effects.fadeOut(50, draw=draw)
     

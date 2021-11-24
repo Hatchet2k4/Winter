@@ -124,7 +124,7 @@ class Boulder(_Obstacle):
                 setattr(savedata, self.flagName, 'True')
                 system.engine.player.stats.tnt-=1
                 system.engine.destroyEntity(self)
-                system.engine.things.append(Caption('Blew the rock apart!'))
+                system.engine.addCaptions(Caption('Blew the rock apart!'))
 
         else:
             self.isTouching = False

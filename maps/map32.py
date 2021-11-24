@@ -106,7 +106,7 @@ class DeathListener(Thing):
         if self.serpent.stats.hp == 0 and not self.buildbrige:
             sound.playMusic("music/Existing.s3m")  
             sound.achievement.Play()
-            system.engine.things.append(Caption('Serpent defeated!'))
+            system.engine.addCaptions(Caption('Serpent defeated!'))
             savedata['finalbattledone'] = 'True'
             self.buildbrige = True
 

@@ -122,6 +122,8 @@ class Engine(object):
         self.things = []
         self.mapThings = []
         self.fields = []
+        self.captions = []
+        self.captionqueue = []
         
 
         # ika Entity : Entity
@@ -350,6 +352,9 @@ class Engine(object):
             t.draw()
         for t in self.mapThings:
             t.draw()
+        for t in self.captions:
+            t.draw()    
+            
 
     def tick(self):
         # We let ika do most of the work concerning entity movement.
@@ -368,12 +373,16 @@ class Engine(object):
                 break
         
         self.updateTime()
+        #captions being displayed are empty and stuff in the queue to fill it!
+        if len(self.captionqueue)>0 and len(self.captions)==0: 
+            self.captions+=self.captionqueue[0]
+            self.captionqueue.pop(0)
 
         # update Things.
         # for each thing in each thing list, we update.
         # If the result is true, we delete the thing, else
         # move on.
-        for t in (self.things, self.mapThings):
+        for t in (self.things, self.mapThings, self.captions):
             i = 0
             while i < len(t):
                 result = t[i].update()
@@ -383,6 +392,13 @@ class Engine(object):
 
     def setPlayer(self, player):
         assert self.player is None
+
+    def addCaptions(self, captionlist):
+        if isinstance(captionlist, list):
+            self.captionqueue.append(captionlist)
+        else:     
+            self.captionqueue.append([captionlist])
+    
 
     def addEntity(self, ent):
         assert ent not in self.entities
@@ -515,7 +531,7 @@ class Engine(object):
     def SaveState(self):        
         s = SaveGame.currentGame()
         s.save('saves/quicksave')
-        self.things.append(Caption('Quicksaved!'))
+        self.addCaptions(Caption('Quicksaved!'))
         
     def LoadState(self):       
         try:
