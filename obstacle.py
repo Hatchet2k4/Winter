@@ -127,7 +127,7 @@ class Boulder(_Obstacle):
                 
                 e = ika.Entity(self.x-8, self.y, self.ent.layer+1, 'explosion.ika-sprite')
                 system.engine.addEntity(Explosion(e))
-                
+                sound.explode.Play()
                 system.engine.destroyEntity(self)
                 system.engine.addCaptions(Caption('Blew the rock apart!'))
                 automap.map.SetCollected('Boulder')

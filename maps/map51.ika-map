@@ -9,7 +9,7 @@
 	)
 	(header 
 		(dimensions 
-			(width 320)
+			(width 640)
 			(height 640)
 		)
 		(tileset snowy.vsp)
@@ -34,7 +34,7 @@
 		(layer 
 			(label B0)
 			(dimensions 
-				(width 20)
+				(width 40)
 				(height 40)
 			)
 			(position 
@@ -53,29 +53,34 @@
 			)
 			(data 
 				(format zlib)
-				eJy0lutKxDAQhRNvKKIgghdYFVYFLy/g+7+CD6AurC5U
-CyZKL7+c4Bz3dDaruwUDh7Zp8nVmksw0OOfCP6kVVXr/
-IHoUPWWuoz84tZmf7seiZ9FL5jr5g1uZ+em+EL1m9CYq
-iTtSe1rjZ6DxifWu42r9XqPj0vWDuBMTj0DjkyKxUv+B
-d+5Sdei/+wNxSxMP8KKK1yQxjkTXoivRsTIxNiiT4xHo
-ew2xhsRJ11sVmIHGw+boZtflQX1ku85EF6QT390bNTHZ
-tqBrO5Dxp8pKOlcfOcawJ1L8mRfVtkKfwTxTe9rMWoNb
-mf1S65ixri2+OSBW1HFsp5U9ZwX1V7TutevugYoEFtsH
-JmzjGFifwAejdbP+Irbc15j5wXVt5bW1PN43eNeYayQe
-28fngX3lmLINvEfAGRn/rW/4xqpfTDYH8Pc5VgXp08wp
-tb90+RxgYxb03Yafiudwv80BrZs9u62+W5fxK6I1352z
-qn38HoKP9nzc+X5qXDcftOZ5WR7OjI0f54UNP60LtT7/
-Zl9uPVDnxia2vMdyvJHhNYZV6LOtHfOYqHO5fIXaluYO
-NcdfmzxveZ8Zf1rXrZPI+Sk/3ygXeXrf8MoMLygL5xX5
-+UbtQ55O73bkuinaEm1neBDqK+dSzvmIddrPu6J7ud9T
-Ju895AbEiPPGUP3EGYdtiQUl5rwGJsfw3E/jsk+2QfV8
-3I9vkWLIa7tDrEUb58eh7/5r1EuynJvWRbaR6/CyjWta
-NKp68Dg/cv2KPVjO2IWzjf+oPs3+h6Fm920272B9Fmlf
-AAAA//8=
+				eJzMmPFq2zAQxqV1Gxujg1HYWmgbSDpImxfY+7/CHiBd
+oF0hrSHyiuz8NYneN3++yu5aIruCDzuOdfrp7mSf7Iwx
+bofadWPb2yAv58ugy6BfieNqYL5K8cTzq6DroN+J400P
+51NjPXdO8X+veOL5Oug2obuggjhXMr9tz/hPxeOyY64c
+V0fjR7aNjFsJfy33xeMf4rxR43Qx9MXj2jQx0f3gv1pU
+Elu8/tUa8130zT5cd8RZqHG6GPricUsx0f3AV4p4jUSm
+w6DzoHnQkTDiXieMqXE1w4bmepiwl7JzRzGG/8A2Ja54
+XIhg09H98Gkp1zBn9j24YOdCbM/sg09K6gd/Vaadh/H6
+Uuyy3yZBZ6QT2/SpSI7G0TZ4nnNiPBI+zhuOD/vOSR4f
+hz6nZHdmG9/U1Bd2PPWH2MaC+DDXU+GbJPjgT828lDyu
+yf5E/AUbXtmA37fqHDbO7GPfe/oPv7kfHxGjWny3IZ8c
+Exvmw37U0s9avr9U52DwiX7c+L0G36XylNe4J4ENc+1q
+YHpu42c0fJfKU/gfvGDamnZ8d93Ah/nxmtF5yr7ktZub
+j9dyV57Cl2DimHqykYMPHMg99hE/U8C1Mu14s+9z8MEH
+e/b/pGsCnk8OPsRqTbpXDIVcL8zjmoBzJAcf5h7Hem8b
+MQNf1+9yflbn4EMOxrHehfHfBL21bYY9ucb/Q4hBzvo+
+2v9hX6baNM+gHHz8fnYv4MQ7JXf+cZ0Q8wz7ikp+9/lv
+iPWBfdyVaddK/IxL8a0y8yF/wLaW33rv0cWIfVzu9QE2
+1AlTqS3Pbbuu13z3Ju/+HH7hfSXq87nUuQuqow8UXzEA
+nxM2vG9RP19QXX4ia2E/HD8EfQz6NAAfhP0t16Zc4yNX
+4/P5c9DPcP5FGHPxocaMtpFjXJdMJa54R8N3kQ2KjEM1
+MHIOzmyTBwfkO6gaDu9fLCMLcpDX7j6xjdW43pza9reI
+amS22LAvZB/yPnjsxnu2UsmPyIXG9Sbvz8oxoaix3/Bu
+xneq19D0dzPswV9L4z069rtjxfYvAAAA//8=
 			)
 			(obstructions 
 				(format tile)
-				eJxiYBgFo2AU4AIAAAAA//8=
+				eJxiYBgFo2AUjIJRMApIBwAAAAD//w==
 			)
 			(entities 
 			)
@@ -85,7 +90,7 @@ AAAA//8=
 		(layer 
 			(label Waterfall1)
 			(dimensions 
-				(width 20)
+				(width 40)
 				(height 40)
 			)
 			(position 
@@ -104,12 +109,13 @@ AAAA//8=
 			)
 			(data 
 				(format zlib)
-				eJzs0bENACAMA0FnGWhgDGD/jXDDBEnHn+T2G0sAAOBp
-IfWo6w23ZmEPOctfbO8UffJjD8i6AAAA//8=
+				eJzs07ENwCAQBMGnGUjsMoD+O/I34MgBYM1Il29yEQAA
+APxZLRGtrK54d2XbvXEfrNTzGyM3N/2Ivm9O6AM42QMA
+AP//
 			)
 			(obstructions 
 				(format tile)
-				eJxiYBgFo2AU4AIAAAAA//8=
+				eJxiYBgFo2AUjIJRMApIBwAAAAD//w==
 			)
 			(entities 
 			)
@@ -119,7 +125,7 @@ IfWo6w23ZmEPOctfbO8UffJjD8i6AAAA//8=
 		(layer 
 			(label Waterfall2)
 			(dimensions 
-				(width 20)
+				(width 40)
 				(height 40)
 			)
 			(position 
@@ -138,12 +144,12 @@ IfWo6w23ZmEPOctfbO8UffJjD8i6AAAA//8=
 			)
 			(data 
 				(format zlib)
-				eJxiYBgFo2AUjIJRMAoGHwhhRGBc4uh4MIIERggeBYMD
-JDEi8Kh55Jk3CkYBpQAAAAD//w==
+				eJzszrsJQCEUREFvjxYg9l/ECwwEP8HDRGEGTrLRpgQA
+AMBKjt5uH+O/Ei1gVqN3I//OvPAP4GUfAAAA//8=
 			)
 			(obstructions 
 				(format tile)
-				eJxiYBgFo2AU4AIAAAAA//8=
+				eJxiYBgFo2AUjIJRMApIBwAAAAD//w==
 			)
 			(entities 
 			)
@@ -153,7 +159,7 @@ JDEi8Kh55Jk3CkYBpQAAAAD//w==
 		(layer 
 			(label B1)
 			(dimensions 
-				(width 20)
+				(width 40)
 				(height 40)
 			)
 			(position 
@@ -172,17 +178,19 @@ JDEi8Kh55Jk3CkYBpQAAAAD//w==
 			)
 			(data 
 				(format zlib)
-				eJxiYBgFo2AUjIKhCXIYGRhyGQfaFfiBGtB96kA8E8ie
-BcSzKTRPB2iWLhXNMwKaZYxmHrlhmsAIwSCAzX3I8qQC
-avmXVuahA34apEtamEltQKkbM7GIwdINuWkHHYQwQnDo
-EAhPYkDWQDuAAjAU0vQooA0AAAAA//8=
+				eJzs1LEJgDAQheG7CdxCG210Fe1tFR1IXdaTEJAQ0kle
+5H1wINr8JHIiRERERPSlTUV2zV1RttrOr7E57Pm0uXIH
+BVpr64D7emsbgj6Uf3JWN4/Y+b2/54Z6vx56X6gCudeU
+EhrRoZ3hEnnn9wzKrgmN6mYC7aO0NXfAj6HtFyLCdAMA
+AP//
 			)
 			(obstructions 
 				(format tile)
-				eJykkgEOwCAIA9v/f3oxMimVzGUzMeJhbEGBv4MxCrFg
-hE3abnG2cp9ZsRUahtwdGncrraxRlWqnsvaFMvViZ3jN
-UkOF04BbvNWKVzbl5UF9ttjRCt5q2hkfo+7cob0Hxrpq
-3joI/yPWT1wAAAD//w==
+				eJzElOEOgCAIhO/e/6X7kSVeyNnWks2F7OMSIoGdxmaW
+EmfGPVOyd3DIoQB9Y46V6v3Hjc3I2niGFLvimpjFYnt4
+ZUe13Ncq6q+2yrVDuXlhWLXeGofPuV6HK/jmfcnoFTkO
+OhVTrhSMA1MI6p835fCaq1vNxKvN3UO7OI5PJ7gwgbCX
+aQMddQAAAP//
 			)
 			(entities 
 				(entity 
@@ -241,6 +249,20 @@ UkOF04BbvNWKVzbl5UF9ttjRCt5q2hkfo+7cob0Hxrpq
 					(adj_activate_script )
 					(activate_script )
 				)
+				(entity 
+					(label r1)
+					(x 436)
+					(y 140)
+					(sprite razormane.ika-sprite)
+					(speed 100)
+					(direction up)
+					(move_script )
+					(obstructs_entities true)
+					(obstructed_by_entities true)
+					(obstructed_by_map true)
+					(adj_activate_script )
+					(activate_script )
+				)
 			)
 			(zones 
 				(zone 
@@ -252,17 +274,17 @@ UkOF04BbvNWKVzbl5UF9ttjRCt5q2hkfo+7cob0Hxrpq
 				)
 				(zone 
 					(label to12)
-					(x 304)
+					(x 628)
 					(y 112)
-					(width 16)
+					(width 12)
 					(height 48)
 				)
 			)
 		)
 		(layer 
-			(label A0)
+			(label Mist)
 			(dimensions 
-				(width 20)
+				(width 40)
 				(height 40)
 			)
 			(position 
@@ -281,14 +303,17 @@ UkOF04BbvNWKVzbl5UF9ttjRCt5q2hkfo+7cob0Hxrpq
 			)
 			(data 
 				(format zlib)
-				eJxiYBgFww1sAeKtUEwNc3YjYWqZQ4556OYcpNC8XUj6
-DkHFDkDNhWFSAEzvIQLqBhqoMTIwqDNSzzwdKpo1CkbB
-KBgFo4B6ALk9QI12AXK9SW6bgJbmDSYgQuW6UYrK5ikM
-cN0NAAAA//8=
+				eJzsmDsOwkAMRJ07UFFRQcPxAwVQOJwMVspK1hInzv5s
+CT/JTbKZHeUjjwPgOE5Lxm/dSN0r6tXQeS5Urtcx0ant
+a6kkHjnNEl+T0N9LoP1gNPcQNUK952M4a9Ki+hNZuwYy
+mnuI123tJ133r5wHgMug7YLnatib4/Qi9IvSXt8K2qct
+eYy5I6fH92Ctz8e8RPOZhm9pbqI5oTco8CbJTS1B+M1K
+aX7SfC/pN0yfI4KNexh8cDkunNP2twWCZ1CnP+n/gtI5
+vzZ0zsyd8Vti3Z8j52B8ljwa93cy7k+bDwAAAP//
 			)
 			(obstructions 
 				(format tile)
-				eJxiYBgFo2AU4AIAAAAA//8=
+				eJxiYBgFo2AUjIJRMApIBwAAAAD//w==
 			)
 			(entities 
 			)
@@ -298,7 +323,7 @@ cN0NAAAA//8=
 		(layer 
 			(label A1)
 			(dimensions 
-				(width 20)
+				(width 40)
 				(height 40)
 			)
 			(position 
@@ -317,16 +342,17 @@ cN0NAAAA//8=
 			)
 			(data 
 				(format zlib)
-				eJzk1ksKgDAMBND0/hfUikfxiwi1aNJJBhEMBDfyGFsb
-7UWkf+hh61xdB+V+ra3KRKssy5pAzzI9nmb/zYsWM1vt
-eWrcei46km0U3nunWahnWaiXEvncsj055tXZ9DnwkLcj
-e+6ML3nuZzb2GzYNj5nPW0zrLmN4lpK9ekZ8PV/k/Grz
-lWkhGXdnMazWdWz5fkD70jDvW58ZyWaZXqs2z3+KiHVZ
-S3C9tEZzrQAAAP//
+				eJzs1+sKgzAMBeD4/i84FR9lF91QujDbJrHJGfRA2B+R
+j2NX60hE48nM60zsd85c7zmlTMC2NN62u9BXa7zqPhpf
+y3SfLf/mQwtyd1us3S3rPJK5GT38fpbuFvq9R0mtqemq
+fe/MlrPybkomra/WFvVeGwZsH6H76HO+2gfR9xWnPtV7
+l5NP3WH32Z6x8/9ZbHT2iePo0wbZ9k7jDs1nU3Bf6zND
+788+2vev53kV2SbpcHM9nW216zDi+0Piizjf1z7jyO5K
+RhQbN+7f1dEePsdaDF5vuYnu7QUAAP//
 			)
 			(obstructions 
 				(format tile)
-				eJxiYBgFo2AU4AIAAAAA//8=
+				eJxiYBgFo2AUjIJRMApIBwAAAAD//w==
 			)
 			(entities 
 			)

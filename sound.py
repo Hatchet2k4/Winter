@@ -77,6 +77,7 @@ razorManeHurt = RepeatableSound('sfx/RazormaneHurt.wav')
 razorManeDie = RepeatableSound('sfx/RazormaneDie.wav')
 
 step = RepeatableSound('sfx/step.wav')
+explode = RepeatableSound('sfx/explode-5.wav')
 
 # other effects?
 
@@ -108,7 +109,6 @@ class Crossfader(Thing):
         if self.music is not None:
             if self.music not in self.oldMusic:
                 self.oldMusic.append(self.music)
-
             self.music = newMusic
             self.music.volume = 0.0
             self.music.Play()
