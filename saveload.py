@@ -171,8 +171,15 @@ class SaveGame(object):
 
     def save(self, fileName):
         encoded = base64encode(str(self))
-        file(fileName, 'wt').write(encoded)                
-        #file(fileName, 'wt').write(str(self))
+        try: 
+            f = file(fileName, 'wt')
+            f.write(encoded)  
+            f.close()
+        except Exception, e:
+            ika.Log("Couldn't save: "+ fileName + " " + str(e))
+        
+        
+        
 
     def load(self, fileName):
         self.read(file(fileName, 'rt'))

@@ -139,10 +139,10 @@ class SaveLoadMenu(object):
 def readSaves():
     saves = []
     
-    try:
-        saves.append(SaveGame('saves/quicksave')) #if a quicksave exists, why not!           
-    except IOError: 
-        pass #no file here
+    #try:
+    #    saves.append(SaveGame('quicksave')) #if a quicksave exists, why not!           
+    #except IOError: 
+    #    pass #no file here
     
     for i in range(100): #support 100 saves?! :o
         try:
@@ -212,14 +212,16 @@ def saveMenu():
         if i is New:
             for j in range(100):
                 try: 
-                    f=file('saves/Save %i' % j, 'rt')
+                    f=file('saves/Save %i' % j, 'rt')                    
                     f.close()
-                except IOError: #found a slot that doesn't exist. Bad hack!
+                except IOError, e: #found a slot that doesn't exist. Bad hack!
+                    ika.Log(str(e))
                     s.save('saves/Save %i' % j)
                     system.engine.addCaptions(Caption('Game saved.', duration=100))
                     break
-        else:
-            s.save('saves/Save %i' % i)
+        else:        
+            filename=saves[i].fname
+            s.save(filename)
             system.engine.addCaptions(Caption('Game saved.', duration=100))
 
     xi.effects.fadeOut(50, draw=draw)
