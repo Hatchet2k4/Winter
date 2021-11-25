@@ -7,7 +7,10 @@ def AutoExec():
     system.engine.mapThings.append(Snow(velocity=(0, 0.5)))    
 
 def nearEnd():    
-    pass
+    if 'nearend' not in savedata.__dict__:
+        system.engine.clearKillQueueCabin()
+        cabin.scene('nearend') #automatically adds scene to savedata    
+        system.engine.camera.center()
     
 
 
@@ -15,8 +18,7 @@ def nearEnd():
 def to30():
     x = system.engine.player.x - 160
     system.engine.mapSwitch('map30.ika-map', (6 * 16 + x, 16))
-    if 'nearend' not in savedata.__dict__:
-        cabin.scene('nearend') #automatically adds scene to savedata    
+    
 
 def to32():
     # no adjustment here on purpose
