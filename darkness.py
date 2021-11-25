@@ -7,6 +7,6 @@ class Darkglow(Thing):
     
     def draw(self):
         p=system.engine.player
-        x=int(p.x + 8 - ika.Map.xwin) - 320
-        y=int(p.y - ika.Map.ywin) - 240
+        x=int(p.x + 8 - ika.Map.xwin) - 640
+        y=int(p.y - ika.Map.ywin) - 480
         ika.Video.TintBlit(self.circleimage, x,y, ika.RGB(180,210,250,200), ika.SubtractBlend)
