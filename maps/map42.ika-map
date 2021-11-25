@@ -127,10 +127,10 @@ GaXYGm5cYY4e/AUAAP//
 			)
 			(obstructions 
 				(format tile)
-				eJyskgEOwCAIA9v/f3qb2SYSqF0yExOxF4ogCLVYnDRX
-gfSwRyGXYImDoMvQNvm6q4Yy7ATxtqiLlrINEmd19JIG
-2TUzZBu7R14jg4NhGfJZXPsfMoZtfS53d4+o/9x3bo5D
-Y6dOm8PeFpyjM9I5tib2H3cAAAD//w==
+				eJyskoEKwCAIRH3//9OLiOWG525QEKQ+zroMolsUp56r
+QCpMCsIDgxKtk0amTKvL0IaqoL0i1xtLkcGL641PpUkq
+M5Pa3Bq5Gxlc4HGu3nqBM4uDOsYt94hmZn9x+zt6bNSx
+ufhuG2yrDTmnrYmd4y4AAAD//w==
 			)
 			(entities 
 				(entity 
@@ -234,21 +234,21 @@ Y6dOm8PeFpyjM9I5tib2H3cAAAD//w==
 				(entity 
 					(label gap0)
 					(x 160)
-					(y 240)
+					(y 239)
 					(sprite hgap.ika-sprite)
 					(speed 100)
 					(direction up)
 					(move_script )
 					(obstructs_entities true)
-					(obstructed_by_entities true)
-					(obstructed_by_map false)
+					(obstructed_by_entities false)
+					(obstructed_by_map true)
 					(adj_activate_script )
 					(activate_script )
 				)
 				(entity 
 					(label gap1)
 					(x 160)
-					(y 256)
+					(y 255)
 					(sprite hgap.ika-sprite)
 					(speed 100)
 					(direction up)
@@ -262,7 +262,21 @@ Y6dOm8PeFpyjM9I5tib2H3cAAAD//w==
 				(entity 
 					(label gap2)
 					(x 160)
-					(y 272)
+					(y 271)
+					(sprite hgap.ika-sprite)
+					(speed 100)
+					(direction up)
+					(move_script )
+					(obstructs_entities true)
+					(obstructed_by_entities true)
+					(obstructed_by_map true)
+					(adj_activate_script )
+					(activate_script )
+				)
+				(entity 
+					(label gap3)
+					(x 160)
+					(y 273)
 					(sprite hgap.ika-sprite)
 					(speed 100)
 					(direction up)
