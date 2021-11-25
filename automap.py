@@ -27,7 +27,7 @@ automapdata = {
 'map19.ika-map' : (16, 13, 3, 3, 'snow', 'Donut Hills'),
 'map20.ika-map' : (8, 21, 2, 1, 'snow', 'Lower Cave Exit'),
 'map21.ika-map' : (16, 10, 2, 3, 'snow', 'Northeast Cliffs'),
-'map22.ika-map' : (18, 1, 1, 1, 'snow', 'Northeast Summit'),
+'map22.ika-map' : (18, 10, 1, 1, 'snow', 'Northeast Summit'),
 'map23.ika-map' : (13, 10, 3, 3, 'snow', 'Labyrinth Heights'),
 'map24.ika-map' : (12, 14, 3, 2, 'snow', 'Rune Cave'),
 'map25.ika-map' : (9, 10, 4, 3, 'cave', 'Devourer Den East'),
