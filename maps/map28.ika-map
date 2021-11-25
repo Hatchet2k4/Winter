@@ -153,10 +153,10 @@ F6sMpwNbI+h7usWzBQAA//8=
 					(activate_script )
 				)
 				(entity 
-					(label powerin28)
+					(label strengthin28)
 					(x 240)
 					(y 116)
-					(sprite powerrune.ika-sprite)
+					(sprite strengthrune.ika-sprite)
 					(speed 100)
 					(direction up)
 					(move_script )
