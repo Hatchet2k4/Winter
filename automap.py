@@ -107,12 +107,9 @@ class Automap(object):
         self.visiblerooms=[0]*(self.mapwidth*self.mapheight)
         self.visitedrooms=[0]*(self.mapwidth*self.mapheight)
         self.collected=[0]*(self.mapwidth*self.mapheight)
-        
-
 
         self.px=0
-        self.py=0
-        self.frame=0
+        self.py=0        
         self.maptype=''
         
         self.total = self.counttotalrooms()

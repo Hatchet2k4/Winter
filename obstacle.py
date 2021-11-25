@@ -6,6 +6,7 @@ import ika
 import savedata
 import system
 import automap
+import sound
 
 from entity import Entity
 from caption import Caption

@@ -9,7 +9,7 @@
 	)
 	(header 
 		(dimensions 
-			(width 336)
+			(width 320)
 			(height 320)
 		)
 		(tileset snowy.vsp)
@@ -190,9 +190,9 @@ clxl4hDHB8j1Kz0BobxAa/34AAAAAP//
 			)
 			(obstructions 
 				(format tile)
-				eJxkkAsSACEIQnn3v/S2kdKnaWwkEFUSaDvOmHckjirw
-R3AwaYnz6jq8kKvcMNOHUzHzuO8lYxhSK6mSh5Kt8ae/
-gNTAq3KxSN89frvhP8yKX49WlNpfZrhbPNeEPgAAAP//
+				eJxkkIkRACEIA7P9N30eP4qKY4QQkAQa5i9sn4d7Jfgj
+uPOgSO5bl/FCznLDWB12RqkJNyi7oJ1QV2RBuTIZwh99
+DZINB3NHle5qv6rhf7ZoIqq1DMn5dQ+3xD0m9AEAAP//
 
 			)
 			(entities 
