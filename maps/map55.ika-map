@@ -132,29 +132,29 @@ ABnL4cCDqTWugis9EOprqGJxAzazCInRIz3CAAAAAP//
 			)
 			(data 
 				(format zlib)
-				eJzsl0tPwkAQgJdtER+kQY0aEBXE1y/goByQgx7Qi158
-XDCc4E8Z/6mzYSYd6i6dbQtcnORLn7vf7KsLSqVHFxgD
-PWAAvACvgnJ5owJsoneI7hLwBrwDI+ALcxvjdTL48y1P
-twYC9H7g/U9gAoSIxpxKeE4ujbkH+KwMRB5+U2bKyo5Y
-eyK8L62HoPpqgnL7+G6IR+McYy4GreI+KLN3NTJlZTkH
-wKHAXwcaLI8yqz9i15RbwM5tzgZyDDQF/jOknshhgg6t
-4jGNWC4Th9O0uQO0gXOB/9SRA40juQMV9zlvr3EeAS2k
-iUjcFJcsjyqrPzmnI0t7jesEoTZfe7gpLjCHPTXfB5RD
-yNrbRi8dW4hx32RwJ3Ooq79jwd0dFffxFSOPm+dA88FE
-qGcoFbc3ax9Lg+aCiV01m1/kz9vHkqBxMDnsYA6rcvMw
-64LG1re/aU8jVhkVx32zL3Y969Iw9wItf38j5XlP+e3P
-38CPx/vVlOcDPG6vyU8h2Zv//ev3m29v2WP+p/lp3kn9
-o9KMovy1xLHoIP9wzX4Tt8BdTr/v94/7+8C9wy8N3/nP
-4wF4XOAPC/TbvvtPwPMCv+06qz/ruv/3F+u3rblV+vtq
-fs3Z5iXf+4v2J9ecbVxqjvMi/HzNuX6LLdO/6J7v3icN
-Wztt95a99/iE63+BNDfXeneN+S8AAAD//w==
+				eJzsl0tPAjEQgEt311fIhmjUgCggov4CDsoBOegBvejF
+xwXDCf6U8Z86DTPZYW2h7Ra4MMmX7T663/S1BSGWRxcY
+Az1gALwCbxb1isYusIfeIbpLwDvwAYyAb8xtjOf54Pf3
+Hd0SiND7ide/gAkQIxJzKmGZXBJzj/BeAqQOflVnyuqO
+WHtSvG77HoLeV7God4TPxnhUzjHmopAi64OEPSuRKavL
+OQZOLPxVoMbySNj7U3ZOuUWsrHPWkDOgbuFvINVcDhN0
+SJGNacpymRicqs1toAVcWvgvDDnQOJI7Elmf8/Yq5ynQ
+ROqIjZuiw/Ios/fn53Sqaa9ynSPU5hsHN8UV5nAo5vuA
+cohZe1vopWMTUe5bD3c+h6r4Pxbc3RZZH18zirh5DjQf
+VPwAv1im9vr2sW3QXND5i/axTdA4NJh/XW4eHeZ37W/a
+0wjf4P3v4taF2he7K/bvLLnfE277s6u/vOT+AI8HG/JT
+2OzNW//m/TFsuIkM56d5Z+sflWaE8ldyx9BB/uGG/Sru
+gPuCfgljH3mOfx94MPhtw+f7T/EIPC3wxwH9uu/+M/Cy
+wK879/X7rvutP6xft+bW6e+L+TWnm5d87w/tz6853bhU
+DOUQfr7mTL/FVulfdM1177MNXTt111a997iE6X+BbW6m
+9W4a8z8AAAD//w==
 			)
 			(obstructions 
 				(format tile)
-				eJzclEsOxCAMQ+37X7ofGEhiR13Noo1E1fpZQQYKcBbb
-AgYfj6EssvkctSJ39ciXzzgY1GpghDfNhuKuGq8PNvzX
-WviUO77WTdLEGHYZPdeZJPXM3nDRTOptbDnew1P+P/Bm
-fhqed1K4Pa+R41Oc4eeIN09y7Fdo2Z2RDtL7AAAA//8=
+				eJzslNsOwCAIQ+n///QuOCxQsvdlTVyQ0+BlqtkpjDJz
+7h/PBNl8tSrmSq88fMIBylYDGN40G4q75nB1MPCndOMr
+PXE3QKwGFMht1LyPlGcd/2jiaTmdF+PIp/o/fyIIzoeA
+7gEE3ieIuH2Kx3NTXp7k2KF18X0XeFVotQ8AAAD//w==
 
 			)
 			(entities 
@@ -175,7 +175,7 @@ fhqed1K4Pa+R41Oc4eeIN09y7Fdo2Z2RDtL7AAAA//8=
 				(entity 
 					(label gap0)
 					(x 224)
-					(y 352)
+					(y 360)
 					(sprite vgap.ika-sprite)
 					(speed 100)
 					(direction up)
@@ -189,35 +189,7 @@ fhqed1K4Pa+R41Oc4eeIN09y7Fdo2Z2RDtL7AAAA//8=
 				(entity 
 					(label gap0)
 					(x 240)
-					(y 352)
-					(sprite vgap.ika-sprite)
-					(speed 100)
-					(direction up)
-					(move_script )
-					(obstructs_entities true)
-					(obstructed_by_entities true)
-					(obstructed_by_map true)
-					(adj_activate_script )
-					(activate_script )
-				)
-				(entity 
-					(label gap5)
-					(x 224)
-					(y 192)
-					(sprite vgap.ika-sprite)
-					(speed 100)
-					(direction up)
-					(move_script )
-					(obstructs_entities true)
-					(obstructed_by_entities true)
-					(obstructed_by_map true)
-					(adj_activate_script )
-					(activate_script )
-				)
-				(entity 
-					(label gap6)
-					(x 240)
-					(y 192)
+					(y 360)
 					(sprite vgap.ika-sprite)
 					(speed 100)
 					(direction up)

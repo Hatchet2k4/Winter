@@ -8,16 +8,8 @@ from rune import GuardRune
 from thing import Thing
 
 def AutoExec():
-    if 'guard48' not in savedata.__dict__:
-        en = ika.Entity(162, 111, system.engine.player.layer, 'dragonpup.ika-sprite')
-        en.name = 'dragonp'
-        e = DragonPup(en)
-        system.engine.addEntity(e)            
-        system.engine.things.append(DeathListener(e)) 
+    pass
 
-        en = ika.Entity(162, 111, system.engine.player.layer, 'guardrune.ika-sprite')
-        en.name = 'guard48'
-        system.engine.addEntity(GuardRune(en))
         
         # listen for dragonpup to be dead to drop a guard rune
                 

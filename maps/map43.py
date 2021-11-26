@@ -1,5 +1,8 @@
-
 import system
+from snow import Snow
+
+def AutoExec():
+    system.engine.mapThings.append(Snow(velocity=(0, 0.5)))
 
 def to2():
     system.engine.mapSwitch('map02.ika-map', (48 * 16, system.engine.player.y))

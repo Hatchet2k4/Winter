@@ -259,7 +259,7 @@ class SaveGame(object):
 				self.visible = [int(x) for x in v.split(',')]      
             elif k == 'MAPDATA2':                                 
 				self.visited = [int(x) for x in v.split(',')]                      
-            elif k == 'MAPDATA2':                                 
+            elif k == 'MAPDATA3':                                 
 				self.collected = [int(x) for x in v.split(',')]                  
             else:               
                 self.flags[k] = v
