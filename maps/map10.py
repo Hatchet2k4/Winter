@@ -84,7 +84,7 @@ class DeathListener(Thing):
 class SetupBattle(Thing):
     def update(self):
         sound.playMusic('music/resurrection.it')
-        y = SoulReaver(ika.Entity(21*16, 13*16, 2, 'soulreaver.ika-sprite'))
+        y = SoulReaver(ika.Entity(21*16, 13*16, 3, 'soulreaver.ika-sprite'))
         system.engine.addEntity(y)        
         system.engine.mapThings.append(DeathListener2(y))
         return True
