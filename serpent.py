@@ -59,7 +59,7 @@ class Serpent(Enemy):
 
         self.stats.maxhp = 900
         self.stats.hp = self.stats.maxhp
-        self.stats.att = 40
+        self.stats.att = 60
         self.stats.exp = 0
         self.invincible = False
         
@@ -119,7 +119,10 @@ class Serpent(Enemy):
             #self.interruptable = True
             #self._state = None
             s=0 #used to increase stare chance
-            for n in range(ika.Random(4, 10)): #min 4 attacks before next roar state                
+            for n in range(ika.Random(6, 12)): #min 6 attacks before next roar state                
+                if s>=20: 
+                    s-=10
+                
                 c = ika.Random(0, 100) + s
                 if c < 75:
                     s=0
@@ -129,8 +132,10 @@ class Serpent(Enemy):
                     if c > 30:
                         yield self.biteState()
                 else: 
-                    s = 30 #increase chance of staring again if just stared for multiple shots
+                    s = 40 #increase chance of staring again if just stared for multiple shots
                     yield self.stareState()
+                    if ika.Random(0,100) > 40: #extra stare state!
+                        yield self.stareState()
                 
             yield self.roarState()
 
