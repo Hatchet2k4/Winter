@@ -299,8 +299,15 @@ class Player(Entity):
         appendlist=[]        
         
         appendlist.append(Caption('Level %i!' % self.stats.level, y=starty, duration=d, r=red,g=green,b=blue))
-        appendlist.append(Caption('HP +%i' % hpup, y=starty+10, duration=d,  r=red,g=green,b=blue))
-        appendlist.append(Caption('MP +%i' % mpup, y=starty+20, duration=d,  r=red,g=green,b=blue))
+        if self.stats.maxhp==285:
+            appendlist.append(Caption('HP Maxed!', y=starty+10, duration=d,  r=red,g=green,b=blue))
+        else:
+            appendlist.append(Caption('HP +%i' % hpup, y=starty+10, duration=d,  r=red,g=green,b=blue))
+        if self.stats.maxmp==285:
+            appendlist.append(Caption('MP Maxed!', y=starty+10, duration=d,  r=red,g=green,b=blue))
+        else:    
+            appendlist.append(Caption('MP +%i' % mpup, y=starty+20, duration=d,  r=red,g=green,b=blue))
+            
         i=0
         numlines=3
         bgw = gui.default_font.StringWidth('Level %i!' % self.stats.level)              
