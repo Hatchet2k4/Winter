@@ -10,7 +10,7 @@ def AutoExec():
     global fader
     fader = LayerFader()
     system.engine.mapThings.append(fader)
-    system.engine.mapThings.append(Darkglow())
+    #system.engine.mapThings.append(Darkglow())
 
 def to20():
     system.engine.mapSwitch('map20.ika-map', (22*16, 12*16))

@@ -348,10 +348,11 @@ class Engine(object):
         else:
             ika.Map.Render()
 
-        for t in self.things:
-            t.draw()
+        
         for t in self.mapThings:
             t.draw()
+        for t in self.things:
+            t.draw()            
         for t in self.captions:
             t.draw()    
             
@@ -382,7 +383,7 @@ class Engine(object):
         # for each thing in each thing list, we update.
         # If the result is true, we delete the thing, else
         # move on.
-        for t in (self.things, self.mapThings, self.captions):
+        for t in (self.mapThings, self.things, self.captions):
             i = 0
             while i < len(t):
                 result = t[i].update()
