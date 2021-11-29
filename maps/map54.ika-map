@@ -90,21 +90,21 @@ a84mcx1JPspfDOAnkmjoOWDu85aHdIEG117vE0LvM2pc
 			(data 
 				(format zlib)
 				eJxiYBgFQwkYMTIwGDMOtCtGAS1ABh3tSqNAL6E0mE6h
-+cSCdChmINK+AqCbC4G4iIb5pwxodjkQVyDZwcwIwdQC
-NUCzapHMY2diYDjOAMG0ACDzaQkoNZ9QeqS1+wdTmQwA
-AAD//w==
++cSCdChmINK+AqCbC4G4iIb5pwxodjkQV0DtYALSzEiY
+GqAGaE4tkvmcTAwMxxkgmNoAZj6tADXMJ5Qeael+Yuyn
+JwAAAAD//w==
 			)
 			(obstructions 
 				(format tile)
-				eJyskNsOACAIQuH/f7qLy83Ah7Z8So66APheJL1KS5j4
-HjdvuZDMXd5IwZQfQbBuKxbVG8M0CikpsOhoHLsoJM3T
-yFdYaikDAAD//w==
+				eJyskEkOACAIA+n/P62gotJeTORATAfLYvY9AGgVkiBx
+LRdvckimnAMx6PIjGEwDV/1jmSwGw8xFh1gGs/m91bob
+AbrmNrUKznClAQAA//8=
 			)
 			(entities 
 				(entity 
 					(label powerin54)
-					(x 340)
-					(y 206)
+					(x 328)
+					(y 180)
 					(sprite powerrune.ika-sprite)
 					(speed 100)
 					(direction up)
@@ -145,7 +145,7 @@ yFdYaikDAAD//w==
 				)
 				(entity 
 					(label a2)
-					(x 298)
+					(x 240)
 					(y 192)
 					(sprite dragonpup.ika-sprite)
 					(speed 100)

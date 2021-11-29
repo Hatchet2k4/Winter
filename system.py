@@ -7,6 +7,7 @@ import controls
 
 
 ika.SetCaption('Winter')
+ika.Video.DrawRect(0,0,320,240,0)
 
 controls.init()
 
@@ -28,6 +29,7 @@ except:
 
 introMusic = ika.Sound('music/Existing.s3m')
 #while not controls.attack():
+#        ika.Video.DrawRect(0,0,320,240,0)
 #        ika.Video.ShowPage()
 #        ika.Input.Update()
 sound.fader.kill()
