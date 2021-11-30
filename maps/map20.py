@@ -3,6 +3,8 @@ import ika
 from snow import Snow
 from thing import Thing
 
+def AutoExec():
+    system.engine.mapThings.append(Snow(velocity=(0, 0.5)))
 
 def to18():
     system.engine.mapSwitch('map18.ika-map', (32*16, 4*16))

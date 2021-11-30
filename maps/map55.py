@@ -4,11 +4,10 @@ import savedata
 import sound
 from thing import Thing
 
-
 from snow import Snow
 
 def AutoExec():
-    system.engine.mapThings.append(Snow(6000, velocity=(-1.2, 3)))
+    system.engine.mapThings.append(Snow(5000, velocity=(-1.2, 3)))
     sound.playMusic("music/wind.ogg")
                 
 def to47():

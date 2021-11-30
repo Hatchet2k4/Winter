@@ -8,8 +8,11 @@ from soulreaver import SoulReaver
 from thing import Thing
 from rune import WindRune
 import cabin
+from snow import Snow
 
 def AutoExec():
+    system.engine.mapThings.append(Snow(4000, velocity=(-1, 1.5)))
+
     system.engine.background = ika.Image('gfx/mountains.png')
 
     if 'bridge_broken' not in savedata.__dict__:
