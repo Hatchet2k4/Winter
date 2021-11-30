@@ -197,9 +197,9 @@ class Engine(object):
             effects.blurFade(50, bleh, effects.createBlurImages())
             self.run()
 
-    def mapSwitch(self, mapName, dest = None, fade = True, newgame=False):
+    def mapSwitch(self, mapName, dest = None, fade = True, newgame=False, fadeout=True):
         
-        if fade:
+        if fade and fadeout:
             self.draw()
             startImages = effects.createBlurImages()
 

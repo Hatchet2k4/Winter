@@ -31,8 +31,9 @@ def to23():
         system.engine.clearKillQueueCabin()
         cabin.scene('forebattle')      
         system.engine.camera.center()
-    system.engine.mapSwitch('map23.ika-map', (5 * 16, 5 * 16))
-    
+        system.engine.mapSwitch('map23.ika-map', (5 * 16, 5 * 16), fadeout=False)
+    else:
+        system.engine.mapSwitch('map23.ika-map', (5 * 16, 5 * 16))  
 def to50():
     system.engine.mapSwitch('map50.ika-map', (9 * 16, 13 * 16))
     

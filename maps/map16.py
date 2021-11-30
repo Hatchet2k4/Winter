@@ -107,21 +107,26 @@ def manaPool():
 def to13():
     if 'windrune' in savedata.__dict__ and 'story_wind' not in savedata.__dict__: 
         story_wind()
-    system.engine.mapSwitch('map13.ika-map', (78 * 16, system.engine.player.y))
-
+        system.engine.mapSwitch('map13.ika-map', (78 * 16, system.engine.player.y), fadeout=False)
+    else: 
+        system.engine.mapSwitch('map13.ika-map', (78 * 16, system.engine.player.y))
+        
 def to17():
     if 'windrune' in savedata.__dict__ and 'story_wind' not in savedata.__dict__: 
         story_wind()
-    system.engine.mapSwitch('map17.ika-map', (1 * 16, system.engine.player.y))
-
+        system.engine.mapSwitch('map17.ika-map', (1 * 16, system.engine.player.y), fadeout=False)
+    else:
+        system.engine.mapSwitch('map17.ika-map', (1 * 16, system.engine.player.y))
+        
 def to19():
-    if 'windrune' in savedata.__dict__ and 'story_wind' not in savedata.__dict__: 
-        story_wind()
     offset_from = 4 * 16  # first vertical pos possible
     offset_to = 44 * 16  # first vertical pos possible
     y = system.engine.player.y - offset_from + offset_to
-    system.engine.mapSwitch('map19.ika-map', (48 * 16, y))
-
+    if 'windrune' in savedata.__dict__ and 'story_wind' not in savedata.__dict__: 
+        story_wind()
+        system.engine.mapSwitch('map19.ika-map', (48 * 16, y), fadeout=False)
+    else:
+        system.engine.mapSwitch('map19.ika-map', (48 * 16, y))
 def toLowerLayer():
     system.engine.player.layer = 2
 

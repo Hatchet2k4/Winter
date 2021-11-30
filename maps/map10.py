@@ -21,8 +21,10 @@ def to9():
         system.engine.clearKillQueueCabin()
         cabin.scene('story_fire')      
         system.engine.camera.center()
-    system.engine.mapSwitch('map09.ika-map', (system.engine.player.x, 1 * 16))
-
+        system.engine.mapSwitch('map09.ika-map', (system.engine.player.x, 1 * 16), fadeout=False)
+    else: 
+        system.engine.mapSwitch('map09.ika-map', (system.engine.player.x, 1 * 16))
+        
 def manaPool():
     if 'firerune' in savedata.__dict__ and ('nearend' not in savedata.__dict__ or 'fireguard' in savedata.__dict__):
         system.engine.player.stats.mp += 1        

@@ -26,15 +26,16 @@ def manaPool():
         system.engine.player.stats.mp += 1        
 
 def to3():
+    offset_from = 11 * 16  # first horizontal pos possible
+    offset_to = 8 * 16  # first horizontal pos possible
+    x = system.engine.player.x - offset_from + offset_to
     if 'waterrune' in savedata.__dict__ and 'story_water' not in savedata.__dict__: 
       system.engine.clearKillQueueCabin()
       cabin.scene('story_water')      
       system.engine.camera.center()
-
-    offset_from = 11 * 16  # first horizontal pos possible
-    offset_to = 8 * 16  # first horizontal pos possible
-    x = system.engine.player.x - offset_from + offset_to
-    system.engine.mapSwitch('map03.ika-map', (x, 1 * 16))
+      system.engine.mapSwitch('map03.ika-map', (x, 1 * 16), fadeout=False)
+    else:
+      system.engine.mapSwitch('map03.ika-map', (x, 1 * 16))
 
 def to5():
     system.engine.mapSwitch('map05.ika-map', (10 * 16, 19 * 16))
