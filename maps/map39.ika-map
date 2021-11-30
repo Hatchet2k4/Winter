@@ -558,6 +558,20 @@ oHobZ7V2875fHgAAAP//
 					(adj_activate_script )
 					(activate_script )
 				)
+				(entity 
+					(label crystal39)
+					(x 272)
+					(y 386)
+					(sprite crystal.ika-sprite)
+					(speed 100)
+					(direction up)
+					(move_script )
+					(obstructs_entities true)
+					(obstructed_by_entities true)
+					(obstructed_by_map true)
+					(adj_activate_script )
+					(activate_script )
+				)
 			)
 			(zones 
 				(zone 

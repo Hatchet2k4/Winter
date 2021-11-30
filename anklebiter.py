@@ -146,9 +146,10 @@ class AnkleBiter(Enemy):
                     yield self.walkState(d, min(30, dist))
 
     def fleeMood(self):
-        MIN_DIST = 150
+        MIN_DIST = 64
         p = system.engine.player
-        for q in range(5):
+        
+        for q in range(3):
             d = dir.fromDelta(p.x - self.x, p.y - self.y)
             dist = math.hypot(p.x - self.x, p.y - self.y)
 
@@ -183,12 +184,14 @@ class AnkleBiter(Enemy):
         ox, oy = self.x, self.y
         self.move(dir, dist)
         self.anim = 'walk'
-        
-        
+        d = dist
+        t=0
         while self.moving:
             yield None
             if (ox, oy) == (self.x, self.y):
                 break        
+            t+=1
+            if t>d: break #don't walk for too long!
         
         self.stop()
 
