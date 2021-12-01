@@ -719,6 +719,7 @@ class Player(Entity):
                 system.engine.camera.locked = _self.l
 
         saver = Saver()
+        system.engine.camera.speedup()
 
         if self.direction == dir.UPLEFT or self.direction == dir.DOWNLEFT:
             self.direction = dir.LEFT
