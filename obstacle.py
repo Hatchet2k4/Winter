@@ -130,7 +130,7 @@ class Boulder(_Obstacle):
                 system.engine.addEntity(Explosion(e))
                 sound.explode.Play()
                 system.engine.destroyEntity(self)
-                system.engine.addCaptions(Caption('Blew the rock apart!'))
+                #system.engine.addCaptions(Caption('Blew the rock apart!'))
                 automap.map.SetCollected('Boulder')
 
         else:

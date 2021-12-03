@@ -16,7 +16,7 @@ class SoulReaver(Yeti):
         self.speed = 120
         self.stats.maxhp = 600
         self.stats.hp = 600
-        self.stats.att = 40
+        self.stats.att = 45
         self.stats.exp = 500
         self.stats.ind = 1
         self.name='soulreaver'

@@ -694,7 +694,7 @@ class Player(Entity):
                     setattr(savedata, e.flagName, 'True')
 
                     system.engine.destroyEntity(e)
-                    system.engine.things.append(Caption('The ice melted!'))
+                    #system.engine.things.append(Caption('The ice melted!'))
 
             yield None
         self.invincible = False #no longer invincible during stall period
@@ -784,11 +784,11 @@ class Player(Entity):
         self.stop()
         self.anim = 'magic'
 
-        if self.stats.mp < 20 or not self.stats.heal:
+        if self.stats.mp < 15 or not self.stats.heal:
             sound.menuBuzz.Play()
             return
 
-        self.stats.mp -= 20
+        self.stats.mp -= 15
         sound.healingRain.Play()
 
         duration=45
@@ -818,7 +818,7 @@ class Player(Entity):
         for e in ents:
             if isinstance(e, IceChunks):
                 e.freeze()
-                system.engine.addCaptions(Caption('The water froze over!'))
+                #system.engine.addCaptions(Caption('The water froze over!'))
                 system.engine.destroyEntity(e)
                 break
 
@@ -833,7 +833,7 @@ class Player(Entity):
     def boltState(self):
         self.stop()
         self.anim = 'thrust'
-        costperhit=30
+        costperhit=20
         
         if self.stats.mp < costperhit or not self.stats.bolt:
             sound.menuBuzz.Play()
@@ -880,11 +880,11 @@ class Player(Entity):
                         e.hurt(int(self.stats.att + self.stats.mag) + ika.Random(1, int(self.stats.mag)), 300, d)
                 elif isinstance(e, IceWall):
                     setattr(savedata, e.flagName, 'True')                    
-                    system.engine.addCaptions(Caption('The ice melted!'))
+                    #system.engine.addCaptions(Caption('The ice melted!'))
                     destroyents.append(e)
                 elif isinstance(e, Crystal):
                     setattr(savedata, e.flagName, 'True')                    
-                    system.engine.addCaptions(Caption('The crystal reacted!'))
+                    #system.engine.addCaptions(Caption('The crystal reacted!'))
                     destroyents.append(e)                    
                 system.engine.addThing(Bolt(self.x+offsetx, self.y+offsety, 
                                             e.x+(e.ent.hotwidth/2), e.y+(e.ent.hotheight/2), ika.RGB(240,40,128) ))
