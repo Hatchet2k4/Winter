@@ -599,7 +599,7 @@ class ControlsScreen(object):
                 result = self.control_menu.update()
                                 
                 if isinstance(result, int):
-                    if result >= 0 and result < self.control_menu.lastcontrol:
+                    if result >= 0 and result <= self.control_menu.lastcontrol:
                         selectmode=1 #now poll for input!
                         selected = result #-3 because top options
                         controls.UnpressAllKeys()                  
