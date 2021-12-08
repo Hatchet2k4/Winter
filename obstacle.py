@@ -58,7 +58,11 @@ class Crystal(_Obstacle):
     Not very exciting.  The entity's type is all the information
     we need.
     '''
-    pass
+    def remove(self):
+        self.x = self.y = -100
+        system.engine.destroyEntity(self)       
+        e = ika.Entity(self.x-16, self.y-8, self.ent.layer+1, 'explosion.ika-sprite')
+        system.engine.addEntity(Explosion(e))
 
 class Gap(_GapObstacle): #inheriting from different class in order to handle gaps differently
     '''A big empty hole. :P'''
@@ -128,7 +132,7 @@ class Boulder(_Obstacle):
                 
                 e = ika.Entity(self.x-8, self.y, self.ent.layer+1, 'explosion.ika-sprite')
                 system.engine.addEntity(Explosion(e))
-                sound.explode.Play()
+                
                 system.engine.destroyEntity(self)
                 #system.engine.addCaptions(Caption('Blew the rock apart!'))
                 automap.map.SetCollected('Boulder')
@@ -159,6 +163,7 @@ class Explosion(Entity):
         self.state = self.boomState()
         self.duration=42
         self.timer=0
+        sound.explode.Play()
         
     def boomState(self):   
         while self.timer<self.duration:

@@ -9,7 +9,7 @@ class Devourer(AnkleBiter):
         self.stats.maxhp = 100
         self.stats.hp = self.stats.maxhp
         self.stats.att = 24
-        self.stats.exp = 40        
+        self.stats.exp = 20        
         self.name='devourer'
         
     def attackState(self, dir):

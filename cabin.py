@@ -168,7 +168,8 @@ def scene(name):
         for e, pos in zip(system.engine.entities, savedPos):
             e.x, e.y = pos
             system.engine.readEnts()
-            
+    system.engine.synchTime()
+    
 
 # name : function pairs
 def addScene(function):

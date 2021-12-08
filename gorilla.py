@@ -9,5 +9,5 @@ class Gorilla(Yeti):
         self.stats.maxhp = 250
         self.stats.hp = 250
         self.stats.att = 30
-        self.stats.exp = 200
+        self.stats.exp = 100
         self.name='gorilla'

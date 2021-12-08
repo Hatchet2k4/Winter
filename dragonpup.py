@@ -9,7 +9,7 @@ class DragonPup(RazorMane):
         self.stats.maxhp = 160
         self.stats.hp = 160
         self.stats.att = 28
-        self.stats.exp = 40
+        self.stats.exp = 25
         self.name='dragonpup'
 
 class DragonGuard(RazorMane):

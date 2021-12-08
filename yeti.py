@@ -100,7 +100,7 @@ class Yeti(Enemy):
         self.stats.maxhp = 120
         self.stats.hp = self.stats.maxhp
         self.stats.att = 16
-        self.stats.exp = 100
+        self.stats.exp = 50
         self.stats.ind = 0
         self.name='yeti'
 
