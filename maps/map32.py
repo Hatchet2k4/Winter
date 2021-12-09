@@ -109,7 +109,7 @@ class DeathListener(Thing):
             system.engine.addCaptions(Caption('Serpent defeated!'))
             savedata['finalbattledone'] = 'True'
             self.buildbrige = True        
-            self.time=100:#wait 1 second before starting to build the bridge
+            self.time=100 #wait 1 second before starting to build the bridge
         
         if self.buildbrige:
             if self.time==0:                

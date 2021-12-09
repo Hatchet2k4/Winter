@@ -147,16 +147,16 @@ hand in the concept and layout of the game.
 
 Thank you so much for playing! Winter was 
 originally made for a game competition all
-the way back in 2003. It was great for a 
-game made in a few weeks, but it always felt
-a bit unfinished. 
+the way back in the winter of 2003. It was 
+great for a game made in a few weeks by a 
+small team, but it felt a bit unfinished. 
 
-
-I have always had a soft spot for this game. And
-so I resurrected the project to go back and add 
-in some quality of life features, missing content,
-and try to give the game some proper closure. I 
-hope you enjoy the final product!
+ 
+So I resurrected this project to add in 
+some quality of life features, missing 
+content,and try to give the game some 
+proper closure. I hope you enjoyed the 
+final product!
 
 
 Please look forward to my future projects at
