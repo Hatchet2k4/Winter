@@ -57,9 +57,9 @@ class Serpent(Enemy):
             (Brain.Attack(1), self.watchMood)
             )
 
-        self.stats.maxhp = 900
+        self.stats.maxhp = 1200
         self.stats.hp = self.stats.maxhp
-        self.stats.att = 64
+        self.stats.att = 55
         self.stats.exp = 0
         self.invincible = False
         
@@ -240,7 +240,7 @@ class Beam(Enemy):
 
         self.stats.maxhp = 10
         self.stats.hp = self.stats.maxhp
-        self.stats.att = 35
+        self.stats.att = 50
         self.invincible = True
         
         self.anim =  'flyAnim'
