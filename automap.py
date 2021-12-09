@@ -14,7 +14,7 @@ automapdata = {
 'map06.ika-map' : (8, 18, 3, 3, 'snow', 'Durinar Ascent'),
 'map07.ika-map' : (11, 17, 4, 2, 'snow', 'Spur Cliffs'),
 'map08.ika-map' : (5, 16, 3, 3, 'snow', 'Central Lake Durinar'),
-'map09.ika-map' : (3, 16, 2, 3, 'snow', 'West Lake Durinar'),
+'map09.ika-map' : (3, 16, 2, 2, 'snow', 'West Lake Durinar'),
 'map10.ika-map' : (3, 14, 2, 2, 'snow', 'Yeti Pond'),
 'map11.ika-map' : (5, 19, 3, 2, 'snow', 'Misty Cliffs'),
 'map12.ika-map' : (5, 20, 1, 1, 'cave', 'Misty Cave Entrance'),

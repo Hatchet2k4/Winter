@@ -8,7 +8,7 @@ from obstacle import IceWall
 import savedata
 import sound
 import cabin
-
+from caption import Caption
 
 def AutoExec():                 
     if 'fireguard' not in savedata.__dict__ and 'nearend' in savedata.__dict__: #final quest active            
@@ -60,6 +60,7 @@ class DeathListener2(Thing):
         if self.yeti.stats.hp == 0:
             sound.playMusic("music/winter.ogg")
             savedata.fireguard = 'True'
+            system.engine.addCaptions(Caption('SoulReaver defeated.'))
             return True
 
     def draw(self):
@@ -76,7 +77,7 @@ class DeathListener(Thing):
             sound.playMusic("music/winter.ogg")            
             e = ika.Entity(5*16, 8*16, 2, 'firerune.ika-sprite')
             e.name = 'firerune'
-            system.engine.addEntity(FireRune(e)) 
+            system.engine.addEntity(FireRune(e))            
             return True
 
     def draw(self):

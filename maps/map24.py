@@ -64,6 +64,10 @@ def kaboom():
         system.engine.addEntity(Crystal(e))      
 
         y = SoulReaver(ika.Entity(20*16, 20*16, 2, 'soulreaver.ika-sprite'))
+        y.stats.maxhp+=150                
+        y.stats.hp +=150
+        y.stats.att += 6
+        y.stats.exp += 150
         system.engine.addEntity(y)
         system.engine.mapThings.append(DeathListener(y))
         
@@ -82,6 +86,7 @@ class DeathListener(Thing):
             system.engine.addEntity(UnityRune(e))    
             sound.playMusic("music/lampoons.it")
             savedata.finalrune = 'True'
+            system.engine.addCaptions(Caption('SoulReaver defeated.'))
             return True
 
     def draw(self):

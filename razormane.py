@@ -76,6 +76,7 @@ _razorManeAnim = {
     ),
 }
 
+"""
 _attackRange = [
     (-8, 0, 8, 16),
     (16, 0, 8, 16),
@@ -85,6 +86,29 @@ _attackRange = [
     (16, 0, 8, 16),
     (-8, 0, 8, 16),
     (16, 0, 8, 16),
+]
+# directions
+(LEFT,
+ RIGHT,
+ UP,
+ DOWN,
+ UPLEFT,
+ UPRIGHT,
+ DOWNLEFT,
+ DOWNRIGHT,
+ NOTHING) = range(9) # coincides with ika's internal direction constants
+
+"""
+
+_attackRange = [
+    (-6, 0, 10, 16),
+    (18, 0, 10, 16),
+    (0, -10, 16, 10),
+    (0, 18, 16, 10),
+    (-10, 0, 10, 16),
+    (18, 0, 10, 16),
+    (-10, 0, 10, 16),
+    (18, 0, 10, 16),
 ]
 
 class RazorMane(Enemy):

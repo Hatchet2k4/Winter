@@ -9,6 +9,7 @@ from thing import Thing
 from rune import WindRune
 import cabin
 from snow import Snow
+from caption import Caption
 
 def AutoExec():
     system.engine.mapThings.append(Snow(4000, velocity=(-1, 1.5)))
@@ -148,6 +149,7 @@ class DeathListener(Thing):
                     )
             else:
                 setattr(savedata, 'windguard', 'True')
+                system.engine.addCaptions(Caption('SoulReaver defeated.'))
                 
             sound.playMusic('music/winter.ogg')
             return True

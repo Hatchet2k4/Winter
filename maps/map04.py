@@ -9,6 +9,7 @@ from razormane import RazorMane
 from rune import WaterRune
 from snow import Snow
 import cabin
+from caption import Caption
 
 def AutoExec():
     system.engine.mapThings.append(Snow(6000, velocity=(-.2, 3)))
@@ -89,7 +90,8 @@ class DeathListener(Thing): #for initial wolves battle
             sound.playMusic("music/wind.ogg")
             e = ika.Entity(15*16, 16*16, 4, 'waterrune.ika-sprite')
             e.name = 'waterrune'
-            system.engine.addEntity(WaterRune(e))                                    
+            system.engine.addEntity(WaterRune(e))          
+            
             return True
 
     def draw(self):
@@ -104,6 +106,7 @@ class DeathListener2(Thing): #for SoulReaver quest
         if self.yeti.stats.hp == 0:
             sound.playMusic("music/wind.ogg")
             savedata.waterguard = 'True'
+            system.engine.addCaptions(Caption('SoulReaver defeated.'))
             return True
 
     def draw(self):
