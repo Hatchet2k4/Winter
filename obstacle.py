@@ -58,11 +58,12 @@ class Crystal(_Obstacle):
     Not very exciting.  The entity's type is all the information
     we need.
     '''
-    def remove(self):
-        self.x = self.y = -100
-        system.engine.destroyEntity(self)       
-        e = ika.Entity(self.x-16, self.y-8, self.ent.layer+1, 'explosion.ika-sprite')
-        system.engine.addEntity(Explosion(e))
+    pass
+    #def remove(self):
+    #    self.x = self.y = -100
+    #    system.engine.destroyEntity(self)       
+    #    e = ika.Entity(self.x-16, self.y-8, self.ent.layer+1, 'explosion.ika-sprite')
+    #    system.engine.addEntity(Explosion(e))
 
 class Gap(_GapObstacle): #inheriting from different class in order to handle gaps differently
     '''A big empty hole. :P'''
