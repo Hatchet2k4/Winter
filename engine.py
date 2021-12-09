@@ -198,10 +198,10 @@ class Engine(object):
             self.run()
 
     def mapSwitch(self, mapName, dest = None, fade = True, newgame=False, fadeout=True):
-        
+        startImages = effects.createBlurImages()
         if fade and fadeout:
             self.draw()
-            startImages = effects.createBlurImages()
+            
 
         self.mapName = mapName
 

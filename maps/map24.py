@@ -9,6 +9,7 @@ import sound
 from soulreaver import SoulReaver
 from obstacle import Crystal
 import cabin
+from caption import Caption
 
 
 def AutoExec():    
