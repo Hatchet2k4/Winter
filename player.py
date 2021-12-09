@@ -803,9 +803,8 @@ class Player(Entity):
         self.invincible = True
 
 
-        amount = self.stats.mag + self.stats.maxhp/5 + ika.Random(0, int(self.stats.mag/2)) #minimum 20% heal
-        amount += int(amount/10.0 * ika.Random(-2, 4))               
-        self.stats.hp += min(20, amount) 
+        amount = self.stats.mag + self.stats.maxhp/8 + ika.Random(-3, 6) #minimum ~12.5% heal        
+        self.stats.hp += amount
                
         if self.stats.damageind:
             x=self.ent.x + self.ent.hotwidth/2 - gui.default_font.StringWidth(str(amount))/2
