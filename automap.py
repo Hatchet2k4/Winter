@@ -145,11 +145,14 @@ class Automap(object):
                 tx=x+xy[0]
                 ty=y+xy[1]
                 self.visiblerooms[ty*self.mapwidth+tx]=1
+                
+                
             
         else: #normal maps
             for tx in range(x, x+w):
                for ty in range(y, y+h):
                   self.visiblerooms[ty*self.mapwidth+tx]=1
+
 
         
         if system.engine.player: #player may not be inited yet
@@ -159,6 +162,12 @@ class Automap(object):
             self.px = int((float(px) / ika.Map.width) * w) + x        
 
         self.visitedrooms[self.py*self.mapwidth+self.px]=1 #mark current player location as visited
+        
+        if system.engine.mapName=='map32.ika-map': #special case for final boss map
+            for tx in range(x, x+w):
+               for ty in range(y, y+h):
+                  self.visitedrooms[ty*self.mapwidth+tx]=1            
+        
         self.visited = self.countvisitedrooms() #refresh number of rooms visited
             
         self.ticks=0
