@@ -223,7 +223,7 @@ def intro():
     narration("""Though the bridges and roads built upon the mountain's cliffs had long since been abandoned to time, there were still stories told of lost magic, hidden somewhere within those frigid peaks.""")          
     narration("""As he climbed, the thoughts of enjoying a warm fire and hearty meal filled his head. But he was shocked out of his daydreams when suddenly...""")
     animate(kid3, (0, 1), delay=20, text="Oh no!!")
-    narration("""The howls of a razormane pack at the top of a steep hill startled him, and just as abruptly they began to give chase, moving swiftly and easily through the snow.""")
+    narration("""The howls of a Razormane pack at the top of a steep hill startled him, and just as abruptly they began to give chase, moving swiftly and easily through the snow.""")
     narration("""His breaths came in chilled, raspy gasps as he ran. Even with his sword in hand, he knew he would be no match against the ravenous beasts.""")
     narration("""Before long, the pack pursued him right to the edge of a cliff. He turned to face his predators, but his boots lost their grip on the ice and he slipped.""")
     narration("""With an echoing scream, he fell, the sounds of stones crashing around him as he tumbled down into a ravine.""")    
@@ -232,7 +232,7 @@ def intro():
 
 def story_water():
     tint.tint = 0    
-    narration("""Somehow, he had managed to survive the return of the Razormane pack. It seemed there was something magical about this place that had the effect of make him stronger with every battle he fought. """)    
+    narration("""Somehow, he had managed to survive the return of the Razormane pack. It seemed there was something special about this place that made him stronger with every battle. """)    
     narration("""He looked down at the magical rune he now held, surrounded by wisps of vapor, and glowing with life giving power.""")
     narration("""Perhaps, he thought, this rune was one of the keys to finding his way through the labyrinth of these mountains.""")
  
@@ -254,7 +254,7 @@ def nearend():
     tint.tint = 0    
     narration("""As he neared his journey's end, he once again began to grow tired, cold, and hungry. And yet, there were still more obstacles before him, ones that even his newfound powers could not breach.""")
     narration("""He considered... perhaps the only way forward, was to go back from whence he came.""")
-    narration("""There must have been something he missed. Perhaps if he returned to where he found the runes he carried, there may be some clue he overlooked.""") 
+    narration("""There must have been something he missed. Some clue he overlooked.""") 
     speech(kid1, 'Did he go back?')
     speech(kid2, 'Yeah!')
     speech(kid3, "He must have, he wouldn't have given up!!")    
