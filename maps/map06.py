@@ -8,7 +8,7 @@ def AutoExec():
     system.engine.mapThings.append(Snow(velocity=(0, 0.5)))
 
 def to20():
-    offset_from = 16 * 16  # first vertical pos possible
+    offset_from = 19 * 16  # first vertical pos possible
     offset_to = 5 * 16  # first vertical pos possible
     x = system.engine.player.x - offset_from + offset_to
     system.engine.mapSwitch('map20.ika-map', (x, 1 * 16))
