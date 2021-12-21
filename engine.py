@@ -299,6 +299,9 @@ class Engine(object):
                 if controls.savestate():
                     self.SaveState()
                 
+                if ika.Input.keyboard['F1'].Pressed():
+                    automap.map.debugrooms()
+                
                 if controls.loadstate():
                     self.LoadState()
                 
