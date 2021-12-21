@@ -296,23 +296,23 @@ class Engine(object):
                 if controls.cancel() or controls.ui_cancel() or controls.joy_cancel():
                     self.pause()
 
-                if controls.savestate():
-                    self.SaveState()
+                #if controls.savestate():
+                #    self.SaveState()
                 
-                if ika.Input.keyboard['F1'].Pressed():
-                    automap.map.debugrooms()
+                #if ika.Input.keyboard['F1'].Pressed():
+                #    automap.map.debugrooms()
                 
-                if controls.loadstate():
-                    self.LoadState()
+                #if controls.loadstate():
+                #    self.LoadState()
                 
                 if controls.showmap() or controls.joy_showmap():
                     self.ShowMap()
 
-                if controls.speedhack():
-                    if self.framerate == 100:
-                        self.SetFrameRate(200)                        
-                    else: 
-                        self.SetFrameRate(100)
+                #if controls.speedhack():
+                #    if self.framerate == 100:
+                #        self.SetFrameRate(200)                        
+                #    else: 
+                #        self.SetFrameRate(100)
                         
 
                 # Do some thinking
