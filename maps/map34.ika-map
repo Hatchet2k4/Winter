@@ -57,15 +57,15 @@
 			)
 			(data 
 				(format zlib)
-				eJzs1s9KAlEYxuHP/oAlCt6B9387rqKFFWiBFghhCC36
-hjlDE7TM5oDPAy/jGVwM/hCNOB/H3MUo4jI3zi3zPMnr
-Vdn1qH1PN05rWjrc5Ga5+7w3z+ttuTfpdWm6cVrT0mGV
-rx/KnqL9njSb97qMez0WvfF3mh6feV3nNrnn3Ev8bLIq
-51npsRjgOc9F85vQfN7b3C73mnuLtslj2Tq+G3F6d7l9
-7iPaPu/RNtmUbct5OdQDnqmuR9dkV7YvZ/5f/79t0+AQ
-/ucO6fjLGI4eddGjLnrURY/6aFIXPeqiR130qI8eddGj
-LnrURwsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AACI+AIAAP//
+				eJzs1s1KAlEYx+HXPsASBe/A+78dV9GiD9ACLRCiEFr0
+DnOGJmjZNAd8HvijZ3Ax+EOciNNxzJ1NIs5z09w6z7N8
+vSi7nLSf6caw5qXDVW6Ru81ry3y9LtdmvS5NN4Y1Lx02
++f6+7DHa30mzZa/LtNdj1Rt/p+nxGW2Pbe4p9xw/m9yV
+86L0WI1wn6ei+U9ovu9dbp97yb1G2+ShbBPfjRjeTe6Q
++4i2z1u0TbZlu3Jej3WDJ6rr0TXZlx3Kmf/Xf7ZtGryH
+59wxHX8Z49GjLnrURY+66FEfTeqiR130qIse9dGjLnrU
+RY/6aAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAARXwAAAP//
 			)
 			(obstructions 
 				(format tile)
@@ -99,11 +99,11 @@ AACI+AIAAP//
 			)
 			(data 
 				(format zlib)
-				eJzs1kEKhEAMRcF4uNGZ3P9ANuhCBtzaH6yCkF7326Tq
-nbal6jNmXY73d8zv3DxPjyx6ZNFjvr78tR5Z9MiiRxY9
-suiRRY8semS568EceuRpPeL892hNpmo9ouiRR48srUcU
-PfK4dwEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-AKBqBwAA//8=
+				eJzs1kEKhEAMRcF4uNGZvv+BdKEMCOrK9oNVENLQy7dJ
+1btMQ9Vn+O9xfX+X+a17++N+emTRI4seWfTIokemqx70
+ddaD/vTIokcWPbIc9eAZemTSI4seWdquR9PkUXrk0SNL
+0yOKHnncVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAFA1AwAA//8=
 			)
 			(obstructions 
 				(format tile)
@@ -137,50 +137,49 @@ AKBqBwAA//8=
 			)
 			(data 
 				(format zlib)
-				eJy8ml1uE0kUhW8MDoTEiRM72IA9rox5mCXMGlgE8zRP
-LINN8IaQEBsABFuAJ0tsaPoq96hOX98ql8PELR31X3V3
-1df3r8sWOexy1um8oOtOLzqddlqaFnR+1GnYaWDrqbt+
-3GnVad5pZtu412WnP6kfr47Ketmd/8Puc2rX6npt60Q6
-9HLVaSJldjcmHf+lZG5YX9ga2+e0Vn465iS341zRtt7v
-L+pHjZ8uL+l65c/sNtTvQy86vmfSZ8jskpTtU4emtvdQ
-bvlNbXso2/Y3sTZ6Px37wvVjFz/01S/M7r75Per02EnH
-p+NRhs9NL+xYon5dSL+f8F2cG8k237Fkv8I7Ylt9Qn3b
-h9+GdGTPGtg972P50ukr9Z3HiNiUaA2fTdJn568t7SMO
-Mj99T2DI/o1lF79fkn0F7xmxB+/jwW+Tul3AC/om23GO
-7QlxRaUMwa/ktyUxT40BT6XPD+OHvepafeBE2vjBX3BP
-cJzQs/8PZsrrO+mH9N9/NHbtj/osciNzRt+Qq6+p78/p
-nlNri/ipMW7jGCbZZj7awe+RtX1NfR2YkmSbHBCPt3ty
-Y2bK6ydJxzAnhjzmVimTK8nxEf7N9+T4ubA2HKu0/Zn0
-8/fQpL78KdAxsVP92+kf2wZDvBfd5th+UuHocwEz2wSC
-/ySJc24U/3mMXHutbY17zSTnG+TWiN/G8eNncCzkRdtP
-Hbs3xJD9BzmE7+3zJRSNNeLmr0nSj0UTyXmUx4N+6LmH
-Jh3j0ngtjBVqYvBMtn8j2X9ZHPN9rIx8FzY/kb4Nvpac
-M3Cfges/nuHrUhbnxneBSv64kn5M5LqN74vj4IfaH7Ur
-4gLsL0m2z8j+fA5lf4/4Jem/azBkFg8kx4GaL5U4Yv9j
-oNr9OCZGDHEdjo8l55iF9G05kZbGN7I/PPNScq6CrUb8
-VlKOs6iFppLtkMca5Thvc8xjLLGvMHfP3vsyfAnnr9xx
-HQvqRGjl9kvsOBavJdssclHEb+7eD56FPoPb0I0N/cV7
-4njPPEaufeQrPtd67uzL8CW0mbvjqcAkOZXYsfAM7EvA
-UCTbLFhiLgL1lDLkuQuun2b2PkssuL2PN962SjYIhkuJ
-6+Y1HUcuKjGp5TLfTvsxdO0jfrCFRDyWknMzxjR17FAD
-pAILZoe6oVS3RHWf55gCdizOJcPgWWzXI+PM37i6HNN5
-70eRDYKft/GZZPtDHr4I2GHeCD4GFu87fZBsd6V6ixli
-nqC1do7yzpDWqNmOpR+TdftI4rrO139sg2hb4hfVkt4W
-arVnkhw/wa/W3jNcSmzDkT97W2IbxD7GeyZ5HuTctnmO
-IMpp/C58/G7l57/phw0sPL/ZjvYs2HItlnp5tjxnBTa+
-Jm7NaajZfPxu5Rd903sWn03eDsEvNbLjZ3IciDhFc32e
-H7NhJpgPqOW0aL6R6+1Wfkn6deFkDw7IObVcCPlvv+j7
-hJlF84S1fK9jmO1gwvaHd5hM8DluC361cSEnc/3Vwi6y
-ixLHaPz++6SUK/gc2x3nrH2YgDXa4xvwptC2xZeS5Lpw
-1XCNj5n+N5zSHAPXC2N7Xum3o4jnhWz/pgR+EZO1lJnA
-h7lu2pdd9D7mDe197C/lyZHEfoi4Pw/uVRPXpWDH9aaf
-Q9jFRO/599Gtzu/Ijp8NtbQ9le162P+m6DniGMd9X1vX
-xOzY9lhJ2r7hULcxv/FvMtyHtcZlfMPvmk/239Q8r456
-kMc8t/N8HN+9kd3dRT5uRHXOfTPkOiSa2ynZEMckfJPM
-JdeFSfLv0zxPVbM7Fcfd1hjkc/Wh+EUM+bcf/o8D/7+B
-Yxf7L85fUvul24fdtc6F12IaP5fn+w/JzzPkOTWMGXPq
-XCdwX33NwWPyx1KF07784DOIQS3fn/el5BimiqL3vOua
-u7Kr5QRv97W4sK/+AwAA//8=
+				eJy8mk1y20YQhVu0KTu2KJEibcI2WRyZGx8hZ8ghnFVW
+OUYukV0qVSlfIHHZV0hWPFLQUb+ah2bPcKBYZNUrgMBg
+MPOh/zCkyHk/V72uC3rV612vl722pg2dn/Wa9prYduWu
+n/fa9ep6rW0ffS16ve/1w0W7Ort+Ydu9bRPp3J/bXksp
+s7sz6fwXkrlhe2Nb7F/TVvnpnJPcz3NH+9rfBxnHD9cr
+f2Z3oHGf+6PzeyNDhswuSdk++yn9Z3tP5Z7fyvancmx/
+S2uj/encN3b/sfbnP8zusfk96/XcaWfzUYZvTe/sWKJx
+3chwnPBdnJvJMd+5ZL/CM2JbfSEP43cgXdi9JtbnY3z+
+6vWZxs5zRGxKtIXPJhmy89eWviMOMj99TmDI/j2WHz9n
+xB48jyffmBf0RY7jHNsT4goYgl/Jb0tinhoDXjt+mD/s
+VbfPRzCEv6BPcFzSvb8FM+X1lfS3DJ9/NHcdj/osciNz
+xtiQq1/R2N9Snytri/ipMe7gGCY5Zj5rYKhtP9JYJ6Yk
+2SYnxOOXkdyYmfL6h6Rz6Ighz7lVyuRWcnyEf3OfHD83
+1oZjlba/kmH+nprUlz8FupTMTvVTrx9tHwzxXHSfY/t3
+FY4+FzCzQyD4T5I450bxn+fItdfetuhrLTnfILdG/A6O
+H99jXpintl85dj8TQ/Yf5BDu2+dLKJprxM1fk2QYi5aS
+8yjPB+PQc09NOset8doYK9TE4Jns+51k/2VxzPexMvJb
+2PxShjb4UXLOQD8TN37cw9elLM6NvwYq+eNOhjGR6zbu
+F8fBD7U/alfEBdhfkmyfkf35HMr+HvFLMnzWYMgsnkiO
+AzVfKnHE9z8C1frjmBgxxHU4PpecYzYytOVE2hrfyP5w
+z4XkXAVbrb1zRHEWtdBKsh3yXKMc522Oecwl9hXm7tl7
+X4Yv4fytO65zQZ0I7dz3EjuOxXvJNotcVKr5uuBeGDO4
+Td3cMF48J473zGPm2ke+4nOt586+DF9Cm84dTwUmyanE
+joV74LsEDEWyzYIl1iJQTylDXrvg+mltz7PEgtv7eONt
+q2SDYLiVuG7e03HkohKTWi7z7XQcU9c+4gdbSMRjKzk3
+Y04rxw41QCqwYHaoG0p1S1T3eY4pYMfiXDIN7sV2PTPO
+L2T4uaTz3o8iGwQ/b+NryfaHPHwTsMO6EXwMLH7r9btk
+uyvVW8wQ6wSttXOUd6a0Rc12KcOYrPsXEtd1vv5jG0Tb
+Er+olvS2UKs9k+T4CX619p7hVmIbjvzZ2xLbIL5jvleS
+10GubZ/XCKKcxs/Cx+9Wfv6dftrAwvNbn2jPgi3XYqmX
+Z8trVmDja+LWnIaazcfvVn7RO71n8afJ2yH4pUZ2fE+O
+AxGnaK3P82M2zATrAbWcFq03cr3dyi/JsC5cjuCAnFPL
+hZB/94veT5hZtE5Yy/c6h/UJJmx/eIbJBJ/jtuBXmxdy
+MtdfLewiuyhxjObv309KuYLPsd1xzhrDBKzRHu+Ad4W2
+Lb6UJNeFu4ZrfMz0v+GU1hi4Xpjb/Uq/HUU8b+T4NyXw
+i5jspcwEPsx101h20fPoGtr72F/KkzOJ/RBxvwv6qonr
+UrDjetOvIZxion1+f3Gv6wey43tDLW1fynE97H9T9Bxx
+jOO+r61rYnZse6wkbe9wqNuY3/x/MhzDWuMy3uFPrSf7
+d2peV0c9yHPu7Dwfx3tvZHcPkY8bUZ3z2Ay5DonWdko2
+xDEJ7ySd5LowSf59mtepanan4rjbGoN8rj4Xv4gh//bD
+/3Hg/zdw7GL/xfkFtd+677C71rXwWkzj+/J6/zn5eYa8
+poY5Y02d6wQeq685eE7+WKpwGssPPoMY1PL++VhKjmGq
+KHrOp655KLtaTvB2X4sLY/UvAAAA//8=
 			)
 			(obstructions 
 				(format tile)
@@ -213,33 +212,33 @@ u7Kr5QRv97W4sK/+AwAA//8=
 			)
 			(data 
 				(format zlib)
-				eJzMmb9uE0EQxtdSRAhPQJUCQeBdaKmAwkCVFNBDyUuk
-Q0iBvIAJiSNCHbsIvBE78n7yZNiZnd3b+PxJo7PPe3un
-383On3UI269HI957Fu0Hs5/RzpNdj/hcXhG7ZyPdm9hx
-XmC2G+1+sm0UMTuI9nTAHE+i7Q+4HuyI14LZ7oA5N6Gh
-/nYmvoNjbQyYR/sV7YaduzfguWrVeq+ha/UirOKU5Eja
-i/bZMQf3vW2Ttaakj7S8g2VYxSnieMbmOKyYA74n9bDh
-eXrrccgz7JknKE4RxwtjzAPjt3k6vk32Ih2HxNPeorh0
-EIbnCUtL47fjZO8nq+8fJutzpJdi/Kt07MVwr9M8Rx3n
-n1WMPUn2MfH7NFmfI00z17wOt9fPTjrWxAYuuQZ4vDoM
-be8q9yyyhs3lBsR8qdxY0rdo3zN2ysZM2ec37DMxpPWz
-E8pqZQv1qsN4DYscK/uCq8z1yCOkL9G+hvX7kGxnmXPv
-ko0pLWdA3I9lzgUXaefC6Fyu3kAeIV7gh/fB2eI98XOW
-uF8hBlk5SY4lyTVwaowvMdQELrwHWIb/eVq1Gmoa8MN8
-YEu8ULNcBZ1hqZ7S/NoreV+ZG1oYLozz3ErifRdy099o
-v6NdJiN+xJb7rBVzpeZsLs94me/4+9SUY8jr5n3l/BBx
-dninYIhnBr8bdl7GXDkH6Xk6yjhd4qDlO40hjxecoayb
-8VuunvbEl+OMaaL5uA/KflfGDE25vQbLl0r9odcPqXau
-6Tk8TE4yZsni55HFIsfB21t7GHqF9eJh4slpUnjWFn4l
-FrKPrNmXkL18i/i6BxsPkxqRDyKP1/LzsFgonz3iscDK
-/zV1eikua2NRv8ixXn6tPiD3XK3etOf+rNYbl+KyNpbz
-k2PpHZd8qWUdWT4jOd713jb8JVfjgofs4XL9B/q92v3R
-njG9Rj3iFvcX9B+8xgU7LQ9SHKYYcRSG/Xcma+uSerG2
-6qeScjkfDEv9L4nWELGjPT3axyOGnlpSE6+tSxrDX7ms
-eqmmhyNm07Dah9Li6l2ox5pH3Kqdo/f/OFi/mxZf860M
-QvD1hHJPL8euph4Iyj1r9qp7qKUWljlRxnxp2LtAH17j
-dxZDLVdvWjxmWxy0nMjz5qViVh4tScsJMmeO+d8u37+U
-e8DIg9a+pnUtv76n/oTbOfM6neuhfwAAAP//
+				eJzMmb9uE0EQxtdSRAhPQJUCQeBdaKmAwkDlFNBDyUuk
+Q0iBvIAJiSNCHbsIvBE78n7KZNiZnd3b+PxJo7PPe3un
+383On3UI269HI957Hu0Hs5/RzpJdjfhcXhG7ZyPdm9hx
+XmC2G+1+sm0UMTuI9nTAHE+i7Q+4HuyI15LZ7oA5N6Gh
+/nYqvoNjbQxYRPsV7ZqduzfguWrVeq+ha/U8rOOU5Eja
+i/bZMQf3vW2Ttaakj7S8g1VYxynieMrmmLExe4U54HtS
+Dxuep7cehzzDnnmC4hRxPDfGPDB+W6Tj22Qv0nFIPO0t
+iksHYXiesLQyfjtK9n6y/v5hcnOO9FKMf5WOvRiW1oBX
+hx3nn1eMPU72MfH7NLk5R5pmrnkdbq+fnXScZcZ6JNcA
+j1ez0Paucs8ia9hcbkDMl8qNJX2L9j1jJ2zMlH1+wz4T
+Q1o/O6GsVrZQrzqM17DIsbIvuMxcjzxC+hLta7h5H5Lt
+PHPuXbIxpeUMiPuxzLngIu1MGJ3L1RvII8QL/PA+OFu8
+J37OEvcrxCArJ8mxJLkGTozxJYaawIX3AKvwP0+rVkNN
+A36YD2yJF2qWy6AzLNVTml97Je8rc0MLw6VxnltJvO9C
+bvob7Xe0i2TEj9hyn7VirtSCzeUZL/Mdf5+acgx53byv
+nB8izg7vFAzxzOB3zc7LmCvnID1PRxmnSxy0fKcx5PGC
+M5R1M37L1dOe+HKUMU00H/dB2e/KmKEpt9dg+VKpP/T6
+IdXONT2Hh8lxxixZ/DyyWOQ4eHtrD0OvsF48TDw5TQrP
+2sKvxEL2kTX7ErKXbxFf92DjYVIj8kHk8Vp+HhZL5bNH
+PBZY+b+mTi/FZW0s6hc51suv1QfknqvVm/bcn9V641Jc
+1sZyfnIsveOSL7WsI8tnJMe73tuGv+RqXPCQPVyu/0C/
+V7s/2jOm16hH3OL+gv6D17hgp+VBisMUIw7DsP/OZG1d
+Ui/WVv1UUi7ng2Gp/yXRGiJ2tKdH+3jE0FNLauK1dUlj
++CuXVS/V9HDEbBrW+1BaXL0L9VjziFu1c/T+Hwfrd9Pi
+a76VQQi+nlDu6eXY1dQDQblnzV51D7XUwjInypgvDXsX
+6MNr/M5iqOXqTYvHbIuDlhN53rxQzMqjJWk5QebMMf/b
+5fuXcg8YedDa17Su5df31J9wO2depXM99A8AAP//
 			)
 			(obstructions 
 				(format tile)
@@ -535,20 +534,6 @@ vePVLygUpu3kscFjFvQxbyNIHw6yf7iuDuq/1g0AAP//
 					(x 173)
 					(y 222)
 					(sprite carnivore.ika-sprite)
-					(speed 100)
-					(direction up)
-					(move_script )
-					(obstructs_entities true)
-					(obstructed_by_entities true)
-					(obstructed_by_map true)
-					(adj_activate_script )
-					(activate_script )
-				)
-				(entity 
-					(label g1)
-					(x 928)
-					(y 320)
-					(sprite hgap.ika-sprite)
 					(speed 100)
 					(direction up)
 					(move_script )
