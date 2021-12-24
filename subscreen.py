@@ -82,49 +82,49 @@ class MagicWindow(SubScreenWindow):
         p = system.engine.player.stats
         if p.heal:
             txt.append('Healing Rain')      
-            txt.append('')                  
+            #txt.append('')                  
         if p.rend:            
             txt.append('Hearth Rend')
-            txt.append('')        
+            #txt.append('')        
         if p.gale:            
             txt.append('Crushing Gale')        
-            txt.append('')
+            #txt.append('')
         if p.bolt:
             txt.append('Bolt Storm')
-            txt.append('')
+            #txt.append('')
         return (gui.StaticText(text=txt),)
 
     def draw(self):
         SubScreenWindow.draw(self)
         p = system.engine.player.stats
         
-        y=self.Top+22
+        y=self.Top+12
         w=self.width
         
         if p.heal:
-            x=self.Left
+            x = self.Left+w - gui.default_font.StringWidth(displayControls['heal'])
             gui.default_font.Print(x, y, displayControls['heal'])
-            if (displayControls['joy_heal'] != 'None'):
-                x = self.Left+w - gui.default_font.StringWidth(displayControls['joy_heal'])
-                gui.default_font.Print(x, y, displayControls['joy_heal'])
+            #if (displayControls['joy_heal'] != 'None'):
+            #    x = self.Left+w - gui.default_font.StringWidth('or '+displayControls['joy_heal'])
+            #    gui.default_font.Print(x, y, 'or '+displayControls['joy_heal'])
         if p.rend:
-            x=self.Left
-            gui.default_font.Print(x, y+20, displayControls['rend'])    
-            if (displayControls['joy_rend'] != 'None'):
-                x = self.Left+w - gui.default_font.StringWidth(displayControls['joy_rend'])
-                gui.default_font.Print(x, y+20, displayControls['joy_rend'])      
+            x = self.Left+w - gui.default_font.StringWidth(displayControls['rend'])
+            gui.default_font.Print(x, y+10, displayControls['rend'])    
+            #if (displayControls['joy_rend'] != 'None'):
+            #    x = self.Left+w - gui.default_font.StringWidth('or '+displayControls['joy_rend'])
+            #    gui.default_font.Print(x, y+20, 'or '+displayControls['joy_rend'])      
         if p.gale:
-            x=self.Left
-            gui.default_font.Print(x, y+40, displayControls['gale'])
-            if (displayControls['joy_gale'] != 'None'):
-                x = self.Left+w - gui.default_font.StringWidth(displayControls['joy_gale'])
-                gui.default_font.Print(x, y+40, displayControls['joy_gale'])
+            x = self.Left+w - gui.default_font.StringWidth(displayControls['gale'])
+            gui.default_font.Print(x, y+20, displayControls['gale'])
+            #if (displayControls['joy_gale'] != 'None'):
+            #    x = self.Left+w - gui.default_font.StringWidth('or '+displayControls['joy_gale'])
+            #    gui.default_font.Print(x, y+40, 'or '+displayControls['joy_gale'])
         if p.bolt:
-            x=self.Left
-            gui.default_font.Print(x, y+60, displayControls['bolt'])
-            if (displayControls['joy_bolt'] != 'None'):
-                x = self.Left+w - gui.default_font.StringWidth(displayControls['joy_bolt'])
-                gui.default_font.Print(x, y+60, displayControls['joy_bolt'])
+            x = self.Left+w - gui.default_font.StringWidth(displayControls['bolt'])
+            gui.default_font.Print(x, y+30, displayControls['bolt'])
+            #if (displayControls['joy_bolt'] != 'None'):
+            #    x = self.Left+w - gui.default_font.StringWidth('or '+displayControls['joy_bolt'])
+            #    gui.default_font.Print(x, y+60, 'or '+displayControls['joy_bolt'])
                 
 class AttribWindow(SubScreenWindow):
     def __init__(self):
