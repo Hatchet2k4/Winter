@@ -149,7 +149,7 @@ class DeathListener(Thing):
                     )
             else:
                 setattr(savedata, 'windguard', 'True')
-                system.engine.addCaptions(Caption('SoulReaver defeated.'))
+                system.engine.addCaptions(Caption('Rune Guardian defeated.'))
                 
             sound.playMusic('music/winter.ogg')
             return True

@@ -37,11 +37,12 @@ Carlos Petersen
 * Additional Sound Effects *
 SoundBible.com
 Freesound.org
+8-bit-sfx-pack (itch.io)
 
 
 * Special Thanks *
 Jeff Brooks
-DoctorGamester
+DoctorGamester (aka TomT64)
 Troy Potts (aka Thrasher)
 Everyone on the Breadbros Discord!
 
@@ -190,7 +191,7 @@ def credits():
     totaltxt = _basetext + """ *** Final Stats ***
     
     
-Total Time Played:  """ + system.engine.time+"""    
+  Total Time Played:  """ + system.engine.time+"""    
 Item Collection Rate:  """ + itempercent + """
 Map Completion Rate:  """ + mappercent + """
 
@@ -207,7 +208,11 @@ Map Completion Rate:  """ + mappercent + """
             self.x=x
             self.y=y
             self.h=int(h/2) #display line at midpoint of image height
-            self.displayname=name.capitalize()
+            if self.name=='soulreaver'
+                self.displayname='Rune Guardian' #hack
+            else: 
+                self.displayname=name.capitalize()
+            
             self.num=str(system.engine.player.stats[self.name])
             
         def draw(self, offset):

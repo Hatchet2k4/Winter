@@ -60,7 +60,7 @@ class DeathListener2(Thing):
         if self.yeti.stats.hp == 0:
             sound.playMusic("music/winter.ogg")
             savedata.fireguard = 'True'
-            system.engine.addCaptions(Caption('SoulReaver defeated.'))
+            system.engine.addCaptions(Caption('Rune Guardian defeated.'))
             return True
 
     def draw(self):

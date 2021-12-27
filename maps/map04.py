@@ -106,7 +106,7 @@ class DeathListener2(Thing): #for SoulReaver quest
         if self.yeti.stats.hp == 0:
             sound.playMusic("music/wind.ogg")
             savedata.waterguard = 'True'
-            system.engine.addCaptions(Caption('SoulReaver defeated.'))
+            system.engine.addCaptions(Caption('Rune Guardian defeated.'))
             return True
 
     def draw(self):

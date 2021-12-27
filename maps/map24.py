@@ -87,7 +87,7 @@ class DeathListener(Thing):
             system.engine.addEntity(UnityRune(e))    
             sound.playMusic("music/lampoons.it")
             savedata.finalrune = 'True'
-            system.engine.addCaptions(Caption('SoulReaver defeated.'))
+            system.engine.addCaptions(Caption('Rune Guardian defeated.'))
             return True
 
     def draw(self):
