@@ -10,7 +10,7 @@ import savedata
 from gameover import GameOverException
 from statset import StatSet
 from caption import Caption, DamageCaption, BGRect
-
+from savepoint import SavePoint
 from entity import Entity
 from enemy import Enemy
 from obstacle import IceWall, IceChunks, Gap, _Obstacle, Crystal
@@ -762,7 +762,7 @@ class Player(Entity):
             for e in ents:
                 if isinstance(e, Enemy) and not e.invincible:
                     e.hurt(int(self.stats.att + self.stats.mag * 1.5) + ika.Random(-4, 8), 300, (self.direction + 2) & 3)
-                elif isinstance(e, _Obstacle):                  
+                elif isinstance(e, _Obstacle) or isinstance(e, SavePoint):                  
                     self.stop()
                     self.state = self.standState()
 

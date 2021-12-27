@@ -26,7 +26,7 @@ class SavePoint(Entity):
             p.stats.mp = 999
 
             dx, dy = dir.delta[dir.invert[p.direction]]
-            p.x, p.y = p.x + dx*3, p.y + dy*3
+            p.x, p.y = p.x + dx*5, p.y + dy*5
 
             # TODO: neato fadeout, etc.`
             # "Do you wish to save?" "Yes/No"
