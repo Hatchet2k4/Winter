@@ -268,7 +268,7 @@ def forebattle():
 
 def epilogue():
     tint.tint = 0    
-    narration("""And so, finally, he could see the glowing windows and lit fires of his hometown. He had done it. It had taken all of his effort, but he had conquered the trials of infernal place. """)
+    narration("""And so, finally, he could see the glowing windows and lit fires of his hometown. He had done it. It had taken all of his effort, but he had conquered the trials of that infernal place. """)
     speech(kid1, 'Yay!')
     speech(kid2, 'I knew he could do it!')
     speech(kid3, "Yeah, I wasn't worried at all!")

@@ -493,7 +493,7 @@ class Player(Entity):
                 elif (controls.left() or controls.joy_left()) and self.direction in [dir.RIGHT, dir.UPRIGHT, dir.DOWNRIGHT]:  backthrust = True
                 elif (controls.right() or controls.joy_right()) and self.direction in [dir.LEFT, dir.UPLEFT, dir.DOWNLEFT]:  backthrust = True
 
-            if controls.attack() or controls.joy_attack() and self.stats.level >= SLASH_LEVEL: 
+            if (controls.attack() or controls.joy_attack()) and self.stats.level >= SLASH_LEVEL: 
                 backslash = True
 
             yield None

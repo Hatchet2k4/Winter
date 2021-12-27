@@ -43,7 +43,7 @@ Freesound.org
 Jeff Brooks
 DoctorGamester
 Troy Potts (aka Thrasher)
-
+Everyone on the Breadbros Discord!
 
 *** Original Credits ***
 
@@ -190,9 +190,9 @@ def credits():
     totaltxt = _basetext + """ *** Final Stats ***
     
     
-Total Time Played:     """ + system.engine.time+"""    
+Total Time Played:  """ + system.engine.time+"""    
 Item Collection Rate:  """ + itempercent + """
-Map Completion Rate:   """ + mappercent + """
+Map Completion Rate:  """ + mappercent + """
 
 
 """

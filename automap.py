@@ -182,7 +182,8 @@ class Automap(object):
             self.py = int((float(py) / ika.Map.height) * h) + y        
             self.px = int((float(px) / ika.Map.width) * w) + x        
 
-        self.visitedrooms[self.py*self.mapwidth+self.px]=1 #mark current player location as visited
+        if self.visiblerooms[self.py*self.mapwidth+self.px]==1: #hack to prevent marking outside the map bounds
+            self.visitedrooms[self.py*self.mapwidth+self.px]=1 #mark current player location as visited
         
         if system.engine.mapName=='map32.ika-map': #special case for final boss map
             for tx in range(x, x+w):
