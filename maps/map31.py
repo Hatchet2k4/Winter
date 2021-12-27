@@ -16,8 +16,8 @@ def nearEnd():
 
 
 def to30():
-    x = system.engine.player.x - 160
-    system.engine.mapSwitch('map30.ika-map', (6 * 16 + x, 16))
+    x = system.engine.player.x
+    system.engine.mapSwitch('map30.ika-map', (x, 16))
     
 
 def to32():

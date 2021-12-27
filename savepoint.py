@@ -12,10 +12,12 @@ class SavePoint(Entity):
         self.isTouching = False
         self.interruptable = False
         self.invincible = True
+        self.touchtimer = 0
 
     def update(self):
+        if self.touchtimer>0: self.touchtimer-=1
         t = self.touches(system.engine.player)
-        if t and not self.isTouching:
+        if t and not self.isTouching and self.touchtimer==0:
             # bump the player backward, so he's not touching us anymore.
             xi.effects.fadeOut(50, draw=system.engine.draw)
 
@@ -26,7 +28,7 @@ class SavePoint(Entity):
             dx, dy = dir.delta[dir.invert[p.direction]]
             p.x, p.y = p.x + dx*3, p.y + dy*3
 
-            # TODO: neato fadeout, etc.
+            # TODO: neato fadeout, etc.`
             # "Do you wish to save?" "Yes/No"
 
             self.isTouching = True
@@ -34,6 +36,7 @@ class SavePoint(Entity):
             saveloadmenu.saveMenu()
             xi.effects.fadeIn(50, draw=system.engine.draw)
             system.engine.synchTime()
+            self.touchtimer=100
 
         elif not t:
             self.isTouching = False
