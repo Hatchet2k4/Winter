@@ -308,11 +308,11 @@ class Engine(object):
                 if controls.showmap() or controls.joy_showmap():
                     self.ShowMap()
 
-                if controls.speedhack():
-                    if self.framerate == 100:
-                        self.SetFrameRate(200)                        
-                    else: 
-                        self.SetFrameRate(100)
+                #if controls.speedhack():
+                #    if self.framerate == 100:
+                #        self.SetFrameRate(200)                        
+                #    else: 
+                #        self.SetFrameRate(100)
                         
 
                 # Do some thinking

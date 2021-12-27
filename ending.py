@@ -208,7 +208,7 @@ Map Completion Rate:  """ + mappercent + """
             self.x=x
             self.y=y
             self.h=int(h/2) #display line at midpoint of image height
-            if self.name=='soulreaver'
+            if self.name=='soulreaver':
                 self.displayname='Rune Guardian' #hack
             else: 
                 self.displayname=name.capitalize()
