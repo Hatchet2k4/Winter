@@ -8,8 +8,9 @@ class Devourer(AnkleBiter):
         self.speed = 100
         self.stats.maxhp = 100
         self.stats.hp = self.stats.maxhp
-        self.stats.att = 24
-        self.stats.exp = 20        
+        self.stats.att = 28
+        self.stats.exp = 20     
+        self.stats.givemp=4        
         self.name='devourer'
         
     def attackState(self, dir):

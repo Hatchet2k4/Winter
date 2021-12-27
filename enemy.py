@@ -68,10 +68,11 @@ class Enemy(Entity):
             self.state = s
         except StopIteration:
             #self.interruptable = True
-            action = self.brain.think()
-            m = self.actions[action]
-            self.mood = m
-            self.state = self.mood()
+            if self.brain:
+                action = self.brain.think()
+                m = self.actions[action]
+                self.mood = m
+                self.state = self.mood()
 
     def die(self, recoilSpeed = 0, recoilDir = None):
         self._mood = None
@@ -79,7 +80,8 @@ class Enemy(Entity):
         self.interruptable = True
         self.state = self.deathState(recoilSpeed, recoilDir)
         system.engine.player.giveXP(self.stats.exp)
-        system.engine.player.stats.mp += ika.Random(1, int(self.stats.maxhp/10)+1) # MP Regen for the player.
+        #system.engine.player.stats.mp += ika.Random(1, int(self.stats.maxhp/10)+1) # MP Regen for the player.
+        system.engine.player.stats.mp += self.stats.givemp
         
 
     def deathState(self, recoilSpeed, recoilDir):

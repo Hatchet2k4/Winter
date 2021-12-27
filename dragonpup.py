@@ -11,6 +11,7 @@ class DragonPup(RazorMane):
         self.stats.att = 28
         self.stats.exp = 25
         self.name='dragonpup'
+        self.stats.givemp=3
 
 class DragonGuard(RazorMane):
     def __init__(self, *args):
@@ -21,3 +22,4 @@ class DragonGuard(RazorMane):
         self.stats.att = 33
         self.stats.exp = 60
         self.name='dragonpup'
+        self.stats.givemp=4

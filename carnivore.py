@@ -11,7 +11,7 @@ class Carnivore(AnkleBiter):
         self.stats.att = 16
         self.stats.exp = 10
         self.name='carnivore'
-        
+        self.stats.givemp=2
 
     def attackState(self, dir):
         class SpeedSaver(object):

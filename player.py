@@ -832,7 +832,7 @@ class Player(Entity):
     def boltState(self):
         self.stop()
         self.anim = 'thrust'
-        costperhit=20
+        costperhit=6
         
         if self.stats.mp < costperhit or not self.stats.bolt:
             sound.menuBuzz.Play()
@@ -860,16 +860,22 @@ class Player(Entity):
            -96, -96, 192, 192, self.layer
             ))
         
-        costmp=False
+        #costmp=False
             
         self.invincible=True
         destroyents = []
         n=0
         for e in ents:
             if e and (isinstance(e, Enemy) and not e.invincible) or isinstance(e, IceWall) or isinstance(e, Crystal):
-                if not costmp:                    
-                    costmp=True
-                    self.stats.mp -= costperhit 
+                if self.stats.mp>=costperhit: 
+                    self.stats.mp -= costperhit
+                else:
+                    sound.menuBuzz.Play()
+                    break
+                    
+                #if not costmp:                    
+                #    costmp=True
+                #    self.stats.mp -= costperhit 
                                                
                 if isinstance(e, Enemy):
                     d = dir.invert[dir.fromDelta(self.x - e.x, self.y - e.y)]
@@ -877,18 +883,13 @@ class Player(Entity):
                         e.hurt( int( ((self.stats.att + self.stats.mag) + ika.Random(1, int(self.stats.mag))) / 2), 300, d)
                     else:
                         e.hurt(int(self.stats.att + self.stats.mag) + ika.Random(1, int(self.stats.mag)), 300, d)
-                elif isinstance(e, IceWall):
+                elif isinstance(e, IceWall) or isinstance(e, Crystal):
                     setattr(savedata, e.flagName, 'True')                    
-                    #system.engine.addCaptions(Caption('The ice melted!'))
-                    destroyents.append(e)
-                elif isinstance(e, Crystal):
-                    setattr(savedata, e.flagName, 'True')                    
-                    #system.engine.addCaptions(Caption('The crystal reacted!'))
                     destroyents.append(e)                    
                 system.engine.addThing(Bolt(self.x+offsetx, self.y+offsety, 
                                             e.x+(e.ent.hotwidth/2), e.y+(e.ent.hotheight/2), ika.RGB(240,40,128) ))
-                system.engine.addThing(Nova(self.x+offsetx, self.y+offsety, 0.5, 16, speed=0.5, color = ika.RGB(240, 100, 128, 255), filled=True ))                                            
-                system.engine.addThing(Nova(e.x+(e.ent.hotwidth/2), e.y+(e.ent.hotheight/2), 0.5, 16, speed=0.5, color = ika.RGB(240, 100, 128, 255), filled=True ))                                            
+                system.engine.addThing(Nova(self.x+offsetx, self.y+offsety, 0.5, 24, speed=0.5, color = ika.RGB(240, 100, 128, 255), filled=True ))                                            
+                system.engine.addThing(Nova(e.x+(e.ent.hotwidth/2), e.y+(e.ent.hotheight/2), 0.5, 24, speed=0.5, color = ika.RGB(240, 100, 128, 255), filled=True ))                                            
                  
                 #if n % 3==0:
                 #sound.boltStorm.StopAllSounds()
@@ -904,12 +905,12 @@ class Player(Entity):
 
         self.stop()
         self.invincible=False
-        for i in range(20):
+        for i in range(40):
             yield None
 
-        if costmp: # continue stall only if there were enemies in range
-            for i in range(40):
-                yield None
+        #if costmp: # continue stall only if there were enemies in range
+        #    for i in range(40):
+        #        yield None
 
     def vivifyState(self):
         pass
@@ -935,4 +936,5 @@ class Player(Entity):
             yield None
 
     def giveMPforHit(self):
-        self.stats.mp += ika.Random(0,2 + (self.stats.level/5) ) 
+        #self.stats.mp += ika.Random(0,2 + (self.stats.level/5) ) 
+        pass

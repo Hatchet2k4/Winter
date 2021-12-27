@@ -57,16 +57,17 @@ class Serpent(Enemy):
             (Brain.Attack(1), self.watchMood)
             )
 
-        self.stats.maxhp = 1200
+        self.stats.maxhp = 1250
         self.stats.hp = self.stats.maxhp
-        self.stats.att = 55
-        self.stats.exp = 0
+        self.stats.att = 64
+        self.stats.exp = 500
+        self.stats.givemp=50
         self.invincible = False
         
         self.name='serpent'
         ent.mapobs = ent.entobs = False
         self.bleh = self.watchMood()
-        
+        self.hittimer=0
 
     def die(self, *args):
         #xi.effects.fadeOut(200, draw=system.engine.draw)
@@ -93,7 +94,8 @@ class Serpent(Enemy):
             self.state = self.deathState()
 
     def hurt(self, amount, speed = 0, dir = None):
-        Enemy.hurt(self, amount, 0, dir)
+        if self.hittimer==0:
+            Enemy.hurt(self, amount, 0, dir)
 
     def hurtState(self, *args):
         self.anim = 'hurt'
@@ -105,6 +107,7 @@ class Serpent(Enemy):
             yield None
 
         self.interruptable = True
+        self.hittimer=40 #invincible for an extra 40 frames? mean :D
 
     def watchMood(self):
         '''
@@ -139,13 +142,14 @@ class Serpent(Enemy):
                 
             yield self.roarState()
 
-    def moveState(self, dir, dist):
+    def moveState(self, dir, dist):    
         self.anim = 'idle'
         self.move(dir, dist)
 
         dist *= 100
         while dist > 0:
             dist -= self.speed
+            if self.hittimer>0: self.hittimer-=1
             yield None
 
     def biteState(self):
@@ -153,6 +157,7 @@ class Serpent(Enemy):
         self.invincible = False
 
         while not self._animator.kill:
+            if self.hittimer>0: self.hittimer-=1
             r = _biteRange[self._animator.index] + (self.layer,)
             ents = self.detectCollision(r)
             for e in ents:
@@ -171,6 +176,7 @@ class Serpent(Enemy):
         
         launchbeam=False
         while not self._animator.kill:
+            if self.hittimer>0: self.hittimer-=1
             if self._animator.index==7 and not launchbeam:
                 sound.beam.Play()
                 e = Beam(ika.Entity(self.x+8, self.y-8, self.layer, 'beam.ika-sprite'))
@@ -190,6 +196,7 @@ class Serpent(Enemy):
         sound.serpentRoar.Play()
 
         for wait in range(200):
+        
             n = self._animator.curFrame - 12 # Yet another hack.
             ika.Map.xwin += ika.Random(-n, n + 1)
             ika.Map.ywin += ika.Random(-n, n + 1)
@@ -240,7 +247,7 @@ class Beam(Enemy):
 
         self.stats.maxhp = 10
         self.stats.hp = self.stats.maxhp
-        self.stats.att = 50
+        self.stats.att = 56
         self.invincible = True
         
         self.anim =  'flyAnim'
@@ -264,8 +271,8 @@ class Beam(Enemy):
         self.direction=dir.DOWN
         time=100
         while time:
-            self.px += 2.5 * math.cos(self.angle)
-            self.py += 2.5 * math.sin(self.angle)
+            self.px += 2.25 * math.cos(self.angle)
+            self.py += 2.25 * math.sin(self.angle)
             self.x=int(self.px)
             self.y=int(self.py)
             ents = self.detectCollision((0,0,16,16))
