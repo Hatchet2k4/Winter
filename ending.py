@@ -72,9 +72,8 @@ Troy Potts (aka Thrasher)
 'Existing' by Mick Rippon
 'Winter' by David Churchill (aka infey)
 'Competative' by Disturbed
-'Resurrection' (Author unknown)
-'xerxes vs solo' (Author unknown)
-'Lampoons Haunting' (Author Unknown)
+'Resurrection' by RS3
+'Lampoons Haunting' by PsySal
 
 
 * Script *
@@ -181,13 +180,16 @@ def credits():
     snow = Snow(velocity=(0.5, 0.75))
     y = -ika.Video.yres
     font = ika.Font('system.fnt')
-    totalitems=25 #total collectable items - tnt, + all types of runes 
-    #currently 5 strength and power, 6 guard runes
+    totalitems=27 #total collectable items - tnt, + all types of runes 
+    #currently 6 of each rune type 18 total, + 4 main runes + 5 TNT = 27 
     s = system.engine.player.stats
     
     collecteditems = s.totaltnt + s.powerrunes + s.strengthrunes + s.guardrunes + 4 #hack - assume that all 4 main runes are collected :P
     itempercent = str(round(collecteditems * 100/totalitems, 1)) + '%'
-    mappercent = str(automap.map.getMapPct()) + '%'
+    if automap.map.getMapPct() >=100:
+        mappercent =  '100.0%'
+    else:
+        mappercent = str(automap.map.getMapPct()) + '%'
     totaltxt = _basetext + """ *** Final Stats ***
     
     
@@ -219,7 +221,7 @@ Map Completion Rate:  """ + mappercent + """
             self.ent.Draw(self.x, self.y-offset)
             
             font.Print(140, self.y-offset+self.h, self.displayname)            
-            font.Print(230, self.y-offset+self.h, self.num)
+            font.Print(250, self.y-offset+self.h, self.num)
 
 
     def draw():

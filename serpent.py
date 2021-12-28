@@ -59,7 +59,7 @@ class Serpent(Enemy):
 
         self.stats.maxhp = 1250
         self.stats.hp = self.stats.maxhp
-        self.stats.att = 64
+        self.stats.att = 60
         self.stats.exp = 500
         self.stats.givemp=50
         self.invincible = False
@@ -247,7 +247,7 @@ class Beam(Enemy):
 
         self.stats.maxhp = 10
         self.stats.hp = self.stats.maxhp
-        self.stats.att = 56
+        self.stats.att = 52
         self.invincible = True
         
         self.anim =  'flyAnim'

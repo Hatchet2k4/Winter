@@ -1,49 +1,49 @@
-(ika-map
+(ika-map 
 	(version 1.0)
-	(information
+	(information 
 		(title )
-		(meta
+		(meta 
 			(entityLayer B1)
-                        (music winter.ogg)
+			(music winter.ogg)
 		)
 	)
-	(header
-		(dimensions
+	(header 
+		(dimensions 
 			(width 480)
 			(height 480)
 		)
 		(tileset snowy.vsp)
 	)
-	(waypoints
+	(waypoints 
 	)
-	(zones
-		(zone
+	(zones 
+		(zone 
 			(label to13)
 			(script to13)
 		)
 	)
-	(layers
-		(layer
+	(layers 
+		(layer 
 			(label B0)
-			(dimensions
+			(dimensions 
 				(width 30)
 				(height 30)
 			)
-			(position
+			(position 
 				(x 0)
 				(y 0)
 			)
-			(parallax
+			(parallax 
 				(mulx 1)
 				(muly 1)
 				(divx 1)
 				(divy 1)
 			)
-			(wrap
+			(wrap 
 				(x false)
 				(y false)
 			)
-			(data
+			(data 
 				(format zlib)
 				eJzslGFLwzAQhtN2nUNH6CabohYs/v//6AXuoa/nsFXo
 ByEHL0mTck/uzbUp1ahRo0aNGv837kyHG9qa2bp2psbn
@@ -56,36 +56,36 @@ DDBLfZNpND2YPlZwYeodx7n2U/yPDM58cuZpZb3ahzmM
 cbnjyFNPdZ1+L+JuqXGU8ad4TrPXfDd4zP3RW8rS3p2c
 C5Pal7jqpdaivQz34qx31yQs7WX1+RMAAP//
 			)
-			(obstructions
+			(obstructions 
 				(format tile)
 				eJxiYBgFo2AUDCQAAAAA//8=
 			)
-			(entities
+			(entities 
 			)
-			(zones
+			(zones 
 			)
 		)
-		(layer
+		(layer 
 			(label B1)
-			(dimensions
+			(dimensions 
 				(width 30)
 				(height 30)
 			)
-			(position
+			(position 
 				(x 0)
 				(y 0)
 			)
-			(parallax
+			(parallax 
 				(mulx 1)
 				(muly 1)
 				(divx 1)
 				(divy 1)
 			)
-			(wrap
+			(wrap 
 				(x false)
 				(y false)
 			)
-			(data
+			(data 
 				(format zlib)
 				eJzsk1sKwjAQRdMfH9vyt/rtGiq6u1ar4ALqjy7JCWTg
 EiaP2lhB5sCBkra5M3kYoyiKoij/x3rmvMNMORthrIHn
@@ -95,18 +95,46 @@ mQJ7Su3VXsjErIF8OKfinznkRt4h7wXmgOsX21P/Hec+
 vUxr53l2/8Tub+49iuX2nldykTlvDN7bQci0vgEAAP//
 
 			)
-			(obstructions
+			(obstructions 
 				(format tile)
 				eJzsUDESACAIkv9/uqHzUsDmhpxSEMiIX48VsjyYD4s2
 DV1F7UBgb7wUu7PJ7k3GQqyorl/+V4LArYrD4SIYzREr
 iYycaaKLL594irsAAAD//w==
 			)
-			(entities
-				(entity
-					(label s1)
-					(x 267)
-					(y 336)
-					(sprite savepoint.ika-sprite)
+			(entities 
+				(entity 
+					(label strength13)
+					(x 354)
+					(y 268)
+					(sprite strengthrune.ika-sprite)
+					(speed 100)
+					(direction up)
+					(move_script )
+					(obstructs_entities true)
+					(obstructed_by_entities true)
+					(obstructed_by_map true)
+					(adj_activate_script )
+					(activate_script )
+				)
+				(entity 
+					(label c1)
+					(x 260)
+					(y 300)
+					(sprite carnivore.ika-sprite)
+					(speed 100)
+					(direction up)
+					(move_script )
+					(obstructs_entities true)
+					(obstructed_by_entities true)
+					(obstructed_by_map true)
+					(adj_activate_script )
+					(activate_script )
+				)
+				(entity 
+					(label c2)
+					(x 308)
+					(y 366)
+					(sprite carnivore.ika-sprite)
 					(speed 100)
 					(direction up)
 					(move_script )
@@ -117,8 +145,8 @@ iYycaaKLL594irsAAAD//w==
 					(activate_script )
 				)
 			)
-			(zones
-				(zone
+			(zones 
+				(zone 
 					(label to13)
 					(x 96)
 					(y 464)
@@ -127,40 +155,40 @@ iYycaaKLL594irsAAAD//w==
 				)
 			)
 		)
-		(layer
+		(layer 
 			(label A0)
-			(dimensions
+			(dimensions 
 				(width 30)
 				(height 30)
 			)
-			(position
+			(position 
 				(x 0)
 				(y 0)
 			)
-			(parallax
+			(parallax 
 				(mulx 1)
 				(muly 1)
 				(divx 1)
 				(divy 1)
 			)
-			(wrap
+			(wrap 
 				(x false)
 				(y false)
 			)
-			(data
+			(data 
 				(format zlib)
 				eJxiYBgFo2AUjIJRMAqGLjAjQo0VEFtT2V4bItQ4ALEj
 le3FB2D+dANidxrbgQwcGGjvT2x2IPuTFnGMbgc24MBA
 3ziGAXLjmJj8QguAnF8IxRWt3OjAgD+uiMnT5ABCcRVI
 ZfsGQxyPgqEFAAAAAP//
 			)
-			(obstructions
+			(obstructions 
 				(format tile)
 				eJxiYBgFo2AUDCQAAAAA//8=
 			)
-			(entities
+			(entities 
 			)
-			(zones
+			(zones 
 			)
 		)
 	)
