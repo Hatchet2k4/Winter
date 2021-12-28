@@ -163,6 +163,23 @@ buttonmapping = {
 '0+': 'Stick Right',
 '1-': 'Stick Up',
 '1+': 'Stick Down',
+'2-': 'Axis 2-',
+'2+': 'Axis 2+',
+'3-': 'Axis 3-',
+'3+': 'Axis 3+',
+'4-': 'Axis 4-',
+'4+': 'Axis 4+',
+'5-': 'Axis 5-',
+'5+': 'Axis 5+',
+'6-': 'Axis 6-',
+'6+': 'Axis 6+',
+'7-': 'Axis 7-',
+'7+': 'Axis 7+',
+'8-': 'Axis 8-',
+'8+': 'Axis 8+',
+'9-': 'Axis 9-',
+'9+': 'Axis 9+',
+
 '0': 'Button 1',
 '1': 'Button 2',
 '2': 'Button 3',
@@ -178,7 +195,11 @@ buttonmapping = {
 '13': 'Button 13',
 '14': 'Button 14',
 '15': 'Button 15',
-'16': 'Button 16'
+'16': 'Button 16',
+'17': 'Button 17',
+'18': 'Button 18',
+'19': 'Button 19',
+'20': 'Button 20'
 }
 
 joybuttonmapping = {
@@ -222,6 +243,8 @@ def setConfig(config=None):
             self.set(name)
         def set(self, name):        
             self.name = name
+            self.config = config[name]
+            self.pressed=False #hack for later
             try:
                 self.c = _allControls[config[name]]       
                 if 'joy' in config[name]: #dealing with a gamepad, hack code follows
@@ -256,7 +279,15 @@ def setConfig(config=None):
 
     class PressControl(PosControl):
         def __call__(self):
-            return self.c.Pressed()
+            if 'axis' in self.config: #hack for axis controls mapped to button actions
+                if self.c.Position() > 0.5 and not self.pressed:
+                    self.pressed=True
+                    return True
+                elif self.pressed and not self.c.Position() > 0.5:
+                    self.pressed=False                    
+                return False    
+            else:
+                return self.c.Pressed()
     
     global currentConfig
 
