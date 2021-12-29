@@ -123,10 +123,9 @@ class Yeti(Enemy):
             sy = self.y + 16
             d = dir.fromDelta(p.x - sx, p.y - sy)
             dist = math.hypot(p.x - sx, p.y - sy)
-            if dist < 50:
-                pass
+            if dist < 50:                
                 yield self.attackState(d)
-                yield self.idleState(20)
+                yield self.idleState(20+ika.Random(0, 20))
             else:
                 yield self.walkState(d, min(90, dist))
 
