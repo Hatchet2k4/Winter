@@ -63,7 +63,7 @@ def menu():
         txt = '(c) 2003, 2021'
         length = font.StringWidth(txt)
         font.Print(ika.Video.xres - length - 10, ika.Video.yres-10, txt)
-        txt = 'Version 1.01'
+        txt = 'Version 1.02'
         length = font.StringWidth(txt)
         font.Print(ika.Video.xres - length - 10, ika.Video.yres-20, txt)
         if controls.useGamePad:

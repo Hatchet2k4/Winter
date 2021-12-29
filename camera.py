@@ -10,7 +10,7 @@ class Camera(Thing):
         self.time=0
         
     def speedup(self, t=50):
-        self.speed=2
+        self.speed=3
         self.time=t
 
     def update(self):

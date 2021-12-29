@@ -127,6 +127,20 @@ class Entity(object):
         The rect's position is taken as being relative to the
         entity's position.  This is useful for attacks and such.
         '''
+        
+        '''
+        entsat = []
+        for i in range(ika.Map.layercount): #hack to be able to attack other enemies on other layers
+            rect = (
+                rect[0] + self.x,
+                rect[1] + self.y,
+                rect[2], rect[3],
+                i)
+            entsat += [system.engine.entFromEnt[e] for e in
+            ika.EntitiesAt(*rect) if e in system.engine.entFromEnt]    
+        
+        return entsat   
+        '''
         rect = (
             rect[0] + self.x,
             rect[1] + self.y,
@@ -134,7 +148,8 @@ class Entity(object):
             self.layer)
 
         return [system.engine.entFromEnt[e] for e in
-            ika.EntitiesAt(*rect) if e in system.engine.entFromEnt]
+            ika.EntitiesAt(*rect) if e in system.engine.entFromEnt]        
+
 
     def touches(self, ent):
         return self.ent.Touches(ent.ent)
