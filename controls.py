@@ -227,7 +227,14 @@ joybuttonmapping = {
 #down joy0axis1+
 #up joy0axis1-
 
+enableinput=True
+def DisableInput():
+    global enableinput
+    enableinput=False
 
+def EnableInput():
+    global enableinput
+    enableinput=True
         
 class NullControl(object):        
     def Pressed(self):
@@ -274,20 +281,27 @@ def setConfig(config=None):
                 displayControls[name] = 'None'
                 self.c = NullControl()
                 
-        def __call__(self):   return self.c.Position() > 0.5
+        def __call__(self):   
+            global enableinput
+            if enableinput:
+                return self.c.Position() > 0.5
+            return False    
         def __repr__(self):   return '<Winter control %s>' % self.name
 
     class PressControl(PosControl):
         def __call__(self):
-            if 'axis' in self.config: #hack for axis controls mapped to button actions
-                if self.c.Position() > 0.5 and not self.pressed:
-                    self.pressed=True
-                    return True
-                elif self.pressed and not self.c.Position() > 0.5:
-                    self.pressed=False                    
-                return False    
-            else:
-                return self.c.Pressed()
+            global enableinput
+            if enableinput:
+                if 'axis' in self.config: #hack for axis controls mapped to button actions
+                    if self.c.Position() > 0.5 and not self.pressed:
+                        self.pressed=True
+                        return True
+                    elif self.pressed and not self.c.Position() > 0.5:
+                        self.pressed=False                    
+                    return False    
+                else:
+                    return self.c.Pressed()
+            return False
     
     global currentConfig
 

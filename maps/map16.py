@@ -66,7 +66,7 @@ def bridge_break():
 
         for y in range(32):
             p.y += 1
-            ika.ProcessEntities()
+            #ika.ProcessEntities()
             engine.camera.update()
             engine.draw()
             ika.Video.ShowPage()
@@ -76,7 +76,7 @@ def bridge_break():
 
         for y in range(32):
             p.y += 1
-            ika.ProcessEntities()
+            #ika.ProcessEntities()
             engine.camera.update()
             engine.draw()
             ika.Video.ShowPage()
@@ -87,7 +87,7 @@ def bridge_break():
         while t > ika.GetTime():
             engine.draw()
             ika.Video.ShowPage()
-            ika.Input.Update()
+            #ika.Input.Update()
 
         p.state = p.standState()
 

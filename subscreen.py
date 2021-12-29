@@ -592,7 +592,7 @@ class ControlsScreen(object):
             ika.Video.ShowPage()
             ika.Input.Update()
             
-            if selectmode == 0:
+            if selectmode == 0: #selecting which control to map
                 if controls.cancel() or controls.ui_cancel(): 
                     done = True
                     
@@ -673,7 +673,7 @@ class ControlsScreen(object):
                         for joyIndex in range(len(ika.Input.joysticks)):
                             for axisIndex in range(len(ika.Input.joysticks[joyIndex].axes)):
                                 if ika.Input.joysticks[joyIndex].axes[axisIndex].Position() > 0.5:
-                                    repress = True 
+                                    repress = True #if any axis is pressed, continue to "ignore" it
                             for axisIndex in range(len(ika.Input.joysticks[joyIndex].reverseAxes)):
                                 if ika.Input.joysticks[joyIndex].reverseAxes[axisIndex].Position() > 0.5: 
                                     repress = True 

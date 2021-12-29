@@ -1,6 +1,7 @@
 
 import system
 import ika
+import controls
 
 def AutoExec():
     system.engine.background = ika.Image('gfx/mountains.png')
@@ -37,18 +38,22 @@ def fall2():
     fall(9)
 
 def fall(numtiles):
+    controls.DisableInput()
+
     engine = system.engine
     p = engine.player
     p.stop()        
     p.ent.specframe = 91
     p._state = lambda: None # keep the player from moving
+    
     engine.draw()
     ika.Video.ShowPage()
     ika.Delay(2)
     
-    for y in range(numtiles * 8):
+    
+    for y in range(numtiles * 8 + 2):
         p.y += 2
-        ika.ProcessEntities()
+        #ika.ProcessEntities()
         engine.camera.update()
         engine.draw()
         ika.Video.ShowPage()
@@ -57,12 +62,14 @@ def fall(numtiles):
     p.ent.specframe = 92
     t = ika.GetTime() + 80
     while t > ika.GetTime():
-        ika.ProcessEntities()
+        #ika.ProcessEntities()
         engine.camera.update()
         engine.draw()
-        ika.Video.ShowPage()
-        ika.Input.Update()
+        ika.Video.ShowPage()        
         ika.Delay(1)        
-
-    p.state = p.standState()
+    
     engine.synchTime()
+    p.state = p.standState()
+    controls.EnableInput()
+    
+    
