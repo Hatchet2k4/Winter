@@ -230,8 +230,7 @@ def intro():
     tint.tint = 0
     narration("""The Razormanes did not follow. The cliff face was far too steep to climb back up, and so they seemingly left him to his fate...""")
 
-def story_water():
-    tint.tint = 0    
+def story_water():   
     narration("""Somehow, he had managed to survive the return of the Razormane pack. It seemed there was something special about this place that made him stronger with every battle. """)    
     narration("""He looked down at the magical rune he now held, surrounded by wisps of vapor, and glowing with life giving power.""")
     narration("""Perhaps, he thought, this rune was one of the keys to finding his way through the labyrinth of these mountains.""")
@@ -239,19 +238,16 @@ def story_water():
     
     
 def story_fire():
-    tint.tint = 0    
     narration("""The battle with the Yeti was fierce, but again the man prevailed. And for his trouble, he had discovered another rune.""")
     narration("""He could feel his sword's blade glowing with searing heat. Surely, this would allow him to open up new paths to explore. """)
    
 
-def story_wind():
-    tint.tint = 0        
+def story_wind():      
     narration("""With another victory, he could feel both a physical and emotional weight lifting from his shoulders. He almost felt lighter than air.""") 
     narration("""His resolve growing, he believed that now there was nowhere he could not reach.""")
         
 
 def nearend():    
-    tint.tint = 0    
     narration("""As he neared his journey's end, he once again began to grow tired, cold, and hungry. And yet, there were still more obstacles before him, ones that even his newfound powers could not breach.""")
     narration("""He considered... perhaps the only way forward, was to go back from whence he came.""")
     narration("""There must have been something he missed. Some clue he overlooked.""") 
@@ -261,13 +257,11 @@ def nearend():
     narration("""He had no choice. He would continue to search for some way forward. His desire to return home was unwavering... """)
 
 def forebattle():
-    tint.tint = 0    
     narration("""As he felt the power of this last rune he had acquired, he knew that at last he had what he needed to continue. Finally, he could leave these lonely mountains and return home. """)
     narration("""He hoped there would be no further trials awaiting him... yet in his heart he believed that these cursed peaks were not quite done with him yet...""")
 
 
-def epilogue():
-    tint.tint = 0    
+def epilogue(): 
     narration("""And so, finally, he could see the glowing windows and lit fires of his hometown. He had done it. It had taken all of his effort, but he had conquered the trials of that infernal place. """)
     speech(kid1, 'Yay!')
     speech(kid2, 'I knew he could do it!')

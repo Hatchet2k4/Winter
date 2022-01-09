@@ -42,14 +42,17 @@ Freesound.org
 
 * Special Thanks *
 Jeff Brooks
-DoctorGamester (aka TomT64)
 Troy Potts (aka Thrasher)
-Everyone on the Breadbros Discord!
+DoctorGamester (aka TomT64)
+PetePlaysTheGames
+And everyone on the Breadbros
+and HatchetSoft Discords!
+
 
 *** Original Credits ***
 
 
-* Management, Main program *
+* Management, Main program, ika Engine *
 
 Andy Friesen
 
@@ -59,7 +62,7 @@ Andy Friesen
 Corey Annis
 
 
-* Maps *
+* Maps & Content *
 
 Corey Annis
 Francis Brazeau
@@ -151,12 +154,14 @@ the way back in the winter of 2003. It was
 great for a game made in a few weeks by a 
 small team, but it felt a bit unfinished. 
 
+
  
 So I resurrected this project to add in 
 some quality of life features, missing 
 content,and try to give the game some 
 proper closure. I hope you enjoyed the 
 final product!
+
 
 
 Please look forward to my future projects at
